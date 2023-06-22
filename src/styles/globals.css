@@ -1,0 +1,12 @@
+/*farben definierern etc allgemeines standartzeugs*/
+@font-face {
+    font-family: 'SourceSans';
+    src: url('../../public/SourceSansHTWK.ttf');
+    src: url('../../public/SourceSans3HTWK.ttf');
+    font-weight: 400;
+    font-style: normal;
+    }
+
+html,body{
+    font-family: "SourceSans", sans-serif;
+}
