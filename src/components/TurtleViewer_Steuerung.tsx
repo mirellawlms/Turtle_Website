@@ -94,11 +94,11 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
           );
         }
         if (field[y][x] === Field.START) {
-          ctx.fillStyle = "green";
+          ctx.fillStyle ="#E9967A";
           ctx.fillRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
         }
         if (field[y][x] === Field.EXIT) {
-          ctx.fillStyle = "blue";
+          ctx.fillStyle = "#3cb371";
           ctx.fillRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
         }
       }

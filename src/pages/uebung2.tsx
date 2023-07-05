@@ -4,155 +4,40 @@ import { CodeEditor } from "@/components/CodeEditor";
 import { Field, TurtleViewer } from "@/components/TurtleViewer";
 import { Navigation } from "@/components/Navigation";
 import { Typography } from "@mui/joy";
-import { TurtleViewer_Steuerung } from "@/components/TurtleViewer_Steuerung";
 
 //Schriftart hier Inter
 const inter = Inter({ subsets: ["latin"] });
 
 //Standardwert, der hier steht
-const code1_1 = `#include <iostream>
+const code2_1 = `#include <iostream>
 
 int main() {
   std::cout<< "Hallo Welt!";
 
 };`;
 
-const code1_2 = `#include "turtle.h"
+const code2_2 = `#include "turtle.h"
 
 int main(){
     Kroete pebble;
-
     /*Alogrithmus, den Studis bsp schreiben*/
-    pebble.moveDown();
-    pebble.moveDown();
-    pebble.moveDown();
-    pebble.moveRight();
-    pebble.moveRight();
-    pebble.moveDown();
+    pebble.moveForward();
+    pebble.moveForward();
+    pebble.moveForward();
 }`;
 
 //übergabe erfolgt hier
-const maze: Field[][] = [
-  [
-    Field.START,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EXIT,
-  ]
+const maze_1: Field[][] = [
+  [Field.START,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EXIT,]
 ];
 
 export default function Home() {
@@ -164,14 +49,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation showback={true}>
+      <Navigation showback={true} currentNavigation="/uebung2">
         <div>
-        <Typography level="h3">Kapitel2 - Sei Pebble</Typography>
+        <Typography level="h3">Kapitel2.1 - Einführung in C++</Typography>
           <Typography level="body1">
-            Bewege die Turtle mit den pfeiltasten
+            Hallo, schreibe dein erstes c++ programm. Schreibe in die Klammer "HELLO WORLD " und schaue was passiert.
           </Typography>
-          <TurtleViewer_Steuerung field={maze} width={400} height={400}></TurtleViewer_Steuerung>
+        <CodeEditor title="Übung 2.1" defaultValue={code2_1} turtle = {false}></CodeEditor>
         </div>
+        <div>
+        <Typography level="body1">
+          CTURTLE TEST
+        </Typography>
+        <CodeEditor title="Übung 2.2" defaultValue={code2_2} turtle = {true} labyrinth={maze_1}></CodeEditor>
+        </div>
+
       </Navigation>
     </>
   );

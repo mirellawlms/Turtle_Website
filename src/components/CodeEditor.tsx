@@ -57,13 +57,14 @@ export const CodeEditor: React.FC<Props> = (props) => {
         <div>
         <Button
             style={{marginRight: "5px"}}
+            color="success"
             variant="soft"
             onClick={() => {
               setStdout("");
               setPath([]);
             }}><FontAwesomeIcon icon={faRotateRight} height={12} />
           </Button>
-        <Button color="primary" onClick={onRun}>
+        <Button color="success" onClick={onRun}>
           {isRunning ? (
             <CircularProgress size="sm" />
           ) : (
