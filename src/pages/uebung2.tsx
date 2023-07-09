@@ -4,6 +4,7 @@ import { CodeEditor } from "@/components/CodeEditor";
 import { Field, TurtleViewer } from "@/components/TurtleViewer";
 import { Navigation } from "@/components/Navigation";
 import { Typography } from "@mui/joy";
+import { useState } from "react";
 
 //Schriftart hier Inter
 const inter = Inter({ subsets: ["latin"] });
@@ -41,6 +42,7 @@ const maze_1: Field[][] = [
 ];
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -49,7 +51,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation showback={true} currentNavigation="/uebung2">
+      <Navigation showback={true} currentNavigation="/uebung2" titel="Übung2 ">
         <div>
         <Typography level="h3">Kapitel2.1 - Einführung in C++</Typography>
           <Typography level="body1">

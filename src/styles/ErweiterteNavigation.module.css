@@ -1,0 +1,21 @@
+.navigationitem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-block: 1px;
+}
+
+.navigationitem:hover{
+  background-color: #5a917427;
+}
+
+.punkte {
+  max-width: 130px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

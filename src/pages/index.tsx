@@ -18,9 +18,9 @@ export default function Home() {
         <title>Create Next App</title>
         <meta name="description" content="Created by Mirella" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/kroete.webp" />
+        <link rel="icon" href="/kroete.svg" />
       </Head>
-      <Navigation showback={false} currentNavigation="/">
+      <Navigation currentNavigation="/">
         <div>
           <Typography level="h1">
             Einführungskurs in C++ mit C-Turtle
@@ -49,7 +49,7 @@ export default function Home() {
                 <br></br>
               </Typography>
             </div>
-            <img src={"/kroete.webp"} alt="PebbleImage" height={150} />
+            <img src={"/kroete.svg"} alt="PebbleImage" height={150} />
           </div>
           {/*Umfrage*/}
           <FormControl>

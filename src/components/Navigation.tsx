@@ -1,69 +1,86 @@
 import { Button, Container, Link, Typography } from "@mui/joy";
 import React, { Children, useRef, useState } from "react";
 import styles from "../styles/Navigation.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
+import { ErweiterteNavigation } from "./ErweiterteNavigation";
+import { LoadBalken } from "./LoadBalken";
 
 interface Props {
-  showback: boolean;
+  titel?: string;
   children: React.ReactNode;
   currentNavigation: string;
+  progress?: number;
 }
 
 export const Navigation: React.FC<Props> = (props) => {
   //const title = props.title;
-  const { showback, children, currentNavigation } = props;
+  const { titel, children, currentNavigation, progress} = props;
   const router = useRouter(); /*wie link*/
 
   return (
     <div>
       <div className={styles.einrueckenWelcome}>
         <div className={styles.navigationsbar}>
-          <div
-            className={styles.navigationitem}
-            onClick={() => router.push("/einleitung#kapitel1")}
-          >
-            <Typography
-              sx={{
-                color:
-                  currentNavigation === "/einleitung" ? "green" : undefined,
-              }}
+          <div className={styles.navigationitems}>
+            {/* C++ Kurs */}
+            <div>
+              <ErweiterteNavigation
+                title={{ idlink: "/einleitung", label: "C++ Kurs" }}
+                inhalt={[
+                  {
+                    idlink: "/einleitung#c.1.1",
+                    label: "Wissenswertes zu Beginn",
+                  },
+                  {
+                    idlink: "/einleitung#c.1.2",
+                    label: "Mein erstes C++ Programm",
+                  },
+                  {
+                    idlink: "/einleitung#c.1.3",
+                    label: "Addition zweier nichtnegativer Zahlen",
+                  },
+                ]}
+                currentNavigation={currentNavigation}
+              ></ErweiterteNavigation>
+            </div>
+            {/* Uebung1 */}
+            <div>
+              <ErweiterteNavigation
+                title={{ idlink: "/uebung1", label: "Übung 1" }}
+                inhalt={[
+                  { idlink: "/uebung1#1.1", label: "Algorithmus auf Papier" },
+                ]}
+                currentNavigation={currentNavigation}
+              ></ErweiterteNavigation>
+            </div>
+
+            {/* Uebung2 */}
+            <div
+              className={styles.navigationitem}
+              onClick={() => router.push("/uebung2")}
             >
-              C++ Kurs
-            </Typography>
-          </div>
-          <div
-            className={styles.navigationitem}
-            onClick={() => router.push("/uebung1")}
-          >
-            <Typography
-              sx={{
-                color: currentNavigation === "/uebung1" ? "green" : undefined,
-              }}
-            >
-              Übung 1
-            </Typography>
-          </div>
-          <div
-            className={styles.navigationitem}
-            onClick={() => router.push("/uebung2")}
-          >
-            <Typography
-              sx={{
-                color: currentNavigation === "/uebung2" ? "green" : undefined,
-              }}
-            >
-              Übung 2
-            </Typography>
+              <Typography
+                fontWeight={"bold"}
+                sx={{
+                  color: currentNavigation === "/uebung2" ? "green" : undefined,
+                }}
+              >
+                Übung 2
+              </Typography>
+            </div>
           </div>
         </div>
         {/*Hier kommt die Top Navigation hin*/}
+        {/*progress??0 falls undefinded 0 übergeben*/}
         <div className={styles.topbar}>
-          <Link href={"/"}><img src={"/kroete.webp"} alt="PebbleImage" height={40} /></Link>
-          
+          <Link href={"/"}>
+            <img src={"/kroete.svg"} alt="PebbleImage" height={40} />
+          </Link>
+          <LoadBalken progress={progress??0} titel={titel??""}></LoadBalken>
         </div>
-        <Container sx={{ paddingBlock: "30px" , paddingTop: "70px"}}>{children}</Container>
+        <Container sx={{ paddingBlock: "30px", paddingTop: "70px" }}>
+          {children}
+        </Container>
       </div>
       {/*Hier kommt der footer hin*/}
       <div className={styles.footer}>
@@ -71,7 +88,7 @@ export const Navigation: React.FC<Props> = (props) => {
           <div className={styles.footerContainer}>
             <div>
               <div className={styles.logofootereinruecken}>
-                <img src={"/kroete.webp"} alt="PebbleImage" height={50} />
+                <img src={"/kroete.svg"} alt="PebbleImage" height={50} />
                 <img src={"/HTWK_logo.svg"} alt="HTWKSVG" height={30} />
               </div>
               <Typography level="body2" width={400}>

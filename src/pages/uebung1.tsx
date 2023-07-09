@@ -1,139 +1,16 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { CodeEditor } from "@/components/CodeEditor";
-import { Field, TurtleViewer } from "@/components/TurtleViewer";
 import { Navigation } from "@/components/Navigation";
-import { Typography } from "@mui/joy";
+import { Button, Typography } from "@mui/joy";
 import { TurtleViewer_Steuerung } from "@/components/TurtleViewer_Steuerung";
+import { maze_mitel_1, maze_mitel_2, maze_mitel_3 } from "@/Labyrinthe/mittel";
+import { useState } from "react";
 
-//Schriftart hier Inter
-const inter = Inter({ subsets: ["latin"] });
-
-//übergabe erfolgt hier
-const maze: Field[][] = [
-  [
-    Field.START,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EXIT,
-  ]
-];
+const labyritnh = [maze_mitel_1, maze_mitel_2, maze_mitel_3];
 
 export default function Home() {
+  /*runde ab (zahl zwischen 0 und 1 * 3) => eine Zahl davon*/
+  const [field, setField] = useState(labyritnh[Math.floor(Math.random()*labyritnh.length)])
   return (
     <>
       <Head>
@@ -142,13 +19,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation showback={true} currentNavigation="/uebung1">
+      <Navigation showback={true} currentNavigation="/uebung1" titel="Übung1 ">
         <div>
-        <Typography level="h3">Kapitel1 - Algrithmus auf Papier </Typography>
+        <Typography level="h3">Algorithmen leicht gemacht</Typography>
+        <Typography>In diesem Kapitel veruschen wir Algorithmen zu verstehen indem wir sie aufbrechen und von ganz vorne beginnen.</Typography>
+        <Typography level="h5">Algorithmus auf Papier </Typography>
+        <div id="1.1"></div>
           <Typography level="body1">
-            Bewege die Turtle mit den pfeiltasten
+            Bewege die Turtle mit den Pfeiltasten
           </Typography>
-          <TurtleViewer_Steuerung field={maze} width={400} height={400}></TurtleViewer_Steuerung>
+          
+          <TurtleViewer_Steuerung field={field} width={500} height={500} labyrinthChange={()=>setField(labyritnh[Math.floor(Math.random()*labyritnh.length)])}></TurtleViewer_Steuerung>
         </div>
       </Navigation>
     </>

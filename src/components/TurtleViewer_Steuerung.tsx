@@ -6,10 +6,11 @@ interface Props {
   field: Field[][];
   width: number;
   height: number;
+  labyrinthChange: ()=>void;
 }
 
 export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
-  const { field, width, height } = props;
+  const { field, width, height, labyrinthChange} = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [x, setx] = useState(0);
   const [y, sety] = useState(0);
@@ -57,7 +58,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     TurtleImage_north.src = "/turtle_north.png";
     await new Promise((r) => (TurtleImage_north.onload = r));
 
-    //Hintergrudbild wird anders geladen
+    //Hintergrundbild wird anders geladen
     if (!back_ground.current) {
       if(hintergrund ==="swamp"){
         const Back_Swamp_Image = new Image();
@@ -142,7 +143,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
         fieldSize
       );
     }
-  }, [x, y, direction, hintergrund]);
+  }, [x, y, direction, hintergrund, field]);
 
   const isWallInFront = () => {
     switch (direction) {
@@ -221,28 +222,35 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     };
   }, [draw]);
 
+  //wenn field anders, direkt draw
+  useEffect(() => {
+    setx(0);
+    sety(0);
+  }, [field])
+
   //HTML
   return (
-    <div>
+    <div style={{display:"flex" , flexDirection:"row" , alignItems:"flex-start", gap:"10px"}}>
       <canvas ref={canvasRef} width={width} height={height} />
+      <div style={{display:"flex",flexDirection:"column", gap:"10px"}}>
       {imZiel && (
-        <div>
           <Button
             onClick={() => {
               setx(0);
               sety(0);
               setimZiel(false);
             }}
-          >
+            color="success">
             Sei nochmal Pebble
           </Button>
-        </div>
       )}
       <Select defaultValue="swamp" sx={{width: 200}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
         <Option value="swamp">swamp</Option>
         <Option value="water">water</Option>
         <Option value="sand">sand</Option>
       </Select>
+      <Button color="success" variant="soft" onClick={labyrinthChange}>Generate Maze</Button>
+      </div>
     </div>
   );
 };

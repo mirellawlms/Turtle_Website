@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Navigation } from "@/components/Navigation";
 import { Typography } from "@mui/joy";
@@ -10,19 +9,23 @@ import { useState } from "react";
 
 //Standardwert, der hier steht
 const einleitung_1 = `#include <iostream>
-
 int main() {
   std::cout<< "Hello world!";
 };`;
 
 const einleitung_2 = `#include <iostream>
-
 int main() {
   std::cout<< "Hallo Welt!";
 }`;
 
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
+  
+  const Auswertung_einleitung_1_1 = (code: string)=> {
+      if(code === "Hello world!"){
+        setProgress({ ...progress, id_einleitung_1_1: true })
+      }
+  }
 
   const progress1_1 = () => {
     const items = [
@@ -42,21 +45,39 @@ export default function Home() {
     return totalProgress;
   };
 
-  return (
-    <>
+  const progress_gesamt = () => {
+    const items = [
+      "id_1_1_a",
+      "id_1_1_b",
+      "id_1_1_c",
+      "id_1_1_d",
+      "id_1_1_e",
+      "id_1_1_f",
+      "id_einleitung_1_1"
+    ];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
+  return (<>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="Created by Mirella" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation showback={true} currentNavigation="/einleitung">
+      <Navigation currentNavigation="/einleitung" titel="C++ Kurs " progress={progress_gesamt()}>
         <Typography level="h3">C++ Kurs</Typography>
         <div className={styles.bildeinruecken}>
           <div>
             In diesem Kurs erhälst du Einblicke in die Programmiersprache C++.
             Es ist nicht erfoderlich, dass du bereits Programmiererfahrungen
-            hast. Diese Kurs ist für alle gedacht und wurde aus dem
+            hast. Dieser Kurs ist für alle gedacht und wurde aus dem
             Vorlesungsskript des Moduls GdP erstellt. Schließe diesen C++ Kurs
             ab, um dein Wissen unter Beweis zu stellen.
           </div>
@@ -66,18 +87,13 @@ export default function Home() {
             height={100}
           />
         </div>
-
         <div>
-          <Typography level="h4" id="kapitel1">
-            Kapitel1 C++ Einführung
-          </Typography>
-
           <Typography
-            level="h5"
-            endDecorator={<ProgressCheck done={progress1_1()}></ProgressCheck>}
-          >
-            1.1 Wissenswertes zu Beginn
+            level="h4"
+            endDecorator={<ProgressCheck done={progress1_1()}></ProgressCheck>}>
+            Wissenswertes zu Beginn
           </Typography>
+          <div id="c.1.1"></div>
           <Accordion
             titel="Was ist ein Algorithmus?"
             inhalt="Ein Algorithmus ist ein Verhaltensmuster, 
@@ -114,15 +130,12 @@ export default function Home() {
         </div>
         <div>
           <Typography
-            level="h5"
+            level="h4"
             endDecorator={
-              <ProgressCheck
-                done={progress["id_1_2"] ? 100 : 0}
-              ></ProgressCheck>
-            }
-          >
-            1.2 Mein erstes C++ Programm
+              <ProgressCheck done={progress["id_einleitung_1_1"] ? 100 : 0}></ProgressCheck>}>
+                Mein erstes C++ Programm
           </Typography>
+          <div id="c.1.2"></div>
           <Typography>
             Nachdem du nun viele neue Begriffe gelernt hast, ist es nun an der
             Zeit gekommen, dass du dein erstes C++ Programm schreibst. Führe
@@ -131,18 +144,22 @@ export default function Home() {
             anzuzeigen!
           </Typography>
           <CodeEditor
-            title="Aufgbae 1.2 a)"
+            title="Aufgabe 1"
             defaultValue={einleitung_1}
             turtle={false}
-          ></CodeEditor>
+            codeAusgabe={Auswertung_einleitung_1_1}
+            ></CodeEditor>
         </div>
         <div>
-          <Typography level="h5">
-            1.3 Addition zweier nichtnegativer Zahlen{" "}
+          <Typography level="h4"
+           endDecorator={
+            <ProgressCheck done={progress["id_1_3"] ? 100 : 0}></ProgressCheck>}>
+            Addition zweier nichtnegativer Zahlen
           </Typography>
-          <Typography>In dieser Aufgabe wollen wir nun zwei nicht</Typography>
+          <div id="c.1.3"></div>
+          <Typography>In dieser Aufgabe wollen wir nun zwei nichtnegative Zahlen zusammenaddieren</Typography>
           <CodeEditor
-            title="Aufgabe 1.3 a)"
+            title="Aufgabe 2"
             defaultValue={einleitung_2}
             turtle={false}
           ></CodeEditor>

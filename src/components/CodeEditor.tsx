@@ -11,13 +11,14 @@ interface Props {
   defaultValue: string;
   turtle: boolean;
   labyrinth?: Field[][];
+  codeAusgabe?: (code: string)=>void;
 }
 
 const server = "http://localhost:5236/run";
 
 export const CodeEditor: React.FC<Props> = (props) => {
   //const title = props.title;
-  const { title, defaultValue, turtle, labyrinth} = props;
+  const { title, defaultValue, turtle, labyrinth, codeAusgabe} = props;
   const editorRef = useRef(null);
   const [isRunning, setIsRunning] = useState(false);
   const [output, setStdout] = useState("");
@@ -43,6 +44,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
       .then((data) => {
         setStdout(data.compile + data.output || "");
         setPath(data.path || []);
+        codeAusgabe && codeAusgabe(data.output);
         setIsRunning(false);
       })
       .catch((error) => {

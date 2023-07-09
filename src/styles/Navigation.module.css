@@ -5,7 +5,7 @@
 }
 
 .navigationsbar {
-  padding: 12px;
+  padding: 10px;
   background-color: #ffffff;
   border-right: 1px solid #e0e0e3;
   position: sticky;
@@ -14,6 +14,7 @@
   z-index: 100;
   height: 100%;
   min-height: 100vh;
+  width: 180px;
 }
 
 .footerContainer {
@@ -36,7 +37,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  margin-block: 10px;
+  margin-block: 1px;
 }
 
 .navigationitem:hover{
@@ -61,4 +62,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.navigationitems {
+  position: sticky;
+  top: 50px;
+  
 }
