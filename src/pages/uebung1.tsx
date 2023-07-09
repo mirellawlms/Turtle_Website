@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation showback={true} currentNavigation="/uebung1" titel="Übung1 ">
+      <Navigation currentNavigation="/uebung1" titel="Übung1 ">
         <div>
         <Typography level="h3">Algorithmen leicht gemacht</Typography>
         <Typography>In diesem Kapitel veruschen wir Algorithmen zu verstehen indem wir sie aufbrechen und von ganz vorne beginnen.</Typography>
