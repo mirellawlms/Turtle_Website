@@ -31,7 +31,7 @@ export default function Home() {
           </Typography>
           <br></br>
           <div className={styles.bildeinruecken}>
-            <div className={styles.TextContainer}>
+            <div>
               <Typography level="body1">
                 Hallo liebe Erstis der Studiengänge Informatik und
                 Medieninformatik der HTWK. Mein Name ist Pebble und ich begleite
@@ -87,47 +87,88 @@ export default function Home() {
             </div>
             {/*Accordion*/}
             <div>
-              <Accordion titel="Einführungskurs in C++" inhalt="Auf Basis des Skript vom Modul 'Grundlagen der
+              <Accordion
+                titel="Einführungskurs in C++"
+                inhalt="Auf Basis des Skript vom Modul 'Grundlagen der
               Programmierung' wurde ein Einstiegskurs erstellt. Man lernt in den
               verschiedenen Kapiteln die Grundlagen der Programmiersprache C++
               kennen und kann direkt in dem integrieten CodeEditor sein Wissen
               testen und zur Probe stellen. Dabei wird der Fortschritt
               dokumentiert und beim Abschluss aller Kapitel wartet ein
-              Zertifikat auf die Teilnehmer*innen."></Accordion>
-              <Accordion titel="C-Turtle als Einstieg" inhalt={<span>Ursprünglich wurde die Turtle in
-              der Programmiersprache Python entwickelt und ist ein Modul, das
-              eine Turtle-Grafikbibliothek verwendet, um grafische Anwendungen
-              zu erstellen. Da ihr jedoch im Modul GdP die Prorammiersprache C++
-              erlernt, haben wir kurzerhand aus der Python-Turtle die C-Turtle
-              gemacht. Unser C-Turtle Programm ermöglicht das Steuern einer
-              virtuellen 'Schildkröte' namens 'Pebble', die ihr helfen müsst aus
-              einem Labyrinth zu kommen. Es bietet eine einfache Syntax und
-              direkte visuelle Rückmeldung, was es zu einem beliebten Werkzeug
-              macht, um Anfänger für das Programmieren zu begeistern. Weitere
-              Infos findet ihr  <Link href="https://github.com/walkerje/C-Turtle">hier.</Link></span>}></Accordion>
-              <Accordion titel="Algorithmus leicht gemacht" inhalt="Algortihmen können manchmal
+              Zertifikat auf die Teilnehmer*innen."
+              ></Accordion>
+              <Accordion
+                titel="C-Turtle als Einstieg"
+                inhalt={
+                  <span>
+                    Ursprünglich wurde die Turtle in der Programmiersprache
+                    Python entwickelt und ist ein Modul, das eine
+                    Turtle-Grafikbibliothek verwendet, um grafische Anwendungen
+                    zu erstellen. Da ihr jedoch im Modul GdP die
+                    Prorammiersprache C++ erlernt, haben wir kurzerhand aus der
+                    Python-Turtle die C-Turtle gemacht. Unser C-Turtle Programm
+                    ermöglicht das Steuern einer virtuellen 'Schildkröte' namens
+                    'Pebble', die ihr helfen müsst aus einem Labyrinth zu
+                    kommen. Es bietet eine einfache Syntax und direkte visuelle
+                    Rückmeldung, was es zu einem beliebten Werkzeug macht, um
+                    Anfänger für das Programmieren zu begeistern. Weitere Infos
+                    findet ihr{" "}
+                    <Link href="https://github.com/walkerje/C-Turtle">
+                      hier.
+                    </Link>
+                  </span>
+                }
+              ></Accordion>
+              <Accordion
+                titel="Algorithmus leicht gemacht"
+                inhalt="Algortihmen können manchmal
               sehr einschüchternd sein, daher brechen wir diese in einfache
-              Schritte auf, damit jeder sie verstehen kann!"></Accordion>
-              <Accordion titel="Anwedung des Algorithmus" inhalt="Ihr könnt direkt über den
+              Schritte auf, damit jeder sie verstehen kann!"
+              ></Accordion>
+              <Accordion
+                titel="Anwedung des Algorithmus"
+                inhalt="Ihr könnt direkt über den
               CodeEditor euren Algorithmus testen und Pebble helfen aus dem
-              Labyrinth zurück zu seiner Familie zu finden."></Accordion>
+              Labyrinth zurück zu seiner Familie zu finden."
+              ></Accordion>
             </div>
           </div>
 
-          <br></br>
-          <div className={styles.bildeinruecken2}>
+          <div className={styles.bildeinruecken}>
+            <img
+              src={"/undraw_elearning.svg"}
+              alt="elearningImage"
+              height={150}
+            />
             <div>
               <Typography level="h3">
-                <b>E-Learning</b>
+                <b>E-Learning Funktionen</b>
               </Typography>
               <div>
                 <br></br>- Gamification
                 <br></br>- Visuelle Unterstützung durch Bilder
+                <br></br>- Interaktive Bausteine
                 <br></br>- Highscore-Anzeigen
                 <br></br>- Sammelbare/Freischaltbare Elemente
               </div>
             </div>
-            <img src={"/undraw_elearning.svg"} alt="elearningImage" height={150} />
+          </div>
+
+          <div className={styles.bildeinruecken2}>
+            <div>
+              <Typography level="h3">
+                <b>Pebbles Abenteuer</b>
+              </Typography>
+              <div>
+                <br></br> Pebble hat sich verlaufen. Bist du bereit ihm zu
+                helfen?
+              </div>
+            </div>
+            <img
+              src={"/undraw_programming.svg"}
+              alt="programmer"
+              height={150}
+            />
           </div>
         </div>
       </Navigation>

@@ -46,9 +46,8 @@ export const Navigation: React.FC<Props> = (props) => {
             {/* Uebung1 */}
             <div>
               <ErweiterteNavigation
-                title={{ idlink: "/uebung1", label: "Übung 1" }}
-                inhalt={[
-                  { idlink: "/uebung1#1.1", label: "Algorithmus auf Papier" },
+                title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
+                inhalt={[{ idlink: "/uebung1#1.1", label: "Algorithmus auf Papier" },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
@@ -65,7 +64,7 @@ export const Navigation: React.FC<Props> = (props) => {
                   color: currentNavigation === "/uebung2" ? "green" : undefined,
                 }}
               >
-                Übung 2
+                Algorithmus Teil 2
               </Typography>
             </div>
           </div>

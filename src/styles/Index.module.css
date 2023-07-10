@@ -8,8 +8,11 @@
 .bildeinruecken2 {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 200px;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 40px;
+  margin-left: 140px;
 }
 
 .CenterContainer{

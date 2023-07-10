@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Field } from "./TurtleViewer";
 import { Button, Select, Option } from "@mui/joy";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   field: Field[][];
@@ -240,9 +242,8 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
               sety(0);
               setimZiel(false);
             }}
-            color="success">
-            Sei nochmal Pebble
-          </Button>
+            color="success"
+            ><FontAwesomeIcon icon={faRotateRight} height={12} /></Button>
       )}
       <Select defaultValue="swamp" sx={{width: 200}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
         <Option value="swamp">swamp</Option>
