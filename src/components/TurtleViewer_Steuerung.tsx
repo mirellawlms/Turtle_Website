@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Field } from "./TurtleViewer";
-import { Button, Select, Option } from "@mui/joy";
+import { Button, Select, Option, Typography } from "@mui/joy";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -199,6 +199,12 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
   useEffect(() => {
     draw();
     const handleKeyDown = (event: any) => {
+      //wenn ich in eins von ignore bin (wo ich mich gerade befinde) 
+      const ignore = ["input","textarea","button"];
+      if(ignore.includes(event.target.tagName.toLowerCase())){
+        return;
+      }
+      console.log(event.target);
       switch (event.key) {
         case "w":
           moveForward();
@@ -234,23 +240,31 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
   return (
     <div style={{display:"flex" , flexDirection:"row" , alignItems:"flex-start", gap:"10px"}}>
       <canvas ref={canvasRef} width={width} height={height} />
-      <div style={{display:"flex",flexDirection:"column", gap:"10px"}}>
-      {imZiel && (
-          <Button
-            onClick={() => {
-              setx(0);
-              sety(0);
-              setimZiel(false);
-            }}
-            color="success"
-            ><FontAwesomeIcon icon={faRotateRight} height={12} /></Button>
-      )}
-      <Select defaultValue="swamp" sx={{width: 200}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
-        <Option value="swamp">swamp</Option>
-        <Option value="water">water</Option>
-        <Option value="sand">sand</Option>
-      </Select>
-      <Button color="success" variant="soft" onClick={labyrinthChange}>Generate Maze</Button>
+      <div style={{display:"flex",flexDirection:"column", gap:"10px", justifyContent:"space-between", height}}>
+        <div style={{display:"flex",flexDirection:"column", gap:"10px"}}>
+        {imZiel && (
+            <Button
+              onClick={() => {
+                setx(0);
+                sety(0);
+                setimZiel(false);
+              }}
+              color="success"
+              ><FontAwesomeIcon style={{marginRight:"10px"}} icon={faRotateRight} height={12}/>Neustart</Button>
+        )}
+        <Select defaultValue="swamp" sx={{width: 200}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
+          <Option value="swamp">Sumpf</Option>
+          <Option value="water">Wasser</Option>
+          <Option value="sand">Wüste</Option>
+        </Select>
+        <Button color="success" variant="soft" onClick={labyrinthChange}>Generate Maze</Button>
+        </div>
+        <div>
+          <Typography><b>W:</b> Vorwärts</Typography>
+          <Typography><b>D:</b> Rechts drehen</Typography>
+          <Typography><b>A:</b> Links drehen</Typography>
+        </div>
+      
       </div>
     </div>
   );

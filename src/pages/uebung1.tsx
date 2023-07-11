@@ -3,16 +3,16 @@ import { CodeEditor } from "@/components/CodeEditor";
 import { Navigation } from "@/components/Navigation";
 import { Button, Textarea, Typography } from "@mui/joy";
 import { TurtleViewer_Steuerung } from "@/components/TurtleViewer_Steuerung";
-import { maze_mitel_1, maze_mitel_2, maze_mitel_3 } from "@/Labyrinthe/mittel";
+import { maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4 } from "@/Labyrinthe/mittel";
 import { useState } from "react";
 import styles from "../styles/Uebung1.module.css";
 
-const labyritnh = [maze_mitel_1, maze_mitel_2, maze_mitel_3];
+const labyrinth = [maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4];
 
 export default function Home() {
   /*runde ab (zahl zwischen 0 und 1 * 3) => eine Zahl davon*/
   const [field, setField] = useState(
-    labyritnh[Math.floor(Math.random() * labyritnh.length)]
+    labyrinth[Math.floor(Math.random() * labyrinth.length)]
   );
   return (
     <>
@@ -90,7 +90,7 @@ export default function Home() {
             width={500}
             height={500}
             labyrinthChange={() =>
-              setField(labyritnh[Math.floor(Math.random() * labyritnh.length)])
+              setField(labyrinth[Math.floor(Math.random() * labyrinth.length)])
             }
           ></TurtleViewer_Steuerung>
           <Textarea
