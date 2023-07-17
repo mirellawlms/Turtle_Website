@@ -8,7 +8,7 @@ interface Props {
 
 export const ProgressCheck: React.FC<Props> = (props) => {
   const { done } = props;
-
+ //> 99 da aufrundungsprobleme
   return (
     <CircularProgress color={done > 99 ? "success" : "danger"} determinate value={done} variant="soft" size="sm">
         {/*faCheck Haken faTimes Kreuz */}

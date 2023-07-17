@@ -39,7 +39,7 @@ export default function Home() {
                 Press), muss eine bestimmte Abfolge von Schritten eingehalten
                 werden.
               </div>
-              <img src={"/undraw_coffee.svg"} alt="coffeeImage" height={150} />
+              <img src={"/undraw_coffee.svg"} alt="coffeeImage" height={130} />
             </div>
 
             <div className={styles.Container}>
@@ -77,14 +77,19 @@ export default function Home() {
           </div>
           <Typography level="h5">Dein Algorithmus auf Papier</Typography>
           <Typography level="body1">
-            Schreibe nun einen eigenen Pseudocode auf. Dein Ziel ist es Pebble
-            zu helfen aus dem Labyrinth zu kommen. Du kannst mit der
-            interaktiven Schaltfläche testen, ob dein Pseudocode funktioniert.
-            <br></br>Bewege Pebble dafür mit den Tasten "W"- vorwärts "D"-nach
-            rechts drehen "A"-nach links drehen
-            <br></br>Sobald du deinen Pseudocode getestet hast, kannst du ihn
-            für die Peer Review übermitteln.
+            Du hast in diesem Kapitel viel über Algorithmen und Pseudocode gelernt.
+            Nun bist du an der Reihe. Schreibe einen Algorithmus, der mir hilft aus dem Labyrinth zu kommen.
+           Mithilfe derinteraktiven Schaltfläche kannst du spielerisch testen, ob dein Pseudocode funktioniert.
+           Gebe diesen anschließend für die Peer-Review frei!
           </Typography>
+          <Textarea
+            sx={{ width: "100vh", marginBlock: 2 }}
+            color="success"
+            minRows={5}
+            variant="plain"
+            placeholder="Dein Algorithmus"
+          />
+          <Typography>Laufe hier deinen Algorithmus durch!</Typography>
           <TurtleViewer_Steuerung
             field={field}
             width={500}
@@ -93,13 +98,6 @@ export default function Home() {
               setField(labyrinth[Math.floor(Math.random() * labyrinth.length)])
             }
           ></TurtleViewer_Steuerung>
-          <Textarea
-            sx={{ width: 500, marginBlock: 2 }}
-            color="success"
-            minRows={2}
-            variant="outlined"
-            placeholder="Dein Algorithmus"
-          />
         </div>
       </Navigation>
     </>

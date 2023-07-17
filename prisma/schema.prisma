@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String       @id @default(uuid())
+  email      String
+  vorname    String
+  nachname   String
+  Task       Task[]
+  PeerReview PeerReview[]
+  matrikel   Int
+}
+
+model Task {
+  id         String       @id
+  isReviewed Boolean
+  userid     String
+  user       User         @relation(fields: [userid], references: [id])
+  code       String
+  PeerReview PeerReview[]
+  complete   Boolean      @default(false)
+}
+
+model PeerReview {
+  taskid     String
+  task       Task   @relation(fields: [taskid], references: [id])
+  reviewerid String
+  reviewer   User   @relation(fields: [reviewerid], references: [id])
+
+  @@id([taskid, reviewerid])
+}

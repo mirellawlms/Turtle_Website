@@ -10,8 +10,11 @@ import Head from "next/head";
 import { Navigation } from "@/components/Navigation";
 import styles from "../styles/Index.module.css";
 import { Accordion } from "@/components/Accordion";
+import { useState } from "react";
 
 export default function Home() {
+  const [auswahlUmfrage, setAuswahlUmfrage] = useState("");
+
   return (
     <>
       <Head>
@@ -51,33 +54,50 @@ export default function Home() {
             </div>
             <img src={"/kroete.svg"} alt="PebbleImage" height={150} />
           </div>
-          {/*Umfrage*/}
-          <FormControl>
-            <FormLabel htmlFor="umfrage1">
-              Nimm gerne an dieser kleinen Umfrage teil und erzähl mir, ob du
-              bereits Programmiererfahrungen hast.
-            </FormLabel>
-            <RadioGroup name="umfrage1">
-              <Radio
-                value="outlined"
-                label="Anfänger (wenig Erfahrung)"
-                variant="soft"
-                color="success"
-              />
-              <Radio
-                value="soft"
-                label="Amateuer (etwas Erfahrung)"
-                variant="soft"
-                color="success"
-              />
-              <Radio
-                value="solid"
-                label="Fortgeschritten (viel Erfahrung)"
-                variant="soft"
-                color="success"
-              />
-            </RadioGroup>
-          </FormControl>
+          <div>
+            {/*Umfrage*/}
+            <FormControl>
+              <FormLabel htmlFor="umfrage1" sx={{marginTop:"10px"}}>
+                Nimm gerne an dieser kleinen Umfrage teil und erzähl mir, ob du
+                bereits Programmiererfahrungen hast.
+              </FormLabel>
+              <div className={styles.bildeinruecken}>
+                <RadioGroup
+                  name="umfrage1"
+                  onChange={(event) => setAuswahlUmfrage(event.target.value)}
+                >
+                  <Radio
+                    value="nerdy_turtle_begin"
+                    label="Anfänger (keine Erfahrung)"
+                    variant="soft"
+                    color="success"
+                  />
+                  <Radio
+                    value="nerdy_turtle_mittel"
+                    label="Amateuer (etwas Erfahrung)"
+                    variant="soft"
+                    color="success"
+                  />
+                  <Radio
+                    value="nerdy_turtle_profi"
+                    label="Profi (viel Erfahrung)"
+                    variant="soft"
+                    color="success"
+                  />
+                </RadioGroup>
+                {/*Umfrage Bilder - nur euns angezeigt*/}
+
+                {auswahlUmfrage && (
+                  <img
+                    src={"/" + auswahlUmfrage + ".png"}
+                    alt="UmfrageTurtle"
+                    height={150}
+                  />
+                )}
+              </div>
+            </FormControl>
+          </div>
+
           {/*Zweiter Absatz*/}
           <div className={styles.CenterContainer}>
             <div className={styles.HomeFlexCenter}>

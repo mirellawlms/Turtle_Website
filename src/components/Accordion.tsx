@@ -4,6 +4,7 @@ import styles from "../styles/Accordion.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
+//falls ich übergeben möchte: Props (Datentyyp den ich übergebe)
 interface Props {
   titel: string;
   inhalt: React.ReactNode;

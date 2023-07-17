@@ -230,13 +230,12 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     };
   }, [draw]);
 
-  //wenn field anders, direkt draw
+  //wenn bei field änderung, direkt draw
   useEffect(() => {
     setx(0);
     sety(0);
   }, [field])
 
-  //HTML
   return (
     <div style={{display:"flex" , flexDirection:"row" , alignItems:"flex-start", gap:"10px"}}>
       <canvas ref={canvasRef} width={width} height={height} />

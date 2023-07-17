@@ -1,5 +1,4 @@
-import { Button, Container, Link, Typography } from "@mui/joy";
-import React, { Children, useRef, useState } from "react";
+import { Container, Link, Typography } from "@mui/joy";
 import styles from "../styles/Navigation.module.css";
 import { useRouter } from "next/router";
 import { ErweiterteNavigation } from "./ErweiterteNavigation";
@@ -43,34 +42,32 @@ export const Navigation: React.FC<Props> = (props) => {
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
-            {/* Uebung1 */}
+            {/* Algo Teil1 */}
             <div>
               <ErweiterteNavigation
                 title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
-                inhalt={[{ idlink: "/uebung1#1.1", label: "Algorithmus auf Papier" },
+                inhalt={[{ idlink: "/uebung1#1.1", label: "Algorithmen sind kompliziert" },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
 
-            {/* Uebung2 */}
-            <div
-              className={styles.navigationitem}
-              onClick={() => router.push("/uebung2")}
-            >
-              <Typography
-                fontWeight={"bold"}
-                sx={{
-                  color: currentNavigation === "/uebung2" ? "green" : undefined,
-                }}
-              >
-                Algorithmus Teil 2
-              </Typography>
+            {/* Algo Teil 2 */}
+            <div>
+              <ErweiterteNavigation
+                title={{ idlink: "/uebung2", label: "Algorithmus Teil 2" }}
+                inhalt={[
+                { idlink: "/uebung2#2.1", label: "Einfaches Labyrinth" },
+                { idlink: "/uebung2#2.2", label: "Mittleres Labyrinth" },
+                { idlink: "/uebung2#2.3", label: "Schweres Labyrinth" }
+                ]}
+                currentNavigation={currentNavigation}
+              ></ErweiterteNavigation>
             </div>
+            
           </div>
         </div>
-        {/*Hier kommt die Top Navigation hin*/}
-        {/*progress??0 falls undefinded 0 übergeben*/}
+        {/*Top Navigation*/}
         <div className={styles.topbar}>
           <Link href={"/"}>
             <img src={"/kroete.svg"} alt="PebbleImage" height={40} />
@@ -81,7 +78,7 @@ export const Navigation: React.FC<Props> = (props) => {
           {children}
         </Container>
       </div>
-      {/*Hier kommt der footer hin*/}
+      {/*Footer*/}
       <div className={styles.footer}>
         <Container>
           <div className={styles.footerContainer}>
@@ -121,8 +118,7 @@ export const Navigation: React.FC<Props> = (props) => {
                 <Link
                   href={
                     "https://fim.htwk-leipzig.de/fakultaet/personen/professorinnen-und-professoren/klaus-hering"
-                  }
-                >
+                  }>
                   E-Learning Beauftragter der HTWK
                 </Link>
               </Typography>
@@ -130,14 +126,13 @@ export const Navigation: React.FC<Props> = (props) => {
                 <Link
                   href={
                     "https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/25768460288/CourseNode/1631759207016055012?8"
-                  }
-                >
+                  }>
                   Modul Grundlagen der Programmierung HTWK
                 </Link>
               </Typography>
             </div>
           </div>
-          {/*Hier kommt der copyright hin*/}
+          {/*Copyright*/}
           <div>
             <hr></hr>
             <Typography level="body2">&copy; 2023 Mirella Willems</Typography>

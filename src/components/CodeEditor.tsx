@@ -11,14 +11,14 @@ interface Props {
   defaultValue: string;
   turtle: boolean;
   labyrinth?: Field[][];
-  codeAusgabe?: (code: string)=>void;
+  codeEinAusgabe?: (code_eingabe: string , code_ausgabe: string , imZiel?:boolean)=>void;
 }
 
 const server = "http://localhost:5236/run";
 
 export const CodeEditor: React.FC<Props> = (props) => {
   //const title = props.title;
-  const { title, defaultValue, turtle, labyrinth, codeAusgabe} = props;
+  const { title, defaultValue, turtle, labyrinth, codeEinAusgabe} = props;
   const editorRef = useRef(null);
   const [isRunning, setIsRunning] = useState(false);
   const [output, setStdout] = useState("");
@@ -27,6 +27,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
     editorRef.current = editor;
   };
 
+  //hier wird onRun ausgeführt -> server post
   const onRun = async () => {
     setIsRunning(true);
     fetch(server, {
@@ -35,8 +36,8 @@ export const CodeEditor: React.FC<Props> = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        //(etwas ? x : y) === (if etwas !null oder true -> x else y)
         code: editorRef.current ? (editorRef.current as any).getValue() : "",
-        /*if labyrinth!null mach erstes ansonsten mach leeren String*/
         labyrinth: labyrinth?labyrinth.map(value=>value.join(",")).join(";"):("")
       }),
     })
@@ -44,7 +45,10 @@ export const CodeEditor: React.FC<Props> = (props) => {
       .then((data) => {
         setStdout(data.compile + data.output || "");
         setPath(data.path || []);
-        codeAusgabe && codeAusgabe(data.output);
+        const pfad = (data.path || []);
+        console.log(pfad);
+        const imZiel = pfad.length && (pfad [(pfad.length)-1].end_x === 9) && (pfad [(pfad.length)-1].end_y === 9)
+        codeEinAusgabe && codeEinAusgabe (editorRef.current ? (editorRef.current as any).getValue() : "" , data.output, imZiel)
         setIsRunning(false);
       })
       .catch((error) => {
@@ -69,24 +73,23 @@ export const CodeEditor: React.FC<Props> = (props) => {
         <Button color="success" onClick={onRun}>
           {isRunning ? (
             <CircularProgress size="sm" />
-          ) : (
-            <FontAwesomeIcon icon={faPlay} height={12} />
+          ) : (<FontAwesomeIcon icon={faPlay} height={12} />
           )}
         </Button>
         </div>
       </div>
+
       <div className={styles.content}>
         <Editor
-          height="200px"
+          height="100%"
           defaultLanguage="cpp"
           defaultValue={defaultValue}
           theme="vs-dark"
-          onMount={handleEditorDidMount}
-        />
+          onMount={handleEditorDidMount}/>
+          {/*(turtle && (...))===(if turtle == true {...})*/}
+          {/*(labyrinth ?? x) === (if labyrinth undefined gibt wert x) */}
         <div>
-          {turtle && (
-            <TurtleViewer path={path} field={labyrinth ?? []} width={400} height={400} />
-          )}
+          {turtle && (<TurtleViewer path={path} field={labyrinth ?? []} width={400} height={400} />)}
           <div className={styles.terminal}>
             <div className={styles.terminalHeader}>
               <p>Ausgabe</p>
