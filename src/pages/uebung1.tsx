@@ -6,14 +6,31 @@ import { TurtleViewer_Steuerung } from "@/components/TurtleViewer_Steuerung";
 import { maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4 } from "@/Labyrinthe/mittel";
 import { useState } from "react";
 import styles from "../styles/Uebung1.module.css";
+import { ProgressCheck } from "@/components/ProgressCheck";
 
 const labyrinth = [maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4];
 
 export default function Home() {
+  const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
   /*runde ab (zahl zwischen 0 und 1 * 3) => eine Zahl davon*/
   const [field, setField] = useState(
     labyrinth[Math.floor(Math.random() * labyrinth.length)]
   );
+
+//Progressbalken hier id zusammengerechnet
+const progress_gesamt = () => {
+  const items = [
+    "id_2_1"
+  ];
+  let totalProgress = 0;
+  for (let index = 0; index < items.length; index++) {
+    if (progress[items[index]] === true) {
+      totalProgress += 100 / items.length;
+    }
+  }
+  return totalProgress;
+};
+
   return (
     <>
       <Head>
@@ -26,7 +43,7 @@ export default function Home() {
         <div>
           <Typography level="h3">Algorithmus Teil 1</Typography>
           <Typography level="h5">Algorithmen sind kompliziert!</Typography>
-          <div id="1.1"></div>
+          <div id="algo.1.1"></div>
           <div>
             <div className={styles.bildeinruecken}>
               <div>
@@ -75,7 +92,13 @@ export default function Home() {
             Datentype, Operatoren, Verzweigungen und Schleifen in Spiel. Aber
             das erkläre ich nicht jetzt, aber später.
           </div>
-          <Typography level="h5">Dein Algorithmus auf Papier</Typography>
+          <Typography level="h5"
+          endDecorator={
+            <ProgressCheck
+              done={progress["id_2_1"] ? 100 : 0}
+            ></ProgressCheck>
+          }
+          >Dein Algorithmus auf Papier</Typography>
           <Typography level="body1">
             Du hast in diesem Kapitel viel über Algorithmen und Pseudocode gelernt.
             Nun bist du an der Reihe. Schreibe einen Algorithmus, der mir hilft aus dem Labyrinth zu kommen.

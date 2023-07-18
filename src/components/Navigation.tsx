@@ -46,7 +46,7 @@ export const Navigation: React.FC<Props> = (props) => {
             <div>
               <ErweiterteNavigation
                 title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
-                inhalt={[{ idlink: "/uebung1#1.1", label: "Algorithmen sind kompliziert" },
+                inhalt={[{ idlink: "/uebung1#algo.1.1", label: "Algorithmen sind kompliziert" },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
@@ -57,9 +57,9 @@ export const Navigation: React.FC<Props> = (props) => {
               <ErweiterteNavigation
                 title={{ idlink: "/uebung2", label: "Algorithmus Teil 2" }}
                 inhalt={[
-                { idlink: "/uebung2#2.1", label: "Einfaches Labyrinth" },
-                { idlink: "/uebung2#2.2", label: "Mittleres Labyrinth" },
-                { idlink: "/uebung2#2.3", label: "Schweres Labyrinth" }
+                { idlink: "/uebung2#algo.2.1", label: "Einfaches Labyrinth" },
+                { idlink: "/uebung2#algo.2.2", label: "Mittleres Labyrinth" },
+                { idlink: "/uebung2#algo.2.3", label: "Schweres Labyrinth" }
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>

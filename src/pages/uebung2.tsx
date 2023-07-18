@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Field, TurtleViewer } from "@/components/TurtleViewer";
 import { Navigation } from "@/components/Navigation";
@@ -7,10 +6,7 @@ import { Typography } from "@mui/joy";
 import { useEffect, useState } from "react";
 import { ProgressCheck } from "@/components/ProgressCheck";
 
-//Schriftart hier Inter
-const inter = Inter({ subsets: ["latin"] });
-
-//Standardwert, der hier steht
+//Standardwert der einzelnen CodeEditoren
 const code3_1 = `#include "turtle.h"
 #include <stdio.h>
 #include <iostream>
@@ -28,30 +24,48 @@ const code3_1 = `#include "turtle.h"
     for(p=0; p<9; p++){
         pebble.moveForward();
     }
-  }};`;
+  };`;
 
 const code3_2 = `#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
 
-int main(){
-    Kroete pebble;
-    /*Alogrithmus, den Studis bsp schreiben*/
-    pebble.moveForward();
-    pebble.moveForward();
-    pebble.moveForward();
-}`;
+  int main(){
+      Kroete pebble;
+      int i;
+      int p;
+
+    for(i=0; i<9; i++){
+        pebble.moveForward();
+    }
+    pebble.turnLeft();
+
+    for(p=0; p<9; p++){
+        pebble.moveForward();
+    }
+  };`;
 
 const code3_3 = `#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
 
-int main(){
-    Kroete pebble;
-    /*Alogrithmus, den Studis bsp schreiben*/
-    pebble.moveForward();
-    pebble.moveForward();
-    pebble.moveForward();
-}`;
+  int main(){
+      Kroete pebble;
+      int i;
+      int p;
 
-//übergabe erfolgt hier
-const maze_1: Field[][] = [
+    for(i=0; i<9; i++){
+        pebble.moveForward();
+    }
+    pebble.turnLeft();
+
+    for(p=0; p<9; p++){
+        pebble.moveForward();
+    }
+  };`;
+
+//Labyrintherstellung
+const maze_einfach: Field[][] = [
   [Field.START,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
   [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
   [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
@@ -63,12 +77,39 @@ const maze_1: Field[][] = [
   [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,],
   [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EXIT,]
 ];
+const maze_mittel: Field[][] = [
+  [Field.START,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EXIT,]
+];
+
+const maze_schwer: Field[][] = [
+  [Field.START,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,],
+  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EXIT,]
+];
 
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
   const [code1, setCode1] = useState(code3_1);
   const [code2, setCode2] = useState(code3_2);
   const [code3, setCode3] = useState(code3_3);
+
+  //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
     const items = [
       "id_3_1",
@@ -83,7 +124,7 @@ export default function Home() {
     }
     return totalProgress;
   };
-
+  
   //POST auf DB
   const TaskErstellen = async (id: string, code_eingabe: string , complete: boolean) => {
     fetch("/api/task", {
@@ -101,7 +142,7 @@ export default function Home() {
     });
   };
 
-  //nichts drinnen [] -> einmal am anfang aufgerufen
+  // Antworten werden geladen: ,[] === einmal am anfang aufgerufen
   useEffect(() => {
     fetch("/api/task", {
       method: "GET",
@@ -123,6 +164,8 @@ export default function Home() {
           id_3_3: prog["id_3_3"]??false,
         });
         setCode1(data.task.find((item: any)=> item.id === "id_3_1")?.code ?? code3_1);
+        setCode2(data.task.find((item: any)=> item.id === "id_3_2")?.code ?? code3_2);
+        setCode3(data.task.find((item: any)=> item.id === "id_3_3")?.code ?? code3_3);
       })
       .catch((error) => {
         console.error(error);
@@ -130,14 +173,17 @@ export default function Home() {
   }, []);
   
   return (
-    <>
+    <div>
       <Head>
         <title>Create Next App</title>
         <meta name="description" content="Created by Mirella" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation currentNavigation="/uebung2" titel="Algorithmus Teil 2 ">
+      <Navigation 
+      currentNavigation="/uebung2"
+      titel="Algorithmus Teil 2 "
+      progress={progress_gesamt()}>
         <div>
           <Typography level="h3">Algorithmus Teil 2</Typography>
           <Typography level="body1">
@@ -153,39 +199,54 @@ export default function Home() {
             }
           >Einfaches Labyrinth
           </Typography>
-          <div id="2.1"></div>
+          <div id="algo.2.1"></div>
           <CodeEditor
-            title="Übung 2.1"
+            title="Algorithmus 2.1 (einfach)"
             defaultValue={code1}
             turtle={true}
-            labyrinth={maze_1}
+            labyrinth={maze_einfach}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string , imZiel?: boolean)=>{
               setProgress({ ...progress, id_3_1: imZiel??false });
               TaskErstellen("id_3_1", code_eingabe, imZiel??false)}}
           ></CodeEditor>
         </div>
         <div>
-          <Typography level="h5">Mittleres Labyrinth</Typography>
-          <div id="2.2"></div>
+          <Typography level="h5"
+          endDecorator={
+            <ProgressCheck
+              done={progress["id_3_2"] ? 100 : 0}
+            ></ProgressCheck>}>Mittleres Labyrinth</Typography>
+          <div id="algo.2.2"></div>
           <CodeEditor
-            title="Übung 3.2"
+            title="Algorithmus 2.2 (mittel)"
             defaultValue={code2}
             turtle={true}
-            labyrinth={maze_1}
-
+            labyrinth={maze_mittel}
+            codeEinAusgabe={(code_eingabe: string, code_ausgabe: string , imZiel?: boolean)=>{
+              setProgress({ ...progress, id_3_2: imZiel??false });
+              TaskErstellen("id_3_2", code_eingabe, imZiel??false)}}
           ></CodeEditor>
         </div>
         <div>
-          <Typography level="h5">Schweres Labyrinth</Typography>
-          <div id="2.3"></div>
+          <Typography level="h5"
+          endDecorator={
+            <ProgressCheck
+              done={progress["id_3_3"] ? 100 : 0}
+            ></ProgressCheck>
+          }
+          >Schweres Labyrinth</Typography>
+          <div id="algo.2.3"></div>
           <CodeEditor
-            title="Übung 3.3"
+            title=" Algorithmus 2.3 (schwer)"
             defaultValue={code3}
             turtle={true}
-            labyrinth={maze_1}
+            labyrinth={maze_schwer}
+            codeEinAusgabe={(code_eingabe: string, code_ausgabe: string , imZiel?: boolean)=>{
+              setProgress({ ...progress, id_3_3: imZiel??false });
+              TaskErstellen("id_3_3", code_eingabe, imZiel??false)}}
           ></CodeEditor>
         </div>
       </Navigation>
-    </>
+    </div>
   );
 }
