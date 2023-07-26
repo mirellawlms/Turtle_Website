@@ -8,27 +8,21 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
 
   try {
     switch (req.method) {
+        //Ich erhalte Feedback von Komilitonen
       case "GET":
-        const task = await prisma.task.findMany()
-        res.status(200).json({
-          task
-        });
-        return;
-      case "POST":
-        await prisma.task.upsert({
-            create:{id:req.body.id,code:req.body.code,userid:user.id, isReviewed:false , complete:req.body.complete},
-            update:{code:req.body.code,userid:user.id, complete:req.body.complete},
+        const peerReview = await prisma.peerReview.findFirst({
             where:{
-              id_userid:{
-                id:req.body.id,
-                userid:user.id
+                Task:{
+                    id:"id_algo_1_2",
+                    userid:user.id
+                }
             }
-          }
         })
         res.status(200).json({
-            success : "success"
+            peerReview
         });
         return;
+      
       default:
         res.setHeader("Allow", ["GET", "POST", "PUT"]);
         res.status(405).end(`Method ${req.method} Not Allowed`);

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Field } from "./TurtleViewer";
-import { Button, Select, Option, Typography } from "@mui/joy";
+import { Button, Select, Option, Typography, Textarea } from "@mui/joy";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,10 +9,11 @@ interface Props {
   width: number;
   height: number;
   labyrinthChange: ()=>void;
+  istImZiel: ()=>void;
 }
 
 export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
-  const { field, width, height, labyrinthChange} = props;
+  const { field, width, height, labyrinthChange, istImZiel} = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [x, setx] = useState(0);
   const [y, sety] = useState(0);
@@ -20,6 +21,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
   const [imZiel, setimZiel] = useState(false);
   const back_ground = useRef<HTMLImageElement>();
   const [hintergrund, setHintergrund] = useState("swamp");
+  const [consoleLog, setConsoleLog] = useState("");
 
   const draw = useCallback(async () => {
     const canvas = canvasRef.current;
@@ -192,6 +194,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     if (field[y][x] === Field.EXIT) {
       console.log("Pebble hat das Ziel erreicht!");
       setimZiel(true);
+      istImZiel();
     }
   }, [y, x]);
 
@@ -208,6 +211,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
       switch (event.key) {
         case "w":
           moveForward();
+          setConsoleLog("Pebble geht nach vorne");
           break;
 
         case "a":
@@ -217,10 +221,12 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
           } else {
             setDirection(newDirection);
           }
+          setConsoleLog("Pebble dreht sich nach links");
           break;
 
         case "d":
-          setDirection(Math.abs(direction + 1) % 4);
+          setDirection((direction + 1) % 4);
+          setConsoleLog("Pebble dreht sich nach rechts");
           break;
       }
     };
@@ -259,11 +265,11 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
         <Button color="success" variant="soft" onClick={labyrinthChange}>Generate Maze</Button>
         </div>
         <div>
+          <Textarea name="Solid" variant="outlined" disabled value={consoleLog} sx={{height:'40px', width:"250px" ,marginBottom:'20px'}}/>
           <Typography><b>W:</b> Vorwärts</Typography>
           <Typography><b>D:</b> Rechts drehen</Typography>
           <Typography><b>A:</b> Links drehen</Typography>
         </div>
-      
       </div>
     </div>
   );

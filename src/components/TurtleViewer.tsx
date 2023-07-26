@@ -4,8 +4,8 @@ export enum Field {
   EMPTY,
   WALL,
   EXIT,
-  START
-};
+  START,
+}
 
 export type Path = {
   start_x: number;
@@ -20,11 +20,19 @@ interface Props {
   field: Field[][];
   width: number;
   height: number;
+  running: boolean;
+  runningDone: ()=> void;
 }
 
 export const TurtleViewer: React.FC<Props> = (props) => {
-  const { path, field, width, height } = props;
+  const { path, field, width, height, running , runningDone} = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const back_ground = useRef<HTMLImageElement>();
+  const wall_image = useRef<HTMLImageElement>();
+  const turtle_n = useRef<HTMLImageElement>();
+  const turtle_s = useRef<HTMLImageElement>();
+  const turtle_w = useRef<HTMLImageElement>();
+  const turtle_e = useRef<HTMLImageElement>();
 
   //useeffect ist funktion mit 2 parameter 1. eine funktion und 2. eine array und 1 funktion wird aufgerufen, falls sich eins der array inhalte ändert
   const draw = async (currentpath: Path[]) => {
@@ -45,37 +53,61 @@ export const TurtleViewer: React.FC<Props> = (props) => {
     //pixel/blockanzahl 400/10=40
     const fieldSize = Math.min(width / fieldWidth, height / fieldHeight);
 
-    const Back_Swamp_Image = new Image();
-    Back_Swamp_Image.src = "/swamp.png";
-    await new Promise((r) => (Back_Swamp_Image.onload = r));
-    ctx.drawImage(Back_Swamp_Image, 0, 0, width, height);
+    //load images
+    //background
+    if (!back_ground.current) {
+      const Back_Swamp_Image = new Image();
+      Back_Swamp_Image.src = "/swamp.png";
+      await new Promise((r) => (Back_Swamp_Image.onload = r));
+      back_ground.current = Back_Swamp_Image;
+    }
+    //an stelle 0.0 über breit und höhe das Bild
+    if (back_ground.current) {
+      ctx.drawImage(back_ground.current, 0, 0, width, height);
+    }
 
-    const WallImage = new Image();
-    WallImage.src = "/wall.png";
-    await new Promise((r) => (WallImage.onload = r));
+    //wall
+    if(!wall_image.current){
+      const WallImage = new Image();
+      WallImage.src = "/wall.png";
+      await new Promise((r) => (WallImage.onload = r));
+      wall_image.current = WallImage;
+    }
+    
+    //turtle pngs
+    if(!turtle_e.current){
+      const TurtleImage_east = new Image();
+      TurtleImage_east.src = "/turtle_east.png";
+      await new Promise((r) => (TurtleImage_east.onload = r));
+      turtle_e.current = TurtleImage_east;
+    }
 
-    //verschiede turtle pngs
-    const TurtleImage_east = new Image();
-    TurtleImage_east.src = "/turtle_east.png";
-    await new Promise((r) => (TurtleImage_east.onload = r));
-
-    const TurtleImage_west = new Image();
-    TurtleImage_west.src = "/turtle_west.png";
-    await new Promise((r) => (TurtleImage_west.onload = r));
-
-    const TurtleImage_south = new Image();
-    TurtleImage_south.src = "/turtle_south.png";
-    await new Promise((r) => (TurtleImage_south.onload = r));
-
-    const TurtleImage_north = new Image();
-    TurtleImage_north.src = "/turtle_north.png";
-    await new Promise((r) => (TurtleImage_north.onload = r));
-
+    if(!turtle_w.current){
+      const TurtleImage_west = new Image();
+      TurtleImage_west.src = "/turtle_west.png";
+      await new Promise((r) => (TurtleImage_west.onload = r));
+      turtle_w.current = TurtleImage_west;
+    }
+    
+    if(!turtle_s.current){
+      const TurtleImage_south = new Image();
+      TurtleImage_south.src = "/turtle_south.png";
+      await new Promise((r) => (TurtleImage_south.onload = r));
+      turtle_s.current = TurtleImage_south;
+    }
+    
+    if(!turtle_n.current){
+      const TurtleImage_north = new Image();
+      TurtleImage_north.src = "/turtle_north.png";
+      await new Promise((r) => (TurtleImage_north.onload = r));
+      turtle_n.current = TurtleImage_north;
+    }
+    
     for (let y = 0; y < fieldHeight; y++) {
       for (let x = 0; x < fieldWidth; x++) {
         if (field[y][x] === Field.WALL) {
           ctx.drawImage(
-            WallImage,
+            wall_image.current,
             x * fieldSize,
             y * fieldSize,
             fieldSize,
@@ -111,22 +143,46 @@ export const TurtleViewer: React.FC<Props> = (props) => {
     //strich wird gemalt
     ctx.stroke();
 
-    //overlay turtle über den strich und hier muss geschsut werden welche poition angezeigt wird
+    //overlay turtle über den strich und hier muss geschaut werden welche poition angezeigt wird
     if (currentpath.length !== 0) {
-      if(currentpath[currentpath.length-1].direction == 0){
-        ctx.drawImage(TurtleImage_north,currentpath[currentpath.length - 1].end_x * fieldSize,currentpath[currentpath.length - 1].end_y * fieldSize,fieldSize,fieldSize);
+      if (currentpath[currentpath.length - 1].direction == 0) {
+        ctx.drawImage(
+          turtle_n.current,
+          currentpath[currentpath.length - 1].end_x * fieldSize,
+          currentpath[currentpath.length - 1].end_y * fieldSize,
+          fieldSize,
+          fieldSize
+        );
       }
-      if(currentpath[currentpath.length-1].direction == 1){
-        ctx.drawImage(TurtleImage_east,currentpath[currentpath.length - 1].end_x * fieldSize,currentpath[currentpath.length - 1].end_y * fieldSize,fieldSize,fieldSize);
+      if (currentpath[currentpath.length - 1].direction == 1) {
+        ctx.drawImage(
+          turtle_e.current,
+          currentpath[currentpath.length - 1].end_x * fieldSize,
+          currentpath[currentpath.length - 1].end_y * fieldSize,
+          fieldSize,
+          fieldSize
+        );
       }
-      if(currentpath[currentpath.length-1].direction == 2){
-        ctx.drawImage(TurtleImage_south,currentpath[currentpath.length - 1].end_x * fieldSize,currentpath[currentpath.length - 1].end_y * fieldSize,fieldSize,fieldSize);
+      if (currentpath[currentpath.length - 1].direction == 2) {
+        ctx.drawImage(
+          turtle_s.current,
+          currentpath[currentpath.length - 1].end_x * fieldSize,
+          currentpath[currentpath.length - 1].end_y * fieldSize,
+          fieldSize,
+          fieldSize
+        );
       }
-      if(currentpath[currentpath.length-1].direction == 3){
-        ctx.drawImage(TurtleImage_west,currentpath[currentpath.length - 1].end_x * fieldSize,currentpath[currentpath.length - 1].end_y * fieldSize,fieldSize,fieldSize);
+      if (currentpath[currentpath.length - 1].direction == 3) {
+        ctx.drawImage(
+          turtle_w.current,
+          currentpath[currentpath.length - 1].end_x * fieldSize,
+          currentpath[currentpath.length - 1].end_y * fieldSize,
+          fieldSize,
+          fieldSize
+        );
       }
-    } else{
-      ctx.drawImage(TurtleImage_south,0,0,fieldSize,fieldSize);
+    } else {
+      ctx.drawImage(turtle_s.current, 0, 0, fieldSize, fieldSize);
     }
   };
 
@@ -139,6 +195,9 @@ export const TurtleViewer: React.FC<Props> = (props) => {
         return;
       }
       for (let i = 1; i <= path.length; i++) {
+        if(!running){
+          break;
+        }
         const temppath = path.slice(0, i);
         draw(temppath);
         await new Promise<void>((resolve, reject) => {
@@ -147,9 +206,9 @@ export const TurtleViewer: React.FC<Props> = (props) => {
           }, 600);
         });
       }
+      runningDone();
     };
     run();
-  }, [path, field]);
-
+  }, [path, field, running]);
   return <canvas ref={canvasRef} width={width} height={height} />;
 };

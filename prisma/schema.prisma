@@ -21,20 +21,24 @@ model User {
 }
 
 model Task {
-  id         String       @id
+  id         String
   isReviewed Boolean
   userid     String
   user       User         @relation(fields: [userid], references: [id])
   code       String
   PeerReview PeerReview[]
   complete   Boolean      @default(false)
+
+  @@id([id, userid])
 }
 
 model PeerReview {
-  taskid     String
-  task       Task   @relation(fields: [taskid], references: [id])
   reviewerid String
-  reviewer   User   @relation(fields: [reviewerid], references: [id])
+  reviewer   User    @relation(fields: [reviewerid], references: [id])
+  comment    String?
+  Task       Task?   @relation(fields: [taskId, taskUserid], references: [id, userid])
+  taskId     String
+  taskUserid String
 
-  @@id([taskid, reviewerid])
+  @@id([reviewerid,taskId, taskUserid])
 }

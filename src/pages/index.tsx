@@ -74,7 +74,7 @@ export default function Home() {
                   />
                   <Radio
                     value="nerdy_turtle_mittel"
-                    label="Amateuer (etwas Erfahrung)"
+                    label="Fortgeschritten (etwas Erfahrung)"
                     variant="soft"
                     color="success"
                   />
