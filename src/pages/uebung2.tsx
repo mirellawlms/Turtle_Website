@@ -184,6 +184,7 @@ export default function Home() {
         <link rel="icon" href="/kroete.webp" />
       </Head>
       <Navigation 
+      visible={true}
       currentNavigation="/uebung2"
       titel="Algorithmus Teil 2 "
       progress={progress_gesamt()}>

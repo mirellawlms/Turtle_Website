@@ -159,6 +159,7 @@ export default function Home() {
         <link rel="icon" href="/kroete.webp" />
       </Head>
       <Navigation
+        visible={true}
         currentNavigation="/einleitung"
         titel="C++ Kurs "
         progress={progress_gesamt()}

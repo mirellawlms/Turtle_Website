@@ -23,7 +23,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.svg" />
       </Head>
-      <Navigation currentNavigation="/">
+      <Navigation visible={false} currentNavigation="/">
         <div>
           <Typography level="h1">
             Einführungskurs in C++ mit C-Turtle

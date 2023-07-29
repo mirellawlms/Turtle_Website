@@ -9,11 +9,12 @@ interface Props {
   children: React.ReactNode;
   currentNavigation: string;
   progress?: number;
+  visible: boolean;
 }
 
 export const Navigation: React.FC<Props> = (props) => {
   //const title = props.title;
-  const { titel, children, currentNavigation, progress} = props;
+  const { titel, children, currentNavigation, progress, visible} = props;
   const router = useRouter(); /*wie link*/
 
   return (
@@ -87,7 +88,7 @@ export const Navigation: React.FC<Props> = (props) => {
           <Link href={"/"}>
             <img src={"/kroete.svg"} alt="PebbleImage" height={40} />
           </Link>
-          <LoadBalken progress={progress??0} titel={titel??""}></LoadBalken>
+          {visible && (<LoadBalken progress={progress??0} titel={titel??""}></LoadBalken>)}
         </div>
         <Container sx={{ paddingBlock: "30px", paddingTop: "70px" }}>
           {children}

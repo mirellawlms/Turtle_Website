@@ -101,7 +101,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation currentNavigation="/uebung1" titel="Algorithmus Teil 1 " progress={progress_gesamt()}>
+      <Navigation visible={true} currentNavigation="/uebung1" titel="Algorithmus Teil 1 " progress={progress_gesamt()}>
         <div>
           <Typography level="h3">Algorithmus Teil 1</Typography>
           <Typography level="h5">Algorithmen sind kompliziert!</Typography>

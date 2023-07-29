@@ -43,7 +43,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.svg" />
       </Head>
-      <Navigation currentNavigation="/peerReview">
+      <Navigation visible={true} currentNavigation="/peerReview" titel="Peer-Review " >
         <Typography level="h3">Peer Review</Typography>
         <div id="peer.1.1"></div>
         <Typography level="h5"> Pseudocode eines Komillitonen</Typography>
