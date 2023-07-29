@@ -8,7 +8,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
 
   try {
     switch (req.method) {
-        //Ich bekomme Pseudocode von Komilitonen
+      //PSEUDOCODE von jemand anderem / MEIN KOMMENTAR dazu
+      //Ich bekomme Pseudocode von Komilitonen
       case "GET":
         const peerReview = await prisma.peerReview.findFirst({
             where:{
@@ -36,12 +37,16 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
                 comment:req.body.comment
             }
         })
+        res.status(200).json({
+      });
+      return;
       default:
         res.setHeader("Allow", ["GET", "POST", "PUT"]);
         res.status(405).end(`Method ${req.method} Not Allowed`);
         return;
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json({
       message: "Internal Server Error",
     });

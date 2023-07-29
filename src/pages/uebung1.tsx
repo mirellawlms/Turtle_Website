@@ -16,12 +16,13 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 const labyrinth = [maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4];
 
 export default function Home() {
+  const [pseudocodeValue, setPseudocodeValue] = useState("");
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
+
   /*runde ab (zahl zwischen 0 und 1 * 3) => eine Zahl davon*/
   const [field, setField] = useState(
     labyrinth[Math.floor(Math.random() * labyrinth.length)]
   );
-  const [pseudocodeValue, setPseudocodeValue] = useState("");
 
   //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
@@ -34,6 +35,7 @@ export default function Home() {
     }
     return totalProgress;
   };
+
   //Task mit ID wird erstellt und in DB abgespeichert
   const TaskErstellen = async (
     id: string,
@@ -54,6 +56,7 @@ export default function Home() {
       console.error(error);
     });
   };
+
   //lade Wert wieder zurück, wenn reload
   useEffect(() => {
     fetch("/api/task", {
@@ -85,6 +88,7 @@ export default function Home() {
       });
   }, []);
 
+  //submittet und teilt peer partner zu
   const Submitten = async () => {
     fetch("/api/peerReview/submit", {
       method: "POST",
