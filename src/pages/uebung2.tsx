@@ -195,6 +195,14 @@ export default function Home() {
             dir geschriebenen Algorithmus, aus dem Labyrinth zu entkommen. Ich
             freue mich schon endlich wieder meine Familie zu sehen!
           </Typography>
+          <div>
+          <br></br>Folgende Aussagen treffen auf den Algorithmus zu:
+            <br></br>• Das Ergebnis ist hier immer eindeutig und wohldefiniert.
+            <br></br>• Der Algorithmus macht bei gleicher Eingabe in jedem
+            Schritt exakt das gleiche (er ist deterministisch).
+            <br></br>• Der Algorithmus besitzt sich wiederholende
+            Anweisungen(einen Zyklus).
+          </div>
           <Typography level="h5"
             endDecorator={
               <ProgressCheck

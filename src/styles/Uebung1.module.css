@@ -8,8 +8,6 @@
 .bildeinruecken {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 40px;
 }
 
@@ -18,5 +16,5 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap:20px;
 }
