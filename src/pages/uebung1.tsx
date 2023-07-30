@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import styles from "../styles/Uebung1.module.css";
 import { ProgressCheck } from "@/components/ProgressCheck";
+import { Accordion } from "@/components/Accordion";
 
 const labyrinth = [maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4];
 
@@ -113,107 +114,214 @@ export default function Home() {
       >
         <div>
           <Typography level="h3">Algorithmus Teil 1</Typography>
-          <Typography level="h5">Algorithmen sind kompliziert!</Typography>
+          <Typography level="body1">
+            In diesem Kapitel beschäftigen wir uns mit den ersten Schritten zum
+            erfolgreichen schreiben eines Algorithmus...
+          </Typography>
+          <Typography level="h4">Kann jeder Programmieren?</Typography>
           <div id="algo.1.1"></div>
           <div>
             <div className={styles.bildeinruecken}>
               <div>
-                Kann jeder Programmieren? Diese Frage habe ich mir oft gestellt.
-                Wer eine gute Tasse Kaffee (oder Kakao) machen kann, kann auch
-                programmieren, ist mein Fazit. Viele würden die Ernsthaftigkeit
-                der Aussage in Frage stellen und schmunzeln. Aber abwegig ist
-                diese trozdem nicht. Um eine schöne heiße Tasse Kaffee zu
-                bekommen (French Press), muss eine bestimmte Abfolge von
-                Schritten eingehalten werden.
+                Diese Frage habe ich mir oft gestellt. Wer eine gute Tasse
+                Kaffee (oder Kakao) machen kann, kann auch programmieren, ist
+                mein Fazit. Viele würden die Ernsthaftigkeit der Aussage in
+                Frage stellen und schmunzeln. Aber abwegig ist diese trozdem
+                nicht. Um eine schöne heiße Tasse Kaffee zu bekommen (French
+                Press), muss eine bestimmte Abfolge von Schritten eingehalten
+                werden.
               </div>
-              <img src={"/undraw_coffee.svg"} alt="coffeeImage" height={130} />
+              <img src={"/undraw_coffee.svg"} alt="coffeeImage" height={110} />
             </div>
             <div className={styles.Container}>
-              1. Wir benötigen ein Boiler, um Wasser richtig zu erhitzen
-              (brodeln)
+              1. Wir benötigen ein Wasserkocher, um Wasser richtig zu erhitzen
               <br></br>2. Die gemahlene Kaffeemenge muss für eine Tasse
               abgestimmt sein
-              <br></br>3. Die Brühzeit sollte nur wenige Minuten lang sein.
-              <br></br>4. Gebrühten Kaffee in eine aufgewärmte Tasse gießen.
-              <br></br>5. Mit Zucker oder Milch bei Bedarf individuell das Aroma
-              ändern.
+              <br></br>3. Die Brühzeit sollte nur wenige Minuten lang sein
+              <br></br>4. Gebrühten Kaffee in eine Tasse gießen
+              <br></br>5. Mit Zucker oder Milch bei Bedarf abschmecken
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "10px",
+                }}
+              >
+                Perfekt! Das war es.
+              </div>
             </div>
-            <br></br> Perfekt! Das war es.
-            <br></br> Und so ist es auch beim Programmieren, ich muss mich auf
-            klare, logische Abläufe einhalten und orientieren. Ein Programm
-            besteht aus einzelnen Anweisungen - sprich Befehlen, die von oben
-            nach unten abgearbeitet werden. Viele Fragen sich, ich weiß gar
-            nicht, womit ich beim Schreiben eines Programmes beginnenn soll? Um
-            eine Strukur und Logik in seinen wirren Gedanken zu bekommen, helfen
-            Entwurfstechniken wie Programmablaufplan, Struktogramm und die quick
-            and dirty Methode - Pseudocode.
+            <br></br> Und so ist es auch beim schreiben eines Programms, ich
+            muss klare, logische Abläufe einhalten und mich orientieren. Ein
+            Programm besteht aus einzelnen Anweisungen - sprich Befehlen, die
+            von oben nach unten abgearbeitet werden. Viele Fragen sich, ich weiß
+            gar nicht, womit ich beim Schreiben eines Programmes beginnenn soll?
+            Um zuallerst eine Strukur und Logik in seinen wirren Gedanken zu
+            bekommen, helfen Entwurfstechniken wie Programmablaufplan,
+            Struktogramm und die quick and dirty Methode - Pseudocode. Bei der
+            Verwendung dieser Entwurfstechnicken sollte man sich immer
+            überlegen, welcher Schritt denn zuerst kommt. Kurz gesagt, wer die
+            Dinge logisch in der richtigen Abfolge beschreiben kann, der kann
+            ein Programm schreiben! Der oder die darf sich Programmierer/in
+            nennen! Ich meine hier nicht codieren. Codieren ist lediglich die
+            Umsetzung der Beschreibung in einer Programmmiersprache wie C++, bei
+            der eine Entwicklungsumgebung zum Eingeben und Testen des Codes
+            benötigt wird. Das schauen wir uns auch im nächsten Kapitel auch
+            noch, aber alles zu seiner Zeit!
             <br></br>
-            <br></br>Folgende Aussagen treffen auf den Algorithmus zu:
-            <br></br>• Das Ergebnis ist hier immer eindeutig und wohldefiniert.
-            <br></br>• Der Algorithmus macht bei gleicher Eingabe in jedem
-            Schritt exakt das gleiche (er ist deterministisch).
-            <br></br>• Der Algorithmus besitzt sich wiederholende
-            Anweisungen(einen Zyklus).
             {/*Programmablaufplan*/}
-            <Typography level="h5" sx={{ marginTop: "10px" }}>
-              Programmablaufplan
+            <Typography level="h4" sx={{ marginTop: "10px" }}>
+              Programmablaufplan (PAP)
             </Typography>
             <div>
               <div className={styles.bildeinruecken2}>
-                Ablaufpläne beschreiben welche Anweisungen inwelcher Reihenfolge
-                ausgeführt werden müssen. Sie verfügen über einen
-                klardefinierten Start und Endpunkt Einzelne Abläufe
+                Ablaufpläne beschreiben welche Anweisungen in welcher
+                Reihenfolge ausgeführt werden müssen. Sie verfügen über einen
+                klar definierten Start und Endpunkt. Einzelne Abläufe
                 (Prozesse)können dabei wieder durch Programmablaufpläne
                 dargestellt werden bis sie vollständig durch triviale
                 Anweisungen beschrieben sind.
                 <img src={"/PAP.png"} alt="PAPImage" height={300} />
-                <Typography level="body3">
-                  Bitte schaue für die genaue Erklärung in das GdP skript. Dort
-                  wird alles nochmal detailliert erklärt.
-                </Typography>
               </div>
+              <Typography
+                level="body5"
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                Bitte schaue für die genaue Erklärung in das GdP-Skript. Dort
+                wird alles nochmal detailliert erklärt.
+              </Typography>
             </div>
             {/*Struktogramm*/}
-            <Typography level="h5" sx={{ marginTop: "10px" }}>
+            <Typography level="h4" sx={{ marginTop: "10px" }}>
               Struktogramm
             </Typography>
             <div>
-              <div>
+              <div className={styles.bildeinruecken2}>
                 Struktogramme bieten eine alternative Möglichkeit, Algorithmen
-                darzustellen. Sie sind näher am späteren Programmquelltext, da
-                sie eine klare lineare Struktur haben.
+                darzustellen. Ihr Bausteine sind Blöcke, die durch spezielle
+                Operationen verschachtelt werden können. Die einfachste Version
+                eines Blocks ist eine Anweisung oder ein Folge von Anweisungen,
+                die wir Sequenz nennen. Sie sind näher am späteren
+                Programmquelltext, da sie eine klare lineare Struktur haben. Sie
+                eignen sich besser, einen Programmablauf “von oben nach unten”
+                darzustellen.
+                <img
+                  src={"/Struktogramm.png"}
+                  alt="StruktogrammImage"
+                  height={300}
+                />
               </div>
-              <img
-                src={"/Struktogramm.png"}
-                alt="StruktogrammImage"
-                height={130}
-              />
+              <Typography
+                level="body5"
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                Bitte schaue für die genaue Erklärung in das GdP-Skript. Dort
+                wird alles nochmal detailliert erklärt.
+              </Typography>
             </div>
             {/*Pseudocode*/}
-            <Typography level="h5" sx={{ marginTop: "10px" }}>
+            <Typography level="h4" sx={{ marginTop: "10px" }}>
               Pseudocode
             </Typography>
             <div id="algo.1.2"></div>
             <div>
-              Auf einem Blatt Papier werden die jeweiligen einzelnen Schritte
-              untereinander niedergeschrieben. Immer mit der Frage, welcher
-              Schritt kommt zuerst. Kurz gesagt, wer die Dinge logisch in der
-              richtigen Abfolge beschreiben kann, der kann programmieren! Ich
-              meine hier nicht codieren. Codieren ist lediglich die Umsetzung
-              der Beschreibung in einer Programmmiersprache wie C++, Java,
-              Python bei der eine Entwicklungsumgebung zum Eingeben und Testen
-              des Codes benötigt wird. Beim Pseudocode soll es sich erstmals um
-              eine Schritt für Schritt Anleitung/Beschreibung halten, die man
-              anschließend in Code überführen will. Eine Faustregel ist hierbei:
-              1. Verstehe das Problem was du Lösen möchtest 2. Versuche das
-              Problem in Stücke aufzubrechen, um es besser zu verstehen 3.
-              Schreibe deinen Pseudocode möglichst mit einfachen Worten 4. Teste
-              dein Pseudocode 5. Führe deinen Pseudocode anschließend in ein
-              Programm über
+              Beim Pseudocode soll es sich erstmals um eine Schritt für Schritt
+              Anleitung/Beschreibung handeln, die man anschließend in Code
+              überführen will. Das Ziel ist es den Algorithmus abstrakt zu
+              beschreiben, aber jedoch eine Struktur beizubehalten. Auf einem
+              Blatt Papier werden die jeweiligen einzelnen Schritte
+              untereinander niedergeschrieben.
+              <Accordion
+                titel="Eine Faustregel"
+                inhalt={
+                  <span>
+                    {" "}
+                    1. Verstehe das Problem was du Lösen möchtest <br></br>
+                    2. Versuche das Problem in Stücke aufzubrechen, um es besser
+                    zu verstehen<br></br>
+                    3. Schreibe deinen Pseudocode möglichst mit einfachen Worten
+                    <br></br>
+                    4. Teste deinen Pseudocode<br></br>
+                    5. Führe deinen Pseudocode anschließend in ein Programm über
+                  </span>
+                }
+              ></Accordion>
+              Wir schauen uns nun gemeinsam ein Beispiel ein Pseudocode Beispiel
+              an. Sicherlich kannst du all diese Schritte folgen, da du es
+              selber schonmal gemacht hast. Ich spreche natürlich vom "TK-Pizza
+              backen". Alle Schritte, die man beim backen einer TK-Pizza macht
+              werden nun in ein Pseudocode geschrieben.
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: "20px",
+                }}
+              >
+                <img src={"/pizza.png"} alt="pizza" height={200} />
+              </div>
+              <Typography
+                level="body5"
+                sx={{ display: "flex", justifyContent: "center", marginBottom:"20px"}}
+              >
+                Listing 1:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
+                Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
+              </Typography>
+              In diesem Fall haben wir einen Pseudocode für eine Person mit
+              einem Backofen und einer Pizza erstellt. Diesen Pseudocode könnte
+              ein Computer nicht ausführen. Es gibt uns (den Pizzabäcker) klare,
+              eindeutige, sturkturierte und druchführbare Anweisungen. Diser
+              Algorithmus hat verschiedene Sequenzen, die immer nacheinander
+              abgearbeitet werden. Es gibt verschiedene Kontrollstrukturen, die
+              man beim schreiben eines Algorithmus verwendet.
+              <Typography level="h5" sx={{ marginTop: "10px" }}>Fallunterscheidung</Typography>
+              <div>
+                Die Fallunterscheifung (Bedingte Verzweigung) sagt einem, dass
+                anhand einer Bedingung/Fall entschieden wird, ob eine bestimmte
+                Anweisung durchgeführt wird oder nicht. Am Beispiel des
+                Pizzabäckers, müsste man also die Folie der Pizza entfernen, nur
+                wenn diese in einer Folie eingewickelt ist. In der
+                Programmiersprache C++ sind "if" und "else" notwendigen
+                Schlüsselwörter dafür.
+              </div>
+              <Typography level="h5" sx={{ marginTop: "10px" }}>
+                Schleife
+              </Typography>
+              <div>
+                Der Begriff Zyklus (auch Schleife, Wiederholung, Loop) in der
+                Programmierung, bezeichnet die wiederholte Ausführung von Teilen
+                eines Programms. Eine Schleife hat eine Schleifenbedingung, die
+                angibt, wie oft oder bei welcher Bedingung die Schleife
+                ausgeführt werden soll. Wenn man Programme mit Schleifen
+                schreibt oder untersucht, so definiert man sich
+                Schleifeninvarianten. Das sind Bedingungen, die nach jeder
+                Ausführung der Schleife gelten. Gehen wir mal davon aus, dass
+                der Pizzabäcker die genaue Backzeit der Pizza nicht weiß, da er
+                die Verpackung weggeworfen hat. Hier müsste man SOLANGE die
+                Pizza nochnicht fertig gebacken ist, immer wieder eine Minute
+                warten.
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: "20px",
+                }}
+              >
+                <img src={"/pizza2.png"} alt="pizza2" height={200} />
+              </div>
+              <Typography
+                level="body5"
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                Listing 2:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
+                Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
+              </Typography>
             </div>
           </div>
           <Typography
-            level="h5"
+            level="h4"
             endDecorator={
               <ProgressCheck
                 done={progress["id_algo_1_1"] ? 100 : 0}
@@ -242,7 +350,7 @@ export default function Home() {
           ></TurtleViewer_Steuerung>
 
           <Typography
-            level="h5"
+            level="h4"
             endDecorator={
               <ProgressCheck
                 done={progress["id_algo_1_2"] ? 100 : 0}
