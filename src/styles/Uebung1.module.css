@@ -13,3 +13,10 @@
   gap: 40px;
 }
 
+.bildeinruecken2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+}

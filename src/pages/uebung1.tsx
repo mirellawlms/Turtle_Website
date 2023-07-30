@@ -96,7 +96,7 @@ export default function Home() {
       console.error(error);
     });
   };
-  
+
   return (
     <>
       <Head>
@@ -105,7 +105,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
-      <Navigation visible={true} currentNavigation="/uebung1" titel="Algorithmus Teil 1 " progress={progress_gesamt()}>
+      <Navigation
+        visible={true}
+        currentNavigation="/uebung1"
+        titel="Algorithmus Teil 1 "
+        progress={progress_gesamt()}
+      >
         <div>
           <Typography level="h3">Algorithmus Teil 1</Typography>
           <Typography level="h5">Algorithmen sind kompliziert!</Typography>
@@ -137,11 +142,54 @@ export default function Home() {
             <br></br> Und so ist es auch beim Programmieren, ich muss mich auf
             klare, logische Abläufe einhalten und orientieren. Ein Programm
             besteht aus einzelnen Anweisungen - sprich Befehlen, die von oben
-            nach unten abgearbeitet werden (Quelle). Viele Fragen sich, ich weiß
-            gar nicht, womit ich beim Schreiben eines Programmes beginnenn soll?
-            Um eine Strukur und Logik in seinen wirren Gedanken zu bekommen,
-            helfen Entwurfstechniken wie Programmablaufplan, Struktogramm, UML
-            und die quick and dirty Methode - Pseudocode.
+            nach unten abgearbeitet werden. Viele Fragen sich, ich weiß gar
+            nicht, womit ich beim Schreiben eines Programmes beginnenn soll? Um
+            eine Strukur und Logik in seinen wirren Gedanken zu bekommen, helfen
+            Entwurfstechniken wie Programmablaufplan, Struktogramm und die quick
+            and dirty Methode - Pseudocode.
+            <br></br>
+            <br></br>Folgende Aussagen treffen auf den Algorithmus zu:
+            <br></br>• Das Ergebnis ist hier immer eindeutig und wohldefiniert.
+            <br></br>• Der Algorithmus macht bei gleicher Eingabe in jedem
+            Schritt exakt das gleiche (er ist deterministisch).
+            <br></br>• Der Algorithmus besitzt sich wiederholende
+            Anweisungen(einen Zyklus).
+            {/*Programmablaufplan*/}
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Programmablaufplan
+            </Typography>
+            <div>
+              <div className={styles.bildeinruecken2}>
+                Ablaufpläne beschreiben welche Anweisungen inwelcher Reihenfolge
+                ausgeführt werden müssen. Sie verfügen über einen
+                klardefinierten Start und Endpunkt Einzelne Abläufe
+                (Prozesse)können dabei wieder durch Programmablaufpläne
+                dargestellt werden bis sie vollständig durch triviale
+                Anweisungen beschrieben sind.
+                <img src={"/PAP.png"} alt="PAPImage" height={300} />
+                <Typography level="body3">
+                  Bitte schaue für die genaue Erklärung in das GdP skript. Dort
+                  wird alles nochmal detailliert erklärt.
+                </Typography>
+              </div>
+            </div>
+            {/*Struktogramm*/}
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Struktogramm
+            </Typography>
+            <div>
+              <div>
+                Struktogramme bieten eine alternative Möglichkeit, Algorithmen
+                darzustellen. Sie sind näher am späteren Programmquelltext, da
+                sie eine klare lineare Struktur haben.
+              </div>
+              <img
+                src={"/Struktogramm.png"}
+                alt="StruktogrammImage"
+                height={130}
+              />
+            </div>
+            {/*Pseudocode*/}
             <Typography level="h5" sx={{ marginTop: "10px" }}>
               Pseudocode
             </Typography>
@@ -150,11 +198,18 @@ export default function Home() {
               Auf einem Blatt Papier werden die jeweiligen einzelnen Schritte
               untereinander niedergeschrieben. Immer mit der Frage, welcher
               Schritt kommt zuerst. Kurz gesagt, wer die Dinge logisch in der
-              richtigen Abfolge beschreiben kann, der kann programmieren.Ich
+              richtigen Abfolge beschreiben kann, der kann programmieren! Ich
               meine hier nicht codieren. Codieren ist lediglich die Umsetzung
               der Beschreibung in einer Programmmiersprache wie C++, Java,
-              Python etc. Um zu codieren, wird eine Entwicklungsumgebung zum
-              Eingeben und Testen (Debugging) des Codes (Anweisungen) benötigt.
+              Python bei der eine Entwicklungsumgebung zum Eingeben und Testen
+              des Codes benötigt wird. Beim Pseudocode soll es sich erstmals um
+              eine Schritt für Schritt Anleitung/Beschreibung halten, die man
+              anschließend in Code überführen will. Eine Faustregel ist hierbei:
+              1. Verstehe das Problem was du Lösen möchtest 2. Versuche das
+              Problem in Stücke aufzubrechen, um es besser zu verstehen 3.
+              Schreibe deinen Pseudocode möglichst mit einfachen Worten 4. Teste
+              dein Pseudocode 5. Führe deinen Pseudocode anschließend in ein
+              Programm über
             </div>
           </div>
           <Typography
@@ -170,10 +225,8 @@ export default function Home() {
           </Typography>
           <div id="algo.1.3"></div>
           <div style={{ marginBottom: "20px" }}>
-            Laufe hier deinen Algorithmus durch und schlüpfe in die Rolle von
-            Pebble.
-            <br></br>Hier kannst du auch deinen Algorithmus testen, den du im
-            nächsten Kapitel anhschließend für eine PeerReview freigeben kannst.
+            Schlüpfe in die Rolle von Pebble und beweg dich aus dem Labyrinth.
+            <br></br>Hier kannst du auch deinen Pseudocode/Algorithmus testen.
           </div>
           <TurtleViewer_Steuerung
             field={field}
@@ -184,7 +237,7 @@ export default function Home() {
             }
             istImZiel={() => {
               setProgress({ ...progress, id_algo_1_1: true }),
-              TaskErstellen("id_algo_1_1", "", true);
+                TaskErstellen("id_algo_1_1", "", true);
             }}
           ></TurtleViewer_Steuerung>
 
@@ -202,10 +255,13 @@ export default function Home() {
           <div id="algo.1.4"></div>
           <Typography level="body1">
             Du hast in diesem Kapitel viel über Algorithmen und Pseudocode
-            gelernt. Nun bist du an der Reihe. Schreibe einen Algorithmus, der
+            gelernt. Nun bist du an der Reihe. Schreibe einen Pseudocode, der
             mir hilft aus dem Labyrinth zu kommen. Mithilfe derinteraktiven
             Schaltfläche kannst du spielerisch testen, ob dein Pseudocode
             funktioniert. Gebe diesen anschließend für die Peer-Review frei!
+            Nach dem Peer-Review musst du den Pseudocode nurnoch in ein
+            richtiges Programm umwandeln, aber ich bin mir sicher, dass du auch
+            das schaffen wirst!
           </Typography>
           <Textarea
             sx={{ width: "100%", marginBlock: 2 }}
@@ -226,17 +282,23 @@ export default function Home() {
           >
             Speichern
           </Button>
-          <Button 
-          color="success"
-          onClick={() => {
-            if(confirm("Die PeerReview kann von deinem Professor und Komilitonnen eingesehen werden. Schicke deinen Pseudocode nur ab, wenn du damit fertig bist und Feedback erhalten möchtest.")){
-              setProgress({ ...progress, id_algo_1_2: true });
-              TaskErstellen("id_algo_1_2", pseudocodeValue, true);
-              Submitten();
-            }
-          }}
-          disabled={!!progress["id_algo_1_2"]}
-          >Zur Peer Review freigeben</Button>
+          <Button
+            color="success"
+            onClick={() => {
+              if (
+                confirm(
+                  "Die PeerReview kann von deinem Professor und Komilitonnen eingesehen werden. Schicke deinen Pseudocode nur ab, wenn du damit fertig bist und Feedback erhalten möchtest."
+                )
+              ) {
+                setProgress({ ...progress, id_algo_1_2: true });
+                TaskErstellen("id_algo_1_2", pseudocodeValue, true);
+                Submitten();
+              }
+            }}
+            disabled={!!progress["id_algo_1_2"]}
+          >
+            Zur Peer Review freigeben
+          </Button>
         </div>
       </Navigation>
     </>
