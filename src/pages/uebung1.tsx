@@ -173,13 +173,12 @@ export default function Home() {
               Programmablaufplan (PAP)
             </Typography>
             <div>
+              Ablaufpläne beschreiben welche Anweisungen in welcher Reihenfolge
+              ausgeführt werden müssen. Sie verfügen über einen klar definierten
+              Start und Endpunkt. Einzelne Abläufe (Prozesse)können dabei wieder
+              durch Programmablaufpläne dargestellt werden bis sie vollständig
+              durch triviale Anweisungen beschrieben sind.
               <div className={styles.bildeinruecken2}>
-                Ablaufpläne beschreiben welche Anweisungen in welcher
-                Reihenfolge ausgeführt werden müssen. Sie verfügen über einen
-                klar definierten Start und Endpunkt. Einzelne Abläufe
-                (Prozesse)können dabei wieder durch Programmablaufpläne
-                dargestellt werden bis sie vollständig durch triviale
-                Anweisungen beschrieben sind.
                 <img src={"/PAP.png"} alt="PAPImage" height={300} />
               </div>
               <Typography
@@ -192,18 +191,18 @@ export default function Home() {
             </div>
             {/*Struktogramm*/}
             <Typography level="h4" sx={{ marginTop: "10px" }}>
-              Struktogramm
+              Struktogramm (Nassi-Shneidermann Diagramm)
             </Typography>
             <div>
+              Struktogramme bieten eine alternative Möglichkeit, Algorithmen
+              darzustellen. Ihr Bausteine sind Blöcke, die durch spezielle
+              Operationen verschachtelt werden können. Die einfachste Version
+              eines Blocks ist eine Anweisung oder ein Folge von Anweisungen,
+              die wir Sequenz nennen. Sie sind näher am späteren
+              Programmquelltext, da sie eine klare lineare Struktur haben. Sie
+              eignen sich besser, einen Programmablauf “von oben nach unten”
+              darzustellen.
               <div className={styles.bildeinruecken2}>
-                Struktogramme bieten eine alternative Möglichkeit, Algorithmen
-                darzustellen. Ihr Bausteine sind Blöcke, die durch spezielle
-                Operationen verschachtelt werden können. Die einfachste Version
-                eines Blocks ist eine Anweisung oder ein Folge von Anweisungen,
-                die wir Sequenz nennen. Sie sind näher am späteren
-                Programmquelltext, da sie eine klare lineare Struktur haben. Sie
-                eignen sich besser, einen Programmablauf “von oben nach unten”
-                darzustellen.
                 <img
                   src={"/Struktogramm.png"}
                   alt="StruktogrammImage"
@@ -234,7 +233,6 @@ export default function Home() {
                 titel="Eine Faustregel"
                 inhalt={
                   <span>
-                    {" "}
                     1. Verstehe das Problem was du Lösen möchtest <br></br>
                     2. Versuche das Problem in Stücke aufzubrechen, um es besser
                     zu verstehen<br></br>
@@ -245,24 +243,21 @@ export default function Home() {
                   </span>
                 }
               ></Accordion>
-              Wir schauen uns nun gemeinsam ein Beispiel ein Pseudocode Beispiel
-              an. Sicherlich kannst du all diese Schritte folgen, da du es
-              selber schonmal gemacht hast. Ich spreche natürlich vom "TK-Pizza
+              Wir schauen uns nun gemeinsam ein Pseudocode Beispiel an.
+              Sicherlich kannst du all diese Schritte folgen, da du es selber
+              schonmal gemacht hast. Ich spreche natürlich vom "TK-Pizza
               backen". Alle Schritte, die man beim backen einer TK-Pizza macht
               werden nun in ein Pseudocode geschrieben.
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: "20px",
-                }}
-              >
+              <div className={styles.bildeinruecken2}>
                 <img src={"/pizza.png"} alt="pizza" height={200} />
               </div>
               <Typography
                 level="body5"
-                sx={{ display: "flex", justifyContent: "center", marginBottom:"20px"}}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "20px",
+                }}
               >
                 Listing 1:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
                 Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
@@ -274,16 +269,23 @@ export default function Home() {
               Algorithmus hat verschiedene Sequenzen, die immer nacheinander
               abgearbeitet werden. Es gibt verschiedene Kontrollstrukturen, die
               man beim schreiben eines Algorithmus verwendet.
-              <Typography level="h5" sx={{ marginTop: "10px" }}>Fallunterscheidung</Typography>
+              {/*Fallunterscheidung*/}
+              <Typography level="h5" sx={{ marginTop: "10px" }}>
+                Fallunterscheidung
+              </Typography>
               <div>
-                Die Fallunterscheifung (Bedingte Verzweigung) sagt einem, dass
+                Die Fallunterscheidung (Bedingte Verzweigung) sagt einem, dass
                 anhand einer Bedingung/Fall entschieden wird, ob eine bestimmte
                 Anweisung durchgeführt wird oder nicht. Am Beispiel des
                 Pizzabäckers, müsste man also die Folie der Pizza entfernen, nur
-                wenn diese in einer Folie eingewickelt ist. In der
-                Programmiersprache C++ sind "if" und "else" notwendigen
+                WENN diese in einer Folie eingewickelt ist. <br></br>
+                In der Programmiersprache C++ sind "if" und "else" notwendigen
                 Schlüsselwörter dafür.
               </div>
+              <div className={styles.bildeinruecken2}>
+                <img src={"/ifelse.png"} alt="ifelse" height={130} />
+              </div>
+              {/*Schleife*/}
               <Typography level="h5" sx={{ marginTop: "10px" }}>
                 Schleife
               </Typography>
@@ -295,28 +297,39 @@ export default function Home() {
                 ausgeführt werden soll. Wenn man Programme mit Schleifen
                 schreibt oder untersucht, so definiert man sich
                 Schleifeninvarianten. Das sind Bedingungen, die nach jeder
-                Ausführung der Schleife gelten. Gehen wir mal davon aus, dass
-                der Pizzabäcker die genaue Backzeit der Pizza nicht weiß, da er
-                die Verpackung weggeworfen hat. Hier müsste man SOLANGE die
-                Pizza nochnicht fertig gebacken ist, immer wieder eine Minute
-                warten.
+                Ausführung der Schleife gelten. <br></br>
+                Gehen wir mal davon aus, dass der Pizzabäcker die genaue
+                Backzeit der Pizza nicht weiß, da er die Verpackung weggeworfen
+                hat. <br></br>
+                Hier müsste man SOLANGE die Pizza nochnicht fertig gebacken ist,
+                immer wieder eine Minute warten.
               </div>
-              <div
-                style={{
+              <div className={styles.bildeinruecken2}>
+                <img src={"/pizza2.png"} alt="pizza2" height={200} />
+              </div>
+              <Typography
+                level="body5"
+                sx={{
                   display: "flex",
-                  alignItems: "center",
                   justifyContent: "center",
-                  marginTop: "20px",
+                  marginBottom: "20px",
                 }}
               >
-                <img src={"/pizza2.png"} alt="pizza2" height={200} />
+                Listing 2:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
+                Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
+              </Typography>
+              Schleifen sind eine Möglichkeit, Codefragmente wiederholt
+              auszuführen. C++ bietet dafür folgende drei Arten von Anweisungen
+              an:
+              <div className={styles.bildeinruecken2}>
+                <img src={"/zyklus.png"} alt="zyklusImage" height={200} />
               </div>
               <Typography
                 level="body5"
                 sx={{ display: "flex", justifyContent: "center" }}
               >
-                Listing 2:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
-                Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
+                Bitte schaue für die genaue Erklärung in das GdP-Skript. Dort
+                wird alles nochmal detailliert erklärt.
               </Typography>
             </div>
           </div>
@@ -329,13 +342,16 @@ export default function Home() {
             }
             sx={{ marginTop: "20px" }}
           >
-            Gamification - Sei Pebble!
+            Pebble-Simulator
           </Typography>
           <div id="algo.1.3"></div>
-          <div style={{ marginBottom: "20px" }}>
-            Schlüpfe in die Rolle von Pebble und beweg dich aus dem Labyrinth.
-            <br></br>Hier kannst du auch deinen Pseudocode/Algorithmus testen.
-          </div>
+          <Typography level="body1" sx={{ marginBottom: "20px" }}>
+            So das war jetzt aber auch sehr viel Input. Spiel doch gerne zur
+            Belohnung eine kleine Runde Pebble-Simulator. Schlüpfe in meine Rolle als Pebble die Schildkröte
+            und beweg dich aus dem Labyrinth indem du von dem roten
+            Feld auf das grüne Feld gelangst.
+          </Typography>
+
           <TurtleViewer_Steuerung
             field={field}
             width={500}
@@ -348,7 +364,7 @@ export default function Home() {
                 TaskErstellen("id_algo_1_1", "", true);
             }}
           ></TurtleViewer_Steuerung>
-
+          {/*DeinPseudocode*/}
           <Typography
             level="h4"
             endDecorator={
@@ -361,15 +377,27 @@ export default function Home() {
             Dein Pseudocode
           </Typography>
           <div id="algo.1.4"></div>
-          <Typography level="body1">
+          <Typography sx={{ marginTop: "10px" }} level="body1">
             Du hast in diesem Kapitel viel über Algorithmen und Pseudocode
-            gelernt. Nun bist du an der Reihe. Schreibe einen Pseudocode, der
-            mir hilft aus dem Labyrinth zu kommen. Mithilfe derinteraktiven
-            Schaltfläche kannst du spielerisch testen, ob dein Pseudocode
-            funktioniert. Gebe diesen anschließend für die Peer-Review frei!
-            Nach dem Peer-Review musst du den Pseudocode nurnoch in ein
-            richtiges Programm umwandeln, aber ich bin mir sicher, dass du auch
-            das schaffen wirst!
+            gelernt. Nun bist du an der Reihe einen Pseudocode zu schreiben!
+            <br></br>
+            Die Aufgabe für deinen Pseudocode lautet:
+            <br></br>
+          </Typography>
+          <Typography level="body1" color="success">
+            Schreibe einen Pseudocode, der Pebble die Schildkröte hilft aus dem
+            Labyrinth zu gelangen.
+          </Typography>
+          <Typography sx={{ marginTop: "10px" }} level="body1">
+            Teste deinen Pseudocode/Algorithmus gerne mit dem Spiel
+            "Pebble-Simulator" durch. Schreibe deinen Pseudocode in dem dafür
+            vorgesehenen Fenster.Um dieses Kapitel abzuschließen musst du deinen
+            Pseudocode für eine Peer-Review freigeben. Das bedeutet, dass dein
+            Pseudocode einem deiner Komilitonnen zugewiesen wird, der dir darauf
+            einen Kommentar gibt, was du beispielsweise noch verbessern kannst,
+            oder ob soweit alles passt und du dann mit der codierung beginnen
+            kannst. Auch du musst einen Pseudocode deines Kommilitonen
+            kommentieren.
           </Typography>
           <Textarea
             sx={{ width: "100%", marginBlock: 2 }}

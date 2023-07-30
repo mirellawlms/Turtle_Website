@@ -257,7 +257,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
               color="success"
               ><FontAwesomeIcon style={{marginRight:"10px"}} icon={faRotateRight} height={12}/>Neustart</Button>
         )}
-        <Select defaultValue="swamp" sx={{width: 200}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
+        <Select defaultValue="swamp" sx={{width: 250}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
           <Option value="swamp">Sumpf</Option>
           <Option value="water">Wasser</Option>
           <Option value="sand">Wüste</Option>

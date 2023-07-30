@@ -57,6 +57,17 @@ export const Navigation: React.FC<Props> = (props) => {
               ></ErweiterteNavigation>
             </div>
 
+            {/*Peer Review*/}
+            <div>
+            <ErweiterteNavigation
+                title={{ idlink: "/peerReview", label: "Peer Review" }}
+                inhalt={[
+                { idlink: "/peerReview#peer.1.1", label: "Peer Review" }
+                ]}
+                currentNavigation={currentNavigation}
+              ></ErweiterteNavigation>
+            </div>
+
             {/* Algo Teil 2 */}
             <div>
               <ErweiterteNavigation
@@ -70,17 +81,6 @@ export const Navigation: React.FC<Props> = (props) => {
               ></ErweiterteNavigation>
             </div>
 
-            {/*Peer Review*/}
-            <div>
-            <ErweiterteNavigation
-                title={{ idlink: "/peerReview", label: "Peer Review" }}
-                inhalt={[
-                { idlink: "/peerReview#peer.1.1", label: "Peer Review" }
-                ]}
-                currentNavigation={currentNavigation}
-              ></ErweiterteNavigation>
-            </div>
-            
           </div>
         </div>
         {/*Top Navigation*/}
