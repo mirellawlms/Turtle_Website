@@ -118,6 +118,39 @@ export default function Home() {
             In diesem Kapitel beschäftigen wir uns mit den ersten Schritten zum
             erfolgreichen schreiben eines Algorithmus...
           </Typography>
+          {/*Definitionen */}
+          <Typography level="h4">Definition zu Beginn</Typography>
+          <Accordion
+            titel="Determiniertheit"
+            inhalt="Ein Algorithmus ist determiniert,
+             wenn dieser bei jeder Ausführung mit gleichen 
+             Startbedingungen und Eingaben gleiche Ergebnisse liefert."
+          ></Accordion>
+          <Accordion
+            titel="Deterministisch"
+            inhalt="Ein Algorithmus ist deterministisch, 
+            wenn zu jedem Zeitpunkt der Algorithmusausführung 
+            der nächste Handlungsschritt eindeutig definiert ist."
+          ></Accordion>
+          <Accordion
+            titel="Statische Finitheit"
+            inhalt="Ein Algorithmus ist statisch finit, 
+            wenn seine Beschreibung eine endliche Länge besitzt."
+          ></Accordion>
+          <Accordion
+            titel="Dynamische Finitheit"
+            inhalt="Ein Algorithmus ist dynamisch finit, 
+            dann darf er zu jedem Zeitpunkt seiner Ausführung 
+            nur begrenzt viel Speicherplatz benötigen."
+          ></Accordion>
+          <Accordion
+            titel="Terminiertheit"
+            inhalt="Ein Algorithmus terminiert überall oder
+             ist terminierend, wenn er für jede mögliche Eingabe
+              nach endlich vielen Schritten anhält (oder kontrolliert abbricht). "
+          ></Accordion>
+
+          {/*Begin*/}
           <Typography level="h4">Kann jeder Programmieren?</Typography>
           <div id="algo.1.1"></div>
           <div className={styles.bildeinruecken}>
@@ -142,7 +175,7 @@ export default function Home() {
               <br></br>Das war es!
             </Typography>
           </div>
-          <Typography level="body1" sx={{marginTop:"20px"}}>
+          <Typography level="body1" sx={{ marginTop: "20px" }}>
             Und so ist es auch beim schreiben eines Programms, ich muss klare,
             logische Abläufe einhalten und mich orientieren. Ein Programm
             besteht aus einzelnen Anweisungen - sprich Befehlen, die von oben

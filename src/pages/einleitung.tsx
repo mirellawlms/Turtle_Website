@@ -102,7 +102,11 @@ export default function Home() {
   };
 
   //POST auf DB
-  const TaskErstellen = async (id: string, code_eingabe: string , complete: boolean) => {
+  const TaskErstellen = async (
+    id: string,
+    code_eingabe: string,
+    complete: boolean
+  ) => {
     fetch("/api/task", {
       method: "POST",
       headers: {
@@ -111,7 +115,7 @@ export default function Home() {
       body: JSON.stringify({
         id: id,
         code: code_eingabe,
-        complete: complete
+        complete: complete,
       }),
     }).catch((error) => {
       console.error(error);
@@ -128,22 +132,26 @@ export default function Home() {
     })
       .then((response) => response.json())
       .then((data) => {
-        const prog = data.task.reduce((acc: any , item: any) => {
-          return{
-            ...acc,[item.id]:item.complete
+        const prog = data.task.reduce((acc: any, item: any) => {
+          return {
+            ...acc,
+            [item.id]: item.complete,
           };
-        },{})
-        console.log(data.task,prog);
+        }, {});
+        console.log(data.task, prog);
         setProgress({
-          id_1_1_a: prog["id_1_1_a"]??false,
-          id_1_1_b: prog["id_1_1_b"]??false,
-          id_1_1_c: prog["id_1_1_c"]??false,
-          id_1_1_d: prog["id_1_1_d"]??false,
-          id_1_1_e: prog["id_1_1_e"]??false,
-          id_1_1_f: prog["id_1_1_f"]??false,
-          id_einleitung_1_1: prog["id_einleitung_1_1"]??false
+          id_1_1_a: prog["id_1_1_a"] ?? false,
+          id_1_1_b: prog["id_1_1_b"] ?? false,
+          id_1_1_c: prog["id_1_1_c"] ?? false,
+          id_1_1_d: prog["id_1_1_d"] ?? false,
+          id_1_1_e: prog["id_1_1_e"] ?? false,
+          id_1_1_f: prog["id_1_1_f"] ?? false,
+          id_einleitung_1_1: prog["id_einleitung_1_1"] ?? false,
         });
-        setCode1(data.task.find((item: any)=> item.id === "id_einleitung_1_1")?.code ?? einleitung_1);
+        setCode1(
+          data.task.find((item: any) => item.id === "id_einleitung_1_1")
+            ?.code ?? einleitung_1
+        );
       })
       .catch((error) => {
         console.error(error);
@@ -166,13 +174,13 @@ export default function Home() {
       >
         <Typography level="h3">C++ Kurs</Typography>
         <div className={styles.bildeinruecken}>
-          <div>
+          <Typography>
             In diesem Kurs erhälst du Einblicke in die Programmiersprache C++.
             Es ist nicht erfoderlich, dass du bereits Programmiererfahrungen
             hast. Dieser Kurs ist für alle gedacht und wurde aus dem
             Vorlesungsskript des Moduls GdP erstellt. Schließe diesen C++ Kurs
             ab, um dein Wissen unter Beweis zu stellen.
-          </div>
+          </Typography>
           <img
             src={"/undraw_programming2.svg"}
             alt="Programming2Image"
@@ -219,7 +227,7 @@ export default function Home() {
             inhalt="...regelt,welche Symbole aus Zeichen in deinem Programm zusammengesetzt werden können."
             wasClicked={() => {
               setProgress({ ...progress, id_1_1_d: true });
-              TaskErstellen("id_1_1_d", "",true);
+              TaskErstellen("id_1_1_d", "", true);
             }}
           ></Accordion>
           <Accordion
@@ -262,7 +270,14 @@ export default function Home() {
             title="Aufgabe 1"
             defaultValue={code1}
             turtle={false}
-            codeEinAusgabe={(code_eingabe: string, code_ausgabe: string)=> {Auswertung_einleitung_1_1(code_ausgabe);TaskErstellen("id_einleitung_1_1", code_eingabe, Auswertung_einleitung_1_1(code_ausgabe))}}
+            codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+              Auswertung_einleitung_1_1(code_ausgabe);
+              TaskErstellen(
+                "id_einleitung_1_1",
+                code_eingabe,
+                Auswertung_einleitung_1_1(code_ausgabe)
+              );
+            }}
           ></CodeEditor>
         </div>
         <div>
