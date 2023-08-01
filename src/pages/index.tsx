@@ -37,18 +37,19 @@ export default function Home() {
             <div>
               <Typography level="body1">
                 Hallo liebe Erstis der Studiengänge Informatik und
-                Medieninformatik der HTWK. Mein Name ist Pebble und ich begleite
-                euch in den nächsten Wochen in diesem für euch erstellen
-                Einführungskurs für C++. Diese E-Learning Plattform wird in dem
-                Modul Grundlagen der Programmierung eingesetzt. Manche von euch
-                haben sicher schon etwas Programmiererfahrung, aber wenn nicht,
-                ist das auch kein Problem! Mit diesem Kurs holen wir alle ab und
-                zeigen, dass Programmieren garnicht so schwer ist und auch Spaß
-                machen kann. Wir werden zusammen verschiedene Lektionen
-                bearbeiten und du wirst mir hoffentlich dabei helfen wieder nach
-                Hause zu finden, da ich mich leider verlaufen habe! Ich freue
-                mich dir eine Einführung in C++ zu geben und wäre dir dankbar,
-                wenn du mir helfen könntest, wieder nach Hause zu finden.
+                Medieninformatik der HTWK Leipzig.<br></br> Ich bin Pebble und
+                ich brauche dringend deine Hilfe! Gestern war es sehr stürmisch,
+                und ich habe mich leider verlaufen und weiß nicht mehr, wie ich
+                zurück zu meiner Familie komme. Du kannst mir doch sicherlich
+                helfen, oder? <br></br>Dafür musst du verschiedene Kapitel
+                dieser E-Learning Plattform des Moduls 'Grundlagen der
+                Programmierung' absolvieren. Manche von euch haben sicher schon
+                etwas Programmiererfahrung, aber wenn nicht, ist das auch kein
+                Problem! Mit diesem Kurs holen wir alle ab und zeigen, dass
+                Programmieren gar nicht so schwer ist und auch Spaß machen kann.
+                Wir werden zusammen verschiedene Lektionen bearbeiten. Ich freue
+                mich dir eine Einführung in C++ zu geben und ich hoffe, dass du
+                mir dabei helfen wirst, wieder nach Hause zu finden!
                 <br></br>
               </Typography>
             </div>
@@ -57,7 +58,7 @@ export default function Home() {
           <div>
             {/*Umfrage*/}
             <FormControl>
-              <FormLabel htmlFor="umfrage1" sx={{marginTop:"10px"}}>
+              <FormLabel htmlFor="umfrage1" sx={{ marginTop: "10px" }}>
                 Nimm gerne an dieser kleinen Umfrage teil und erzähl mir, ob du
                 bereits Programmiererfahrungen hast.
               </FormLabel>
@@ -105,7 +106,6 @@ export default function Home() {
                 <b>Kursinhalte</b>
               </Typography>
             </div>
-            {/*Accordion*/}
             <div>
               <Accordion
                 titel="Einführungskurs in C++"
@@ -113,9 +113,7 @@ export default function Home() {
               Programmierung' wurde ein Einstiegskurs erstellt. Man lernt in den
               verschiedenen Kapiteln die Grundlagen der Programmiersprache C++
               kennen und kann direkt in dem integrieten CodeEditor sein Wissen
-              testen und zur Probe stellen. Dabei wird der Fortschritt
-              dokumentiert und beim Abschluss aller Kapitel wartet ein
-              Zertifikat auf die Teilnehmer*innen."
+              testen und unter Beweis stellen."
               ></Accordion>
               <Accordion
                 titel="C-Turtle als Einstieg"
@@ -140,20 +138,18 @@ export default function Home() {
                 }
               ></Accordion>
               <Accordion
-                titel="Algorithmus leicht gemacht"
-                inhalt="Algortihmen können manchmal
-              sehr einschüchternd sein, daher brechen wir diese in einfache
-              Schritte auf, damit jeder sie verstehen kann!"
+                titel="Verständnis der Algorithmik"
+                inhalt="
+                Algorithmen können manchmal sehr einschüchternd wirken, deshalb ist es hilfreich, sie in einfache Schritte aufzuteilen. Durch diese schrittweise Herangehensweise könnt ihr ein grundlegendes Verständnis dafür entwickeln, wie Algorithmen zur Lösung von Problemen und zur Verarbeitung von Daten eingesetzt werden können. Es geht darum, die Komplexität zu reduzieren und einen klaren Plan zu erstellen, um eine Aufgabe systematisch anzugehen. Mit diesem Ansatz könnt ihr euch schrittweise in die Welt der Algorithmen einarbeiten und euer Wissen und Können stetig erweitern. Durch die Beherrschung der Kunst der Algorithmusentwicklung könnt ihr eure Fähigkeiten als Problemlöser und Entwickler erheblich verbessern."
               ></Accordion>
               <Accordion
-                titel="Anwedung des Algorithmus"
-                inhalt="Ihr könnt direkt über den
-              CodeEditor euren Algorithmus testen und Pebble helfen aus dem
-              Labyrinth zurück zu seiner Familie zu finden."
+                titel="Algorithmus zu Pseudocode"
+                inhalt="Es wird gezeigt, wie man einen Algorithmus in Pseudocode beschreibt und in C++ Code umsetzt. Dabei müsst ihr einen Algorithmus entwickeln, der Pebble aus den Labyrinth führt.
+                Die Umwandlung von Pseudocode in C++ erfodert solide Kenntnisse der C++ Syntax und das Verständnis des Algorithmus selbst. In dieser E-Learning Plattform erlangst du dieses Wissen, um erfolgreich einen eigenen Algorithmus zu schreiben"
               ></Accordion>
             </div>
           </div>
-
+          {/*dritter Absatz*/}
           <div className={styles.bildeinruecken}>
             <img
               src={"/undraw_elearning.svg"}
@@ -164,25 +160,44 @@ export default function Home() {
               <Typography level="h3">
                 <b>E-Learning Funktionen</b>
               </Typography>
-              <div>
-                <br></br>- Gamification
-                <br></br>- Visuelle Unterstützung durch Bilder
-                <br></br>- Interaktive Bausteine
-                <br></br>- Highscore-Anzeigen
-                <br></br>- Sammelbare/Freischaltbare Elemente
-              </div>
+              <Typography level="body1">
+                • Gamification
+                <br></br>• Visuelle Unterstützung durch Bilder
+                <br></br>• Interaktive Bausteine
+                <br></br>• Highscore-Anzeigen
+                <br></br>• Sammelbare/Freischaltbare Elemente
+              </Typography>
             </div>
           </div>
-
+          {/*vierter Absatz*/}
+          <div className={styles.bildeinruecken}>
+            <div>
+              <Typography level="h3">
+                <b>Ziele</b>
+              </Typography>
+              <Typography level="body1">
+                • Spaß am Programmieren<br></br>• Einfacher Einstieg in
+                C++/Algorithmen<br></br>• Förderung der
+                Problemlösungsfähigkeiten<br></br>• Entwicklung kreativer
+                Algorithmen<br></br>
+              </Typography>
+            </div>
+            <img src={"/undraw_ziele.svg"} alt="ziele" height={150} />
+          </div>
+          {/*fünfter Absatz*/}
           <div className={styles.bildeinruecken2}>
             <div>
               <Typography level="h3">
                 <b>Pebbles Abenteuer</b>
               </Typography>
-              <div>
-                <br></br> Pebble hat sich verlaufen. Bist du bereit ihm zu
-                helfen?
-              </div>
+              <Typography level="body1">
+                Nach einem schrecklichen Gewitter hat sich Pebble die
+                Schildkröte verlaufen. Jetzt ist er im Garten der HTWK
+                aufgewacht und weiß nicht wie er zurück zu seiner Familie
+                findet. Zum Glück bist du da, um ihn zu helfen. Auf dem Weg aus
+                dem Labyritnh wird dir Pebble vieles über Algorithmen
+                beibringen. Bist du bereit für dieses Abenteuer?
+              </Typography>
             </div>
             <img
               src={"/undraw_programming.svg"}
