@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Navigation } from "@/components/Navigation";
-import { Typography } from "@mui/joy";
+import { Textarea, Typography } from "@mui/joy";
 import styles from "../styles/Einleitung.module.css";
 import { Accordion } from "@/components/Accordion";
 import { ProgressCheck } from "@/components/ProgressCheck";
@@ -9,15 +9,35 @@ import { useEffect, useState } from "react";
 import { Field } from "@/components/TurtleViewer";
 
 //Standardwert, der hier steht
-const einleitung_1 = `#include <iostream>
-int main() {
-  std::cout<< "Hello world!";
-};`;
+const einleitung_1 = `// einbinden externer Definitionen (hier std::cout)
+#include <iostream>
+int main()
+{ // Start des Programms
+std::cout << "Hello World!";
+return 0; // Rückgabe an das aufrufende Programm
+} // Ende des Programms`;
 
-const einleitung_2 = `#include <iostream>
+const var1 = `#include <iostream>
 int main() {
-  std::cout<< "Hallo Welt!";
+  int myVar = 6;
+  std::cout << myVar; 
 }`;
+
+const var2 = `#include <iostream>
+int main() {
+  int myVar = 6; //alter Wert
+  myVar= 8; //neuer Wert
+  std::cout << myVar; 
+}`;
+
+const operatoren = `#include <iostream>
+int main() {
+  int num1 = 3;
+  int num2 = 5;
+  std::cout << (num1 > num2);
+  return 0;
+}
+`;
 
 const einleitung_3 = `#include "turtle.h"
 #include <stdio.h>
@@ -53,7 +73,7 @@ const maze_aufgabe3: Field[][] = [
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
   const [code1, setCode1] = useState(einleitung_1);
-  const [code2, setCode2] = useState(einleitung_2);
+  const [code2, setCode2] = useState(operatoren);
   const [code3, setCode3] = useState(einleitung_3);
 
   const Auswertung_einleitung_1_1 = (code: string) => {
@@ -171,6 +191,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
       </Head>
+      {/*Einleitung*/}
       <Navigation
         visible={true}
         currentNavigation="/einleitung"
@@ -192,6 +213,7 @@ export default function Home() {
             height={100}
           />
         </div>
+        {/*Accordion*/}
         <div>
           <Typography
             level="h4"
@@ -252,8 +274,10 @@ export default function Home() {
             }}
           ></Accordion>
         </div>
+        {/*Erstes programm*/}
         <div>
           <Typography
+            sx={{ marginTop: "20px" }}
             level="h4"
             endDecorator={
               <ProgressCheck
@@ -271,7 +295,7 @@ export default function Home() {
             Button drückst.
           </Typography>
           <CodeEditor
-            title="Aufgabe 1"
+            title="Beispiel"
             defaultValue={code1}
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
@@ -286,7 +310,9 @@ export default function Home() {
         </div>
         {/*Kommentar*/}
         <div>
-          <Typography level="h4">Kommentar</Typography>
+          <Typography sx={{ marginTop: "20px" }} level="h4">
+            Kommentar
+          </Typography>
           <Typography level="body1">
             Alles, was in einer Zeile <b>//</b> folgt ist ein Kommentar.
             <br></br>
@@ -297,16 +323,62 @@ export default function Home() {
         </div>
         {/*Varaiblen*/}
         <div>
-          <Typography level="h4">Variablen und Datentypen</Typography>
-          <Typography level="h5">Variablen</Typography>
+          <Typography sx={{ marginTop: "20px" }} level="h4">
+            Variablen
+          </Typography>
           <Typography level="body1">
             Variablen sind Platzhalter im Speicher des Rechners (“Merkzettel”)
             in denen Information gespeichert werden kann. C++ ist eine streng
             typisierte Sprache, das heißt, dass jeder Variablen neben einem
-            Namen, ein eindeutiger Datentyp zuzuweisen ist.
-            Die syntax sieht also so aus:
+            Namen, ein eindeutiger Datentyp zuzuweisen ist. Die Syntax sieht
+            also so aus:
           </Typography>
+          <Textarea
+            sx={{ width: "250px" }}
+            color="neutral"
+            disabled={true}
+            minRows={1}
+            placeholder="datentyp variabelName = wert;"
+            size="sm"
+            variant="outlined"
+          />
+          <Typography level="body1">
+            Erstelle eine Variable mit dem namen 'myVar' vom Datentypen 'int'
+            und weise es der Zahl 2 zu.
+          </Typography>
+          <CodeEditor
+            title="Beispiel"
+            defaultValue={var1}
+            turtle={false}
+          ></CodeEditor>
+          <Typography level="body1">
+            Falls du deiner Variable einen neuen Wert übergibst überschreibt das
+            den alten Wert.
+          </Typography>
+          <CodeEditor
+            title="Beispiel"
+            defaultValue={var2}
+            turtle={false}
+          ></CodeEditor>
         </div>
+        {/*Datentypen*/}
+        <div>
+          <Typography sx={{ marginTop: "20px" }} level="h4">
+            Datentypen
+          </Typography>
+          <Typography level="body1">
+            Du hast im vorherigen Kapitel bereits den Datentyp int
+            kennengelernt. Es gibt aber noch viele weitere grundlegende
+            Datentypen, die in dieser Grafik zusammengetragen wurden:
+          </Typography>
+          <img
+            src={"/Datentypen.png"}
+            alt="Datentypen"
+            height={130}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          />
+        </div>
+        {/*Operatoren*/}
         <div>
           <Typography
             level="h4"
@@ -316,16 +388,103 @@ export default function Home() {
               ></ProgressCheck>
             }
           >
-            Addition zweier nichtnegativer Zahlen
+            Operatoren
           </Typography>
           <div id="c.1.3"></div>
           <Typography>
-            In dieser Aufgabe wollen wir nun zwei nichtnegative Zahlen
-            zusammenaddieren
+            Operatoren sind essentielle Bausteine in der Programmierung, die es
+            ermöglichen Operationen auf Variablen und Werten auszuführen. Zu den
+            gängigen Arten von Operatoren in der Programmiersprachen C++ gehören
+            arithmetische Operatoren, logische Operatoren, Vergleichsoperatoren
+            Gleichheit und Zuweisungsoperatoren.Sie spielen eine zentrale Rolle
+            bei der Verarbeitung von Daten und beeinflussen den Ablauf des
+            Programms maßgeblich.
           </Typography>
+          {/*arithmetische Operatoren*/}
+          <Accordion
+            titel="Arithemtische Operatoren..."
+            inhalt={
+              <span>
+                <Typography level="body1">
+                  ...werden verwendet um mathematische Operationen auf Zahlen
+                  anzuwenden.
+                </Typography>
+                <img
+                  style={{ marginTop: "10px" }}
+                  src={"/arithmetisch.png"}
+                  alt="ArithOperatoren"
+                  height={150}
+                />
+              </span>
+            }
+          ></Accordion>
+          {/*Zuweisungs Operatoren*/}
+          <Accordion
+            titel="Zuweisungs Operatoren..."
+            inhalt={
+              <span>
+                <Typography level="body1">
+                  ...werden verwendet, um Werte einer Variable zuzuweisen. Das
+                  bedeutet, dass der Wert auf der rechten Seite des
+                  Zuweisungsoperators einer Variablen auf der linken Seite
+                  zugewiesen wird.<br></br>
+                </Typography>
+                <img
+                  style={{ marginTop: "10px" }}
+                  src={"/zuweisung.png"}
+                  alt="ZuweisungOperatoren"
+                  height={80}
+                />
+              </span>
+            }
+          ></Accordion>
+          {/*vergleichs Operatoren*/}
+          <Accordion
+            titel="Vergleichs Operatoren..."
+            inhalt={
+              <span>
+                <Typography level="body1">
+                  ...werden verwendet, um den Wert oder Zustand von zwei
+                  Variablen oder Ausdrücken zu vergleichen. <br></br>Der
+                  Rückgabewert eines Vergleichs ist entweder 1 (wahr) oder 0
+                  (falsch).
+                  <br></br>
+                </Typography>
+                <img
+                  style={{ marginTop: "10px" }}
+                  src={"/vergleich.png"}
+                  alt="VergleichOperatoren"
+                  height={150}
+                />
+              </span>
+            }
+          ></Accordion>
+          {/*logische Operatoren*/}
+          <Accordion
+            titel="Logische Operatoren..."
+            inhalt={
+              <span>
+                <Typography level="body1">
+                  ...werden verwendet, um logische Ausdrücke in
+                  Programmiersprachen zu erstellen. Sie sind besonders nützlich,
+                  wenn wir mit booleschen Werten arbeiten oder viele Bedingungen
+                  kombinieren möchten.
+                  <br></br>
+                </Typography>
+                <img
+                  style={{ marginTop: "10px" }}
+                  src={"/logisch.png"}
+                  alt="LogOperatoren"
+                  height={80}
+                />
+              </span>
+            }
+          ></Accordion>
+          {/*Operatoren Code*/}
+          <Typography level="body1"> Ändere den Code so um, dass das Ergebnis Wahrheitswert "1" (true) ausgibt.</Typography>
           <CodeEditor
-            title="Aufgabe 2"
-            defaultValue={einleitung_2}
+            title="Operatoren"
+            defaultValue={operatoren}
             turtle={false}
           ></CodeEditor>
         </div>
