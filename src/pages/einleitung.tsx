@@ -57,7 +57,12 @@ export default function Home() {
   const [code3, setCode3] = useState(einleitung_3);
 
   const Auswertung_einleitung_1_1 = (code: string) => {
-    if (code.trim() === "Hello world!") {
+    if (
+      code.trim() === "Hello world!" ||
+      "Hello world" ||
+      "hello world" ||
+      "hello world!"
+    ) {
       setProgress({ ...progress, id_einleitung_1_1: true });
       return true;
     }
@@ -263,8 +268,7 @@ export default function Home() {
             Nachdem du nun viele neue Begriffe gelernt hast, ist es nun an der
             Zeit gekommen, dass du dein erstes C++ Programm schreibst. Führe
             dafür den Code aus, indem du auf den rechten Rand auf den Play
-            Button drückst. Tausche den Text gerne aus um etwas anderes
-            anzuzeigen!
+            Button drückst.
           </Typography>
           <CodeEditor
             title="Aufgabe 1"
@@ -279,6 +283,29 @@ export default function Home() {
               );
             }}
           ></CodeEditor>
+        </div>
+        {/*Kommentar*/}
+        <div>
+          <Typography level="h4">Kommentar</Typography>
+          <Typography level="body1">
+            Alles, was in einer Zeile <b>//</b> folgt ist ein Kommentar.
+            <br></br>
+            Kommentare werden nicht interpretiert, sondern vom Computer
+            überlesen. <br></br>Eine andere Art Kommentare zu schrieben ist, den
+            Kommentar mit <b>/* Kommentar */</b> zu klammern.
+          </Typography>
+        </div>
+        {/*Varaiblen*/}
+        <div>
+          <Typography level="h4">Variablen und Datentypen</Typography>
+          <Typography level="h5">Variablen</Typography>
+          <Typography level="body1">
+            Variablen sind Platzhalter im Speicher des Rechners (“Merkzettel”)
+            in denen Information gespeichert werden kann. C++ ist eine streng
+            typisierte Sprache, das heißt, dass jeder Variablen neben einem
+            Namen, ein eindeutiger Datentyp zuzuweisen ist.
+            Die syntax sieht also so aus:
+          </Typography>
         </div>
         <div>
           <Typography
