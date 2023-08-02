@@ -8,7 +8,7 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 import { useEffect, useState } from "react";
 import { Field } from "@/components/TurtleViewer";
 
-//Standardwert, der hier steht
+//EINLEITUNG
 const einleitung_1 = `// einbinden externer Definitionen (hier std::cout)
 #include <iostream>
 int main()
@@ -17,17 +17,55 @@ std::cout << "Hello World!";
 return 0; // Rückgabe an das aufrufende Programm
 } // Ende des Programms`;
 
+//Variablen
 const var1 = `#include <iostream>
 int main() {
   int myVar = 6;
   std::cout << myVar; 
 }`;
 
-const var2 = `#include <iostream>
+//DATENTYPEN
+const datentyp_bool = `#include <iostream>
 int main() {
-  int myVar = 6; //alter Wert
-  myVar= 8; //neuer Wert
-  std::cout << myVar; 
+  bool ichKannProgrammieren = false;
+  std::cout << ichKannProgrammieren;
+  return 0;
+}`;
+
+const datentyp_zahl = `#include <iostream>
+int main() {
+  int a = 5;
+  double b = 27.3;
+  float c = 3.24;
+  std::cout << "a ist: " << a << ", b ist: " << b << ", c ist: " << c << std::endl;
+  return 0;
+}`;
+
+const datentyp_char1 = `#include <iostream>
+int main () {
+  char a = 'H';
+  char b = 'a';
+
+  std::cout << a << b << std::endl;
+  return 0;
+}`;
+const datentyp_char2 = `#include <iostream>
+int main () {
+  char a = 80; //80 ist in der ASCII-Tabelle 'P'
+  char b = 101; //101 ist inder ASCII-Tabelle 'e'
+  /*--erweitere--*/
+
+  std::cout << a << b << std::endl;
+  return 0;
+}`;
+
+const datentyp_string = `#include <iostream>
+#include <string> 
+int main() {
+  /*schreibe hier deinen Code*/
+  std::string test = "test";
+  std::cout << test << std::endl;
+  return 0;
 }`;
 
 const operatoren = `#include <iostream>
@@ -36,8 +74,7 @@ int main() {
   int num2 = 5;
   std::cout << (num1 > num2);
   return 0;
-}
-`;
+}`;
 
 const einleitung_3 = `#include "turtle.h"
 #include <stdio.h>
@@ -288,14 +325,13 @@ export default function Home() {
             Mein erstes C++ Programm
           </Typography>
           <div id="c.1.2"></div>
-          <Typography>
+          <Typography sx={{ marginBottom: "10px" }} level="body1">
             Nachdem du nun viele neue Begriffe gelernt hast, ist es nun an der
-            Zeit gekommen, dass du dein erstes C++ Programm schreibst. Führe
-            dafür den Code aus, indem du auf den rechten Rand auf den Play
-            Button drückst.
+            Zeit gekommen, dass du dein erstes C++ Programm schreibst.
           </Typography>
           <CodeEditor
-            title="Beispiel"
+            title="Aufgabe: Gib 'Hello world!' aus, indem du rechts den Code über den Play
+            Button ausführst."
             defaultValue={code1}
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
@@ -317,11 +353,11 @@ export default function Home() {
             Alles, was in einer Zeile <b>//</b> folgt ist ein Kommentar.
             <br></br>
             Kommentare werden nicht interpretiert, sondern vom Computer
-            überlesen. <br></br>Eine andere Art Kommentare zu schrieben ist, den
+            überlesen. <br></br>Eine andere Art Kommentare zu schreiben ist, den
             Kommentar mit <b>/* Kommentar */</b> zu klammern.
           </Typography>
         </div>
-        {/*Varaiblen*/}
+        {/*Variablen*/}
         <div>
           <Typography sx={{ marginTop: "20px" }} level="h4">
             Variablen
@@ -334,7 +370,7 @@ export default function Home() {
             also so aus:
           </Typography>
           <Textarea
-            sx={{ width: "250px" }}
+            sx={{ width: "250px", marginTop: "10px", marginBottom: "20px" }}
             color="neutral"
             disabled={true}
             minRows={1}
@@ -342,22 +378,10 @@ export default function Home() {
             size="sm"
             variant="outlined"
           />
-          <Typography level="body1">
-            Erstelle eine Variable mit dem namen 'myVar' vom Datentypen 'int'
-            und weise es der Zahl 2 zu.
-          </Typography>
           <CodeEditor
-            title="Beispiel"
+            title="Aufgabe: Erstelle eine Variable mit dem namen 'myVar' vom Datentypen 'int'
+            und weise es der Zahl 2 zu"
             defaultValue={var1}
-            turtle={false}
-          ></CodeEditor>
-          <Typography level="body1">
-            Falls du deiner Variable einen neuen Wert übergibst überschreibt das
-            den alten Wert.
-          </Typography>
-          <CodeEditor
-            title="Beispiel"
-            defaultValue={var2}
             turtle={false}
           ></CodeEditor>
         </div>
@@ -366,16 +390,88 @@ export default function Home() {
           <Typography sx={{ marginTop: "20px" }} level="h4">
             Datentypen
           </Typography>
-          <Typography level="body1">
+          <Typography level="body1" sx={{ marginBottom: "10px" }}>
             Du hast im vorherigen Kapitel bereits den Datentyp int
             kennengelernt. Es gibt aber noch viele weitere grundlegende
-            Datentypen, die in dieser Grafik zusammengetragen wurden:
+            Datentypen.
+          </Typography>
+          <div>
+            <Typography level="h5">Datentyp - Boolean</Typography>
+            <Typography sx={{ marginBottom: "10px" }} level="body1">
+              Die Werte von dem Datenyp boolean können nur 0 und 1 annehmen.
+              Dabei bedeutet 0 "false" und 1 “true".
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Ändere den Wert um, sodass die Aussage wahr ist! :)"
+              defaultValue={datentyp_bool}
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <div>
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Datentyp - Zahlen {"(int, double, float)"}
+            </Typography>
+            <Typography sx={{ marginBottom: "10px" }} level="body1">
+              Man kann Zahlen mit verschiedenen Datentypen darstellen.<br></br>•
+              "int" wird für ganze Zahlen ohne Dezimalstellen verwendet{" "}
+              <br></br>• "double" und "float" werden für Zahlen mit
+              Dezimalstellen verwendet, wobei "double" eine höheren Wertebereich
+              erreicht als "float".
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Führe den Code aus. "
+              defaultValue={datentyp_zahl}
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <div>
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Datentyp - Zeichen (char){" "}
+            </Typography>
+            <Typography sx={{ marginBottom: "10px" }} level="body1">
+              Der Datentyp "char" wird verwendet, um ein einzelnes Zeichen zu
+              speichern. <br></br>Das Zeichen muss dafür von einem einfachen
+              Anführungszeichen umgeben sein {"('A' oder 'a')"}.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Gib 'Hallo' aus. "
+              defaultValue={datentyp_char1}
+              turtle={false}
+            ></CodeEditor>
+            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+              Man kann auch ASCII-Werte verwenden, um bestimmte Zeichen
+              anzuzeigen.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Gib 'Pebble' mit Hilfe der ASCII-Tabelle aus."
+              defaultValue={datentyp_char2}
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <div>
+            <Typography level="h5" sx={{ marginTop: "10px" }}>Datentyp - String</Typography>
+            <Typography sx={{ marginBottom: "10px" }} level="body1">
+              Der Datentyp "string" ist in der Programmierung eine Sequenz von
+              Zeichen, die als Text interpretiert wird. In C++ wird der Datentyp
+              "std::string" verwendet. Strings können Buchstaben, Zahlen,
+              Leerzeichen und Sonderzeichen enthalten und ermöglichen die
+              Darstellung von Wörtern, Sätzen oder Texten. Der Inhalt muss dafür
+              von Anführungszeichen umgeben sein <span>("Text").</span>
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Gib 'Hallo' aus. "
+              defaultValue={datentyp_string}
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <Typography level="h5" sx={{ marginTop: "10px" }}>
+            Datentypen - Zusammenfassung
           </Typography>
           <img
             src={"/Datentypen.png"}
             alt="Datentypen"
-            height={130}
-            style={{ marginTop: "10px", marginBottom: "10px" }}
+            height={150}
+            style={{ marginTop: "10px"}}
           />
         </div>
         {/*Operatoren*/}
@@ -387,6 +483,7 @@ export default function Home() {
                 done={progress["id_1_3"] ? 100 : 0}
               ></ProgressCheck>
             }
+            sx={{ marginTop: "20px" }}
           >
             Operatoren
           </Typography>
@@ -433,7 +530,7 @@ export default function Home() {
                   style={{ marginTop: "10px" }}
                   src={"/zuweisung.png"}
                   alt="ZuweisungOperatoren"
-                  height={80}
+                  height={130}
                 />
               </span>
             }
@@ -475,27 +572,49 @@ export default function Home() {
                   style={{ marginTop: "10px" }}
                   src={"/logisch.png"}
                   alt="LogOperatoren"
-                  height={80}
+                  height={130}
                 />
               </span>
             }
           ></Accordion>
+          <Typography sx={{ marginBottom: "30px" }}> </Typography>
           {/*Operatoren Code*/}
-          <Typography level="body1"> Ändere den Code so um, dass das Ergebnis Wahrheitswert "1" (true) ausgibt.</Typography>
           <CodeEditor
-            title="Operatoren"
+            title="Aufgabe: Ändere den Code so um, dass das Ergebnis Wahrheitswert '1' (true)
+            ausgibt."
             defaultValue={operatoren}
             turtle={false}
           ></CodeEditor>
         </div>
+        {/*Kontrollstrukturen*/}
         <div>
-          <Typography>Übung3</Typography>
-          <CodeEditor
-            title="Aufgabe2"
-            defaultValue={einleitung_3}
-            turtle={true}
-            labyrinth={maze_aufgabe3}
-          ></CodeEditor>
+          <Typography sx={{ marginTop: "20px" }} level="h4">
+            Kontrollstrukturen
+          </Typography>
+          {/*Fallunterscheidung */}
+          <div>
+            <Typography level="h5">
+              Fallunterscheidung {"(if, else)"}
+            </Typography>
+            <CodeEditor
+              title="Aufgabe2"
+              defaultValue={einleitung_3}
+              turtle={true}
+              labyrinth={maze_aufgabe3}
+            ></CodeEditor>
+          </div>
+          {/*Schleifen */}
+          <div>
+            <Typography level="h5">
+              Schleifen {"(while, do while, for)"}
+            </Typography>
+            <CodeEditor
+              title="Aufgabe2"
+              defaultValue={einleitung_3}
+              turtle={true}
+              labyrinth={maze_aufgabe3}
+            ></CodeEditor>
+          </div>
         </div>
       </Navigation>
     </>
