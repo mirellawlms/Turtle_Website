@@ -19,6 +19,7 @@ return 0; // Rückgabe an das aufrufende Programm
 
 //Variablen
 const var1 = `#include <iostream>
+
 int main() {
   int myVar = 6;
   std::cout << myVar; 
@@ -26,6 +27,7 @@ int main() {
 
 //DATENTYPEN
 const datentyp_bool = `#include <iostream>
+
 int main() {
   bool ichKannProgrammieren = false;
   std::cout << ichKannProgrammieren;
@@ -68,12 +70,63 @@ int main() {
   return 0;
 }`;
 
+//Operatoren
 const operatoren = `#include <iostream>
 int main() {
   int num1 = 3;
   int num2 = 5;
   std::cout << (num1 > num2);
   return 0;
+}`;
+
+//Kontrollstrukturen
+const fallunterscheidung_if = `#include <iostream>
+int main() {
+  int zahl = 10;
+  if (zahl > 11 ) {
+    std::cout << "Super, du hast diese Aufgabe geschafft!";
+  }
+  return 0;
+}`;
+
+const fallunterscheidung_if_else = `#include <iostream>
+int main() {
+  int akku = 80;
+  if (akku < 20 ) {
+    std::cout << "Deine Akkuladung ist gering! Lade dein Handy.";
+  } else {
+    std::cout << "Deine Akkuladung reicht noch aus!";
+  }
+  return 0;
+}`;
+
+const fallunterscheidung_else_if = `#include <iostream>
+int main() {
+  int akku = 10;
+  if (akku < 30 ) {
+    std::cout << "Deine Akkuladung ist gering! Lade dein Handy.";
+  } else if(akku < 50){
+    std::cout << "Du solltest bald dein Handy laden!";
+  } else {
+    std::cout << "Deine Akkuladung reicht noch aus!";
+  }
+  return 0;
+}`;
+const fallunterscheidung_switch = `#include <iostream>
+int main() {
+    int sprache = 6;
+    switch (sprache) {
+        case 1:     // Fall, dass der Wert von var 1 ist
+            std::cout << "Java" << std::endl;
+            break;  // beendet die Ausführung des switch-Blocks
+        case 2:     // Fall, dass der Wert von var 2 ist
+            std::cout << "C++" << std::endl;
+            break;
+        default:     // Wird ausgeführt, wenn kein anderer Fall eintritt
+            std::cout << "Python" << std::endl;
+            break;
+           }
+    return 0;
 }`;
 
 const einleitung_3 = `#include "turtle.h"
@@ -314,7 +367,7 @@ export default function Home() {
         {/*Erstes programm*/}
         <div>
           <Typography
-            sx={{ marginTop: "20px" }}
+            sx={{ marginTop: "40px" }}
             level="h4"
             endDecorator={
               <ProgressCheck
@@ -346,7 +399,7 @@ export default function Home() {
         </div>
         {/*Kommentar*/}
         <div>
-          <Typography sx={{ marginTop: "20px" }} level="h4">
+          <Typography sx={{ marginTop: "40px" }} level="h4">
             Kommentar
           </Typography>
           <Typography level="body1">
@@ -359,7 +412,7 @@ export default function Home() {
         </div>
         {/*Variablen*/}
         <div>
-          <Typography sx={{ marginTop: "20px" }} level="h4">
+          <Typography sx={{ marginTop: "40px" }} level="h4">
             Variablen
           </Typography>
           <Typography level="body1">
@@ -370,7 +423,7 @@ export default function Home() {
             also so aus:
           </Typography>
           <Textarea
-            sx={{ width: "250px", marginTop: "10px", marginBottom: "20px" }}
+            sx={{ width: "250px", marginTop: "10px", marginBottom: "10px" }}
             color="neutral"
             disabled={true}
             minRows={1}
@@ -387,11 +440,11 @@ export default function Home() {
         </div>
         {/*Datentypen*/}
         <div>
-          <Typography sx={{ marginTop: "20px" }} level="h4">
+          <Typography sx={{ marginTop: "40px" }} level="h4">
             Datentypen
           </Typography>
           <Typography level="body1" sx={{ marginBottom: "10px" }}>
-            Du hast im vorherigen Kapitel bereits den Datentyp int
+            Du hast im vorherigen Kapitel bereits den Datentyp 'int'
             kennengelernt. Es gibt aber noch viele weitere grundlegende
             Datentypen.
           </Typography>
@@ -408,7 +461,7 @@ export default function Home() {
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "10px" }}>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
               Datentyp - Zahlen {"(int, double, float)"}
             </Typography>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
@@ -425,7 +478,7 @@ export default function Home() {
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "10px" }}>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
               Datentyp - Zeichen (char){" "}
             </Typography>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
@@ -438,7 +491,7 @@ export default function Home() {
               defaultValue={datentyp_char1}
               turtle={false}
             ></CodeEditor>
-            <Typography sx={{ marginTop: "10px", marginBottom: "10px" }}>
+            <Typography sx={{ marginTop: "20px", marginBottom: "10px" }}>
               Man kann auch ASCII-Werte verwenden, um bestimmte Zeichen
               anzuzeigen.
             </Typography>
@@ -449,11 +502,12 @@ export default function Home() {
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "10px" }}>Datentyp - String</Typography>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Datentyp - string
+            </Typography>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
-              Der Datentyp "string" ist in der Programmierung eine Sequenz von
-              Zeichen, die als Text interpretiert wird. In C++ wird der Datentyp
-              "std::string" verwendet. Strings können Buchstaben, Zahlen,
+              Der Datentyp "std::string" ist eine Sequenz von Zeichen, die als
+              Text interpretiert wird. Strings können Buchstaben, Zahlen,
               Leerzeichen und Sonderzeichen enthalten und ermöglichen die
               Darstellung von Wörtern, Sätzen oder Texten. Der Inhalt muss dafür
               von Anführungszeichen umgeben sein <span>("Text").</span>
@@ -464,14 +518,14 @@ export default function Home() {
               turtle={false}
             ></CodeEditor>
           </div>
-          <Typography level="h5" sx={{ marginTop: "10px" }}>
+          <Typography level="h5" sx={{ marginTop: "20px" }}>
             Datentypen - Zusammenfassung
           </Typography>
           <img
             src={"/Datentypen.png"}
             alt="Datentypen"
             height={150}
-            style={{ marginTop: "10px"}}
+            style={{ marginTop: "10px" }}
           />
         </div>
         {/*Operatoren*/}
@@ -483,7 +537,7 @@ export default function Home() {
                 done={progress["id_1_3"] ? 100 : 0}
               ></ProgressCheck>
             }
-            sx={{ marginTop: "20px" }}
+            sx={{ marginTop: "40px" }}
           >
             Operatoren
           </Typography>
@@ -577,7 +631,7 @@ export default function Home() {
               </span>
             }
           ></Accordion>
-          <Typography sx={{ marginBottom: "30px" }}> </Typography>
+          <Typography sx={{ marginBottom: "10px" }}> </Typography>
           {/*Operatoren Code*/}
           <CodeEditor
             title="Aufgabe: Ändere den Code so um, dass das Ergebnis Wahrheitswert '1' (true)
@@ -588,31 +642,151 @@ export default function Home() {
         </div>
         {/*Kontrollstrukturen*/}
         <div>
-          <Typography sx={{ marginTop: "20px" }} level="h4">
-            Kontrollstrukturen
+          <Typography sx={{ marginTop: "40px" }} level="h4">
+            Kontrollstrukturen (Fallunterscheidungen, Schleifen,
+            Sprunganweisungen)
+          </Typography>
+          <Typography level="body1" sx={{ marginBottom: "20px" }}>
+            Kontrollstrukturen sind Konstrukte, welche die Reihenfolge der
+            Ausführung von Anweisungen steuern. Durch sie ist es möglich,
+            bestimmte Codeblöcke basierend auf Bedingungen auszuführen oder
+            komplett zu überspringen. Mit ihrer Hilfe kann man komplexe Aufgaben
+            lösen.
           </Typography>
           {/*Fallunterscheidung */}
           <div>
             <Typography level="h5">
-              Fallunterscheidung {"(if, else)"}
+              <b>Fallunterscheidung</b>
+            </Typography>
+            <Typography level="h5" sx={{ marginTop: "5px" }}>
+              Fallunterscheidung - if else
+            </Typography>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Das If-Else-Konstrukt ist eine Möglichkeit, komplexe Algorithmen
+              zu erstellen, die auf unterschiedliche Ergebnisse reagieren. Es
+              ermöglicht uns, Bedingungen zu prüfen und je nachdem, ob sie wahr
+              oder falsch sind, verschiedenen Code auszuführen. Wir verwenden
+              die Schlüsselwörter "if" und "else", um diese Bedingungen zu
+              setzen. Wenn die Bedingung in der "if"-Anweisung wahr ist, wird
+              der darin enthaltene Code ausgeführt, andernfalls wird der Code im
+              "else"-Anweisungsblock ausgeführt. So können wir den Ablauf
+              unseres C++-Programms kontrollieren und verschiedene Pfade
+              basierend auf den Bedingungen durchlaufen.
             </Typography>
             <CodeEditor
-              title="Aufgabe2"
-              defaultValue={einleitung_3}
-              turtle={true}
-              labyrinth={maze_aufgabe3}
+              title="Aufgabe: Ändere den Code so um , dass 'Deine Akkuladung ist gering! Lade dein Handy.' angezeigt wird."
+              defaultValue={fallunterscheidung_if_else}
+              turtle={false}
+            ></CodeEditor>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Fallunterscheidung - if
+            </Typography>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Das Schlüsselwort "if" kann auch allein stehen, falls dieses ohne
+              der dazugehörigen "else"-Anweisung verwendet wird. In diesem Fall
+              wird der Block von C++-Code innerhalb der "if"-Anweisung nur dann
+              ausgeführt, wenn die Bedingung wahr ist. Wenn die Bedingung falsch
+              ist, wird der Codeblock übersprungen, und es gibt keinen
+              alternativen Codepfad, der in der "else"-Anweisung ausgeführt
+              wird.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Ändere den Code so um, dass die Bedingung erfüllt ist und 'Super, du hast diese Aufgabe geschafft!' ausgegeben wird."
+              defaultValue={fallunterscheidung_if}
+              turtle={false}
+            ></CodeEditor>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Fallunterscheidung - else if
+            </Typography>
+            <Typography sx={{ marginBottom: "10px" }}>
+              Verwende "else if", um eine weitere Bedingung anzugeben. Sobald
+              eine Bedingung erfüllt ist , werden die anderen Bedingungen
+              nichtmehr gepürft. Wenn die erste Bedingung falsch ist, wird die
+              zweite Bedingung gepüft und falls auch diese falsch ist, wird der
+              "else" Zweig ausgeführt.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Ändere den Code so um, dass 'Du solltest bald dein Handy laden!' ausgegeben wird."
+              defaultValue={fallunterscheidung_else_if}
+              turtle={false}
+            ></CodeEditor>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Fallunterscheidung - switch case
+            </Typography>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Verwende "switch case", wenn es viele verschiedene Werte gibt, die
+              geprüft werden müssen. Es ist eine alternative Möglichkeit zur
+              "if-else"-Anweisung, um mehrere Fälle gleichzeitig abzuarbeiten.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe: Gib den Namen der Programmiersprache aus, mit der wir programmieren."
+              defaultValue={fallunterscheidung_switch}
+              turtle={false}
             ></CodeEditor>
           </div>
           {/*Schleifen */}
+          <Typography level="h5" sx={{ marginTop: "30px" }}>
+            <b>Schleifen</b>
+          </Typography>
+          <Typography level="body1">
+            Schleifen (auch "Zyklus", "Wiederholung" oder "Loop") werden
+            verwendet, um die wiederholte Ausführung von Teilen eines Programms
+            zu beschreiben. Sie ist durch eine Schleifenbedingung
+            gekennzeichnet, die angibt, wie oft oder unter welchen Bedingungen
+            die Schleife ausgeführt wird. Falls Programme Schleifen enthalten
+            definiert man sogenannte "Schleifeninvarianten". Das sind
+            Bedingungen, die nach jeder Ausführung gültig sind.
+          </Typography>
           <div>
-            <Typography level="h5">
-              Schleifen {"(while, do while, for)"}
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Schleifen - while
+            </Typography>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Die "while"-Schleife wird auch Schleife mit vorangestellter
+              Bedingung/Kopfgesteuerter Schleife genannt. Sie läuft solange
+              durch, wie die angegebene Bedingung wahr ist.
             </Typography>
             <CodeEditor
-              title="Aufgabe2"
-              defaultValue={einleitung_3}
-              turtle={true}
-              labyrinth={maze_aufgabe3}
+              title="Aufgabe:"
+              defaultValue=""
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <div>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Schleifen - do while
+            </Typography>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Die "do-while"-Schleife ist eine Varainte der "while"-Schleife.
+              <br></br>
+              Sie wird auch Schleife mit nachgestellter Bedingung /Fußgesteuerte
+              Schleife genannt.<br></br>
+              Hierbei ist zu beachten, dass der Codeblock mindestens einmal
+              ausgeführt wird.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe:"
+              defaultValue=""
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <div>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Schleifen - for
+            </Typography>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Die "for"-Schleife ist besonders nützlich, wenn man die Anzahln
+              der Durchläufe kennt. Sie wird auch Zählzyklus genannt und führt
+              einen Codeblock aus, solange die Schleifenbedingung wahr ist. Zu
+              Bgeinn wird eine Initialisierung gemacht, die die Startwerte
+              bestimmt. Nach jedem Durchlauf erfolgt eine Inkrementierungt.
+              Dadruch kann man die Bedingung für den nächsten Durchlauf ändern
+              oder den Zähler erhöhen.
+            </Typography>
+            <CodeEditor
+              title="Aufgabe:"
+              defaultValue=""
+              turtle={false}
             ></CodeEditor>
           </div>
         </div>

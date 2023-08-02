@@ -22,7 +22,7 @@
 }
 
 .content {
-  min-height: 150px;
+  min-height: 180px;
   display: grid;
   grid-template-columns: 1fr 400px;
   background-color: #1e1e1e;
