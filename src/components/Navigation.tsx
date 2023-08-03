@@ -62,8 +62,7 @@ export const Navigation: React.FC<Props> = (props) => {
                   {
                     idlink: "/einleitung#ckurs.7.2",
                     label: "Schleifen",
-                  },
-                  
+                  }
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
