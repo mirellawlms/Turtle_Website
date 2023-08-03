@@ -8,10 +8,9 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 import { useEffect, useState } from "react";
 import { Field } from "@/components/TurtleViewer";
 
-//CODE SEGMENTE
-
+//CODE Plstzhalter
 //EINLEITUNG
-const einleitung_1 = `// einbinden externer Definitionen (hier std::cout)
+const einleitung = `// einbinden externer Definitionen (hier std::cout)
 #include <iostream>
 int main()
 { // Start des Programms
@@ -131,6 +130,7 @@ int main() {
            }
     return 0;
 }`;
+
 //Schleifen
 const schleifen_while = `#include <iostream>
 int main() {
@@ -194,31 +194,94 @@ const maze_schleifen: Field[][] = [
 
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
-  const [code1, setCode1] = useState(einleitung_1);
-  const [code2, setCode2] = useState(operatoren);
-  const [code3, setCode3] = useState(schleifen);
+  const [code_2_a, setCode_2_a] = useState(einleitung);
+  const [code_4_a, setCode_4_a] = useState(var1);
+  const [code_5_1_a, setCode_5_1_a] = useState(datentyp_bool);
+  const [code_5_2_a, setCode_5_2_a] = useState(datentyp_zahl);
+  const [code_5_3_a, setCode_5_3_a] = useState(datentyp_char1);
+  const [code_5_3_b, setCode_5_3_b] = useState(datentyp_char2);
+  const [code_5_4_a, setCode_5_4_a] = useState(datentyp_string);
 
-  const Auswertung_einleitung_1_1 = (code: string) => {
+  //Codeauswertungen werden hier geprüft ob übereinstimmen, falls ja progress hoch
+  //mein erstes C++ Programm
+  const Auswertung_id_ckurs_2_a = (code: string) => {
     if (
       code.trim() === "Hello world!" ||
       "Hello world" ||
       "hello world" ||
       "hello world!"
     ) {
-      setProgress({ ...progress, id_einleitung_1_1: true });
+      setProgress({ ...progress, id_ckurs_2_a: true });
+      return true;
+    }
+    return false;
+  };
+  //Variablen
+  const Auswertung_id_ckurs_4_a = (code: string) => {
+    if (code.trim() === "2") {
+      setProgress({ ...progress, id_ckurs_4_a: true });
+      return true;
+    }
+    return false;
+  };
+  //Datentypen
+  //bool
+  const Auswertung_id_ckurs_5_1_a = (code: string) => {
+    if (code.trim() === "1") {
+      setProgress({ ...progress, id_ckurs_5_1_a: true });
+      return true;
+    }
+    return false;
+  };
+  //zahl
+  const Auswertung_id_ckurs_5_2_a = (code: string) => {
+    if (code.trim() === "a ist: 5, b ist: 27.3, c ist: 3.24") {
+      setProgress({ ...progress, id_ckurs_5_2_a: true });
+      return true;
+    }
+    return false;
+  };
+  //char
+  const Auswertung_id_ckurs_5_3_a = (code: string) => {
+    if (code.trim() === "Hallo" || "H a l l o" || "hallo" || "h a l l o") {
+      setProgress({ ...progress, id_ckurs_5_3_a: true });
+      return true;
+    }
+    return false;
+  };
+  const Auswertung_id_ckurs_5_3_b = (code: string) => {
+    if (
+      code.trim() === "Pebble" ||
+      "P e b b l e" ||
+      "pebble" ||
+      "p e b b l e" ||
+      "PEBBLE" ||
+      "P E B B L E"
+    ) {
+      setProgress({ ...progress, id_ckurs_5_3_b: true });
+      return true;
+    }
+    return false;
+  };
+  //string
+  const Auswertung_id_ckurs_5_4_a = (code: string) => {
+    if (code.trim() === "Hallo" || "H a l l o" || "hallo" || "h a l l o") {
+      setProgress({ ...progress, id_ckurs_5_4_a: true });
       return true;
     }
     return false;
   };
 
-  const progress1_1 = () => {
+  //Progresse für mehrer unter einem
+  //Wissenwertes zu Beginn
+  const progress_ckurs_1 = () => {
     const items = [
-      "id_1_1_a",
-      "id_1_1_b",
-      "id_1_1_c",
-      "id_1_1_d",
-      "id_1_1_e",
-      "id_1_1_f",
+      "id_ckurs_1_a",
+      "id_ckurs_1_b",
+      "id_ckurs_1_c",
+      "id_ckurs_1_d",
+      "id_ckurs_1_e",
+      "id_ckurs_1_f",
     ];
     let totalProgress = 0;
     for (let index = 0; index < items.length; index++) {
@@ -229,15 +292,44 @@ export default function Home() {
     return totalProgress;
   };
 
+  //Datentypen
+  const progress_ckurs_5 = () => {
+    const items = [
+      "id_ckurs_5_1_a",
+      "id_ckurs_5_2_a",
+      "id_ckurs_5_3_a",
+      "id_ckurs_5_3_b",
+      "id_ckurs_5_4_a",
+    ];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
+  //setzt alle Progresse zusammen
   const progress_gesamt = () => {
     const items = [
-      "id_1_1_a",
-      "id_1_1_b",
-      "id_1_1_c",
-      "id_1_1_d",
-      "id_1_1_e",
-      "id_1_1_f",
-      "id_einleitung_1_1",
+      //Wissenwertes zu Beginn
+      "id_ckurs_1_a",
+      "id_ckurs_1_b",
+      "id_ckurs_1_c",
+      "id_ckurs_1_d",
+      "id_ckurs_1_e",
+      "id_ckurs_1_f",
+      //Mein erstes C++ Programm
+      "id_ckurs_2_a",
+      //Variablen
+      "id_ckurs_4_a",
+      //Datentyp
+      "id_ckurs_5_1_a",
+      "id_ckurs_5_2_a",
+      "id_ckurs_5_3_a",
+      "id_ckurs_5_3_b",
+      "id_ckurs_5_4_a",
     ];
     let totalProgress = 0;
     for (let index = 0; index < items.length; index++) {
@@ -269,7 +361,7 @@ export default function Home() {
     });
   };
 
-  //nichts drinnen [] -> einmal am anfang aufgerufen
+  //eird einmal am anfang aufgerufen und daten ggf geladen
   useEffect(() => {
     fetch("/api/task", {
       method: "GET",
@@ -287,17 +379,51 @@ export default function Home() {
         }, {});
         console.log(data.task, prog);
         setProgress({
-          id_1_1_a: prog["id_1_1_a"] ?? false,
-          id_1_1_b: prog["id_1_1_b"] ?? false,
-          id_1_1_c: prog["id_1_1_c"] ?? false,
-          id_1_1_d: prog["id_1_1_d"] ?? false,
-          id_1_1_e: prog["id_1_1_e"] ?? false,
-          id_1_1_f: prog["id_1_1_f"] ?? false,
-          id_einleitung_1_1: prog["id_einleitung_1_1"] ?? false,
+          //Wissenwertes zu Beginn
+          id_ckurs_1_a: prog["id_ckurs_1_a"] ?? false,
+          id_ckurs_1_b: prog["id_ckurs_1_b"] ?? false,
+          id_ckurs_1_c: prog["id_ckurs_1_c"] ?? false,
+          id_ckurs_1_d: prog["id_ckurs_1_d"] ?? false,
+          id_ckurs_1_e: prog["id_ckurs_1_e"] ?? false,
+          id_ckurs_1_f: prog["id_ckurs_1_f"] ?? false,
+          //Mein erstes C++ Programm
+          id_ckurs_2_a: prog["id_ckurs_2_a"] ?? false,
+          //Variablen
+          id_ckurs_4_a: prog["id_ckurs_4_a"] ?? false,
+          //Datentypen
+          id_ckurs_5_1_a: prog["id_ckurs_5_1_a"] ?? false,
+          id_ckurs_5_2_a: prog["id_ckurs_5_2_a"] ?? false,
+          id_ckurs_5_3_a: prog["id_ckurs_5_3_a"] ?? false,
+          id_ckurs_5_3_b: prog["id_ckurs_5_3_b"] ?? false,
+          id_ckurs_5_4_a: prog["id_ckurs_5_4_a"] ?? false,
         });
-        setCode1(
-          data.task.find((item: any) => item.id === "id_einleitung_1_1")
-            ?.code ?? einleitung_1
+        setCode_2_a(
+          data.task.find((item: any) => item.id === "id_ckurs_2_a")?.code ??
+            einleitung
+        );
+        setCode_4_a(
+          data.task.find((item: any) => item.id === "id_ckurs_4_a")?.code ??
+            var1
+        );
+        setCode_5_1_a(
+          data.task.find((item: any) => item.id === "id_ckurs_5_1_a")?.code ??
+            datentyp_bool
+        );
+        setCode_5_2_a(
+          data.task.find((item: any) => item.id === "id_ckurs_5_2_a")?.code ??
+            datentyp_zahl
+        );
+        setCode_5_3_a(
+          data.task.find((item: any) => item.id === "id_ckurs_5_3_a")?.code ??
+            datentyp_char1
+        );
+        setCode_5_3_b(
+          data.task.find((item: any) => item.id === "id_ckurs_5_3_b")?.code ??
+            datentyp_char2
+        );
+        setCode_5_4_a(
+          data.task.find((item: any) => item.id === "id_ckurs_5_4_a")?.code ??
+            datentyp_string
         );
       })
       .catch((error) => {
@@ -339,7 +465,9 @@ export default function Home() {
         <div>
           <Typography
             level="h4"
-            endDecorator={<ProgressCheck done={progress1_1()}></ProgressCheck>}
+            endDecorator={
+              <ProgressCheck done={progress_ckurs_1()}></ProgressCheck>
+            }
           >
             Wissenswertes zu Beginn
           </Typography>
@@ -350,16 +478,16 @@ export default function Home() {
           das eine Menge auszuführender Aktionen (Handlungen) 
           und deren zeitliche Abfolge festlegt."
             wasClicked={() => {
-              setProgress({ ...progress, id_1_1_a: true });
-              TaskErstellen("id_1_1_a", "", true);
+              setProgress({ ...progress, id_ckurs_1_a: true });
+              TaskErstellen("id_ckurs_1_a", "", true);
             }}
           ></Accordion>
           <Accordion
             titel="Was ist ein Programm?"
             inhalt="'Ein Programm ist ein strengformalisierter, eindeutiger und detaillierter Algorithmus, der maschinell ausgeführt werden kann' - Prof. B. Jung, Grundlagen der Informatik, Skript WS2007/08"
             wasClicked={() => {
-              setProgress({ ...progress, id_1_1_b: true });
-              TaskErstellen("id_1_1_b", "", true);
+              setProgress({ ...progress, id_ckurs_1_b: true });
+              TaskErstellen("id_ckurs_1_b", "", true);
             }}
           ></Accordion>
           <Accordion
@@ -367,32 +495,32 @@ export default function Home() {
             inhalt="Eine Programmiersprache ist eine formalisierte Sprache zum (auf-/be-)schreiben von Algorithmen, die ausgeführt werden sollen.
           Die im Rahmen dieses Kurs erlernte Programmiersprache heißt C++."
             wasClicked={() => {
-              setProgress({ ...progress, id_1_1_c: true });
-              TaskErstellen("id_1_1_c", "", true);
+              setProgress({ ...progress, id_ckurs_1_c: true });
+              TaskErstellen("id_ckurs_1_c", "", true);
             }}
           ></Accordion>
           <Accordion
             titel="Die Syntax..."
             inhalt="...regelt,welche Symbole aus Zeichen in deinem Programm zusammengesetzt werden können."
             wasClicked={() => {
-              setProgress({ ...progress, id_1_1_d: true });
-              TaskErstellen("id_1_1_d", "", true);
+              setProgress({ ...progress, id_ckurs_1_d: true });
+              TaskErstellen("id_ckurs_1_d", "", true);
             }}
           ></Accordion>
           <Accordion
             titel="Die Grammatik..."
             inhalt="...regelt welche Kombinationen von Symbolen Sinn ergeben."
             wasClicked={() => {
-              setProgress({ ...progress, id_1_1_e: true });
-              TaskErstellen("id_1_1_e", "", true);
+              setProgress({ ...progress, id_ckurs_1_e: true });
+              TaskErstellen("id_ckurs_1_e", "", true);
             }}
           ></Accordion>
           <Accordion
             titel="Die Semantik..."
             inhalt="...regelt die Bedeutung der Abfolgen von Symbolen."
             wasClicked={() => {
-              setProgress({ ...progress, id_1_1_f: true });
-              TaskErstellen("id_1_1_f", "", true);
+              setProgress({ ...progress, id_ckurs_1_f: true });
+              TaskErstellen("id_ckurs_1_f", "", true);
             }}
           ></Accordion>
         </div>
@@ -403,7 +531,7 @@ export default function Home() {
             level="h4"
             endDecorator={
               <ProgressCheck
-                done={progress["id_einleitung_1_1"] ? 100 : 0}
+                done={progress["id_ckurs_2_a"] ? 100 : 0}
               ></ProgressCheck>
             }
           >
@@ -417,14 +545,14 @@ export default function Home() {
           <CodeEditor
             title="Aufgabe: Gib 'Hello world!' aus, indem du rechts den Code über den Play
             Button ausführst."
-            defaultValue={code1}
+            defaultValue={code_2_a}
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
-              Auswertung_einleitung_1_1(code_ausgabe);
+              Auswertung_id_ckurs_2_a(code_ausgabe);
               TaskErstellen(
-                "id_einleitung_1_1",
+                "id_ckurs_2_a",
                 code_eingabe,
-                Auswertung_einleitung_1_1(code_ausgabe)
+                Auswertung_id_ckurs_2_a(code_ausgabe)
               );
             }}
           ></CodeEditor>
@@ -445,7 +573,15 @@ export default function Home() {
         </div>
         {/*Variablen*/}
         <div>
-          <Typography sx={{ marginTop: "40px" }} level="h4">
+          <Typography
+            sx={{ marginTop: "40px" }}
+            level="h4"
+            endDecorator={
+              <ProgressCheck
+                done={progress["id_ckurs_4_a"] ? 100 : 0}
+              ></ProgressCheck>
+            }
+          >
             Variablen
           </Typography>
           <div id="ckurs.4"></div>
@@ -468,13 +604,27 @@ export default function Home() {
           <CodeEditor
             title="Aufgabe: Erstelle eine Variable mit dem namen 'myVar' vom Datentypen 'int'
             und weise es der Zahl 2 zu"
-            defaultValue={var1}
+            defaultValue={code_4_a}
             turtle={false}
+            codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+              Auswertung_id_ckurs_4_a(code_ausgabe);
+              TaskErstellen(
+                "id_ckurs_4_a",
+                code_eingabe,
+                Auswertung_id_ckurs_4_a(code_ausgabe)
+              );
+            }}
           ></CodeEditor>
         </div>
         {/*Datentypen*/}
         <div>
-          <Typography sx={{ marginTop: "40px" }} level="h4">
+          <Typography
+            sx={{ marginTop: "40px" }}
+            level="h4"
+            endDecorator={
+              <ProgressCheck done={progress_ckurs_5()}></ProgressCheck>
+            }
+          >
             Datentypen
           </Typography>
           <div id="ckurs.5"></div>
@@ -484,7 +634,16 @@ export default function Home() {
             Datentypen.
           </Typography>
           <div>
-            <Typography level="h5">Datentyp - Boolean</Typography>
+            <Typography
+              level="h5"
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_5_1_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
+              Datentyp - Boolean
+            </Typography>
             <div id="ckurs.5.1"></div>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
               Die Werte von dem Datenyp boolean können nur 0 und 1 annehmen.
@@ -494,6 +653,14 @@ export default function Home() {
               title="Aufgabe: Ändere den Wert um, sodass die Aussage wahr ist! :)"
               defaultValue={datentyp_bool}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_5_1_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_5_1_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_5_1_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           <div>
