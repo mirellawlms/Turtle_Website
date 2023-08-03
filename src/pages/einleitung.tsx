@@ -8,6 +8,8 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 import { useEffect, useState } from "react";
 import { Field } from "@/components/TurtleViewer";
 
+//CODE SEGMENTE
+
 //EINLEITUNG
 const einleitung_1 = `// einbinden externer Definitionen (hier std::cout)
 #include <iostream>
@@ -80,6 +82,7 @@ int main() {
 }`;
 
 //Kontrollstrukturen
+//Fallunterscheidung
 const fallunterscheidung_if = `#include <iostream>
 int main() {
   int zahl = 10;
@@ -128,8 +131,24 @@ int main() {
            }
     return 0;
 }`;
+//Schleifen
+const schleifen_while = `
 
-const einleitung_3 = `#include "turtle.h"
+`;
+
+const schleifen_dowhile = `
+
+`;
+
+const schleifen_for = `#include <iostream>
+int main() {
+  for(int i=1; i < 6; ++i){
+    std::cout << i << " " << std::endl;
+  }
+  return 0;
+}`;
+
+const schleifen = `#include "turtle.h"
 #include <stdio.h>
 #include <iostream>
 
@@ -152,8 +171,8 @@ const einleitung_3 = `#include "turtle.h"
     }
 }`;
 
-// Aufgabe 3 kleines Labyrinth
-const maze_aufgabe3: Field[][] = [
+// Aufgabe schleifen kleines Labyrinth
+const maze_schleifen: Field[][] = [
   [Field.START, Field.EMPTY, Field.EMPTY, Field.EMPTY],
   [Field.EMPTY, Field.WALL, Field.WALL, Field.EMPTY],
   [Field.EMPTY, Field.WALL, Field.WALL, Field.EMPTY],
@@ -164,7 +183,7 @@ export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
   const [code1, setCode1] = useState(einleitung_1);
   const [code2, setCode2] = useState(operatoren);
-  const [code3, setCode3] = useState(einleitung_3);
+  const [code3, setCode3] = useState(schleifen);
 
   const Auswertung_einleitung_1_1 = (code: string) => {
     if (
@@ -775,17 +794,17 @@ export default function Home() {
               Schleifen - for
             </Typography>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
-              Die "for"-Schleife ist besonders nützlich, wenn man die Anzahln
-              der Durchläufe kennt. Sie wird auch Zählzyklus genannt und führt
-              einen Codeblock aus, solange die Schleifenbedingung wahr ist. Zu
-              Bgeinn wird eine Initialisierung gemacht, die die Startwerte
-              bestimmt. Nach jedem Durchlauf erfolgt eine Inkrementierungt.
-              Dadruch kann man die Bedingung für den nächsten Durchlauf ändern
-              oder den Zähler erhöhen.
+              Die "for"-Schleife ist besonders nützlich, wenn man die Anzahl der
+              Durchläufe kennt. Sie wird auch Zählzyklus genannt und führt einen
+              Codeblock aus, solange die Schleifenbedingung wahr ist. Zu Beginn
+              wird eine Initialisierung gemacht, welche die Startwerte bestimmt.
+              Nach jedem Durchlauf erfolgt eine Inkrementierungt. Dadruch kann
+              man die Bedingung für den nächsten Durchlauf ändern oder den
+              Zähler erhöhen.
             </Typography>
             <CodeEditor
-              title="Aufgabe:"
-              defaultValue=""
+              title="Aufgabe:Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
+              defaultValue={schleifen_for}
               turtle={false}
             ></CodeEditor>
           </div>
