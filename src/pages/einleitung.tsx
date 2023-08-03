@@ -132,11 +132,26 @@ int main() {
     return 0;
 }`;
 //Schleifen
-const schleifen_while = `
+const schleifen_while = `#include <iostream>
+int main() {
+  int i = 1;
+  while (i < 6) {
+    std::cout << i << " ";
+    i++;
+  }
+  return 0;
+}`;
 
-`;
-
-const schleifen_dowhile = `
+const schleifen_dowhile = `#include <iostream>
+int main() {
+  int i = 1;
+  do{
+    std::cout << i << " ";
+    i++;
+  }
+  while (i < 11);
+  return 0;
+}
 
 `;
 
@@ -766,8 +781,8 @@ export default function Home() {
               durch, wie die angegebene Bedingung wahr ist.
             </Typography>
             <CodeEditor
-              title="Aufgabe:"
-              defaultValue=""
+              title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
+              defaultValue={schleifen_while}
               turtle={false}
             ></CodeEditor>
           </div>
@@ -784,8 +799,8 @@ export default function Home() {
               ausgeführt wird.
             </Typography>
             <CodeEditor
-              title="Aufgabe:"
-              defaultValue=""
+              title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
+              defaultValue={schleifen_dowhile}
               turtle={false}
             ></CodeEditor>
           </div>
@@ -803,7 +818,7 @@ export default function Home() {
               Zähler erhöhen.
             </Typography>
             <CodeEditor
-              title="Aufgabe:Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
+              title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
               defaultValue={schleifen_for}
               turtle={false}
             ></CodeEditor>
