@@ -201,8 +201,17 @@ export default function Home() {
   const [code_5_3_a, setCode_5_3_a] = useState(datentyp_char1);
   const [code_5_3_b, setCode_5_3_b] = useState(datentyp_char2);
   const [code_5_4_a, setCode_5_4_a] = useState(datentyp_string);
+  const [code_6_a, setCode_6_a] = useState(operatoren);
+  const [code_7_1_1_a, setCode_7_1_1_a] = useState(fallunterscheidung_if);
+  const [code_7_1_2_a, setCode_7_1_2_a] = useState(fallunterscheidung_if_else);
+  const [code_7_1_3_a, setCode_7_1_3_a] = useState(fallunterscheidung_else_if);
+  const [code_7_1_4_a, setCode_7_1_4_a] = useState(fallunterscheidung_switch);
+  const [code_7_2_1_a, setCode_7_2_1_a] = useState(schleifen_while);
+  const [code_7_2_2_a, setCode_7_2_2_a] = useState(schleifen_dowhile);
+  const [code_7_2_3_a, setCode_7_2_3_a] = useState(schleifen_for);
 
-  //Codeauswertungen werden hier geprüft ob übereinstimmen, falls ja progress hoch
+
+  /*CODEAUSWERTUNGEN PRÜFUNG*/
   //mein erstes C++ Programm
   const Auswertung_id_ckurs_2_a = (code: string) => {
     if (
@@ -272,7 +281,76 @@ export default function Home() {
     return false;
   };
 
-  //Progresse für mehrer unter einem
+  //operatoren
+  const Auswertung_id_ckurs_6_a = (code: string) => {
+    if (code.trim() === "1") {
+      setProgress({ ...progress, id_ckurs_6_a: true });
+      return true;
+    }
+    return false;
+  };
+  //Kontrollstrukturen
+  //Fallunterscheidung
+  //if else
+  const Auswertung_id_ckurs_7_1_1_a = (code: string) => {
+    if (code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" || "Deine Akkuladung ist gering! Lade dein Handy.") {
+      setProgress({ ...progress, id_ckurs_7_1_1_a: true });
+      return true;
+    }
+    return false;
+  };
+  //if else
+  const Auswertung_id_ckurs_7_1_2_a = (code: string) => {
+    if (code.trim() === "Super, du hast diese Aufgabe geschafft" || "Super, du hast diese Aufgabe geschafft!") {
+      setProgress({ ...progress, id_ckurs_7_1_2_a: true });
+      return true;
+    }
+    return false;
+  };
+  //else if
+  const Auswertung_id_ckurs_7_1_3_a = (code: string) => {
+    if (code.trim() === "Du solltest bald dein Handy laden" || "Du solltest bald dein Handy laden!") {
+      setProgress({ ...progress, id_ckurs_7_1_3_a: true });
+      return true;
+    }
+    return false;
+  };
+  //switch case
+  const Auswertung_id_ckurs_7_1_4_a = (code: string) => {
+    if (code.trim() === "C++" || "c++") {
+      setProgress({ ...progress, id_ckurs_7_1_4_a: true });
+      return true;
+    }
+    return false;
+  };
+  //Schleifen
+  //while
+  const Auswertung_id_ckurs_7_2_1_a = (code: string) => {
+    if (code.trim() === "1 2 3 4 5 6 7 8 9" || "123456789") {
+      setProgress({ ...progress, id_ckurs_7_2_1_a: true });
+      return true;
+    }
+    return false;
+  };
+  //do while
+  const Auswertung_id_ckurs_7_2_2_a = (code: string) => {
+    if (code.trim() === "1 2 3 4 5 6 7 8 9" || "123456789") {
+      setProgress({ ...progress, id_ckurs_7_2_2_a: true });
+      return true;
+    }
+    return false;
+  };
+  //for
+  const Auswertung_id_ckurs_7_2_3_a = (code: string) => {
+    if (code.trim() === "1 2 3 4 5 6 7 8 9" || "123456789") {
+      setProgress({ ...progress, id_ckurs_7_2_3_a: true });
+      return true;
+    }
+    return false;
+  };
+
+
+  /*PROGRESSE MEHRERER */
   //Wissenwertes zu Beginn
   const progress_ckurs_1 = () => {
     const items = [
@@ -310,7 +388,7 @@ export default function Home() {
     return totalProgress;
   };
 
-  //setzt alle Progresse zusammen
+  //*ALLE PROGRESSE ZUSAMMEN */
   const progress_gesamt = () => {
     const items = [
       //Wissenwertes zu Beginn
@@ -340,7 +418,7 @@ export default function Home() {
     return totalProgress;
   };
 
-  //POST auf DB
+  /*POST AUF DB*/
   const TaskErstellen = async (
     id: string,
     code_eingabe: string,
@@ -361,7 +439,7 @@ export default function Home() {
     });
   };
 
-  //eird einmal am anfang aufgerufen und daten ggf geladen
+  /*LADE DATEN AUS DB */
   useEffect(() => {
     fetch("/api/task", {
       method: "GET",
