@@ -28,17 +28,42 @@ export const Navigation: React.FC<Props> = (props) => {
                 title={{ idlink: "/einleitung", label: "C++ Kurs" }}
                 inhalt={[
                   {
-                    idlink: "/einleitung#c.1.1",
+                    idlink: "/einleitung#ckurs.1",
                     label: "Wissenswertes zu Beginn",
                   },
                   {
-                    idlink: "/einleitung#c.1.2",
+                    idlink: "/einleitung#ckurs.2",
                     label: "Mein erstes C++ Programm",
                   },
                   {
-                    idlink: "/einleitung#c.1.3",
-                    label: "Addition zweier nichtnegativer Zahlen",
+                    idlink: "/einleitung#ckurs.3",
+                    label: "Kommentar",
                   },
+                  {
+                    idlink: "/einleitung#ckurs.4",
+                    label: "Variablen",
+                  },
+                  {
+                    idlink: "/einleitung#ckurs.5",
+                    label: "Datentypen",
+                  },
+                  {
+                    idlink: "/einleitung#ckurs.6",
+                    label: "Operatoren",
+                  },
+                  {
+                    idlink: "/einleitung#ckurs.7",
+                    label: "Kontrollstrukturen",
+                  },
+                  {
+                    idlink: "/einleitung#ckurs.7.1",
+                    label: "Fallunterscheidung",
+                  },
+                  {
+                    idlink: "/einleitung#ckurs.7.2",
+                    label: "Schleifen",
+                  },
+                  
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>

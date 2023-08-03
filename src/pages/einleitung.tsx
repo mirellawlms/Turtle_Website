@@ -151,9 +151,7 @@ int main() {
   }
   while (i < 11);
   return 0;
-}
-
-`;
+}`;
 
 const schleifen_for = `#include <iostream>
 int main() {
@@ -345,7 +343,7 @@ export default function Home() {
           >
             Wissenswertes zu Beginn
           </Typography>
-          <div id="c.1.1"></div>
+          <div id="ckurs.1"></div>
           <Accordion
             titel="Was ist ein Algorithmus?"
             inhalt="Ein Algorithmus ist ein Verhaltensmuster, 
@@ -411,7 +409,7 @@ export default function Home() {
           >
             Mein erstes C++ Programm
           </Typography>
-          <div id="c.1.2"></div>
+          <div id="ckurs.2"></div>
           <Typography sx={{ marginBottom: "10px" }} level="body1">
             Nachdem du nun viele neue Begriffe gelernt hast, ist es nun an der
             Zeit gekommen, dass du dein erstes C++ Programm schreibst.
@@ -436,6 +434,7 @@ export default function Home() {
           <Typography sx={{ marginTop: "40px" }} level="h4">
             Kommentar
           </Typography>
+          <div id="ckurs.3"></div>
           <Typography level="body1">
             Alles, was in einer Zeile <b>//</b> folgt ist ein Kommentar.
             <br></br>
@@ -449,6 +448,7 @@ export default function Home() {
           <Typography sx={{ marginTop: "40px" }} level="h4">
             Variablen
           </Typography>
+          <div id="ckurs.4"></div>
           <Typography level="body1">
             Variablen sind Platzhalter im Speicher des Rechners (“Merkzettel”)
             in denen Information gespeichert werden kann. C++ ist eine streng
@@ -477,6 +477,7 @@ export default function Home() {
           <Typography sx={{ marginTop: "40px" }} level="h4">
             Datentypen
           </Typography>
+          <div id="ckurs.5"></div>
           <Typography level="body1" sx={{ marginBottom: "10px" }}>
             Du hast im vorherigen Kapitel bereits den Datentyp 'int'
             kennengelernt. Es gibt aber noch viele weitere grundlegende
@@ -484,6 +485,7 @@ export default function Home() {
           </Typography>
           <div>
             <Typography level="h5">Datentyp - Boolean</Typography>
+            <div id="ckurs.5.1"></div>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
               Die Werte von dem Datenyp boolean können nur 0 und 1 annehmen.
               Dabei bedeutet 0 "false" und 1 “true".
@@ -498,9 +500,10 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Datentyp - Zahlen {"(int, double, float)"}
             </Typography>
+            <div id="ckurs.5.2"></div>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
               Man kann Zahlen mit verschiedenen Datentypen darstellen.<br></br>•
-              "int" wird für ganze Zahlen ohne Dezimalstellen verwendet{" "}
+              "int" wird für ganze Zahlen ohne Dezimalstellen verwendet
               <br></br>• "double" und "float" werden für Zahlen mit
               Dezimalstellen verwendet, wobei "double" eine höheren Wertebereich
               erreicht als "float".
@@ -513,8 +516,9 @@ export default function Home() {
           </div>
           <div>
             <Typography level="h5" sx={{ marginTop: "20px" }}>
-              Datentyp - Zeichen (char){" "}
+              Datentyp - Zeichen (char)
             </Typography>
+            <div id="ckurs.5.3"></div>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
               Der Datentyp "char" wird verwendet, um ein einzelnes Zeichen zu
               speichern. <br></br>Das Zeichen muss dafür von einem einfachen
@@ -539,6 +543,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Datentyp - string
             </Typography>
+            <div id="ckurs.5.4"></div>
             <Typography sx={{ marginBottom: "10px" }} level="body1">
               Der Datentyp "std::string" ist eine Sequenz von Zeichen, die als
               Text interpretiert wird. Strings können Buchstaben, Zahlen,
@@ -555,6 +560,7 @@ export default function Home() {
           <Typography level="h5" sx={{ marginTop: "20px" }}>
             Datentypen - Zusammenfassung
           </Typography>
+          <div id="ckurs.5.5"></div>
           <img
             src={"/Datentypen.png"}
             alt="Datentypen"
@@ -575,7 +581,7 @@ export default function Home() {
           >
             Operatoren
           </Typography>
-          <div id="c.1.3"></div>
+          <div id="ckurs.6"></div>
           <Typography>
             Operatoren sind essentielle Bausteine in der Programmierung, die es
             ermöglichen Operationen auf Variablen und Werten auszuführen. Zu den
@@ -680,6 +686,7 @@ export default function Home() {
             Kontrollstrukturen (Fallunterscheidungen, Schleifen,
             Sprunganweisungen)
           </Typography>
+          <div id="ckurs.7"></div>
           <Typography level="body1" sx={{ marginBottom: "20px" }}>
             Kontrollstrukturen sind Konstrukte, welche die Reihenfolge der
             Ausführung von Anweisungen steuern. Durch sie ist es möglich,
@@ -692,9 +699,11 @@ export default function Home() {
             <Typography level="h5">
               <b>Fallunterscheidung</b>
             </Typography>
+            <div id="ckurs.7.1"></div>
             <Typography level="h5" sx={{ marginTop: "5px" }}>
               Fallunterscheidung - if else
             </Typography>
+            <div id="ckurs.7.1.1"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Das If-Else-Konstrukt ist eine Möglichkeit, komplexe Algorithmen
               zu erstellen, die auf unterschiedliche Ergebnisse reagieren. Es
@@ -715,6 +724,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Fallunterscheidung - if
             </Typography>
+            <div id="ckurs.7.1.2"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Das Schlüsselwort "if" kann auch allein stehen, falls dieses ohne
               der dazugehörigen "else"-Anweisung verwendet wird. In diesem Fall
@@ -732,6 +742,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Fallunterscheidung - else if
             </Typography>
+            <div id="ckurs.7.1.3"></div>
             <Typography sx={{ marginBottom: "10px" }}>
               Verwende "else if", um eine weitere Bedingung anzugeben. Sobald
               eine Bedingung erfüllt ist , werden die anderen Bedingungen
@@ -747,6 +758,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Fallunterscheidung - switch case
             </Typography>
+            <div id="ckurs.7.1.4"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Verwende "switch case", wenn es viele verschiedene Werte gibt, die
               geprüft werden müssen. Es ist eine alternative Möglichkeit zur
@@ -762,6 +774,7 @@ export default function Home() {
           <Typography level="h5" sx={{ marginTop: "30px" }}>
             <b>Schleifen</b>
           </Typography>
+          <div id="ckurs.7.2"></div>
           <Typography level="body1">
             Schleifen (auch "Zyklus", "Wiederholung" oder "Loop") werden
             verwendet, um die wiederholte Ausführung von Teilen eines Programms
@@ -775,6 +788,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "10px" }}>
               Schleifen - while
             </Typography>
+            <div id="ckurs.7.2.1"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Die "while"-Schleife wird auch Schleife mit vorangestellter
               Bedingung/Kopfgesteuerter Schleife genannt. Sie läuft solange
@@ -790,6 +804,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Schleifen - do while
             </Typography>
+            <div id="ckurs.7.2.2"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Die "do-while"-Schleife ist eine Varainte der "while"-Schleife.
               <br></br>
@@ -808,6 +823,7 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Schleifen - for
             </Typography>
+            <div id="ckurs.7.2.3"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Die "for"-Schleife ist besonders nützlich, wenn man die Anzahl der
               Durchläufe kennt. Sie wird auch Zählzyklus genannt und führt einen
