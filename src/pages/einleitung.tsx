@@ -18,7 +18,7 @@ std::cout << "Hello World!";
 return 0; // Rückgabe an das aufrufende Programm
 } // Ende des Programms`;
 
-//Variablen
+//VARIABLEN
 const var1 = `#include <iostream>
 
 int main() {
@@ -71,7 +71,7 @@ int main() {
   return 0;
 }`;
 
-//Operatoren
+//OPERATOREN
 const operatoren = `#include <iostream>
 int main() {
   int num1 = 3;
@@ -80,8 +80,8 @@ int main() {
   return 0;
 }`;
 
-//Kontrollstrukturen
-//Fallunterscheidung
+//KONTROLLSTRUKTUREN
+//FALLUNTERSCHEIDUNG
 const fallunterscheidung_if = `#include <iostream>
 int main() {
   int zahl = 10;
@@ -131,7 +131,7 @@ int main() {
     return 0;
 }`;
 
-//Schleifen
+//SCHLEIFEN
 const schleifen_while = `#include <iostream>
 int main() {
   int i = 1;
@@ -184,7 +184,7 @@ const schleifen = `#include "turtle.h"
     }
 }`;
 
-// Aufgabe schleifen kleines Labyrinth
+//Aufgabe schleifen kleines Labyrinth
 const maze_schleifen: Field[][] = [
   [Field.START, Field.EMPTY, Field.EMPTY, Field.EMPTY],
   [Field.EMPTY, Field.WALL, Field.WALL, Field.EMPTY],

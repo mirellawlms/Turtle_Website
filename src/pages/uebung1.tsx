@@ -191,11 +191,14 @@ export default function Home() {
             nennen! Ich meine hier nicht codieren. Codieren ist lediglich die
             Umsetzung der Beschreibung in einer Programmmiersprache wie C++, bei
             der eine Entwicklungsumgebung zum Eingeben und Testen des Codes
-            benötigt wird. Das schauen wir uns auch im nächsten Kapitel auch
-            noch, aber alles zu seiner Zeit!
+            benötigt wird. Das schauen wir uns im nächsten Kapitel auch
+            noch an, aber alles zu seiner Zeit!
+          </Typography>
+          <Typography level="h4" sx={{ marginTop: "10px" }}>
+            Entwurfstechnik
           </Typography>
           {/*Programmablaufplan*/}
-          <Typography level="h4" sx={{ marginTop: "10px" }}>
+          <Typography level="h5" sx={{ marginTop: "5px" }}>
             Programmablaufplan (PAP)
           </Typography>
           <div>
@@ -218,7 +221,7 @@ export default function Home() {
             </Typography>
           </div>
           {/*Struktogramm*/}
-          <Typography level="h4" sx={{ marginTop: "10px" }}>
+          <Typography level="h5" sx={{ marginTop: "10px" }}>
             Struktogramm (Nassi-Shneidermann Diagramm)
           </Typography>
           <div>
@@ -248,7 +251,7 @@ export default function Home() {
             </Typography>
           </div>
           {/*Pseudocode*/}
-          <Typography level="h4" sx={{ marginTop: "10px" }}>
+          <Typography level="h5" sx={{ marginTop: "10px" }}>
             Pseudocode
           </Typography>
           <div id="algo.1.2"></div>

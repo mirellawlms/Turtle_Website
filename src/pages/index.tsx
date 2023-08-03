@@ -140,12 +140,20 @@ export default function Home() {
               <Accordion
                 titel="Verständnis der Algorithmik"
                 inhalt="
-                Algorithmen können manchmal sehr einschüchternd wirken, deshalb ist es hilfreich, sie in einfache Schritte aufzuteilen. Durch diese schrittweise Herangehensweise könnt ihr ein grundlegendes Verständnis dafür entwickeln, wie Algorithmen zur Lösung von Problemen und zur Verarbeitung von Daten eingesetzt werden können. Es geht darum, die Komplexität zu reduzieren und einen klaren Plan zu erstellen, um eine Aufgabe systematisch anzugehen. Mit diesem Ansatz könnt ihr euch schrittweise in die Welt der Algorithmen einarbeiten und euer Wissen und Können stetig erweitern. Durch die Beherrschung der Kunst der Algorithmusentwicklung könnt ihr eure Fähigkeiten als Problemlöser und Entwickler erheblich verbessern."
+                Algorithmen können manchmal sehr einschüchternd wirken, deshalb ist es hilfreich, 
+                sie in einfache Schritte aufzuteilen. Durch diese schrittweise Herangehensweise
+                könnt ihr ein grundlegendes Verständnis dafür entwickeln, wie Algorithmen zur
+                Lösung von Problemen und zur Verarbeitung von Daten eingesetzt werden können.
+                Es geht darum, die Komplexität zu reduzieren und einen klaren Plan zu erstellen, 
+                um eine Aufgabe systematisch anzugehen."
               ></Accordion>
               <Accordion
-                titel="Algorithmus zu Pseudocode"
-                inhalt="Es wird gezeigt, wie man einen Algorithmus in Pseudocode beschreibt und in C++ Code umsetzt. Dabei müsst ihr einen Algorithmus entwickeln, der Pebble aus den Labyrinth führt.
-                Die Umwandlung von Pseudocode in C++ erfodert solide Kenntnisse der C++ Syntax und das Verständnis des Algorithmus selbst. In dieser E-Learning Plattform erlangst du dieses Wissen, um erfolgreich einen eigenen Algorithmus zu schreiben"
+                titel="Pseudocode zu C++ Code"
+                inhalt="Es wird gezeigt, wie man einen Algorithmus in Pseudocode beschreibt und in C++ Code umsetzt.
+                Dabei müsst ihr einen Algorithmus entwickeln, der Pebble aus den Labyrinth führt.
+                Die Umwandlung von Pseudocode in C++ erfodert Kenntnisse der C++ Syntax und das
+                Verständnis des Algorithmus selbst. Aber keine Panik, in dieser E-Learning Plattform
+                erlangst du dieses Wissen, um erfolgreich einen eigenen Algorithmus zu schreiben!"
               ></Accordion>
             </div>
           </div>
