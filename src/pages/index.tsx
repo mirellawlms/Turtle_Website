@@ -193,6 +193,28 @@ export default function Home() {
             <img src={"/undraw_ziele.svg"} alt="ziele" height={150} />
           </div>
           {/*fünfter Absatz*/}
+          <div className={styles.bildeinruecken}>
+            <div>
+              <Typography level="h3">
+                <b>You VS You</b>
+              </Typography>
+              <Typography level="body1">
+                Du gegen dich selber? Genau! Du hast es bereits richtig verstanden. In
+                diesem Kurs steht deine individuelle Entwicklung im Vordergrund.
+                Du kannst ihn in Ruhe und in deinem eigenen Tempo absolvieren.
+                Es geht nicht darum, der/die Schnellste zu sein, sondern darum, dass
+                du diesen Kurs erfolgreich meisterst. Du kannst hier viele
+                wertvolle Informationen mitnehmen. Natürlich kannst du von
+                deinen Kommilitoninnen und Kommilitonen Hilfe bekommen, aber
+                versuche den Kurs so gut wie möglich eigenständig zu bearbeiten
+                und sei dir selbst kein Hindernis. Du kannst es schaffen! Dein
+                einziger Gegner bist du selbst, also zeig dir selbst, dass du
+                programmieren kannst und diesen Kurs meistern kannst!
+              </Typography>
+            </div>
+            <img src={"/undraw_you_vs_you.svg"} alt="youImage" height={150} />
+          </div>
+          {/*sechster Absatz*/}
           <div className={styles.bildeinruecken2}>
             <div>
               <Typography level="h3">
