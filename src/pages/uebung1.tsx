@@ -149,7 +149,6 @@ export default function Home() {
              ist terminierend, wenn er für jede mögliche Eingabe
               nach endlich vielen Schritten anhält (oder kontrolliert abbricht). "
           ></Accordion>
-
           {/*Begin*/}
           <Typography level="h4">Kann jeder Programmieren?</Typography>
           <div id="algo.1.1"></div>
@@ -162,7 +161,7 @@ export default function Home() {
               heiße Tasse Kaffee zu bekommen (French Press), muss eine bestimmte
               Abfolge von Schritten eingehalten werden.
             </Typography>
-            <img src={"/undraw_coffee.svg"} alt="coffeeImage" height={110} />
+            <img src={"/undraw_coffee.svg"} alt="coffeeImage" height={130} />
           </div>
           <div className={styles.Container}>
             <Typography level="body1">
@@ -191,8 +190,8 @@ export default function Home() {
             nennen! Ich meine hier nicht codieren. Codieren ist lediglich die
             Umsetzung der Beschreibung in einer Programmmiersprache wie C++, bei
             der eine Entwicklungsumgebung zum Eingeben und Testen des Codes
-            benötigt wird. Das schauen wir uns im nächsten Kapitel auch
-            noch an, aber alles zu seiner Zeit!
+            benötigt wird. Das schauen wir uns im nächsten Kapitel auch noch an,
+            aber alles zu seiner Zeit!
           </Typography>
           <Typography level="h4" sx={{ marginTop: "10px" }}>
             Entwurfstechnik
@@ -265,7 +264,7 @@ export default function Home() {
               untereinander niedergeschrieben.
             </Typography>
             <Accordion
-              titel="Eine Faustregel"
+              titel="Pseudocode Faustregel"
               inhalt={
                 <span>
                   1. Verstehe das Problem was du Lösen möchtest <br></br>

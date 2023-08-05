@@ -2,9 +2,17 @@ import Head from "next/head";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Field, TurtleViewer } from "@/components/TurtleViewer";
 import { Navigation } from "@/components/Navigation";
-import { Button, Modal, ModalClose, ModalDialog, Typography } from "@mui/joy";
+import {
+  Button,
+  Modal,
+  ModalClose,
+  ModalDialog,
+  Textarea,
+  Typography,
+} from "@mui/joy";
 import { useEffect, useState } from "react";
 import { ProgressCheck } from "@/components/ProgressCheck";
+import styles from "../styles/Uebung2.module.css";
 
 //Standardwert der einzelnen CodeEditoren
 const code3_1 = `#include "turtle.h"
@@ -12,7 +20,7 @@ const code3_1 = `#include "turtle.h"
 #include <iostream>
 
   int main(){
-      Kroete pebble;
+      Kroete pebble; //Element pebble kann nun aufgerufen werden
       int i;
       int p;
 
@@ -63,6 +71,23 @@ const code3_3 = `#include "turtle.h"
         pebble.moveForward();
     }
   };`;
+
+const code_1 = `#include <iostream>
+int main() {
+    int zahl1 = 1; // Setze Variable "zahl1" auf den Wert 1
+    int zahl2 = 3; // Setze Variable "zahl2" auf den Wert 3
+    // Berechne die Summe der beiden Zahlen und speichere sie in der Variable "ergebnis"
+    int ergebnis = zahl1 + zahl2;
+    
+    while(ergebnis < 10){ //SOLANGE das Ergebnis kleiner als 10 ist
+      zahl1 += 1; //erhöhe den Wert um 1
+      zahl2 += 1; //erhöhe den Wert um 1
+    }
+    if(ergebnis > 10){ //Gib das "ergebnis" aus, WENN die Summe größer als 10 ist.
+      std::cout << "Die Summe ist: " << ergebnis << std::endl;
+    }
+    return 0;
+}`;
 
 //Labyrintherstellung
 const maze_einfach: Field[][] = [
@@ -527,18 +552,155 @@ export default function Home() {
       >
         <div>
           <Typography level="h3">Algorithmus Teil 2</Typography>
-          <Typography level="body1">
-            Am Ende dieses Kapitels sollst du mir helfen, mit Hilfe einem von
-            dir geschriebenen Algorithmus, aus dem Labyrinth zu entkommen. Ich
-            freue mich schon endlich wieder meine Familie zu sehen!
+          <div className={styles.bildeinruecken2}>
+            <Typography level="body1">
+              In diesem Kapitel lernst du, wie man einen Pseudocode in C++ Code
+              umwandelt. Es handelt sich um den letzten Kursabschnitt. Falls du
+              dich noch unsicher fühlst dieses Kapitel zu absolvierene, kannst
+              du gerne nochmal die anderen Kapitel anschauen. Kehre aber
+              anschließend hierher zurück um mir zu helfen, aus dem Labyrinth zu
+              entkommen! Dafür musst du einen Algorithmus schreiben, der mich
+              aud drei verschiedenen Labyrinthen führt. Ich bin mir sicher, dass
+              du auch dieses Kapitel meistern wirst!
+            </Typography>
+            <img
+              src={"/undraw_thought_process.svg"}
+              alt="thoughtsImage"
+              height={150}
+            />
+          </div>
+
+          {/*Pseudocode in C++ Code*/}
+          <div>
+            <Typography level="h3" sx={{ marginTop: "30px" }}>
+              Pseudocode zu C++ Code
+            </Typography>
+            <Typography level="body1">
+              Bevor du deinen eigenen Pseudocode in ein C++ Code uberführst,
+              schauen wir uns zusammen eine Überführung anhand eines Beispiels
+              an.
+            </Typography>
+            <Typography level="h4" sx={{ marginTop: "10px" }}>
+              Beispiel
+            </Typography>
+          </div>
+          <div>
+            <Typography level="body1" sx={{ marginTop: "5px" }}>
+              <b>Pseudocode:</b>
+              <br></br>
+              Weise einer Variable "Zahl1" den Wert eins zu. <br></br>
+              Weise einer Variable "Zahl2" den Wert drei zu. <br></br>
+              Berechne die Summe der beiden Zahlen und speichere sie in der
+              Variable "Ergebnis" ab.<br></br>
+              SOLANGE das Ergebnis der Summe kleiner als 10 ist, erhöhe den wert
+              beider Zahlen um 1.<br></br>
+              Gib das "Ergebnis" aus, WENN die Summe größer als 10 ist.
+            </Typography>
+            <Typography level="body1" sx={{ marginTop: "10px" }}>
+              <b>C++:</b>
+              <br></br>
+            </Typography>
+            <CodeEditor
+              title="C++ Code"
+              defaultValue={code_1}
+              turtle={false}
+            ></CodeEditor>
+          </div>
+          <Typography level="h4" sx={{ marginTop: "30px" }}>
+            Guideline
           </Typography>
-          <Typography>
-            <br></br>Folgende Aussagen treffen auf einen Algorithmus zu:
-            <br></br>• Das Ergebnis ist hier immer eindeutig und wohldefiniert.
-            <br></br>• Der Algorithmus macht bei gleicher Eingabe in jedem
-            Schritt exakt das gleiche (er ist deterministisch).
-            <br></br>• Der Algorithmus besitzt sich wiederholende
-            Anweisungen(einen Zyklus).
+          <div className={styles.bildeinruecken}>
+            <img
+              src={"/undraw_learning.svg"}
+              alt="learningImage"
+              height={150}
+            />
+            <Typography level="body1">
+              <b>1. Verstehe deinen Pseudocode:</b>
+              <br></br>
+              Hast du deinen Pseudocode vollständig verstanden und ist dir die
+              Bedeutung jeder Anweisung klar? Stelle sicher, dass du alle
+              Variablen und ihre Bedeutung kennst.<br></br>
+              <b>2. Identifiziere Variablen und Datentypen:</b>
+              <br></br>
+              Überprüfe deinen Pseudocode auf verwendete Variablen und weise
+              ihnen Datentypen zu.<br></br>
+              <b>3. Strukturiere deinen Code:</b>
+              <br></br>
+              Überlege wie du Schleifen, Bedingungen und andere Strukturen
+              deines Pseudocode in entsprechende C++ Codeblöcke überführen
+              kannst. Schaue wie du "if"-Anweisungen, "while"/"for"-Schleifen
+              einsetzen kanst.
+              <br></br>
+              <b>4. Überführung:</b>
+              <br></br>
+              Schreib mit Hilfe deines erlenten Wissens den Pseudocode in C++
+              Code um.
+              <br></br>
+              <b>5.Teste deinen C++ Code:</b>
+              <br></br>
+              Laufe deinen C++ Code im Pebble Simulator durch. Leg deinen C++
+              Code daneben und schau dir an, ob du alles richtig eingebunden
+              hast.
+            </Typography>
+          </div>
+          <Typography level="h4" sx={{ marginTop: "30px" }}>
+            Dein C++ Code
+          </Typography>
+          <div className={styles.bildeinruecken}>
+            <Typography level="body1">
+              Nimm nun deinen Pseudocode und den Kommentar deines Komilitonen
+              aus dem Peer-Review zur Hand. <br></br>Versuche die einzelnen
+              Segmente des Pseudocodes wie im vorherigen Beispiel in ein C++
+              Code umzuwandeln.
+              <br></br>
+              Erinne dich, du kannst:
+              <br></br>• Pebble nach vorne gehen lassen mit
+              <b> pebble.moveForward();</b>
+              <br></br>• Pebble nach rechts drehen mit{" "}
+              <b>pebble.turnRight();</b>
+              <br></br>• Pebble nach links drehen mit <b>pebble.turnLeft();</b>
+              <br></br>• Prüfen, ob eine Wand vor Pebble ist mit
+              <b> pebble.isWallInFront();</b>
+              <br></br>• Prüfen, ob eine Wand rechts von Pebble ist mit
+              <b> pebble.isWallRight();</b>
+              <br></br>• Prüfen, ob eine Wand links von Pebble ist mit
+              <b> pebble.isWallLeft();</b>
+              <br></br>• Prüfen, ob Pebble bereits im Ziel ist mit
+              <b> pebble.imZiel();</b>
+            </Typography>
+            <img
+              src={"/undraw_proud_coder.svg"}
+              alt="ProudCodeImage"
+              height={150}
+            />
+          </div>
+
+          <div style={{ display: "flex", gap: "40px" }}>
+            <Textarea
+              sx={{ width: "50%", marginBlock: 2 }}
+              minRows={15}
+              variant="plain"
+              placeholder="Dein C++ Code"
+              value={""}
+            />
+            <Textarea
+              sx={{ width: "50%", marginBlock: 2 }}
+              minRows={5}
+              variant="plain"
+              placeholder="Dein Pseudocode"
+              value={""}
+            />
+          </div>
+          {/*Labyrinthe */}
+          <Typography level="h4" sx={{ marginTop: "20px" }}>
+            Labyrinthe
+          </Typography>
+          <Typography level="body1">
+            Es ist nun so weit! schreibe deinen Algorithmus und führe diesen
+            anschließend aus. Dein Ziel ist es mich aus drei Labyrinthen mit
+            verschiedenen Schwierigkeitsstufen zu führen. Ich hoffe ich kann
+            meiner Familie bald wieder sehen!
           </Typography>
           <Typography
             level="h5"
@@ -547,6 +709,7 @@ export default function Home() {
                 done={progress["id_3_1"] ? 100 : 0}
               ></ProgressCheck>
             }
+            sx={{ marginTop: "10px", marginBottom: "5px" }}
           >
             Einfaches Labyrinth
           </Typography>
@@ -574,6 +737,7 @@ export default function Home() {
                 done={progress["id_3_2"] ? 100 : 0}
               ></ProgressCheck>
             }
+            sx={{ marginTop: "10px", marginBottom: "5px" }}
           >
             Mittleres Labyrinth
           </Typography>
@@ -601,6 +765,7 @@ export default function Home() {
                 done={progress["id_3_3"] ? 100 : 0}
               ></ProgressCheck>
             }
+            sx={{ marginTop: "10px", marginBottom: "5px" }}
           >
             Schweres Labyrinth
           </Typography>
@@ -622,11 +787,19 @@ export default function Home() {
         </div>
         <div
           style={{
-            marginTop: "20px",
+            marginTop: "30px",
             justifyContent: "center",
             display: "flex",
+            alignItems:"center",
+            gap: "50px",
+            flexDirection: "row",
           }}
         >
+          <img
+            src={"/undraw_certificate2.svg"}
+            alt="Zertifikat2"
+            height={130}
+          />
           <Button
             color="success"
             disabled={
@@ -640,6 +813,20 @@ export default function Home() {
           >
             Kurs abschließen
           </Button>
+          <img
+            src={"/undraw_certificate1.svg"}
+            alt="Zertifikat1"
+            height={130}
+          />
+        </div>
+
+        <div
+          style={{
+            marginTop: "20px",
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
           <Modal
             open={finalOpen}
             onClose={() => {
