@@ -214,10 +214,8 @@ export default function Home() {
   //mein erstes C++ Programm
   const Auswertung_id_ckurs_2_a = (code: string) => {
     if (
-      code.trim() === "Hello world!" ||
-      "Hello world" ||
-      "hello world" ||
-      "hello world!"
+      code.trim().toLowerCase() === "hello world!" ||
+      code.trim().toLowerCase() === "hello world"
     ) {
       setProgress({ ...progress, id_ckurs_2_a: true });
       return true;
@@ -292,8 +290,10 @@ export default function Home() {
   //Fallunterscheidung
   //if else
   const Auswertung_id_ckurs_7_1_1_a = (code: string) => {
-    if (code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" ||
-      "Deine Akkuladung ist gering! Lade dein Handy.") {
+    if (
+      code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" ||
+      "Deine Akkuladung ist gering! Lade dein Handy."
+    ) {
       setProgress({ ...progress, id_ckurs_7_1_1_a: true });
       return true;
     }
@@ -303,7 +303,8 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_2_a = (code: string) => {
     if (
       code.trim() === "Super, du hast diese Aufgabe geschafft" ||
-      "Super, du hast diese Aufgabe geschafft!") {
+      "Super, du hast diese Aufgabe geschafft!"
+    ) {
       setProgress({ ...progress, id_ckurs_7_1_2_a: true });
       return true;
     }
@@ -313,7 +314,8 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_3_a = (code: string) => {
     if (
       code.trim() === "Du solltest bald dein Handy laden" ||
-      "Du solltest bald dein Handy laden!") {
+      "Du solltest bald dein Handy laden!"
+    ) {
       setProgress({ ...progress, id_ckurs_7_1_3_a: true });
       return true;
     }
