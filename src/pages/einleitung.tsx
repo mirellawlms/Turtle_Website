@@ -1,7 +1,14 @@
 import Head from "next/head";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Navigation } from "@/components/Navigation";
-import { Button, Modal, ModalClose, ModalDialog, Textarea, Typography } from "@mui/joy";
+import {
+  Button,
+  Modal,
+  ModalClose,
+  ModalDialog,
+  Textarea,
+  Typography,
+} from "@mui/joy";
 import styles from "../styles/Einleitung.module.css";
 import { Accordion } from "@/components/Accordion";
 import { ProgressCheck } from "@/components/ProgressCheck";
@@ -251,7 +258,10 @@ export default function Home() {
   };
   //char
   const Auswertung_id_ckurs_5_3_a = (code: string) => {
-    if (code.trim() === "Hallo" || "H a l l o" || "hallo" || "h a l l o") {
+    if (
+      code.trim().toLowerCase() === "hallo" ||
+      code.trim().toLowerCase() === "h a l l o"
+    ) {
       setProgress({ ...progress, id_ckurs_5_3_a: true });
       return true;
     }
@@ -259,12 +269,8 @@ export default function Home() {
   };
   const Auswertung_id_ckurs_5_3_b = (code: string) => {
     if (
-      code.trim() === "Pebble" ||
-      "P e b b l e" ||
-      "pebble" ||
-      "p e b b l e" ||
-      "PEBBLE" ||
-      "P E B B L E"
+      code.trim().toLowerCase() === "pebble" ||
+      code.trim().toLowerCase() === "p e b b l e"
     ) {
       setProgress({ ...progress, id_ckurs_5_3_b: true });
       return true;
@@ -273,7 +279,10 @@ export default function Home() {
   };
   //string
   const Auswertung_id_ckurs_5_4_a = (code: string) => {
-    if (code.trim() === "Hallo" || "H a l l o" || "hallo" || "h a l l o") {
+    if (
+      code.trim().toLowerCase() === "hallo" ||
+      code.trim().toLowerCase() === "h a l l o"
+    ) {
       setProgress({ ...progress, id_ckurs_5_4_a: true });
       return true;
     }
@@ -294,7 +303,7 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_1_a = (code: string) => {
     if (
       code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" ||
-      "Deine Akkuladung ist gering! Lade dein Handy."
+      code.trim() === "Deine Akkuladung ist gering! Lade dein Handy."
     ) {
       setProgress({ ...progress, id_ckurs_7_1_1_a: true });
       return true;
@@ -305,7 +314,7 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_2_a = (code: string) => {
     if (
       code.trim() === "Super, du hast diese Aufgabe geschafft" ||
-      "Super, du hast diese Aufgabe geschafft!"
+      code.trim() === "Super, du hast diese Aufgabe geschafft!"
     ) {
       setProgress({ ...progress, id_ckurs_7_1_2_a: true });
       return true;
@@ -316,7 +325,7 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_3_a = (code: string) => {
     if (
       code.trim() === "Du solltest bald dein Handy laden" ||
-      "Du solltest bald dein Handy laden!"
+      code.trim() === "Du solltest bald dein Handy laden!"
     ) {
       setProgress({ ...progress, id_ckurs_7_1_3_a: true });
       return true;
@@ -325,7 +334,7 @@ export default function Home() {
   };
   //switch case
   const Auswertung_id_ckurs_7_1_4_a = (code: string) => {
-    if (code.trim() === "C++" || "c++") {
+    if (code.trim() === "C++" || code.trim() === "c++") {
       setProgress({ ...progress, id_ckurs_7_1_4_a: true });
       return true;
     }
@@ -334,7 +343,7 @@ export default function Home() {
   //Schleifen
   //while
   const Auswertung_id_ckurs_7_2_1_a = (code: string) => {
-    if (code.trim() === "1 2 3 4 5 6 7 8 9" || "123456789") {
+    if (code.trim() === "1 2 3 4 5 6 7 8 9" || code.trim() === "123456789") {
       setProgress({ ...progress, id_ckurs_7_2_1_a: true });
       return true;
     }
@@ -342,7 +351,7 @@ export default function Home() {
   };
   //do while
   const Auswertung_id_ckurs_7_2_2_a = (code: string) => {
-    if (code.trim() === "1 2 3 4 5 6 7 8 9" || "123456789") {
+    if (code.trim() === "1 2 3 4 5 6 7 8 9" || code.trim() === "123456789") {
       setProgress({ ...progress, id_ckurs_7_2_2_a: true });
       return true;
     }
@@ -350,7 +359,7 @@ export default function Home() {
   };
   //for
   const Auswertung_id_ckurs_7_2_3_a = (code: string) => {
-    if (code.trim() === "1 2 3 4 5 6 7 8 9" || "123456789") {
+    if (code.trim() === "1 2 3 4 5 6 7 8 9" || code.trim() === "123456789") {
       setProgress({ ...progress, id_ckurs_7_2_3_a: true });
       return true;
     }
@@ -1451,16 +1460,14 @@ export default function Home() {
             marginTop: "30px",
             justifyContent: "center",
             display: "flex",
-            alignItems:"center",
+            alignItems: "center",
             gap: "50px",
             flexDirection: "row",
           }}
         >
           <Button
             color="success"
-            disabled={
-              !(progress_gesamt() > 99)
-            }
+            disabled={!(progress_gesamt() > 99)}
             onClick={() => {
               setProgress({ ...progress, id_urkunde: true });
               TaskErstellen("id_urkunde", "", true);
@@ -1495,11 +1502,16 @@ export default function Home() {
                 }}
               >
                 <Typography>
-                  Super, du hast den C++ Einführungskurs erfolgreich absolviert<br></br>
+                  Super, du hast den C++ Einführungskurs erfolgreich absolviert
+                  <br></br>
                   Du kannst stolz auf dich sein!<br></br>
                   Versuche im Anschluss die anderen zwei Kapitel zu meistern.
                 </Typography>
-                <img src={"/undraw_certificate2.svg"} alt="ZertifikatC++Kurs" height={150} />
+                <img
+                  src={"/undraw_certificate2.svg"}
+                  alt="ZertifikatC++Kurs"
+                  height={150}
+                />
               </div>
             </ModalDialog>
           </Modal>
