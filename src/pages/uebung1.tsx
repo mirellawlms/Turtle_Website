@@ -195,8 +195,8 @@ export default function Home() {
             nennen! Ich meine hier nicht codieren. Codieren ist lediglich die
             Umsetzung der Beschreibung in einer Programmmiersprache wie C++, bei
             der eine Entwicklungsumgebung zum Eingeben und Testen des Codes
-            benötigt wird. Das schauen wir uns im nächsten Kapitel auch noch an,
-            aber alles zu seiner Zeit!
+            benötigt wird. Das schauen wir uns in der nächsten Lektion auch noch
+            an, aber alles zu seiner Zeit!
           </Typography>
           <Typography level="h4" sx={{ marginTop: "30px" }}>
             Entwurfstechnik
@@ -225,7 +225,7 @@ export default function Home() {
             </Typography>
           </div>
           {/*Struktogramm*/}
-          <Typography level="h5" sx={{ marginTop: "20px" }}>
+          <Typography level="h5" sx={{ marginTop: "30px" }}>
             Struktogramm (Nassi-Shneidermann Diagramm)
           </Typography>
           <div id="algo.1.3.2"></div>
@@ -283,68 +283,71 @@ export default function Home() {
                 </span>
               }
             ></Accordion>
-            <Typography level="body1">
-              Wir schauen uns nun gemeinsam ein Pseudocode Beispiel an.
-              Sicherlich kannst du all diese Schritte folgen, da du es selber
-              schonmal gemacht hast. Ich spreche natürlich vom "TK-Pizza
-              backen". Alle Schritte, die man beim backen einer TK-Pizza macht
-              werden nun in ein Pseudocode geschrieben.
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Pseudocode - TK Pizza backen
             </Typography>
             <Typography level="body1">
-              In diesem Fall haben wir einen Pseudocode für eine Person mit
-              einem Backofen und einer Pizza erstellt. Diesen Pseudocode könnte
-              ein Computer nicht ausführen. Es gibt uns (den Pizzabäcker) klare,
-              eindeutige, sturkturierte und druchführbare Anweisungen. Diser
-              Algorithmus hat verschiedene Sequenzen, die immer nacheinander
-              abgearbeitet werden. Es gibt verschiedene Kontrollstrukturen, die
-              man beim schreiben eines Algorithmus verwendet.
+              Wir schauen uns nun gemeinsam ein Pseudocode Beispiel an. Dieses
+              Anwendungsbeispiel hast du definitv schonmal selber gemacht! Es
+              handelt sich natürlich um das Backen einer Tiefkühl-Pizza
+              (TK-Pizza). Das ist ein sehr schönes Beispiel um dir zu zeigen,
+              wie man einen Algorithmus als Pseudocode schreibt. Alle Schritte,
+              die man beim backen einer TK-Pizza macht werden nun als Pseudocode
+              Algorithmus geschrieben.
+            </Typography>
+            <div className={styles.bildeinruecken2}>
+              <img src={"/pizza1.png"} alt="pizza1" height={120} />
+            </div>
+            <Typography level="body1" sx={{ marginTop: "20px" }}>
+              Wie du siehst sieht dieser Pseudocode so aus wie eine Anleitung
+              für eine Person(Bäcker*in), die einen Backofen hat und eine
+              TK-Pizza backen möchte. Diesen Pseudocode könnte ein Computer
+              nicht ausführen. Es gibt den Pizzabäcker eine klare, eindeutige,
+              sturkturierte und druchführbare Anweisungen. Diser Algorithmus hat
+              verschiedene Sequenzen, die immer nacheinander abgearbeitet
+              werden. In diesem Pseudocode haben wir aber noch keine
+              Kontrollstrukturen verwendet. Diese sind aber essentiell, für das
+              schreiben eines guten Algorithmus.
             </Typography>
             {/*Kontrollstrukturen */}
-            <Typography level="h4" sx={{ marginTop: "30px" }}>
-              Kontrollstrukturen
+            <Typography level="h5" sx={{ marginTop: "30px" }}>
+              Pseudocode - Kontrollstrukturen
             </Typography>
             <div id="algo.1.4"></div>
             <Typography level="body1">
-              Du hast im C++ Einführungskurs bereits über Kontrollstrukutren
-              gelernt. Wir versuchen sie nun nochmal im Zusammenhang mit dem
-              Begriff 'Pseudocode' zu betrachten. Falls du noch Schwierigkeiten
-              hast Kontrollstrukturen zu verstehen, kehre einfach zum
-              Einfürungskurs zurück und schau außerdem in dein GdP Skript.
+              Du hast im C++ Einführungskurs bereits einiges über
+              Kontrollstrukturen gelernt. Wir versuchen sie nun nochmal im
+              Zusammenhang mit dem Begriff 'Pseudocode' zu betrachten. Falls du
+              noch Schwierigkeiten hast, Kontrollstrukturen zu verstehen, kehre
+              einfach zum Einfürungskurs zurück und schau außerdem in dein GdP
+              Skript nach.
             </Typography>
             {/*Fallunterscheidung*/}
             <Typography level="h5" sx={{ marginTop: "10px" }}>
-              Fallunterscheidung
+              Pseudocode - Fallunterscheidung
             </Typography>
             <div id="algo.1.4.1"></div>
             <Typography level="body1">
               Die Fallunterscheidung (Bedingte Verzweigung) sagt einem, dass
               anhand einer Bedingung/Fall entschieden wird, ob eine bestimmte
-              Anweisung durchgeführt wird oder nicht.
+              Anweisung durchgeführt wird oder nicht. In der Programmiersprache
+              C++ sind "if" und "else" notwendigen Schlüsselwörter dafür. Wir
+              erweitern das TK-Pizza Beispiel und schauen uns an, wie man eine
+              Fallunterscheidung in Pseudocode schreibt.
             </Typography>
             <div className={styles.bildeinruecken2}>
-              <img src={"/pizza.png"} alt="pizza" height={200} />
+              <img src={"/pizza2.png"} alt="pizza" height={210} />
             </div>
-            <Typography
-              level="body5"
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              Listing 1:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
-              Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
-            </Typography>
-            <Typography level="body1" sx={{ marginTop: "5px" }}>
-              Am Beispiel des Pizzabäckers, müsste man also die Folie der Pizza
-              entfernen, nur WENN diese in einer Folie eingewickelt ist.{" "}
-              <br></br>
-              In der Programmiersprache C++ sind "if" und "else" notwendigen
-              Schlüsselwörter dafür.
+            <Typography level="body1" sx={{ marginTop: "10px" }}>
+              Hier sieht man schön, dass WENN die Bedingung eintrifft, dass die
+              Pizza in einer Plastikfolie eingewicklet ist, muss man diese
+              zuerst entfernen, bevor man weitermachen kann. Genauso wird
+              geschaut, ob das Backblech bereits mit Backpapier ausgelegt wurde
+              und WENN nicht, wird dies zuerst gemacht.
             </Typography>
             {/*Schleife*/}
             <Typography level="h5" sx={{ marginTop: "10px" }}>
-              Schleife
+              Pseudocode - Schleife
             </Typography>
             <div id="algo.1.4.2"></div>
             <Typography level="body1">
@@ -354,28 +357,23 @@ export default function Home() {
               angibt, wie oft oder bei welcher Bedingung die Schleife ausgeführt
               werden soll. Wenn man Programme mit Schleifen schreibt oder
               untersucht, so definiert man sich Schleifeninvarianten. Das sind
-              Bedingungen, die nach jeder Ausführung der Schleife gelten.{" "}
+              Bedingungen, die nach jeder Ausführung der Schleife gelten.
               <br></br>
-              Gehen wir mal davon aus, dass der Pizzabäcker die genaue Backzeit
-              der Pizza nicht weiß, da er die Verpackung weggeworfen hat.{" "}
+              Gehen wir mal davon aus, dass die Person (Bäcker/in) die genaue Backzeit
+              der Pizza nicht mehr weiß, da sie die Verpackung weggeworfen hat.<br></br>(ist uns natürlich noch nie passiert :D)
               <br></br>
               Hier müsste man SOLANGE die Pizza nochnicht fertig gebacken ist,
-              immer wieder eine Minute warten.
+              immer wieder eine Minute warten und schauen ob sie nach der Minute fertig ist. Wir wollen doch immerhin eine lecker, knusprig, goldbraun gebackene Pizza essen.
             </Typography>
             <div className={styles.bildeinruecken2}>
-              <img src={"/pizza2.png"} alt="pizza2" height={200} />
+              <img src={"/pizza3.png"} alt="pizza3" height={230} />
             </div>
-            <Typography
-              level="body5"
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              Listing 2:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
-              Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
+            <Typography level="body1" sx={{ marginTop: "20px" }}>
+              Super, du hast nun gelernt, wie man einen Pseudocode schreibt.  Nun bist du bestens vorbereitet einen eigenen Pseudocode zu schreiben.
             </Typography>
+            <div className={styles.bildeinruecken2}>
+              <img src={"/undraw_pizza.svg"} alt="pizzaSVG" height={200} />
+            </div>
           </div>
           <Typography
             level="h4"
@@ -384,13 +382,13 @@ export default function Home() {
                 done={progress["id_algo_1_1"] ? 100 : 0}
               ></ProgressCheck>
             }
-            sx={{ marginTop: "20px" }}
+            sx={{ marginTop: "30px" }}
           >
             Pebble-Simulator
           </Typography>
           <div id="algo.1.5"></div>
           <Typography level="body1" sx={{ marginBottom: "20px" }}>
-            So das war jetzt aber auch sehr viel Input. Spiel doch gerne zur
+            Das war jetzt aber auch sehr viel Input! Spiel doch zur
             Belohnung eine kleine Runde Pebble-Simulator. Schlüpfe in meine
             Rolle als Pebble die Schildkröte und beweg dich aus dem Labyrinth
             indem du von dem roten Feld auf das grüne Feld gelangst.
@@ -428,8 +426,15 @@ export default function Home() {
             <br></br>
           </Typography>
           <Typography level="body1" color="success">
-            Schreibe einen Pseudocode, der Pebble die Schildkröte hilft aus dem
-            Labyrinth zu gelangen.
+            Schreibe einen Pseudocode, der mir (Pebble die Schildkröte) hilft
+            aus dem Labyrinth zu gelangen.
+          </Typography>
+          <Typography sx={{ marginTop: "10px" }} level="body1">
+            Denk dran, ich bin nur eine Schildkröte daher kann ich nur folgendes
+            machen:<br></br>• nach vorne gehen<br></br>• nach links/rechts
+            drehen<br></br>• schauen ob ich im Ziel ist <br></br>• schauen ob
+            vor mir eine Wand ist <br></br>• schauen ob links/rechts von mir
+            eine Wand ist <br></br>
           </Typography>
           <Typography sx={{ marginTop: "10px" }} level="body1">
             Teste deinen Pseudocode/Algorithmus gerne mit dem Spiel
