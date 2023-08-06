@@ -21,19 +21,8 @@ const codeEingabe = `#include "turtle.h"
 
   int main(){
       Kroete pebble; //Element pebble kann nun aufgerufen werden
-      int i;
-      int p;
-
-    for(i=0; i<9; i++){
-        pebble.moveForward();
-    }
-    pebble.turnLeft();
-
-    for(p=0; p<9; p++){
-        pebble.moveForward();
-    }
+      // pebble.moveForward();
   };`;
-
 
 const code_1 = `#include <iostream>
 int main() {
@@ -485,7 +474,8 @@ export default function Home() {
           id_urkunde: prog["id_urkunde"] ?? false,
         });
         set_c_codeEingabe(
-          data.task.find((item: any) => item.id === "id_3_2")?.code ?? codeEingabe
+          data.task.find((item: any) => item.id === "id_algo_2_code_eingabe")?.code ??
+            codeEingabe
         );
       })
       .catch((error) => {
@@ -512,14 +502,13 @@ export default function Home() {
           <div id="algo.2.1"></div>
           <div className={styles.bildeinruecken2}>
             <Typography level="body1">
-              In diesem Kapitel lernst du, wie man einen Pseudocode in C++ Code
+              In dieser Lektion lernst du, wie man einen Pseudocode in C++ Code
               umwandelt. Es handelt sich um den letzten Kursabschnitt. Falls du
-              dich noch unsicher fühlst dieses Kapitel zu absolvierene, kannst
-              du gerne nochmal die anderen Kapitel anschauen. Kehre aber
-              anschließend hierher zurück um mir zu helfen, aus dem Labyrinth zu
-              entkommen! Dafür musst du einen Algorithmus schreiben, der mich
-              aud drei verschiedenen Labyrinthen führt. Ich bin mir sicher, dass
-              du auch dieses Kapitel meistern wirst!
+              dich noch unsicher fühlst hier fortzufahren, kannst du gerne
+              nochmal die anderen Lektionen anschauen. Kehre aber anschließend
+              hierher zurück um mir zu helfen, aus dem Labyrinth zu entkommen!
+              Ich bin mir sicher, dass du auch dieses Kapitel meistern wirst!{" "}
+              <br></br>
             </Typography>
             <img
               src={"/undraw_thought_process.svg"}
@@ -548,13 +537,13 @@ export default function Home() {
             <Typography level="body1" sx={{ marginTop: "5px" }}>
               <b>Pseudocode:</b>
               <br></br>
-              Weise einer Variable "Zahl1" den Wert eins zu. <br></br>
-              Weise einer Variable "Zahl2" den Wert drei zu. <br></br>
+              Weise einer Variable "zahl1" den Wert eins zu. <br></br>
+              Weise einer Variable "zahl2" den Wert drei zu. <br></br>
               Berechne die Summe der beiden Zahlen und speichere sie in der
-              Variable "Ergebnis" ab.<br></br>
+              Variable "ergebnis" ab.<br></br>
               SOLANGE das Ergebnis der Summe kleiner als 10 ist, erhöhe den wert
               beider Zahlen um 1.<br></br>
-              Gib das "Ergebnis" aus, WENN die Summe größer als 10 ist.
+              Gib das "ergebnis" aus, WENN die Summe größer-gleich 10 ist.
             </Typography>
             <Typography level="body1" sx={{ marginTop: "10px" }}>
               <b>C++:</b>
@@ -610,27 +599,31 @@ export default function Home() {
           </Typography>
           <div id="algo.2.2.3"></div>
           <div className={styles.bildeinruecken}>
-            <Typography level="body1">
-              Nimm nun deinen Pseudocode und den Kommentar deines Komilitonen
-              aus dem Peer-Review zur Hand. <br></br>Versuche die einzelnen
-              Segmente des Pseudocodes wie im vorherigen Beispiel in ein C++
-              Code umzuwandeln.
-              <br></br>
-              Erinne dich, du kannst:
-              <br></br>• Pebble nach vorne gehen lassen mit
-              <b> pebble.moveForward();</b>
-              <br></br>• Pebble nach rechts drehen mit{" "}
-              <b>pebble.turnRight();</b>
-              <br></br>• Pebble nach links drehen mit <b>pebble.turnLeft();</b>
-              <br></br>• Prüfen, ob eine Wand vor Pebble ist mit
-              <b> pebble.isWallInFront();</b>
-              <br></br>• Prüfen, ob eine Wand rechts von Pebble ist mit
-              <b> pebble.isWallRight();</b>
-              <br></br>• Prüfen, ob eine Wand links von Pebble ist mit
-              <b> pebble.isWallLeft();</b>
-              <br></br>• Prüfen, ob Pebble bereits im Ziel ist mit
-              <b> pebble.imZiel();</b>
-            </Typography>
+            <div>
+              <Typography level="body1">
+                Nimm nun deinen Pseudocode und den Kommentar deines Komilitonen
+                aus dem Peer-Review zur Hand. <br></br>Versuche die einzelnen
+                Segmente des Pseudocodes wie im vorherigen Beispiel in ein C++
+                Code umzuwandeln.
+              </Typography>
+              <Typography level="body1" sx={{ marginTop: "10px" , marginBottom:"20px"}}>
+                Erinne dich, du kannst:
+                <br></br>• Pebble nach vorne gehen lassen mit
+                <b> pebble.moveForward();</b>
+                <br></br>• Pebble nach rechts drehen mit{" "}
+                <b>pebble.turnRight();</b>
+                <br></br>• Pebble nach links drehen mit{" "}
+                <b>pebble.turnLeft();</b>
+                <br></br>• Prüfen, ob eine Wand vor Pebble ist mit
+                <b> pebble.isWallInFront();</b>
+                <br></br>• Prüfen, ob eine Wand rechts von Pebble ist mit
+                <b> pebble.isWallRight();</b>
+                <br></br>• Prüfen, ob eine Wand links von Pebble ist mit
+                <b> pebble.isWallLeft();</b>
+                <br></br>• Prüfen, ob Pebble bereits im Ziel ist mit
+                <b> pebble.imZiel();</b>
+              </Typography>
+            </div>
             <img
               src={"/undraw_proud_coder.svg"}
               alt="ProudCodeImage"
@@ -655,6 +648,14 @@ export default function Home() {
               value={""}
             />
           </div>
+          <Button
+            color="success"
+            variant="solid"
+            sx={{ marginRight: "10px" }}
+            onClick={() => TaskErstellen("id_algo_2_code_eingabe", c_codeEingabe, false)}
+          >
+            Speichern
+          </Button>
           {/*Labyrinthe */}
           <Typography level="h3" sx={{ marginTop: "20px" }}>
             Labyrinthe
@@ -754,7 +755,7 @@ export default function Home() {
             marginTop: "30px",
             justifyContent: "center",
             display: "flex",
-            alignItems:"center",
+            alignItems: "center",
             gap: "50px",
             flexDirection: "row",
           }}
