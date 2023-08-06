@@ -1,7 +1,7 @@
 import { faPlay, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, CircularProgress } from "@mui/joy";
-import React, { useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import { Field, Path, TurtleViewer } from "./TurtleViewer";
 import Editor from "@monaco-editor/react";
 import styles from "../styles/CodeEditor.module.css";
@@ -32,6 +32,12 @@ export const CodeEditor: React.FC<Props> = (props) => {
   const handleEditorDidMount = (editor: any, monaco: any) => {
     editorRef.current = editor;
   };
+
+  useEffect(() => {
+    if (defaultValue && editorRef.current) {
+      (editorRef.current as any).setValue(defaultValue);
+    }
+  }, [defaultValue]);
 
   //hier wird onRun ausgeführt -> server post
   const onRun = async () => {

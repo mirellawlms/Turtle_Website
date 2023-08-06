@@ -9,7 +9,7 @@ export default function Home() {
   const [meinKommentar, setMeinKommentar] = useState("");
   const [kommilitonenKommentar, setKommilitonenKommentar] = useState("");
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
-  const [komillitonenUserID,setKomillitonenUserID] = useState("");
+  const [komillitonenUserID, setKomillitonenUserID] = useState("");
 
   //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
@@ -54,6 +54,9 @@ export default function Home() {
     })
       .then((response) => response.json())
       .then((data) => {
+        if (!data || !data.peerReview) {
+          return;
+        }
         const prog = data.task.reduce((acc: any, item: any) => {
           return {
             ...acc,
@@ -78,7 +81,7 @@ export default function Home() {
       });
   }, []);
 
-//kommilitonenuserid setzten
+  //kommilitonenuserid setzten
   useEffect(() => {
     fetch("/api/peerReview/review", {
       method: "GET",
@@ -86,13 +89,16 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     })
-    .then((response) => response.json())
-    .then((data) => {
-      setKomillitonenUserID(data.peerReview.taskUserid);
-      setKommilitonenCode(data.peerReview.Task.code);
-      setMeinKommentar(data.peerReview.comment?? "");
-      console.log(data);
-    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data || !data.peerReview) {
+          return;
+        }
+        setKomillitonenUserID(data.peerReview.taskUserid);
+        setKommilitonenCode(data.peerReview.Task.code);
+        setMeinKommentar(data.peerReview.comment ?? "");
+        console.log(data);
+      });
   }, []);
 
   useEffect(() => {
@@ -102,11 +108,14 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     })
-    .then((response) => response.json())
-    .then((data) => {
-      setKommilitonenKommentar(data.peerReview.comment?? "");
-      console.log(data);
-    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data || !data.peerReview) {
+          return;
+        }
+        setKommilitonenKommentar(data.peerReview.comment ?? "");
+        console.log(data);
+      });
   }, []);
 
   //Review in api /kommentar abschicken
@@ -118,7 +127,7 @@ export default function Home() {
       },
       body: JSON.stringify({
         comment: meinKommentar,
-        userid: komillitonenUserID
+        userid: komillitonenUserID,
       }),
     }).catch((error) => {
       console.error(error);

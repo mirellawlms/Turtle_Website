@@ -93,7 +93,7 @@ export const Navigation: React.FC<Props> = (props) => {
             <ErweiterteNavigation
                 title={{ idlink: "/peerReview", label: "Peer Review" }}
                 inhalt={[
-                { idlink: "/peerReview#peer.1.1", label: "Peer Review" }
+                
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>

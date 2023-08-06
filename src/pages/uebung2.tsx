@@ -15,7 +15,7 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 import styles from "../styles/Uebung2.module.css";
 
 //Standardwert der einzelnen CodeEditoren
-const code3_1 = `#include "turtle.h"
+const codeEingabe = `#include "turtle.h"
 #include <stdio.h>
 #include <iostream>
 
@@ -34,43 +34,6 @@ const code3_1 = `#include "turtle.h"
     }
   };`;
 
-const code3_2 = `#include "turtle.h"
-#include <stdio.h>
-#include <iostream>
-
-  int main(){
-      Kroete pebble;
-      int i;
-      int p;
-
-    for(i=0; i<9; i++){
-        pebble.moveForward();
-    }
-    pebble.turnLeft();
-
-    for(p=0; p<9; p++){
-        pebble.moveForward();
-    }
-  };`;
-
-const code3_3 = `#include "turtle.h"
-#include <stdio.h>
-#include <iostream>
-
-  int main(){
-      Kroete pebble;
-      int i;
-      int p;
-
-    for(i=0; i<9; i++){
-        pebble.moveForward();
-    }
-    pebble.turnLeft();
-
-    for(p=0; p<9; p++){
-        pebble.moveForward();
-    }
-  };`;
 
 const code_1 = `#include <iostream>
 int main() {
@@ -461,9 +424,8 @@ const maze_schwer: Field[][] = [
 
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
-  const [code1, setCode1] = useState(code3_1);
-  const [code2, setCode2] = useState(code3_2);
-  const [code3, setCode3] = useState(code3_3);
+  const [c_codeEingabe, set_c_codeEingabe] = useState(codeEingabe);
+
   const [finalOpen, setFinalOpen] = useState(false);
 
   //Progressbalken hier id zusammengerechnet
@@ -522,14 +484,8 @@ export default function Home() {
           id_3_3: prog["id_3_3"] ?? false,
           id_urkunde: prog["id_urkunde"] ?? false,
         });
-        setCode1(
-          data.task.find((item: any) => item.id === "id_3_1")?.code ?? code3_1
-        );
-        setCode2(
-          data.task.find((item: any) => item.id === "id_3_2")?.code ?? code3_2
-        );
-        setCode3(
-          data.task.find((item: any) => item.id === "id_3_3")?.code ?? code3_3
+        set_c_codeEingabe(
+          data.task.find((item: any) => item.id === "id_3_2")?.code ?? codeEingabe
         );
       })
       .catch((error) => {
@@ -688,7 +644,8 @@ export default function Home() {
               minRows={15}
               variant="plain"
               placeholder="Dein C++ Code"
-              value={""}
+              value={c_codeEingabe}
+              onChange={(e) => set_c_codeEingabe(e.target.value)}
             />
             <Textarea
               sx={{ width: "50%", marginBlock: 2 }}
@@ -723,7 +680,7 @@ export default function Home() {
           <div id="algo.2.3.1"></div>
           <CodeEditor
             title="einfach"
-            defaultValue={code1}
+            defaultValue={c_codeEingabe}
             turtle={true}
             labyrinth={maze_einfach}
             codeEinAusgabe={(
@@ -751,7 +708,7 @@ export default function Home() {
           <div id="algo.2.3.2"></div>
           <CodeEditor
             title="mittel"
-            defaultValue={code2}
+            defaultValue={c_codeEingabe}
             turtle={true}
             labyrinth={maze_mittel}
             codeEinAusgabe={(
@@ -779,7 +736,7 @@ export default function Home() {
           <div id="algo.2.3.3"></div>
           <CodeEditor
             title="schwer"
-            defaultValue={code3}
+            defaultValue={c_codeEingabe}
             turtle={true}
             labyrinth={maze_schwer}
             codeEinAusgabe={(

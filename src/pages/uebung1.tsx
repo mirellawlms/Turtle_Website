@@ -290,18 +290,6 @@ export default function Home() {
               backen". Alle Schritte, die man beim backen einer TK-Pizza macht
               werden nun in ein Pseudocode geschrieben.
             </Typography>
-
-            <Typography
-              level="body5"
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              Listing 1:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
-              Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
-            </Typography>
             <Typography level="body1">
               In diesem Fall haben wir einen Pseudocode für eine Person mit
               einem Backofen und einer Pizza erstellt. Diesen Pseudocode könnte
@@ -331,12 +319,23 @@ export default function Home() {
             <Typography level="body1">
               Die Fallunterscheidung (Bedingte Verzweigung) sagt einem, dass
               anhand einer Bedingung/Fall entschieden wird, ob eine bestimmte
-              Anweisung durchgeführt wird oder nicht. 
+              Anweisung durchgeführt wird oder nicht.
             </Typography>
             <div className={styles.bildeinruecken2}>
               <img src={"/pizza.png"} alt="pizza" height={200} />
             </div>
-            <Typography level="body1" sx={{marginTop:"5px"}}>
+            <Typography
+              level="body5"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "20px",
+              }}
+            >
+              Listing 1:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
+              Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
+            </Typography>
+            <Typography level="body1" sx={{ marginTop: "5px" }}>
               Am Beispiel des Pizzabäckers, müsste man also die Folie der Pizza
               entfernen, nur WENN diese in einer Folie eingewickelt ist.{" "}
               <br></br>
