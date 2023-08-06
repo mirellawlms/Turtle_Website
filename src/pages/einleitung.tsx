@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Navigation } from "@/components/Navigation";
-import { Textarea, Typography } from "@mui/joy";
+import { Button, Modal, ModalClose, ModalDialog, Textarea, Typography } from "@mui/joy";
 import styles from "../styles/Einleitung.module.css";
 import { Accordion } from "@/components/Accordion";
 import { ProgressCheck } from "@/components/ProgressCheck";
@@ -209,6 +209,8 @@ export default function Home() {
   const [code_7_2_1_a, setCode_7_2_1_a] = useState(schleifen_while);
   const [code_7_2_2_a, setCode_7_2_2_a] = useState(schleifen_dowhile);
   const [code_7_2_3_a, setCode_7_2_3_a] = useState(schleifen_for);
+
+  const [finalOpen, setFinalOpen] = useState(false);
 
   /*CODEAUSWERTUNGEN PRÜFUNG*/
   //mein erstes C++ Programm
@@ -1442,6 +1444,65 @@ export default function Home() {
               }}
             ></CodeEditor>
           </div>
+        </div>
+        {/* C++ Kursabschluss */}
+        <div
+          style={{
+            marginTop: "30px",
+            justifyContent: "center",
+            display: "flex",
+            alignItems:"center",
+            gap: "50px",
+            flexDirection: "row",
+          }}
+        >
+          <Button
+            color="success"
+            disabled={
+              !(progress_gesamt() > 99)
+            }
+            onClick={() => {
+              setProgress({ ...progress, id_urkunde: true });
+              TaskErstellen("id_urkunde", "", true);
+              setFinalOpen(true);
+            }}
+          >
+            Kurs abschließen
+          </Button>
+          <div id="algo.2.4"></div>
+        </div>
+        <div
+          style={{
+            marginTop: "20px",
+            justifyContent: "center",
+            display: "flex",
+          }}
+        >
+          <Modal
+            open={finalOpen}
+            onClose={() => {
+              setFinalOpen(false);
+            }}
+          >
+            <ModalDialog color="success" variant="plain">
+              <ModalClose />
+              <Typography level="h5">C++ Einführungskurs</Typography>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <Typography>
+                  Super, du hast den C++ Einführungskurs erfolgreich absolviert<br></br>
+                  Du kannst stolz auf dich sein!<br></br>
+                  Versuche im Anschluss die anderen zwei Kapitel zu meistern.
+                </Typography>
+                <img src={"/undraw_certificate2.svg"} alt="ZertifikatC++Kurs" height={150} />
+              </div>
+            </ModalDialog>
+          </Modal>
         </div>
       </Navigation>
     </>

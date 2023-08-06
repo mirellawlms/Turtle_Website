@@ -784,7 +784,6 @@ export default function Home() {
             height={130}
           />
         </div>
-
         <div
           style={{
             marginTop: "20px",
