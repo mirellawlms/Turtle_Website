@@ -286,15 +286,18 @@ export default function Home() {
             <Typography level="h5" sx={{ marginTop: "20px" }}>
               Pseudocode - TK Pizza backen
             </Typography>
-            <Typography level="body1">
-              Wir schauen uns nun gemeinsam ein Pseudocode Beispiel an. Dieses
-              Anwendungsbeispiel hast du definitv schonmal selber gemacht! Es
-              handelt sich natürlich um das Backen einer Tiefkühl-Pizza
-              (TK-Pizza). Das ist ein sehr schönes Beispiel um dir zu zeigen,
-              wie man einen Algorithmus als Pseudocode schreibt. Alle Schritte,
-              die man beim backen einer TK-Pizza macht werden nun als Pseudocode
-              Algorithmus geschrieben.
-            </Typography>
+            <div className={styles.bildeinruecken}>
+              <Typography level="body1">
+                Wir schauen uns nun gemeinsam ein Pseudocode Beispiel an. Dieses
+                Anwendungsbeispiel hast du definitv schonmal selber gemacht! Es
+                handelt sich natürlich um das Backen einer Tiefkühl-Pizza
+                (TK-Pizza). Das ist ein sehr schönes Beispiel um dir zu zeigen,
+                wie man einen Algorithmus als Pseudocode schreibt. Alle
+                Schritte, die man beim backen einer TK-Pizza macht werden nun
+                als Pseudocode Algorithmus geschrieben.
+              </Typography>
+              <img src={"/pizza-svgrepo.svg"} alt="pizza" height={90} />
+            </div>
             <div className={styles.bildeinruecken2}>
               <img src={"/pizza1.png"} alt="pizza1" height={120} />
             </div>
@@ -359,17 +362,21 @@ export default function Home() {
               untersucht, so definiert man sich Schleifeninvarianten. Das sind
               Bedingungen, die nach jeder Ausführung der Schleife gelten.
               <br></br>
-              Gehen wir mal davon aus, dass die Person (Bäcker/in) die genaue Backzeit
-              der Pizza nicht mehr weiß, da sie die Verpackung weggeworfen hat.<br></br>(ist uns natürlich noch nie passiert :D)
+              Gehen wir mal davon aus, dass die Person (Bäcker/in) die genaue
+              Backzeit der Pizza nicht mehr weiß, da sie die Verpackung
+              weggeworfen hat.<br></br>(ist uns natürlich noch nie passiert :D)
               <br></br>
               Hier müsste man SOLANGE die Pizza nochnicht fertig gebacken ist,
-              immer wieder eine Minute warten und schauen ob sie nach der Minute fertig ist. Wir wollen doch immerhin eine lecker, knusprig, goldbraun gebackene Pizza essen.
+              immer wieder eine Minute warten und schauen ob sie nach der Minute
+              fertig ist. Wir wollen doch immerhin eine lecker, knusprig,
+              goldbraun gebackene Pizza essen.
             </Typography>
             <div className={styles.bildeinruecken2}>
               <img src={"/pizza3.png"} alt="pizza3" height={230} />
             </div>
             <Typography level="body1" sx={{ marginTop: "20px" }}>
-              Super, du hast nun gelernt, wie man einen Pseudocode schreibt.  Nun bist du bestens vorbereitet einen eigenen Pseudocode zu schreiben.
+              Super, du hast nun gelernt, wie man einen Pseudocode schreibt. Nun
+              bist du bestens vorbereitet einen eigenen Pseudocode zu schreiben.
             </Typography>
             <div className={styles.bildeinruecken2}>
               <img src={"/undraw_pizza.svg"} alt="pizzaSVG" height={200} />
@@ -388,10 +395,10 @@ export default function Home() {
           </Typography>
           <div id="algo.1.5"></div>
           <Typography level="body1" sx={{ marginBottom: "20px" }}>
-            Das war jetzt aber auch sehr viel Input! Spiel doch zur
-            Belohnung eine kleine Runde Pebble-Simulator. Schlüpfe in meine
-            Rolle als Pebble die Schildkröte und beweg dich aus dem Labyrinth
-            indem du von dem roten Feld auf das grüne Feld gelangst.
+            Das war jetzt aber auch sehr viel Input! Spiel doch zur Belohnung
+            eine kleine Runde Pebble-Simulator. Schlüpfe in meine Rolle als
+            Pebble die Schildkröte und beweg dich aus dem Labyrinth indem du von
+            dem roten Feld auf das grüne Feld gelangst.
           </Typography>
           <TurtleViewer_Steuerung
             field={field}
