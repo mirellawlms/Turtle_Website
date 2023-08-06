@@ -407,6 +407,24 @@ export default function Home() {
     return totalProgress;
   };
 
+  //Operatoren gesamt
+  const progress_ckurs_6 = () => {
+    const items = [
+      "id_ckurs_6_1_a",
+      "id_ckurs_6_1_b",
+      "id_ckurs_6_1_c",
+      "id_ckurs_6_1_d",
+      "id_ckurs_6_2_a",
+    ];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
   //*ALLE PROGRESSE ZUSAMMEN */
   const progress_gesamt = () => {
     const items = [
@@ -907,9 +925,7 @@ export default function Home() {
           <Typography
             level="h4"
             endDecorator={
-              <ProgressCheck
-                done={progress["id_1_3"] ? 100 : 0}
-              ></ProgressCheck>
+              <ProgressCheck done={progress_ckurs_6()}></ProgressCheck>
             }
             sx={{ marginTop: "40px" }}
           >
@@ -943,6 +959,10 @@ export default function Home() {
                 />
               </span>
             }
+            wasClicked={() => {
+              setProgress({ ...progress, id_ckurs_6_1_a: true });
+              TaskErstellen("id_ckurs_6_1_a", "", true);
+            }}
           ></Accordion>
           <div id="ckurs.6.1.b"></div>
           {/*Zuweisungs Operatoren*/}
@@ -964,6 +984,10 @@ export default function Home() {
                 />
               </span>
             }
+            wasClicked={() => {
+              setProgress({ ...progress, id_ckurs_6_1_b: true });
+              TaskErstellen("id_ckurs_6_1_b", "", true);
+            }}
           ></Accordion>
           <div id="ckurs.6.1.c"></div>
           {/*vergleichs Operatoren*/}
@@ -986,6 +1010,10 @@ export default function Home() {
                 />
               </span>
             }
+            wasClicked={() => {
+              setProgress({ ...progress, id_ckurs_6_1_c: true });
+              TaskErstellen("id_ckurs_6_1_c", "", true);
+            }}
           ></Accordion>
           <div id="ckurs.6.1.d"></div>
           {/*logische Operatoren*/}
@@ -1008,6 +1036,10 @@ export default function Home() {
                 />
               </span>
             }
+            wasClicked={() => {
+              setProgress({ ...progress, id_ckurs_6_1_d: true });
+              TaskErstellen("id_ckurs_6_1_d", "", true);
+            }}
           ></Accordion>
           <Typography sx={{ marginBottom: "10px" }}> </Typography>
           <div id="ckurs.6.2.a"></div>
@@ -1017,6 +1049,14 @@ export default function Home() {
             ausgibt."
             defaultValue={operatoren}
             turtle={false}
+            codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+              Auswertung_id_ckurs_6_2_a(code_ausgabe);
+              TaskErstellen(
+                "id_ckurs_6_2_a",
+                code_eingabe,
+                Auswertung_id_ckurs_6_2_a(code_ausgabe)
+              );
+            }}
           ></CodeEditor>
         </div>
         {/*Kontrollstrukturen*/}
