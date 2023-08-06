@@ -553,6 +553,7 @@ export default function Home() {
       >
         <div>
           <Typography level="h3">Algorithmus Teil 2</Typography>
+          <div id="algo.2.1"></div>
           <div className={styles.bildeinruecken2}>
             <Typography level="body1">
               In diesem Kapitel lernst du, wie man einen Pseudocode in C++ Code
@@ -576,14 +577,16 @@ export default function Home() {
             <Typography level="h3" sx={{ marginTop: "30px" }}>
               Pseudocode zu C++ Code
             </Typography>
+            <div id="algo.2.2"></div>
             <Typography level="body1">
               Bevor du deinen eigenen Pseudocode in ein C++ Code uberführst,
               schauen wir uns zusammen eine Überführung anhand eines Beispiels
               an.
             </Typography>
             <Typography level="h4" sx={{ marginTop: "10px" }}>
-              Beispiel
+              Anwendungsbeispiel
             </Typography>
+            <div id="algo.2.2.1"></div>
           </div>
           <div>
             <Typography level="body1" sx={{ marginTop: "5px" }}>
@@ -610,6 +613,7 @@ export default function Home() {
           <Typography level="h4" sx={{ marginTop: "30px" }}>
             Guideline
           </Typography>
+          <div id="algo.2.2.2"></div>
           <div className={styles.bildeinruecken}>
             <img
               src={"/undraw_learning.svg"}
@@ -648,6 +652,7 @@ export default function Home() {
           <Typography level="h4" sx={{ marginTop: "30px" }}>
             Dein C++ Code
           </Typography>
+          <div id="algo.2.2.3"></div>
           <div className={styles.bildeinruecken}>
             <Typography level="body1">
               Nimm nun deinen Pseudocode und den Kommentar deines Komilitonen
@@ -694,9 +699,10 @@ export default function Home() {
             />
           </div>
           {/*Labyrinthe */}
-          <Typography level="h4" sx={{ marginTop: "20px" }}>
+          <Typography level="h3" sx={{ marginTop: "20px" }}>
             Labyrinthe
           </Typography>
+          <div id="algo.2.3"></div>
           <Typography level="body1">
             Es ist nun so weit! schreibe deinen Algorithmus und führe diesen
             anschließend aus. Dein Ziel ist es mich aus drei Labyrinthen mit
@@ -714,9 +720,9 @@ export default function Home() {
           >
             Einfaches Labyrinth
           </Typography>
-          <div id="algo.2.1"></div>
+          <div id="algo.2.3.1"></div>
           <CodeEditor
-            title="Algorithmus 2.1 (einfach)"
+            title="einfach"
             defaultValue={code1}
             turtle={true}
             labyrinth={maze_einfach}
@@ -742,9 +748,9 @@ export default function Home() {
           >
             Mittleres Labyrinth
           </Typography>
-          <div id="algo.2.2"></div>
+          <div id="algo.2.3.2"></div>
           <CodeEditor
-            title="Algorithmus 2.2 (mittel)"
+            title="mittel"
             defaultValue={code2}
             turtle={true}
             labyrinth={maze_mittel}
@@ -770,9 +776,9 @@ export default function Home() {
           >
             Schweres Labyrinth
           </Typography>
-          <div id="algo.2.3"></div>
+          <div id="algo.2.3.3"></div>
           <CodeEditor
-            title=" Algorithmus 2.3 (schwer)"
+            title="schwer"
             defaultValue={code3}
             turtle={true}
             labyrinth={maze_schwer}
@@ -814,6 +820,7 @@ export default function Home() {
           >
             Kurs abschließen
           </Button>
+          <div id="algo.2.4"></div>
           <img
             src={"/undraw_certificate1.svg"}
             alt="Zertifikat1"
