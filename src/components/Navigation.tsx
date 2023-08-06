@@ -72,10 +72,17 @@ export const Navigation: React.FC<Props> = (props) => {
               <ErweiterteNavigation
                 title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
                 inhalt={[
-                { idlink: "/uebung1#algo.1.1", label: "Algorithmen sind kompliziert" },
-                { idlink: "/uebung1#algo.1.2", label: "Pseudocode" },
-                { idlink: "/uebung1#algo.1.3", label: "Gamification - Sei Pebble" },
-                { idlink: "/uebung1#algo.1.4", label: "Dein Pseudocode" }
+                { idlink: "/uebung1#algo.1.1", label: "Definitionen zu Beginn" },
+                { idlink: "/uebung1#algo.1.2", label: "Kann jeder Programmieren?" },
+                { idlink: "/uebung1#algo.1.3", label: "Entwurfstechnik" },
+                { idlink: "/uebung1#algo.1.3.1", label: "Programmablaufsplan"},
+                { idlink: "/uebung1#algo.1.3.2", label: "Struktogramm"},
+                { idlink: "/uebung1#algo.1.3.3", label: "Pseudocode"},
+                { idlink: "/uebung1#algo.1.4", label: "Kontrollstrukturen"},
+                { idlink: "/uebung1#algo.1.4.1", label: "Fallunterscheidung"},
+                { idlink: "/uebung1#algo.1.4.2", label: "Schleifen"},
+                { idlink: "/uebung1#algo.1.5", label: "Pebble-Simulator"},
+                { idlink: "/uebung1#algo.1.6", label: "Dein Pseudocode"}
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>

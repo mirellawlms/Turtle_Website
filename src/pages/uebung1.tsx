@@ -119,7 +119,10 @@ export default function Home() {
             erfolgreichen schreiben eines Algorithmus...
           </Typography>
           {/*Definitionen */}
-          <Typography level="h4">Definition zu Beginn</Typography>
+          <Typography level="h4" sx={{ marginTop: "30px" }}>
+            Definitionen zu Beginn
+          </Typography>
+          <div id="algo.1.1"></div>
           <Accordion
             titel="Determiniertheit"
             inhalt="Ein Algorithmus ist determiniert,
@@ -150,8 +153,10 @@ export default function Home() {
               nach endlich vielen Schritten anhält (oder kontrolliert abbricht). "
           ></Accordion>
           {/*Begin*/}
-          <Typography level="h4">Kann jeder Programmieren?</Typography>
-          <div id="algo.1.1"></div>
+          <Typography level="h4" sx={{ marginTop: "30px" }}>
+            Kann jeder Programmieren?
+          </Typography>
+          <div id="algo.1.2"></div>
           <div className={styles.bildeinruecken}>
             <Typography level="body1">
               Diese Frage habe ich mir oft gestellt. Wer eine gute Tasse Kaffee
@@ -193,13 +198,13 @@ export default function Home() {
             benötigt wird. Das schauen wir uns im nächsten Kapitel auch noch an,
             aber alles zu seiner Zeit!
           </Typography>
-          <Typography level="h4" sx={{ marginTop: "10px" }}>
+          <Typography level="h4" sx={{ marginTop: "30px" }}>
             Entwurfstechnik
           </Typography>
+          <div id="algo.1.3"></div>
           {/*Programmablaufplan*/}
-          <Typography level="h5" sx={{ marginTop: "5px" }}>
-            Programmablaufplan (PAP)
-          </Typography>
+          <Typography level="h5">Programmablaufplan (PAP)</Typography>
+          <div id="algo.1.3.1"></div>
           <div>
             <Typography level="body1">
               Ablaufpläne beschreiben welche Anweisungen in welcher Reihenfolge
@@ -220,9 +225,10 @@ export default function Home() {
             </Typography>
           </div>
           {/*Struktogramm*/}
-          <Typography level="h5" sx={{ marginTop: "10px" }}>
+          <Typography level="h5" sx={{ marginTop: "20px" }}>
             Struktogramm (Nassi-Shneidermann Diagramm)
           </Typography>
+          <div id="algo.1.3.2"></div>
           <div>
             <Typography level="body1">
               Struktogramme bieten eine alternative Möglichkeit, Algorithmen
@@ -250,10 +256,10 @@ export default function Home() {
             </Typography>
           </div>
           {/*Pseudocode*/}
-          <Typography level="h5" sx={{ marginTop: "10px" }}>
+          <Typography level="h5" sx={{ marginTop: "20px" }}>
             Pseudocode
           </Typography>
-          <div id="algo.1.2"></div>
+          <div id="algo.1.3.3"></div>
           <div>
             <Typography level="body1">
               Beim Pseudocode soll es sich erstmals um eine Schritt für Schritt
@@ -284,9 +290,7 @@ export default function Home() {
               backen". Alle Schritte, die man beim backen einer TK-Pizza macht
               werden nun in ein Pseudocode geschrieben.
             </Typography>
-            <div className={styles.bildeinruecken2}>
-              <img src={"/pizza.png"} alt="pizza" height={200} />
-            </div>
+
             <Typography
               level="body5"
               sx={{
@@ -307,26 +311,43 @@ export default function Home() {
               abgearbeitet werden. Es gibt verschiedene Kontrollstrukturen, die
               man beim schreiben eines Algorithmus verwendet.
             </Typography>
+            {/*Kontrollstrukturen */}
+            <Typography level="h4" sx={{ marginTop: "30px" }}>
+              Kontrollstrukturen
+            </Typography>
+            <div id="algo.1.4"></div>
+            <Typography level="body1">
+              Du hast im C++ Einführungskurs bereits über Kontrollstrukutren
+              gelernt. Wir versuchen sie nun nochmal im Zusammenhang mit dem
+              Begriff 'Pseudocode' zu betrachten. Falls du noch Schwierigkeiten
+              hast Kontrollstrukturen zu verstehen, kehre einfach zum
+              Einfürungskurs zurück und schau außerdem in dein GdP Skript.
+            </Typography>
             {/*Fallunterscheidung*/}
             <Typography level="h5" sx={{ marginTop: "10px" }}>
               Fallunterscheidung
             </Typography>
+            <div id="algo.1.4.1"></div>
             <Typography level="body1">
               Die Fallunterscheidung (Bedingte Verzweigung) sagt einem, dass
               anhand einer Bedingung/Fall entschieden wird, ob eine bestimmte
-              Anweisung durchgeführt wird oder nicht. Am Beispiel des
-              Pizzabäckers, müsste man also die Folie der Pizza entfernen, nur
-              WENN diese in einer Folie eingewickelt ist. <br></br>
+              Anweisung durchgeführt wird oder nicht. 
+            </Typography>
+            <div className={styles.bildeinruecken2}>
+              <img src={"/pizza.png"} alt="pizza" height={200} />
+            </div>
+            <Typography level="body1" sx={{marginTop:"5px"}}>
+              Am Beispiel des Pizzabäckers, müsste man also die Folie der Pizza
+              entfernen, nur WENN diese in einer Folie eingewickelt ist.{" "}
+              <br></br>
               In der Programmiersprache C++ sind "if" und "else" notwendigen
               Schlüsselwörter dafür.
             </Typography>
-            <div className={styles.bildeinruecken2}>
-              <img src={"/ifelse.png"} alt="ifelse" height={130} />
-            </div>
             {/*Schleife*/}
             <Typography level="h5" sx={{ marginTop: "10px" }}>
               Schleife
             </Typography>
+            <div id="algo.1.4.2"></div>
             <Typography level="body1">
               Der Begriff Zyklus (auch Schleife, Wiederholung, Loop) in der
               Programmierung, bezeichnet die wiederholte Ausführung von Teilen
@@ -356,19 +377,6 @@ export default function Home() {
               Listing 2:Pizza backen-"Studienvorkurs Informatik" Prof. Dr.
               Michael Brinkmeier, Dr. Nils Haldenwang, Universtität Osnabrück
             </Typography>
-            Schleifen sind eine Möglichkeit, Codefragmente wiederholt
-            auszuführen. C++ bietet dafür folgende drei Arten von Anweisungen
-            an:
-            <div className={styles.bildeinruecken2}>
-              <img src={"/zyklus.png"} alt="zyklusImage" height={200} />
-            </div>
-            <Typography
-              level="body5"
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              Bitte schaue für die genaue Erklärung in das GdP-Skript. Dort wird
-              alles nochmal detailliert erklärt.
-            </Typography>
           </div>
           <Typography
             level="h4"
@@ -381,7 +389,7 @@ export default function Home() {
           >
             Pebble-Simulator
           </Typography>
-          <div id="algo.1.3"></div>
+          <div id="algo.1.5"></div>
           <Typography level="body1" sx={{ marginBottom: "20px" }}>
             So das war jetzt aber auch sehr viel Input. Spiel doch gerne zur
             Belohnung eine kleine Runde Pebble-Simulator. Schlüpfe in meine
@@ -412,7 +420,7 @@ export default function Home() {
           >
             Dein Pseudocode
           </Typography>
-          <div id="algo.1.4"></div>
+          <div id="algo.1.6"></div>
           <Typography sx={{ marginTop: "10px" }} level="body1">
             Du hast in diesem Kapitel viel über Algorithmen und Pseudocode
             gelernt. Nun bist du an der Reihe einen Pseudocode zu schreiben!
