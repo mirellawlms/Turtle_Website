@@ -82,8 +82,9 @@ int main() {
     while(ergebnis < 10){ //SOLANGE das Ergebnis kleiner als 10 ist
       zahl1 += 1; //erhöhe den Wert um 1
       zahl2 += 1; //erhöhe den Wert um 1
+      ergebnis = zahl1 + zahl2; //berechne summe
     }
-    if(ergebnis > 10){ //Gib das "ergebnis" aus, WENN die Summe größer als 10 ist.
+    if(ergebnis >= 10){ //Gib das "ergebnis" aus, WENN die Summe größer als 10 ist.
       std::cout << "Die Summe ist: " << ergebnis << std::endl;
     }
     return 0;

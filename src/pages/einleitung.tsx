@@ -201,7 +201,7 @@ export default function Home() {
   const [code_5_3_a, setCode_5_3_a] = useState(datentyp_char1);
   const [code_5_3_b, setCode_5_3_b] = useState(datentyp_char2);
   const [code_5_4_a, setCode_5_4_a] = useState(datentyp_string);
-  const [code_6_a, setCode_6_a] = useState(operatoren);
+  const [code_6_2_a, setCode_6_2_a] = useState(operatoren);
   const [code_7_1_1_a, setCode_7_1_1_a] = useState(fallunterscheidung_if);
   const [code_7_1_2_a, setCode_7_1_2_a] = useState(fallunterscheidung_if_else);
   const [code_7_1_3_a, setCode_7_1_3_a] = useState(fallunterscheidung_else_if);
@@ -209,7 +209,6 @@ export default function Home() {
   const [code_7_2_1_a, setCode_7_2_1_a] = useState(schleifen_while);
   const [code_7_2_2_a, setCode_7_2_2_a] = useState(schleifen_dowhile);
   const [code_7_2_3_a, setCode_7_2_3_a] = useState(schleifen_for);
-
 
   /*CODEAUSWERTUNGEN PRÜFUNG*/
   //mein erstes C++ Programm
@@ -282,9 +281,9 @@ export default function Home() {
   };
 
   //operatoren
-  const Auswertung_id_ckurs_6_a = (code: string) => {
+  const Auswertung_id_ckurs_6_2_a = (code: string) => {
     if (code.trim() === "1") {
-      setProgress({ ...progress, id_ckurs_6_a: true });
+      setProgress({ ...progress, id_ckurs_6_2_a: true });
       return true;
     }
     return false;
@@ -293,7 +292,10 @@ export default function Home() {
   //Fallunterscheidung
   //if else
   const Auswertung_id_ckurs_7_1_1_a = (code: string) => {
-    if (code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" || "Deine Akkuladung ist gering! Lade dein Handy.") {
+    if (
+      code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" ||
+      "Deine Akkuladung ist gering! Lade dein Handy."
+    ) {
       setProgress({ ...progress, id_ckurs_7_1_1_a: true });
       return true;
     }
@@ -301,7 +303,10 @@ export default function Home() {
   };
   //if else
   const Auswertung_id_ckurs_7_1_2_a = (code: string) => {
-    if (code.trim() === "Super, du hast diese Aufgabe geschafft" || "Super, du hast diese Aufgabe geschafft!") {
+    if (
+      code.trim() === "Super, du hast diese Aufgabe geschafft" ||
+      "Super, du hast diese Aufgabe geschafft!"
+    ) {
       setProgress({ ...progress, id_ckurs_7_1_2_a: true });
       return true;
     }
@@ -309,7 +314,10 @@ export default function Home() {
   };
   //else if
   const Auswertung_id_ckurs_7_1_3_a = (code: string) => {
-    if (code.trim() === "Du solltest bald dein Handy laden" || "Du solltest bald dein Handy laden!") {
+    if (
+      code.trim() === "Du solltest bald dein Handy laden" ||
+      "Du solltest bald dein Handy laden!"
+    ) {
       setProgress({ ...progress, id_ckurs_7_1_3_a: true });
       return true;
     }
@@ -349,7 +357,6 @@ export default function Home() {
     return false;
   };
 
-
   /*PROGRESSE MEHRERER */
   //Wissenwertes zu Beginn
   const progress_ckurs_1 = () => {
@@ -388,6 +395,18 @@ export default function Home() {
     return totalProgress;
   };
 
+  //Datentypen - char zusammen
+  const progress_ckurs_5_3 = () => {
+    const items = ["id_ckurs_5_3_a", "id_ckurs_5_3_b"];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
   //*ALLE PROGRESSE ZUSAMMEN */
   const progress_gesamt = () => {
     const items = [
@@ -408,6 +427,12 @@ export default function Home() {
       "id_ckurs_5_3_a",
       "id_ckurs_5_3_b",
       "id_ckurs_5_4_a",
+      //Opoeratoren
+      "id_ckurs_6_1_a",
+      "id_ckurs_6_1_b",
+      "id_ckurs_6_1_c",
+      "id_ckurs_6_1_d",
+      "id_ckurs_6_2_a",
     ];
     let totalProgress = 0;
     for (let index = 0; index < items.length; index++) {
@@ -474,6 +499,12 @@ export default function Home() {
           id_ckurs_5_3_a: prog["id_ckurs_5_3_a"] ?? false,
           id_ckurs_5_3_b: prog["id_ckurs_5_3_b"] ?? false,
           id_ckurs_5_4_a: prog["id_ckurs_5_4_a"] ?? false,
+          //Operatoren
+          id_ckurs_6_1_a: prog["id_ckurs_6_1_a"] ?? false,
+          id_ckurs_6_1_b: prog["id_ckurs_6_1_b"] ?? false,
+          id_ckurs_6_1_c: prog["id_ckurs_6_1_c"] ?? false,
+          id_ckurs_6_1_d: prog["id_ckurs_6_1_d"] ?? false,
+          id_ckurs_6_2_a: prog["id_ckurs_6_2_a"] ?? false,
         });
         setCode_2_a(
           data.task.find((item: any) => item.id === "id_ckurs_2_a")?.code ??
@@ -502,6 +533,10 @@ export default function Home() {
         setCode_5_4_a(
           data.task.find((item: any) => item.id === "id_ckurs_5_4_a")?.code ??
             datentyp_string
+        );
+        setCode_6_2_a(
+          data.task.find((item: any) => item.id === "id_ckurs_6_2_a")?.code ??
+            operatoren
         );
       })
       .catch((error) => {
@@ -742,7 +777,15 @@ export default function Home() {
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_5_2_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Datentyp - Zahlen {"(int, double, float)"}
             </Typography>
             <div id="ckurs.5.2"></div>
@@ -757,10 +800,24 @@ export default function Home() {
               title="Aufgabe: Führe den Code aus. "
               defaultValue={datentyp_zahl}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_5_2_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_5_2_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_5_2_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck done={progress_ckurs_5_3()}></ProgressCheck>
+              }
+            >
               Datentyp - Zeichen (char)
             </Typography>
             <div id="ckurs.5.3"></div>
@@ -773,6 +830,14 @@ export default function Home() {
               title="Aufgabe: Gib 'Hallo' aus. "
               defaultValue={datentyp_char1}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_5_3_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_5_3_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_5_3_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
             <Typography sx={{ marginTop: "20px", marginBottom: "10px" }}>
               Man kann auch ASCII-Werte verwenden, um bestimmte Zeichen
@@ -782,10 +847,26 @@ export default function Home() {
               title="Aufgabe: Gib 'Pebble' mit Hilfe der ASCII-Tabelle aus."
               defaultValue={datentyp_char2}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_5_3_b(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_5_3_b",
+                  code_eingabe,
+                  Auswertung_id_ckurs_5_3_b(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_5_4_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Datentyp - string
             </Typography>
             <div id="ckurs.5.4"></div>
@@ -800,6 +881,14 @@ export default function Home() {
               title="Aufgabe: Gib 'Hallo' aus. "
               defaultValue={datentyp_string}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_5_4_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_5_4_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_5_4_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           <Typography level="h5" sx={{ marginTop: "20px" }}>
@@ -837,6 +926,7 @@ export default function Home() {
             Programms maßgeblich.
           </Typography>
           {/*arithmetische Operatoren*/}
+          <div id="ckurs.6.1.a"></div>
           <Accordion
             titel="Arithemtische Operatoren..."
             inhalt={
@@ -854,6 +944,7 @@ export default function Home() {
               </span>
             }
           ></Accordion>
+          <div id="ckurs.6.1.b"></div>
           {/*Zuweisungs Operatoren*/}
           <Accordion
             titel="Zuweisungs Operatoren..."
@@ -874,6 +965,7 @@ export default function Home() {
               </span>
             }
           ></Accordion>
+          <div id="ckurs.6.1.c"></div>
           {/*vergleichs Operatoren*/}
           <Accordion
             titel="Vergleichs Operatoren..."
@@ -895,6 +987,7 @@ export default function Home() {
               </span>
             }
           ></Accordion>
+          <div id="ckurs.6.1.d"></div>
           {/*logische Operatoren*/}
           <Accordion
             titel="Logische Operatoren..."
@@ -917,6 +1010,7 @@ export default function Home() {
             }
           ></Accordion>
           <Typography sx={{ marginBottom: "10px" }}> </Typography>
+          <div id="ckurs.6.2.a"></div>
           {/*Operatoren Code*/}
           <CodeEditor
             title="Aufgabe: Ändere den Code so um, dass das Ergebnis Wahrheitswert '1' (true)

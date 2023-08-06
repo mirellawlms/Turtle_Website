@@ -54,6 +54,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
         setPath(data.path || []);
         const pfad = data.path || [];
         console.log(pfad);
+        console.log(data);
         const imZiel =
           pfad.length &&
           pfad[pfad.length - 1].end_x === 9 &&
