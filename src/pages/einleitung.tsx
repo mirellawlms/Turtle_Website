@@ -292,10 +292,8 @@ export default function Home() {
   //Fallunterscheidung
   //if else
   const Auswertung_id_ckurs_7_1_1_a = (code: string) => {
-    if (
-      code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" ||
-      "Deine Akkuladung ist gering! Lade dein Handy."
-    ) {
+    if (code.trim() === "Deine Akkuladung ist gering! Lade dein Handy" ||
+      "Deine Akkuladung ist gering! Lade dein Handy.") {
       setProgress({ ...progress, id_ckurs_7_1_1_a: true });
       return true;
     }
@@ -305,8 +303,7 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_2_a = (code: string) => {
     if (
       code.trim() === "Super, du hast diese Aufgabe geschafft" ||
-      "Super, du hast diese Aufgabe geschafft!"
-    ) {
+      "Super, du hast diese Aufgabe geschafft!") {
       setProgress({ ...progress, id_ckurs_7_1_2_a: true });
       return true;
     }
@@ -316,8 +313,7 @@ export default function Home() {
   const Auswertung_id_ckurs_7_1_3_a = (code: string) => {
     if (
       code.trim() === "Du solltest bald dein Handy laden" ||
-      "Du solltest bald dein Handy laden!"
-    ) {
+      "Du solltest bald dein Handy laden!") {
       setProgress({ ...progress, id_ckurs_7_1_3_a: true });
       return true;
     }
@@ -425,6 +421,55 @@ export default function Home() {
     return totalProgress;
   };
 
+  //Kontrollstrukturen gesamt
+  const progress_ckurs_7 = () => {
+    const items = [
+      "id_ckurs_7_1_1_a",
+      "id_ckurs_7_1_2_a",
+      "id_ckurs_7_1_3_a",
+      "id_ckurs_7_1_4_a",
+      "id_ckurs_7_2_1_a",
+      "id_ckurs_7_2_2_a",
+      "id_ckurs_7_2_3_a",
+    ];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
+  //Kontrollstrukturen - Fallunterscheidung zusammen
+  const progress_ckurs_7_1 = () => {
+    const items = [
+      "id_ckurs_7_1_1_a",
+      "id_ckurs_7_1_2_a",
+      "id_ckurs_7_1_3_a",
+      "id_ckurs_7_1_4_a",
+    ];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
+  //Kontrollstrukturen - Schleifen zusammen
+  const progress_ckurs_7_2 = () => {
+    const items = ["id_ckurs_7_2_1_a", "id_ckurs_7_2_2_a", "id_ckurs_7_2_3_a"];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
   //*ALLE PROGRESSE ZUSAMMEN */
   const progress_gesamt = () => {
     const items = [
@@ -451,6 +496,16 @@ export default function Home() {
       "id_ckurs_6_1_c",
       "id_ckurs_6_1_d",
       "id_ckurs_6_2_a",
+      //Kontrollstrukturen
+      //Fallunterscheidung
+      "id_ckurs_7_1_1_a",
+      "id_ckurs_7_1_2_a",
+      "id_ckurs_7_1_3_a",
+      "id_ckurs_7_1_4_a",
+      //Schleifen
+      "id_ckurs_7_2_1_a",
+      "id_ckurs_7_2_2_a",
+      "id_ckurs_7_2_3_a",
     ];
     let totalProgress = 0;
     for (let index = 0; index < items.length; index++) {
@@ -523,6 +578,16 @@ export default function Home() {
           id_ckurs_6_1_c: prog["id_ckurs_6_1_c"] ?? false,
           id_ckurs_6_1_d: prog["id_ckurs_6_1_d"] ?? false,
           id_ckurs_6_2_a: prog["id_ckurs_6_2_a"] ?? false,
+          //Kontrollstrukturen
+          //Fallunterscheidung
+          id_ckurs_7_1_1_a: prog["id_ckurs_7_1_1_a"] ?? false,
+          id_ckurs_7_1_2_a: prog["id_ckurs_7_1_2_a"] ?? false,
+          id_ckurs_7_1_3_a: prog["id_ckurs_7_1_3_a"] ?? false,
+          id_ckurs_7_1_4_a: prog["id_ckurs_7_1_4_a"] ?? false,
+          //Schleifen
+          id_ckurs_7_2_1_a: prog["id_ckurs_7_2_1_a"] ?? false,
+          id_ckurs_7_2_2_a: prog["id_ckurs_7_2_2_a"] ?? false,
+          id_ckurs_7_2_3_a: prog["id_ckurs_7_2_3_a"] ?? false,
         });
         setCode_2_a(
           data.task.find((item: any) => item.id === "id_ckurs_2_a")?.code ??
@@ -555,6 +620,34 @@ export default function Home() {
         setCode_6_2_a(
           data.task.find((item: any) => item.id === "id_ckurs_6_2_a")?.code ??
             operatoren
+        );
+        setCode_7_1_1_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_1_1_a")?.code ??
+            fallunterscheidung_if
+        );
+        setCode_7_1_2_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_1_2_a")?.code ??
+            fallunterscheidung_if_else
+        );
+        setCode_7_1_3_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_1_3_a")?.code ??
+            fallunterscheidung_else_if
+        );
+        setCode_7_1_4_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_1_4_a")?.code ??
+            fallunterscheidung_switch
+        );
+        setCode_7_2_1_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_2_1_a")?.code ??
+            schleifen_while
+        );
+        setCode_7_2_2_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_2_2_a")?.code ??
+            schleifen_dowhile
+        );
+        setCode_7_2_3_a(
+          data.task.find((item: any) => item.id === "id_ckurs_7_2_3_a")?.code ??
+            schleifen_for
         );
       })
       .catch((error) => {
@@ -782,7 +875,7 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Ändere den Wert um, sodass die Aussage wahr ist! :)"
-              defaultValue={datentyp_bool}
+              defaultValue={code_5_1_a}
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_1_a(code_ausgabe);
@@ -816,7 +909,7 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Führe den Code aus. "
-              defaultValue={datentyp_zahl}
+              defaultValue={code_5_2_a}
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_2_a(code_ausgabe);
@@ -846,7 +939,7 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib 'Hallo' aus. "
-              defaultValue={datentyp_char1}
+              defaultValue={code_5_3_a}
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_3_a(code_ausgabe);
@@ -863,7 +956,7 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib 'Pebble' mit Hilfe der ASCII-Tabelle aus."
-              defaultValue={datentyp_char2}
+              defaultValue={code_5_3_b}
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_3_b(code_ausgabe);
@@ -897,7 +990,7 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib 'Hallo' aus. "
-              defaultValue={datentyp_string}
+              defaultValue={code_5_4_a}
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_4_a(code_ausgabe);
@@ -1041,13 +1134,13 @@ export default function Home() {
               TaskErstellen("id_ckurs_6_1_d", "", true);
             }}
           ></Accordion>
-          <Typography sx={{ marginBottom: "10px" }}> </Typography>
+          <Typography sx={{ marginBottom: "10px" }}></Typography>
           <div id="ckurs.6.2.a"></div>
           {/*Operatoren Code*/}
           <CodeEditor
             title="Aufgabe: Ändere den Code so um, dass das Ergebnis Wahrheitswert '1' (true)
             ausgibt."
-            defaultValue={operatoren}
+            defaultValue={code_6_2_a}
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
               Auswertung_id_ckurs_6_2_a(code_ausgabe);
@@ -1061,7 +1154,13 @@ export default function Home() {
         </div>
         {/*Kontrollstrukturen*/}
         <div>
-          <Typography sx={{ marginTop: "40px" }} level="h4">
+          <Typography
+            sx={{ marginTop: "40px" }}
+            level="h4"
+            endDecorator={
+              <ProgressCheck done={progress_ckurs_7()}></ProgressCheck>
+            }
+          >
             Kontrollstrukturen (Fallunterscheidungen, Schleifen,
             Sprunganweisungen)
           </Typography>
@@ -1075,11 +1174,24 @@ export default function Home() {
           </Typography>
           {/*Fallunterscheidung */}
           <div>
-            <Typography level="h5">
+            <Typography
+              level="h5"
+              endDecorator={
+                <ProgressCheck done={progress_ckurs_7_1()}></ProgressCheck>
+              }
+            >
               <b>Fallunterscheidung</b>
             </Typography>
             <div id="ckurs.7.1"></div>
-            <Typography level="h5" sx={{ marginTop: "5px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "5px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_1_1_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Fallunterscheidung - if else
             </Typography>
             <div id="ckurs.7.1.1"></div>
@@ -1097,10 +1209,26 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Ändere den Code so um , dass 'Deine Akkuladung ist gering! Lade dein Handy.' angezeigt wird."
-              defaultValue={fallunterscheidung_if_else}
+              defaultValue={code_7_1_1_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_1_1_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_1_1_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_1_1_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_1_2_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Fallunterscheidung - if
             </Typography>
             <div id="ckurs.7.1.2"></div>
@@ -1115,10 +1243,26 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Ändere den Code so um, dass die Bedingung erfüllt ist und 'Super, du hast diese Aufgabe geschafft!' ausgegeben wird."
-              defaultValue={fallunterscheidung_if}
+              defaultValue={code_7_1_2_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_1_2_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_1_2_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_1_2_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_1_3_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Fallunterscheidung - else if
             </Typography>
             <div id="ckurs.7.1.3"></div>
@@ -1131,10 +1275,26 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Ändere den Code so um, dass 'Du solltest bald dein Handy laden!' ausgegeben wird."
-              defaultValue={fallunterscheidung_else_if}
+              defaultValue={code_7_1_3_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_1_3_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_1_3_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_1_3_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_1_4_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Fallunterscheidung - switch case
             </Typography>
             <div id="ckurs.7.1.4"></div>
@@ -1145,12 +1305,26 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib den Namen der Programmiersprache aus, mit der wir programmieren."
-              defaultValue={fallunterscheidung_switch}
+              defaultValue={code_7_1_4_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_1_4_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_1_4_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_1_4_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           {/*Schleifen */}
-          <Typography level="h5" sx={{ marginTop: "30px" }}>
+          <Typography
+            level="h5"
+            sx={{ marginTop: "30px" }}
+            endDecorator={
+              <ProgressCheck done={progress_ckurs_7_2()}></ProgressCheck>
+            }
+          >
             <b>Schleifen</b>
           </Typography>
           <div id="ckurs.7.2"></div>
@@ -1164,7 +1338,15 @@ export default function Home() {
             Bedingungen, die nach jeder Ausführung gültig sind.
           </Typography>
           <div>
-            <Typography level="h5" sx={{ marginTop: "10px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "10px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_2_1_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Schleifen - while
             </Typography>
             <div id="ckurs.7.2.1"></div>
@@ -1175,12 +1357,28 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
-              defaultValue={schleifen_while}
+              defaultValue={code_7_2_1_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_2_1_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_2_1_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_2_1_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_2_2_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Schleifen - do while
             </Typography>
             <div id="ckurs.7.2.2"></div>
@@ -1194,12 +1392,28 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
-              defaultValue={schleifen_dowhile}
+              defaultValue={code_7_2_2_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_2_2_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_2_2_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_2_2_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
           <div>
-            <Typography level="h5" sx={{ marginTop: "20px" }}>
+            <Typography
+              level="h5"
+              sx={{ marginTop: "20px" }}
+              endDecorator={
+                <ProgressCheck
+                  done={progress["id_ckurs_7_2_3_a"] ? 100 : 0}
+                ></ProgressCheck>
+              }
+            >
               Schleifen - for
             </Typography>
             <div id="ckurs.7.2.3"></div>
@@ -1214,8 +1428,16 @@ export default function Home() {
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
-              defaultValue={schleifen_for}
+              defaultValue={code_7_2_3_a}
               turtle={false}
+              codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
+                Auswertung_id_ckurs_7_2_3_a(code_ausgabe);
+                TaskErstellen(
+                  "id_ckurs_7_2_3_a",
+                  code_eingabe,
+                  Auswertung_id_ckurs_7_2_3_a(code_ausgabe)
+                );
+              }}
             ></CodeEditor>
           </div>
         </div>
