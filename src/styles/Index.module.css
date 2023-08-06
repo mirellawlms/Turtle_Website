@@ -1,19 +1,18 @@
 .bildeinruecken {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.bildeinruecken2 {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 60px;
-}
-
-.bildeinruecken2 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 100px;
-  margin-top: 20px;
-  margin-left: 140px;
 }
 
 .CenterContainer{

@@ -33,7 +33,7 @@ export default function Home() {
             Pebble die Schildkröte
           </Typography>
           <br></br>
-          <div className={styles.bildeinruecken}>
+          <div className={styles.bildeinruecken2}>
             <div>
               <Typography level="body1">
                 Hallo liebe Erstis der Studiengänge Informatik und
@@ -159,16 +159,18 @@ export default function Home() {
           </div>
           {/*dritter Absatz*/}
           <div className={styles.bildeinruecken}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
             <img
               src={"/undraw_elearning.svg"}
               alt="elearningImage"
-              height={150}
+              height={200}
             />
+            </div>
             <div>
               <Typography level="h3">
                 <b>E-Learning Funktionen</b>
               </Typography>
-              <Typography level="body1">
+              <Typography level="body1" sx={{ maxWidth: "100%" }}>
                 • Gamification
                 <br></br>• Visuelle Unterstützung durch Bilder
                 <br></br>• Interaktive Bausteine
@@ -183,44 +185,49 @@ export default function Home() {
               <Typography level="h3">
                 <b>Ziele</b>
               </Typography>
-              <Typography level="body1">
+              <Typography level="body1" sx={{ maxWidth: "100%" }}>
                 • Spaß am Programmieren<br></br>• Einfacher Einstieg in
                 C++/Algorithmen<br></br>• Förderung der
                 Problemlösungsfähigkeiten<br></br>• Entwicklung kreativer
                 Algorithmen<br></br>
               </Typography>
             </div>
-            <img src={"/undraw_ziele.svg"} alt="ziele" height={150} />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src={"/undraw_ziele.svg"} alt="ziele" height={200} />
+            </div>
           </div>
           {/*fünfter Absatz*/}
           <div className={styles.bildeinruecken}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src={"/undraw_you_vs_you.svg"} alt="youImage" height={200} />
+            </div>
             <div>
               <Typography level="h3">
                 <b>You VS You</b>
               </Typography>
-              <Typography level="body1">
-                Du gegen dich selber? Genau! Du hast es bereits richtig verstanden. In
-                diesem Kurs steht deine individuelle Entwicklung im Vordergrund.
-                Du kannst ihn in Ruhe und in deinem eigenen Tempo absolvieren.
-                Es geht nicht darum, der/die Schnellste zu sein, sondern darum, dass
-                du diesen Kurs erfolgreich meisterst. Du kannst hier viele
-                wertvolle Informationen mitnehmen. Natürlich kannst du von
-                deinen Kommilitoninnen und Kommilitonen Hilfe bekommen, aber
-                versuche den Kurs so gut wie möglich eigenständig zu bearbeiten
-                und sei dir selbst kein Hindernis. Du kannst es schaffen! Dein
-                einziger Gegner bist du selbst, also zeig dir selbst, dass du
-                programmieren kannst und diesen Kurs meistern kannst!
+              <Typography level="body1" sx={{ maxWidth: "100%" }}>
+                Du gegen dich selber? Genau! Du hast es bereits richtig
+                verstanden. In diesem Kurs steht deine individuelle Entwicklung
+                im Vordergrund. Du kannst ihn in Ruhe und in deinem eigenen
+                Tempo absolvieren. Es geht nicht darum, der/die Schnellste zu
+                sein, sondern darum, dass du diesen Kurs erfolgreich meisterst.
+                Du kannst hier viele wertvolle Informationen mitnehmen.
+                Natürlich kannst du von deinen Kommilitoninnen und Kommilitonen
+                Hilfe bekommen, aber versuche den Kurs so gut wie möglich
+                eigenständig zu bearbeiten und sei dir selbst kein Hindernis. Du
+                kannst es schaffen! Dein einziger Gegner bist du selbst, also
+                zeig dir selbst, dass du programmieren kannst und diesen Kurs
+                meistern kannst!
               </Typography>
             </div>
-            <img src={"/undraw_you_vs_you.svg"} alt="youImage" height={150} />
           </div>
           {/*sechster Absatz*/}
-          <div className={styles.bildeinruecken2}>
+          <div className={styles.bildeinruecken}>
             <div>
               <Typography level="h3">
                 <b>Pebbles Abenteuer</b>
               </Typography>
-              <Typography level="body1">
+              <Typography level="body1" sx={{ maxWidth: "100%" }}>
                 Nach einem schrecklichen Gewitter hat sich Pebble die
                 Schildkröte verlaufen. Jetzt ist er im Garten der HTWK
                 aufgewacht und weiß nicht wie er zurück zu seiner Familie
@@ -229,11 +236,13 @@ export default function Home() {
                 beibringen. Bist du bereit für dieses Abenteuer?
               </Typography>
             </div>
-            <img
-              src={"/undraw_programming.svg"}
-              alt="programmer"
-              height={150}
-            />
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img
+                src={"/undraw_programming.svg"}
+                alt="programmer"
+                height={200}
+              />
+            </div>
           </div>
         </div>
       </Navigation>
