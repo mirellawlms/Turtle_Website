@@ -15,7 +15,7 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 import { useEffect, useState } from "react";
 import { Field } from "@/components/TurtleViewer";
 
-//CODE Plstzhalter
+//CODE Platzhalter
 //EINLEITUNG
 const einleitung = `// einbinden externer Definitionen (hier std::cout)
 #include <iostream>
@@ -43,6 +43,7 @@ int main() {
 }`;
 
 const datentyp_zahl = `#include <iostream>
+
 int main() {
   int a = 5;
   double b = 27.3;
@@ -52,6 +53,7 @@ int main() {
 }`;
 
 const datentyp_char1 = `#include <iostream>
+
 int main () {
   char a = 'H';
   char b = 'a';
@@ -60,9 +62,10 @@ int main () {
   return 0;
 }`;
 const datentyp_char2 = `#include <iostream>
+
 int main () {
-  char a = 80; //80 ist in der ASCII-Tabelle 'P'
-  char b = 101; //101 ist inder ASCII-Tabelle 'e'
+  char a = 80; // 80 ist in der ASCII-Tabelle 'P'
+  char b = 101; // 101 ist inder ASCII-Tabelle 'e'
   /*--erweitere--*/
 
   std::cout << a << b << std::endl;
@@ -71,6 +74,7 @@ int main () {
 
 const datentyp_string = `#include <iostream>
 #include <string> 
+
 int main() {
   /*schreibe hier deinen Code*/
   std::string test = "test";
@@ -80,9 +84,11 @@ int main() {
 
 //OPERATOREN
 const operatoren = `#include <iostream>
+
 int main() {
   int num1 = 3;
   int num2 = 5;
+
   std::cout << (num1 > num2);
   return 0;
 }`;
@@ -90,15 +96,18 @@ int main() {
 //KONTROLLSTRUKTUREN
 //FALLUNTERSCHEIDUNG
 const fallunterscheidung_if = `#include <iostream>
+
 int main() {
   int zahl = 10;
   if (zahl > 11 ) {
     std::cout << "Super, du hast diese Aufgabe geschafft!";
   }
+
   return 0;
 }`;
 
 const fallunterscheidung_if_else = `#include <iostream>
+
 int main() {
   int akku = 80;
   if (akku < 20 ) {
@@ -106,65 +115,75 @@ int main() {
   } else {
     std::cout << "Deine Akkuladung reicht noch aus!";
   }
+
   return 0;
 }`;
 
 const fallunterscheidung_else_if = `#include <iostream>
+
 int main() {
   int akku = 10;
   if (akku < 30 ) {
     std::cout << "Deine Akkuladung ist gering! Lade dein Handy.";
-  } else if(akku < 50){
+  } else if(akku < 50) {
     std::cout << "Du solltest bald dein Handy laden!";
   } else {
     std::cout << "Deine Akkuladung reicht noch aus!";
   }
+
   return 0;
 }`;
 const fallunterscheidung_switch = `#include <iostream>
+
 int main() {
-    int sprache = 6;
-    switch (sprache) {
-        case 1:     // Fall, dass der Wert von var 1 ist
-            std::cout << "Java" << std::endl;
-            break;  // beendet die Ausführung des switch-Blocks
-        case 2:     // Fall, dass der Wert von var 2 ist
-            std::cout << "C++" << std::endl;
-            break;
-        default:     // Wird ausgeführt, wenn kein anderer Fall eintritt
-            std::cout << "Python" << std::endl;
-            break;
-           }
-    return 0;
+  int sprache = 6;
+  switch (sprache) {
+    case 1:     // Fall, dass der Wert von var 1 ist
+      std::cout << "Java" << std::endl;
+      break;    // beendet die Ausführung des switch-Blocks
+    case 2:     // Fall, dass der Wert von var 2 ist
+      std::cout << "C++" << std::endl;
+      break;
+    default:    // Wird ausgeführt, wenn kein anderer Fall eintritt
+      std::cout << "Python" << std::endl;
+      break;
+  }
+
+  return 0;
 }`;
 
 //SCHLEIFEN
 const schleifen_while = `#include <iostream>
+
 int main() {
   int i = 1;
   while (i < 6) {
     std::cout << i << " ";
     i++;
   }
+
   return 0;
 }`;
 
 const schleifen_dowhile = `#include <iostream>
-int main() {
+
+int main(){
   int i = 1;
-  do{
+  do {
     std::cout << i << " ";
     i++;
-  }
-  while (i < 11);
+  } while (i < 11);
+
   return 0;
 }`;
 
 const schleifen_for = `#include <iostream>
-int main() {
+
+int main(){
   for(int i=1; i < 6; ++i){
     std::cout << i << " " << std::endl;
   }
+
   return 0;
 }`;
 
@@ -172,23 +191,24 @@ const schleifen = `#include "turtle.h"
 #include <stdio.h>
 #include <iostream>
 
-  int main(){
-      Kroete pebble;
-      int i;
-      int p;
+int main(){
+  Kroete pebble;
+  int i;
+  int p;
 
-    for(p=0; p<4; p++){
-      if(!pebble.isWallLeft()){
-        pebble.moveForward();
-      }
-      for(i=0; i<4 ; i++){
-        while(pebble.isWallLeft()){
-          pebble.moveForward();
-        }
-        pebble.turnLeft();
-        pebble.moveForward();
-      }
+  for(p=0; p<4; p++){
+    if(!pebble.isWallLeft()){
+      pebble.moveForward();
     }
+
+    for(i=0; i<4 ; i++){
+      while(pebble.isWallLeft()){
+        pebble.moveForward();
+      }
+      pebble.turnLeft();
+      pebble.moveForward();
+    }
+  }
 }`;
 
 //Aufgabe schleifen kleines Labyrinth
@@ -209,8 +229,8 @@ export default function Home() {
   const [code_5_3_b, setCode_5_3_b] = useState(datentyp_char2);
   const [code_5_4_a, setCode_5_4_a] = useState(datentyp_string);
   const [code_6_2_a, setCode_6_2_a] = useState(operatoren);
-  const [code_7_1_1_a, setCode_7_1_1_a] = useState(fallunterscheidung_if);
-  const [code_7_1_2_a, setCode_7_1_2_a] = useState(fallunterscheidung_if_else);
+  const [code_7_1_1_a, setCode_7_1_1_a] = useState(fallunterscheidung_if_else);
+  const [code_7_1_2_a, setCode_7_1_2_a] = useState(fallunterscheidung_if);
   const [code_7_1_3_a, setCode_7_1_3_a] = useState(fallunterscheidung_else_if);
   const [code_7_1_4_a, setCode_7_1_4_a] = useState(fallunterscheidung_switch);
   const [code_7_2_1_a, setCode_7_2_1_a] = useState(schleifen_while);
@@ -231,6 +251,7 @@ export default function Home() {
     }
     return false;
   };
+
   //Variablen
   const Auswertung_id_ckurs_4_a = (code: string) => {
     if (code.trim() === "2") {
@@ -239,6 +260,7 @@ export default function Home() {
     }
     return false;
   };
+
   //Datentypen
   //bool
   const Auswertung_id_ckurs_5_1_a = (code: string) => {
@@ -248,6 +270,7 @@ export default function Home() {
     }
     return false;
   };
+
   //zahl
   const Auswertung_id_ckurs_5_2_a = (code: string) => {
     if (code.trim() === "a ist: 5, b ist: 27.3, c ist: 3.24") {
@@ -256,6 +279,7 @@ export default function Home() {
     }
     return false;
   };
+
   //char
   const Auswertung_id_ckurs_5_3_a = (code: string) => {
     if (
@@ -267,6 +291,7 @@ export default function Home() {
     }
     return false;
   };
+
   const Auswertung_id_ckurs_5_3_b = (code: string) => {
     if (
       code.trim().toLowerCase() === "pebble" ||
@@ -277,6 +302,7 @@ export default function Home() {
     }
     return false;
   };
+
   //string
   const Auswertung_id_ckurs_5_4_a = (code: string) => {
     if (
@@ -297,6 +323,7 @@ export default function Home() {
     }
     return false;
   };
+
   //Kontrollstrukturen
   //Fallunterscheidung
   //if else
@@ -310,7 +337,8 @@ export default function Home() {
     }
     return false;
   };
-  //if else
+
+  //if
   const Auswertung_id_ckurs_7_1_2_a = (code: string) => {
     if (
       code.trim() === "Super, du hast diese Aufgabe geschafft" ||
@@ -321,6 +349,7 @@ export default function Home() {
     }
     return false;
   };
+
   //else if
   const Auswertung_id_ckurs_7_1_3_a = (code: string) => {
     if (
@@ -332,6 +361,7 @@ export default function Home() {
     }
     return false;
   };
+
   //switch case
   const Auswertung_id_ckurs_7_1_4_a = (code: string) => {
     if (code.trim() === "C++" || code.trim() === "c++") {
@@ -340,6 +370,7 @@ export default function Home() {
     }
     return false;
   };
+
   //Schleifen
   //while
   const Auswertung_id_ckurs_7_2_1_a = (code: string) => {
@@ -349,6 +380,7 @@ export default function Home() {
     }
     return false;
   };
+
   //do while
   const Auswertung_id_ckurs_7_2_2_a = (code: string) => {
     if (code.trim() === "1 2 3 4 5 6 7 8 9" || code.trim() === "123456789") {
@@ -357,6 +389,7 @@ export default function Home() {
     }
     return false;
   };
+
   //for
   const Auswertung_id_ckurs_7_2_3_a = (code: string) => {
     if (code.trim() === "1 2 3 4 5 6 7 8 9" || code.trim() === "123456789") {
@@ -529,8 +562,8 @@ export default function Home() {
     return totalProgress;
   };
 
-  /*POST AUF DB*/
-  const TaskErstellen = async (
+  // Erstellt oder aktualisiert einen Task in der Datenbank
+  const updateTask = async (
     id: string,
     code_eingabe: string,
     complete: boolean
@@ -636,11 +669,11 @@ export default function Home() {
         );
         setCode_7_1_1_a(
           data.task.find((item: any) => item.id === "id_ckurs_7_1_1_a")?.code ??
-            fallunterscheidung_if
+            fallunterscheidung_if_else
         );
         setCode_7_1_2_a(
           data.task.find((item: any) => item.id === "id_ckurs_7_1_2_a")?.code ??
-            fallunterscheidung_if_else
+            fallunterscheidung_if
         );
         setCode_7_1_3_a(
           data.task.find((item: any) => item.id === "id_ckurs_7_1_3_a")?.code ??
@@ -671,7 +704,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>HTWK - C++ Kurs</title>
         <meta name="description" content="Created by Mirella" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.webp" />
@@ -686,8 +719,8 @@ export default function Home() {
         <Typography level="h3">C++ Kurs</Typography>
         <div className={styles.bildeinruecken}>
           <Typography>
-            In diesem Kurs erhälst du Einblicke in die Programmiersprache C++.
-            Es ist nicht erfoderlich, dass du bereits Programmiererfahrungen
+            In diesem Kurs erhälst du erste Einblicke in die Programmiersprache
+            C++. Es ist nicht erfoderlich, dass du bereits Programmiererfahrung
             hast. Dieser Kurs ist für alle gedacht und wurde aus dem
             Vorlesungsskript des Moduls GdP erstellt. Schließe diesen C++ Kurs
             ab, um dein Wissen unter Beweis zu stellen.
@@ -716,7 +749,7 @@ export default function Home() {
           und deren zeitliche Abfolge festlegt."
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_1_a: true });
-              TaskErstellen("id_ckurs_1_a", "", true);
+              updateTask("id_ckurs_1_a", "", true);
             }}
           ></Accordion>
           <Accordion
@@ -724,7 +757,7 @@ export default function Home() {
             inhalt="'Ein Programm ist ein strengformalisierter, eindeutiger und detaillierter Algorithmus, der maschinell ausgeführt werden kann' - Prof. B. Jung, Grundlagen der Informatik, Skript WS2007/08"
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_1_b: true });
-              TaskErstellen("id_ckurs_1_b", "", true);
+              updateTask("id_ckurs_1_b", "", true);
             }}
           ></Accordion>
           <Accordion
@@ -733,15 +766,15 @@ export default function Home() {
           Die im Rahmen dieses Kurs erlernte Programmiersprache heißt C++."
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_1_c: true });
-              TaskErstellen("id_ckurs_1_c", "", true);
+              updateTask("id_ckurs_1_c", "", true);
             }}
           ></Accordion>
           <Accordion
             titel="Die Syntax..."
-            inhalt="...regelt,welche Symbole aus Zeichen in deinem Programm zusammengesetzt werden können."
+            inhalt="...regelt, welche Symbole aus Zeichen in deinem Programm zusammengesetzt werden können."
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_1_d: true });
-              TaskErstellen("id_ckurs_1_d", "", true);
+              updateTask("id_ckurs_1_d", "", true);
             }}
           ></Accordion>
           <Accordion
@@ -749,7 +782,7 @@ export default function Home() {
             inhalt="...regelt welche Kombinationen von Symbolen Sinn ergeben."
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_1_e: true });
-              TaskErstellen("id_ckurs_1_e", "", true);
+              updateTask("id_ckurs_1_e", "", true);
             }}
           ></Accordion>
           <Accordion
@@ -757,7 +790,7 @@ export default function Home() {
             inhalt="...regelt die Bedeutung der Abfolgen von Symbolen."
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_1_f: true });
-              TaskErstellen("id_ckurs_1_f", "", true);
+              updateTask("id_ckurs_1_f", "", true);
             }}
           ></Accordion>
         </div>
@@ -776,17 +809,17 @@ export default function Home() {
           </Typography>
           <div id="ckurs.2"></div>
           <Typography sx={{ marginBottom: "10px" }} level="body1">
-            Nachdem du nun viele neue Begriffe gelernt hast, ist es nun an der
-            Zeit gekommen, dass du dein erstes C++ Programm schreibst.
+            Nachdem du nun viele neue Begriffe gelernt hast, ist es jetzt an der
+            Zeit, dein erstes C++ Programm zu schreiben.
           </Typography>
           <CodeEditor
-            title="Aufgabe: Gib 'Hello world!' aus, indem du rechts den Code über den Play
+            title="Aufgabe: Gib 'Hello world!' aus, indem du rechts oben den Code über den Play
             Button ausführst."
             defaultValue={code_2_a}
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
               Auswertung_id_ckurs_2_a(code_ausgabe);
-              TaskErstellen(
+              updateTask(
                 "id_ckurs_2_a",
                 code_eingabe,
                 Auswertung_id_ckurs_2_a(code_ausgabe)
@@ -827,7 +860,7 @@ export default function Home() {
             in denen Information gespeichert werden kann. C++ ist eine streng
             typisierte Sprache, das heißt, dass jeder Variablen neben einem
             Namen, ein eindeutiger Datentyp zuzuweisen ist. Die Syntax sieht
-            also so aus:
+            also wie folgt aus:
           </Typography>
           <Textarea
             sx={{ width: "250px", marginTop: "10px", marginBottom: "10px" }}
@@ -845,7 +878,7 @@ export default function Home() {
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
               Auswertung_id_ckurs_4_a(code_ausgabe);
-              TaskErstellen(
+              updateTask(
                 "id_ckurs_4_a",
                 code_eingabe,
                 Auswertung_id_ckurs_4_a(code_ausgabe)
@@ -867,7 +900,7 @@ export default function Home() {
           <div id="ckurs.5"></div>
           <Typography level="body1" sx={{ marginBottom: "10px" }}>
             Du hast im vorherigen Kapitel bereits den Datentyp 'int'
-            kennengelernt. Es gibt aber noch viele weitere grundlegende
+            kennengelernt. Es gibt aber noch einige weitere grundlegende
             Datentypen.
           </Typography>
           <div>
@@ -892,7 +925,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_1_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_5_1_a",
                   code_eingabe,
                   Auswertung_id_ckurs_5_1_a(code_ausgabe)
@@ -926,7 +959,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_2_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_5_2_a",
                   code_eingabe,
                   Auswertung_id_ckurs_5_2_a(code_ausgabe)
@@ -956,7 +989,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_3_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_5_3_a",
                   code_eingabe,
                   Auswertung_id_ckurs_5_3_a(code_ausgabe)
@@ -973,7 +1006,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_3_b(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_5_3_b",
                   code_eingabe,
                   Auswertung_id_ckurs_5_3_b(code_ausgabe)
@@ -1000,6 +1033,10 @@ export default function Home() {
               Leerzeichen und Sonderzeichen enthalten und ermöglichen die
               Darstellung von Wörtern, Sätzen oder Texten. Der Inhalt muss dafür
               von Anführungszeichen umgeben sein <span>("Text").</span>
+              Im Gegensatz zu anderen primitive Datentypen, wie int oder char,
+              ist der Datentyp string kein Grunddatentyp, sondern ein
+              zusammengesetzter Datentyp. Das bedeutet, dass der Datentyp string
+              intern als Klasse implementiert ist.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib 'Hallo' aus. "
@@ -1007,7 +1044,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_5_4_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_5_4_a",
                   code_eingabe,
                   Auswertung_id_ckurs_5_4_a(code_ausgabe)
@@ -1043,7 +1080,7 @@ export default function Home() {
             ermöglichen Operationen auf Variablen und Werten auszuführen. Zu den
             gängigen Arten von Operatoren in der Programmiersprachen C++ gehören
             arithmetische Operatoren, logische Operatoren, Vergleichsoperatoren
-            Gleichheit und Zuweisungsoperatoren.Sie spielen eine zentrale Rolle
+            Gleichheit und Zuweisungsoperatoren. Sie spielen eine zentrale Rolle
             bei der Verarbeitung von Daten und beeinflussen den Ablauf des
             Programms maßgeblich.
           </Typography>
@@ -1067,7 +1104,7 @@ export default function Home() {
             }
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_6_1_a: true });
-              TaskErstellen("id_ckurs_6_1_a", "", true);
+              updateTask("id_ckurs_6_1_a", "", true);
             }}
           ></Accordion>
           <div id="ckurs.6.1.b"></div>
@@ -1092,7 +1129,7 @@ export default function Home() {
             }
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_6_1_b: true });
-              TaskErstellen("id_ckurs_6_1_b", "", true);
+              updateTask("id_ckurs_6_1_b", "", true);
             }}
           ></Accordion>
           <div id="ckurs.6.1.c"></div>
@@ -1118,7 +1155,7 @@ export default function Home() {
             }
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_6_1_c: true });
-              TaskErstellen("id_ckurs_6_1_c", "", true);
+              updateTask("id_ckurs_6_1_c", "", true);
             }}
           ></Accordion>
           <div id="ckurs.6.1.d"></div>
@@ -1144,7 +1181,7 @@ export default function Home() {
             }
             wasClicked={() => {
               setProgress({ ...progress, id_ckurs_6_1_d: true });
-              TaskErstellen("id_ckurs_6_1_d", "", true);
+              updateTask("id_ckurs_6_1_d", "", true);
             }}
           ></Accordion>
           <Typography sx={{ marginBottom: "10px" }}></Typography>
@@ -1157,7 +1194,7 @@ export default function Home() {
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
               Auswertung_id_ckurs_6_2_a(code_ausgabe);
-              TaskErstellen(
+              updateTask(
                 "id_ckurs_6_2_a",
                 code_eingabe,
                 Auswertung_id_ckurs_6_2_a(code_ausgabe)
@@ -1226,7 +1263,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_1_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_1_1_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_1_1_a(code_ausgabe)
@@ -1260,7 +1297,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_2_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_1_2_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_1_2_a(code_ausgabe)
@@ -1292,7 +1329,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_3_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_1_3_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_1_3_a(code_ausgabe)
@@ -1312,9 +1349,17 @@ export default function Home() {
             </Typography>
             <div id="ckurs.7.1.4"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
-              Verwende "switch case", wenn es viele verschiedene Werte gibt, die
-              geprüft werden müssen. Es ist eine alternative Möglichkeit zur
-              "if-else"-Anweisung, um mehrere Fälle gleichzeitig abzuarbeiten.
+              Die "switch case"-Anweisung ist eine alternative Möglichkeit, um
+              eine Fallunterscheidung zu implementieren. Sie ist besonders
+              nützlich, wenn es viele verschiedene Werte gibt, die geprüft
+              werden müssen. Die "switch case"-Anweisung wird mit einem Ausdruck
+              initialisiert, der mit den Werten verglichen wird, die in den
+              "case"-Anweisungen angegeben sind. Wenn der Wert des Ausdrucks mit
+              einem der Werte übereinstimmt, wird der Code innerhalb des
+              entsprechenden "case"-Blocks ausgeführt. Wenn keine
+              Übereinstimmung gefunden wird, wird der Code innerhalb des
+              "default"-Blocks ausgeführt. Vorteil der "switch case"-Anweisung
+              ist, dass sie für viele Werte nur eine Bedingun prüfen muss.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib den Namen der Programmiersprache aus, mit der wir programmieren."
@@ -1322,7 +1367,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_4_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_1_4_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_1_4_a(code_ausgabe)
@@ -1374,7 +1419,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_2_1_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_2_1_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_2_1_a(code_ausgabe)
@@ -1409,7 +1454,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_2_2_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_2_2_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_2_2_a(code_ausgabe)
@@ -1445,7 +1490,7 @@ export default function Home() {
               turtle={false}
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_2_3_a(code_ausgabe);
-                TaskErstellen(
+                updateTask(
                   "id_ckurs_7_2_3_a",
                   code_eingabe,
                   Auswertung_id_ckurs_7_2_3_a(code_ausgabe)
@@ -1470,7 +1515,7 @@ export default function Home() {
             disabled={!(progress_gesamt() > 99)}
             onClick={() => {
               setProgress({ ...progress, id_urkunde: true });
-              TaskErstellen("id_urkunde", "", true);
+              updateTask("id_urkunde", "", true);
               setFinalOpen(true);
             }}
           >

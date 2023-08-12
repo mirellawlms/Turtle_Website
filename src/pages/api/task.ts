@@ -9,24 +9,34 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   try {
     switch (req.method) {
       case "GET":
-        const task = await prisma.task.findMany()
+        const task = await prisma.task.findMany();
         res.status(200).json({
-          task
+          task,
         });
         return;
       case "POST":
         await prisma.task.upsert({
-            create:{id:req.body.id,code:req.body.code,userid:user.id, isReviewed:false , complete:req.body.complete},
-            update:{code:req.body.code,userid:user.id, complete:req.body.complete},
-            where:{
-              id_userid:{
-                id:req.body.id,
-                userid:user.id
-            }
-          }
-        })
+          create: {
+            id: req.body.id,
+            code: req.body.code,
+            userid: user.id,
+            isReviewed: false,
+            complete: req.body.complete,
+          },
+          update: {
+            code: req.body.code,
+            userid: user.id,
+            complete: req.body.complete,
+          },
+          where: {
+            id_userid: {
+              id: req.body.id,
+              userid: user.id,
+            },
+          },
+        });
         res.status(200).json({
-            success : "success"
+          success: "success",
         });
         return;
       default:

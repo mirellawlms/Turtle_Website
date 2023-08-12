@@ -8,13 +8,21 @@ interface Props {
 
 export const ProgressCheck: React.FC<Props> = (props) => {
   const { done } = props;
- //> 99 da aufrundungsprobleme
+  //> 99 da aufrundungsprobleme
   return (
-    <CircularProgress color={done > 99 ? "success" : "danger"} determinate value={done} variant="soft" size="sm">
-        {/*faCheck Haken faTimes Kreuz */}
+    <CircularProgress
+      color={done > 99 ? "success" : "danger"}
+      determinate
+      value={done}
+      variant="soft"
+      size="sm"
+    >
+      {/*faCheck Haken faTimes Kreuz */}
       <FontAwesomeIcon
-        icon={done > 99 ? faCheck: faTimes} size="2xl" height={12}
-        color={done  > 99 ? "#1A7D36 " : "#d3232f"} 
+        icon={done > 99 ? faCheck : faTimes}
+        size="2xl"
+        height={12}
+        color={done > 99 ? "#1A7D36 " : "#d3232f"}
       />
     </CircularProgress>
   );

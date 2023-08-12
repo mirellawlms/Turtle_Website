@@ -14,7 +14,7 @@ interface Props {
 
 export const Navigation: React.FC<Props> = (props) => {
   //const title = props.title;
-  const { titel, children, currentNavigation, progress, visible} = props;
+  const { titel, children, currentNavigation, progress, visible } = props;
   const router = useRouter(); /*wie link*/
 
   return (
@@ -62,7 +62,7 @@ export const Navigation: React.FC<Props> = (props) => {
                   {
                     idlink: "/einleitung#ckurs.7.2",
                     label: "Schleifen",
-                  }
+                  },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
@@ -72,17 +72,29 @@ export const Navigation: React.FC<Props> = (props) => {
               <ErweiterteNavigation
                 title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
                 inhalt={[
-                { idlink: "/uebung1#algo.1.1", label: "Definitionen zu Beginn" },
-                { idlink: "/uebung1#algo.1.2", label: "Kann jeder Programmieren?" },
-                { idlink: "/uebung1#algo.1.3", label: "Entwurfstechnik" },
-                { idlink: "/uebung1#algo.1.3.1", label: "Programmablaufsplan"},
-                { idlink: "/uebung1#algo.1.3.2", label: "Struktogramm"},
-                { idlink: "/uebung1#algo.1.3.3", label: "Pseudocode"},
-                { idlink: "/uebung1#algo.1.4", label: "Kontrollstrukturen"},
-                { idlink: "/uebung1#algo.1.4.1", label: "Fallunterscheidung"},
-                { idlink: "/uebung1#algo.1.4.2", label: "Schleifen"},
-                { idlink: "/uebung1#algo.1.5", label: "Pebble-Simulator"},
-                { idlink: "/uebung1#algo.1.6", label: "Dein Pseudocode"}
+                  {
+                    idlink: "/uebung1#algo.1.1",
+                    label: "Definitionen zu Beginn",
+                  },
+                  {
+                    idlink: "/uebung1#algo.1.2",
+                    label: "Kann jeder Programmieren?",
+                  },
+                  { idlink: "/uebung1#algo.1.3", label: "Entwurfstechnik" },
+                  {
+                    idlink: "/uebung1#algo.1.3.1",
+                    label: "Programmablaufsplan",
+                  },
+                  { idlink: "/uebung1#algo.1.3.2", label: "Struktogramm" },
+                  { idlink: "/uebung1#algo.1.3.3", label: "Pseudocode" },
+                  { idlink: "/uebung1#algo.1.4", label: "Kontrollstrukturen" },
+                  {
+                    idlink: "/uebung1#algo.1.4.1",
+                    label: "Fallunterscheidung",
+                  },
+                  { idlink: "/uebung1#algo.1.4.2", label: "Schleifen" },
+                  { idlink: "/uebung1#algo.1.5", label: "Pebble-Simulator" },
+                  { idlink: "/uebung1#algo.1.6", label: "Dein Pseudocode" },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
@@ -90,11 +102,9 @@ export const Navigation: React.FC<Props> = (props) => {
 
             {/*Peer Review*/}
             <div>
-            <ErweiterteNavigation
+              <ErweiterteNavigation
                 title={{ idlink: "/peerReview", label: "Peer Review" }}
-                inhalt={[
-                
-                ]}
+                inhalt={[]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
@@ -104,20 +114,34 @@ export const Navigation: React.FC<Props> = (props) => {
               <ErweiterteNavigation
                 title={{ idlink: "/uebung2", label: "Algorithmus Teil 2" }}
                 inhalt={[
-                { idlink: "/uebung2#algo.2.2", label: "Pseudocode zu C++ Code" },
-                { idlink: "/uebung2#algo.2.2.1", label: "Anwendungsbeispiel" },
-                { idlink: "/uebung2#algo.2.2.2", label: "Guideline" },
-                { idlink: "/uebung2#algo.2.2.3", label: "Dein C++ Code" },
-                { idlink: "/uebung2#algo.2.3", label: "Labyrinthe" },
-                { idlink: "/uebung2#algo.2.3.1", label: "Einfaches Labyrinth" },
-                { idlink: "/uebung2#algo.2.3.2", label: "Mittleres Labyrinth" },
-                { idlink: "/uebung2#algo.2.3.3", label: "Schweres Labyrinth" },
-                { idlink: "/uebung2#algo.2.4", label: "Kurs Abschluss" }
+                  {
+                    idlink: "/uebung2#algo.2.2",
+                    label: "Pseudocode zu C++ Code",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.2.1",
+                    label: "Anwendungsbeispiel",
+                  },
+                  { idlink: "/uebung2#algo.2.2.2", label: "Guideline" },
+                  { idlink: "/uebung2#algo.2.2.3", label: "Dein C++ Code" },
+                  { idlink: "/uebung2#algo.2.3", label: "Labyrinthe" },
+                  {
+                    idlink: "/uebung2#algo.2.3.1",
+                    label: "Einfaches Labyrinth",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.3.2",
+                    label: "Mittleres Labyrinth",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.3.3",
+                    label: "Schweres Labyrinth",
+                  },
+                  { idlink: "/uebung2#algo.2.4", label: "Kurs Abschluss" },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
-
           </div>
         </div>
         {/*Top Navigation*/}
@@ -125,7 +149,12 @@ export const Navigation: React.FC<Props> = (props) => {
           <Link href={"/"}>
             <img src={"/kroete.svg"} alt="PebbleImage" height={40} />
           </Link>
-          {visible && (<LoadBalken progress={progress??0} titel={titel??""}></LoadBalken>)}
+          {visible && (
+            <LoadBalken
+              progress={progress ?? 0}
+              titel={titel ?? ""}
+            ></LoadBalken>
+          )}
         </div>
         <Container sx={{ paddingBlock: "30px", paddingTop: "70px" }}>
           {children}
@@ -171,7 +200,8 @@ export const Navigation: React.FC<Props> = (props) => {
                 <Link
                   href={
                     "https://fim.htwk-leipzig.de/fakultaet/personen/professorinnen-und-professoren/klaus-hering"
-                  }>
+                  }
+                >
                   E-Learning Beauftragter der HTWK
                 </Link>
               </Typography>
@@ -179,7 +209,8 @@ export const Navigation: React.FC<Props> = (props) => {
                 <Link
                   href={
                     "https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/25768460288/CourseNode/1631759207016055012?8"
-                  }>
+                  }
+                >
                   Modul Grundlagen der Programmierung HTWK
                 </Link>
               </Typography>

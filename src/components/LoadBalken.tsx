@@ -17,13 +17,16 @@ export const LoadBalken: React.FC<Props> = (props) => {
         variant="soft"
         thickness={20}
         color="success"
-        value={progress}>
+        value={progress}
+      >
         <Typography
           level="body2"
           fontWeight="l"
           textColor="common.white"
-          sx={{ mixBlendMode: "difference" }}>
-          {titel}{`${Math.round(progress)}%`}
+          sx={{ mixBlendMode: "difference" }}
+        >
+          {titel}
+          {`${Math.round(progress)}%`}
         </Typography>
       </LinearProgress>
     </div>

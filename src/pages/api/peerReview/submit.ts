@@ -11,14 +11,14 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
       //Ich weise jemanden  meinen Pseudocode für die PeerReview zu
       case "POST":
         const reviewer = await prisma.user.findFirst({
-            //select * from user where id not user.id
+          //select * from user where id not user.id
           where: {
-              PeerReview: {
-                none: {},
-              },
-              NOT:{
-                id: user.id
-              }
+            PeerReview: {
+              none: {},
+            },
+            NOT: {
+              id: user.id,
+            },
           },
         });
         if (!reviewer) {

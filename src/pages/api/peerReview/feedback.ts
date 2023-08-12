@@ -8,21 +8,21 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
 
   try {
     switch (req.method) {
-        //Ich erhalte Feedback von Komilitonen
+      //Ich erhalte Feedback von Komilitonen
       case "GET":
         const peerReview = await prisma.peerReview.findFirst({
-            where:{
-                Task:{
-                    id:"id_algo_1_2",
-                    userid:user.id
-                }
-            }
-        })
+          where: {
+            Task: {
+              id: "id_algo_1_2",
+              userid: user.id,
+            },
+          },
+        });
         res.status(200).json({
-            peerReview
+          peerReview,
         });
         return;
-      
+
       default:
         res.setHeader("Allow", ["GET", "POST", "PUT"]);
         res.status(405).end(`Method ${req.method} Not Allowed`);

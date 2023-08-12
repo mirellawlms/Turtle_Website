@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>HTWK - Einführungskurs in C++ mit C-Turtle</title>
         <meta name="description" content="Created by Mirella" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/kroete.svg" />
@@ -203,7 +203,7 @@ export default function Home() {
             </div>
             <div>
               <Typography level="h3">
-                <b>You VS You</b>
+                <b>You vs. You</b>
               </Typography>
               <Typography level="body1" sx={{ maxWidth: "100%" }}>
                 Du gegen dich selber? Genau! Du hast es bereits richtig

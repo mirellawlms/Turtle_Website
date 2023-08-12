@@ -684,6 +684,7 @@ export default function Home() {
             defaultValue={c_codeEingabe}
             turtle={true}
             labyrinth={maze_einfach}
+            onChange={(code) => set_c_codeEingabe(code)}
             codeEinAusgabe={(
               code_eingabe: string,
               code_ausgabe: string,
@@ -712,6 +713,7 @@ export default function Home() {
             defaultValue={c_codeEingabe}
             turtle={true}
             labyrinth={maze_mittel}
+            onChange={(code) => set_c_codeEingabe(code)}
             codeEinAusgabe={(
               code_eingabe: string,
               code_ausgabe: string,
@@ -740,6 +742,7 @@ export default function Home() {
             defaultValue={c_codeEingabe}
             turtle={true}
             labyrinth={maze_schwer}
+            onChange={(code) => set_c_codeEingabe(code)}
             codeEinAusgabe={(
               code_eingabe: string,
               code_ausgabe: string,

@@ -12,34 +12,33 @@ async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
       //Ich bekomme Pseudocode von Komilitonen
       case "GET":
         const peerReview = await prisma.peerReview.findFirst({
-            where:{
-                reviewerid:user.id
-            }, 
-            include:{
-                Task:true
-            }
-        })
+          where: {
+            reviewerid: user.id,
+          },
+          include: {
+            Task: true,
+          },
+        });
         res.status(200).json({
-            peerReview
+          peerReview,
         });
         return;
       //Ich gebe Kommentar für Pseudocode von Komilitonen
       case "POST":
         await prisma.peerReview.update({
-            where:{
-                reviewerid_taskId_taskUserid:{
-                reviewerid:user.id,
-                taskId:"id_algo_1_2",
-                taskUserid:req.body.userid
-            }
-            }, 
-            data:{
-                comment:req.body.comment
-            }
-        })
-        res.status(200).json({
-      });
-      return;
+          where: {
+            reviewerid_taskId_taskUserid: {
+              reviewerid: user.id,
+              taskId: "id_algo_1_2",
+              taskUserid: req.body.userid,
+            },
+          },
+          data: {
+            comment: req.body.comment,
+          },
+        });
+        res.status(200).json({});
+        return;
       default:
         res.setHeader("Allow", ["GET", "POST", "PUT"]);
         res.status(405).end(`Method ${req.method} Not Allowed`);

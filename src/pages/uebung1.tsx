@@ -306,7 +306,7 @@ export default function Home() {
               für eine Person(Bäcker*in), die einen Backofen hat und eine
               TK-Pizza backen möchte. Diesen Pseudocode könnte ein Computer
               nicht ausführen. Es gibt den Pizzabäcker eine klare, eindeutige,
-              sturkturierte und druchführbare Anweisungen. Diser Algorithmus hat
+              sturkturierte und druchführbare Anweisungen. Dieser Algorithmus hat
               verschiedene Sequenzen, die immer nacheinander abgearbeitet
               werden. In diesem Pseudocode haben wir aber noch keine
               Kontrollstrukturen verwendet. Diese sind aber essentiell, für das
@@ -322,7 +322,7 @@ export default function Home() {
               Kontrollstrukturen gelernt. Wir versuchen sie nun nochmal im
               Zusammenhang mit dem Begriff 'Pseudocode' zu betrachten. Falls du
               noch Schwierigkeiten hast, Kontrollstrukturen zu verstehen, kehre
-              einfach zum Einfürungskurs zurück und schau außerdem in dein GdP
+              einfach zum Einfürungskurs zurück und schau außerdem in deinem GdP
               Skript nach.
             </Typography>
             {/*Fallunterscheidung*/}

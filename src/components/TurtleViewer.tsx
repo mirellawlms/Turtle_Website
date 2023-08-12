@@ -21,11 +21,11 @@ interface Props {
   width: number;
   height: number;
   running: boolean;
-  runningDone: ()=> void;
+  runningDone: () => void;
 }
 
 export const TurtleViewer: React.FC<Props> = (props) => {
-  const { path, field, width, height, running , runningDone} = props;
+  const { path, field, width, height, running, runningDone } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const back_ground = useRef<HTMLImageElement>();
   const wall_image = useRef<HTMLImageElement>();
@@ -67,42 +67,42 @@ export const TurtleViewer: React.FC<Props> = (props) => {
     }
 
     //wall
-    if(!wall_image.current){
+    if (!wall_image.current) {
       const WallImage = new Image();
       WallImage.src = "/wall.png";
       await new Promise((r) => (WallImage.onload = r));
       wall_image.current = WallImage;
     }
-    
+
     //turtle pngs
-    if(!turtle_e.current){
+    if (!turtle_e.current) {
       const TurtleImage_east = new Image();
       TurtleImage_east.src = "/turtle_east.png";
       await new Promise((r) => (TurtleImage_east.onload = r));
       turtle_e.current = TurtleImage_east;
     }
 
-    if(!turtle_w.current){
+    if (!turtle_w.current) {
       const TurtleImage_west = new Image();
       TurtleImage_west.src = "/turtle_west.png";
       await new Promise((r) => (TurtleImage_west.onload = r));
       turtle_w.current = TurtleImage_west;
     }
-    
-    if(!turtle_s.current){
+
+    if (!turtle_s.current) {
       const TurtleImage_south = new Image();
       TurtleImage_south.src = "/turtle_south.png";
       await new Promise((r) => (TurtleImage_south.onload = r));
       turtle_s.current = TurtleImage_south;
     }
-    
-    if(!turtle_n.current){
+
+    if (!turtle_n.current) {
       const TurtleImage_north = new Image();
       TurtleImage_north.src = "/turtle_north.png";
       await new Promise((r) => (TurtleImage_north.onload = r));
       turtle_n.current = TurtleImage_north;
     }
-    
+
     for (let y = 0; y < fieldHeight; y++) {
       for (let x = 0; x < fieldWidth; x++) {
         if (field[y][x] === Field.WALL) {
@@ -187,28 +187,45 @@ export const TurtleViewer: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    //async damit das bild verzögert angezeigt wird
+    let animationFrameId: any;
+
     const run = async () => {
       if (path.length === 0) {
-        //labyrinth sehe ich
         draw([]);
         return;
       }
-      for (let i = 1; i <= path.length; i++) {
-        if(!running){
-          break;
-        }
+
+      let i = 1;
+      const totalSteps = path.length;
+
+      const drawStep = async () => {
         const temppath = path.slice(0, i);
         draw(temppath);
+        console.log("Drawn", i, "of", totalSteps);
+        i++;
+
+        if (i <= totalSteps && running) {
+          animationFrameId = requestAnimationFrame(drawStep);
+        } else {
+          runningDone();
+        }
+
         await new Promise<void>((resolve, reject) => {
           setTimeout(() => {
             resolve();
           }, 600);
         });
-      }
-      runningDone();
+      };
+
+      drawStep();
     };
+
     run();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
   }, [path, field, running]);
+
   return <canvas ref={canvasRef} width={width} height={height} />;
 };

@@ -1,11 +1,10 @@
 import { faPlay, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, CircularProgress } from "@mui/joy";
-import React, { use, useEffect, useRef, useState } from "react";
+import { Button, CircularProgress, Tooltip } from "@mui/joy";
+import React, { useEffect, useRef, useState } from "react";
 import { Field, Path, TurtleViewer } from "./TurtleViewer";
 import Editor from "@monaco-editor/react";
 import styles from "../styles/CodeEditor.module.css";
-import { stdout } from "process";
 
 interface Props {
   title: string;
@@ -17,13 +16,14 @@ interface Props {
     code_ausgabe: string,
     imZiel?: boolean
   ) => void;
+  onChange?: (code: string) => void;
 }
 
 const server = "http://localhost:5236/run";
 
 export const CodeEditor: React.FC<Props> = (props) => {
-  //const title = props.title;
-  const { title, defaultValue, turtle, labyrinth, codeEinAusgabe } = props;
+  const { title, defaultValue, turtle, labyrinth, codeEinAusgabe, onChange } =
+    props;
   const editorRef = useRef(null);
   const [isRunning, setIsRunning] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -33,11 +33,11 @@ export const CodeEditor: React.FC<Props> = (props) => {
     editorRef.current = editor;
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (defaultValue && editorRef.current) {
       (editorRef.current as any).setValue(defaultValue);
     }
-  }, [defaultValue]);
+  }, [defaultValue]);*/
 
   //hier wird onRun ausgeführt -> server post
   const onRun = async () => {
@@ -50,21 +50,19 @@ export const CodeEditor: React.FC<Props> = (props) => {
       body: JSON.stringify({
         //(etwas ? x : y) === (if etwas !null oder true -> x else y)
         code: editorRef.current ? (editorRef.current as any).getValue() : "",
-        labyrinth: labyrinth
-          ? labyrinth.map((value) => value.join(",")).join(";")
-          : "",
+        labyrinth: labyrinth ?? [],
       }),
     })
       .then((response) => response.json())
       .then((data) => {
         setPath(data.path || []);
         const pfad = data.path || [];
-        console.log(pfad);
-        console.log(data);
+
         const imZiel =
           pfad.length &&
           pfad[pfad.length - 1].end_x === 9 &&
           pfad[pfad.length - 1].end_y === 9;
+
         if (turtle == true) {
           imZiel
             ? setStdout(
@@ -87,9 +85,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
         setLoading(false);
         setIsRunning(true);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch(console.error);
   };
 
   return (
@@ -97,26 +93,26 @@ export const CodeEditor: React.FC<Props> = (props) => {
       <div className={styles.header}>
         <h2>{title}</h2>
         <div>
-          <Button
-            style={{ marginRight: "5px" }}
-            color="success"
-            variant="soft"
-            onClick={() => {
-              setStdout("");
-              setPath([]);
-              setIsRunning(false);
-            }}
-          >
-            <FontAwesomeIcon icon={faRotateRight} height={12} />
-          </Button>
+          <Tooltip title="Ausführung abbrechen">
+            <Button
+              style={{ marginRight: "5px" }}
+              color="success"
+              variant="soft"
+              onClick={() => {
+                setStdout("");
+                setPath([]);
+                setIsRunning(false);
+              }}
+            >
+              <FontAwesomeIcon icon={faRotateRight} height={12} />
+            </Button>
+          </Tooltip>
 
-          <Button color="success" onClick={onRun}>
-            {isLoading ? (
-              <CircularProgress size="sm" />
-            ) : (
+          <Tooltip title="Ausführen">
+            <Button color="success" onClick={onRun} loading={isLoading}>
               <FontAwesomeIcon icon={faPlay} height={12} />
-            )}
-          </Button>
+            </Button>
+          </Tooltip>
         </div>
       </div>
 
@@ -124,9 +120,12 @@ export const CodeEditor: React.FC<Props> = (props) => {
         <Editor
           height="100%"
           defaultLanguage="cpp"
-          defaultValue={defaultValue}
+          value={defaultValue}
           theme="vs-dark"
           onMount={handleEditorDidMount}
+          onChange={(value: string | undefined, _e: any) =>
+            onChange && onChange(value ?? "")
+          }
         />
         {/*(turtle && (...))===(if turtle == true {...})*/}
         {/*(labyrinth ?? x) === (if labyrinth undefined gibt wert x) */}
@@ -138,7 +137,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
               width={400}
               height={400}
               running={isRunning}
-              runningDone={()=>setIsRunning(false)}
+              runningDone={() => setIsRunning(false)}
             />
           )}
           <div className={styles.terminal}>

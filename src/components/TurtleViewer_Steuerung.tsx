@@ -8,12 +8,12 @@ interface Props {
   field: Field[][];
   width: number;
   height: number;
-  labyrinthChange: ()=>void;
-  istImZiel: ()=>void;
+  labyrinthChange: () => void;
+  istImZiel: () => void;
 }
 
 export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
-  const { field, width, height, labyrinthChange, istImZiel} = props;
+  const { field, width, height, labyrinthChange, istImZiel } = props;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [x, setx] = useState(0);
   const [y, sety] = useState(0);
@@ -64,24 +64,24 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
 
     //Hintergrundbild wird anders geladen
     if (!back_ground.current) {
-      if(hintergrund ==="swamp"){
+      if (hintergrund === "swamp") {
         const Back_Swamp_Image = new Image();
         Back_Swamp_Image.src = "/swamp.png";
         await new Promise((r) => (Back_Swamp_Image.onload = r));
         back_ground.current = Back_Swamp_Image;
-        }
-      if(hintergrund ==="water"){
+      }
+      if (hintergrund === "water") {
         const Back_Water_Image = new Image();
         Back_Water_Image.src = "/water.png";
         await new Promise((r) => (Back_Water_Image.onload = r));
         back_ground.current = Back_Water_Image;
-        }
-      if(hintergrund ==="sand"){
+      }
+      if (hintergrund === "sand") {
         const Back_Sand_Image = new Image();
         Back_Sand_Image.src = "/sand.png";
         await new Promise((r) => (Back_Sand_Image.onload = r));
         back_ground.current = Back_Sand_Image;
-        }
+      }
     }
     if (back_ground.current) {
       ctx.drawImage(back_ground.current, 0, 0, width, height);
@@ -99,7 +99,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
           );
         }
         if (field[y][x] === Field.START) {
-          ctx.fillStyle ="#E9967A";
+          ctx.fillStyle = "#E9967A";
           ctx.fillRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
         }
         if (field[y][x] === Field.EXIT) {
@@ -110,7 +110,6 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     }
 
     //overlay turtle über den strich und hier muss geschaut werden welche poition angezeigt wird
-    console.log(x, y, direction);
     if (direction === 0) {
       ctx.drawImage(
         TurtleImage_north,
@@ -202,9 +201,9 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
   useEffect(() => {
     draw();
     const handleKeyDown = (event: any) => {
-      //wenn ich in eins von ignore bin (wo ich mich gerade befinde) 
-      const ignore = ["input","textarea","button"];
-      if(ignore.includes(event.target.tagName.toLowerCase())){
+      //wenn ich in eins von ignore bin (wo ich mich gerade befinde)
+      const ignore = ["input", "textarea", "button"];
+      if (ignore.includes(event.target.tagName.toLowerCase())) {
         return;
       }
       console.log(event.target);
@@ -240,14 +239,29 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
   useEffect(() => {
     setx(0);
     sety(0);
-  }, [field])
+  }, [field]);
 
   return (
-    <div style={{display:"flex" , flexDirection:"row" , alignItems:"flex-start", gap:"10px"}}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-start",
+        gap: "10px",
+      }}
+    >
       <canvas ref={canvasRef} width={width} height={height} />
-      <div style={{display:"flex",flexDirection:"column", gap:"10px", justifyContent:"space-between", height}}>
-        <div style={{display:"flex",flexDirection:"column", gap:"10px"}}>
-        {imZiel && (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          justifyContent: "space-between",
+          height,
+        }}
+      >
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          {imZiel && (
             <Button
               onClick={() => {
                 setx(0);
@@ -255,20 +269,49 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
                 setimZiel(false);
               }}
               color="success"
-              ><FontAwesomeIcon style={{marginRight:"10px"}} icon={faRotateRight} height={12}/>Neustart</Button>
-        )}
-        <Select defaultValue="swamp" sx={{width: 250}} value={hintergrund}onChange={(_, value) => {setHintergrund(value ?? "swamp");back_ground.current=undefined}}>
-          <Option value="swamp">Sumpf</Option>
-          <Option value="water">Wasser</Option>
-          <Option value="sand">Wüste</Option>
-        </Select>
-        <Button color="success" variant="soft" onClick={labyrinthChange}>Generate Maze</Button>
+            >
+              <FontAwesomeIcon
+                style={{ marginRight: "10px" }}
+                icon={faRotateRight}
+                height={12}
+              />
+              Neustart
+            </Button>
+          )}
+          <Select
+            defaultValue="swamp"
+            sx={{ width: 250 }}
+            value={hintergrund}
+            onChange={(_, value) => {
+              setHintergrund(value ?? "swamp");
+              back_ground.current = undefined;
+            }}
+          >
+            <Option value="swamp">Sumpf</Option>
+            <Option value="water">Wasser</Option>
+            <Option value="sand">Wüste</Option>
+          </Select>
+          <Button color="success" variant="soft" onClick={labyrinthChange}>
+            Generate Maze
+          </Button>
         </div>
         <div>
-          <Textarea name="Solid" variant="outlined" disabled value={consoleLog} sx={{height:'40px', width:"250px" ,marginBottom:'20px'}}/>
-          <Typography><b>W:</b> Vorwärts</Typography>
-          <Typography><b>D:</b> Rechts drehen</Typography>
-          <Typography><b>A:</b> Links drehen</Typography>
+          <Textarea
+            name="Solid"
+            variant="outlined"
+            disabled
+            value={consoleLog}
+            sx={{ height: "40px", width: "250px", marginBottom: "20px" }}
+          />
+          <Typography>
+            <b>W:</b> Vorwärts
+          </Typography>
+          <Typography>
+            <b>D:</b> Rechts drehen
+          </Typography>
+          <Typography>
+            <b>A:</b> Links drehen
+          </Typography>
         </div>
       </div>
     </div>
