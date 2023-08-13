@@ -474,8 +474,8 @@ export default function Home() {
           id_urkunde: prog["id_urkunde"] ?? false,
         });
         set_c_codeEingabe(
-          data.task.find((item: any) => item.id === "id_algo_2_code_eingabe")?.code ??
-            codeEingabe
+          data.task.find((item: any) => item.id === "id_algo_2_code_eingabe")
+            ?.code ?? codeEingabe
         );
       })
       .catch((error) => {
@@ -494,340 +494,42 @@ export default function Home() {
       <Navigation
         visible={true}
         currentNavigation="/uebung2"
-        titel="Algorithmus Teil 2 "
+        titel="Algorithmus Teil 3 "
         progress={progress_gesamt()}
       >
         <div>
           <Typography level="h3">Algorithmus Teil 2</Typography>
           <div id="algo.2.1"></div>
-          <div className={styles.bildeinruecken2}>
-            <Typography level="body1">
-              In dieser Lektion lernst du, wie man einen Pseudocode in C++ Code
-              umwandelt. Es handelt sich um den letzten Kursabschnitt. Falls du
-              dich noch unsicher fühlst hier fortzufahren, kannst du gerne
-              nochmal die anderen Lektionen anschauen. Kehre aber anschließend
-              hierher zurück um mir zu helfen, aus dem Labyrinth zu entkommen!
-              Ich bin mir sicher, dass du auch dieses Kapitel meistern wirst!{" "}
-              <br></br>
-            </Typography>
-            <img
-              src={"/undraw_thought_process.svg"}
-              alt="thoughtsImage"
-              height={150}
-            />
-          </div>
+          <Typography level="body1">
+            In diesem Kapitel wirst du darauf vorbereitet Algorithmus Teil 3 zu
+            lösen. Dort bekommst du die Aufgabe deinen in Algorithmus Teil 1
+            erstellten Pseudocode in ein C++ Code umzuwandeln. Dafür musst du
+            aber noch einiges lernen, was wir uns zusammen in diesem Kapitel
+            anschauen.
+            <br></br>
+          </Typography>
 
-          {/*Pseudocode in C++ Code*/}
+          {/*Klassen*/}
           <div>
-            <Typography level="h3" sx={{ marginTop: "30px" }}>
-              Pseudocode zu C++ Code
+            <Typography level="h4" sx={{ marginTop: "30px" }}>
+              Klassen
             </Typography>
             <div id="algo.2.2"></div>
-            <Typography level="body1">
-              Bevor du deinen eigenen Pseudocode in ein C++ Code uberführst,
-              schauen wir uns zusammen eine Überführung anhand eines Beispiels
-              an.
-            </Typography>
-            <Typography level="h4" sx={{ marginTop: "10px" }}>
-              Anwendungsbeispiel
-            </Typography>
-            <div id="algo.2.2.1"></div>
-          </div>
-          <div>
-            <Typography level="body1" sx={{ marginTop: "5px" }}>
-              <b>Pseudocode:</b>
-              <br></br>
-              Weise einer Variable "zahl1" den Wert eins zu. <br></br>
-              Weise einer Variable "zahl2" den Wert drei zu. <br></br>
-              Berechne die Summe der beiden Zahlen und speichere sie in der
-              Variable "ergebnis" ab.<br></br>
-              SOLANGE das Ergebnis der Summe kleiner als 10 ist, erhöhe den wert
-              beider Zahlen um 1.<br></br>
-              Gib das "ergebnis" aus, WENN die Summe größer-gleich 10 ist.
-            </Typography>
-            <Typography level="body1" sx={{ marginTop: "10px" }}>
-              <b>C++:</b>
-              <br></br>
-            </Typography>
-            <CodeEditor
-              title="C++ Code"
-              defaultValue={code_1}
-              turtle={false}
-            ></CodeEditor>
-          </div>
-          <Typography level="h4" sx={{ marginTop: "30px" }}>
-            Guideline
-          </Typography>
-          <div id="algo.2.2.2"></div>
-          <div className={styles.bildeinruecken}>
-            <img
-              src={"/undraw_learning.svg"}
-              alt="learningImage"
-              height={150}
-            />
-            <Typography level="body1">
-              <b>1. Verstehe deinen Pseudocode:</b>
-              <br></br>
-              Hast du deinen Pseudocode vollständig verstanden und ist dir die
-              Bedeutung jeder Anweisung klar? Stelle sicher, dass du alle
-              Variablen und ihre Bedeutung kennst.<br></br>
-              <b>2. Identifiziere Variablen und Datentypen:</b>
-              <br></br>
-              Überprüfe deinen Pseudocode auf verwendete Variablen und weise
-              ihnen Datentypen zu.<br></br>
-              <b>3. Strukturiere deinen Code:</b>
-              <br></br>
-              Überlege wie du Schleifen, Bedingungen und andere Strukturen
-              deines Pseudocode in entsprechende C++ Codeblöcke überführen
-              kannst. Schaue wie du "if"-Anweisungen, "while"/"for"-Schleifen
-              einsetzen kanst.
-              <br></br>
-              <b>4. Überführung:</b>
-              <br></br>
-              Schreib mit Hilfe deines erlenten Wissens den Pseudocode in C++
-              Code um.
-              <br></br>
-              <b>5.Teste deinen C++ Code:</b>
-              <br></br>
-              Laufe deinen C++ Code im Pebble Simulator durch. Leg deinen C++
-              Code daneben und schau dir an, ob du alles richtig eingebunden
-              hast.
-            </Typography>
-          </div>
-          <Typography level="h4" sx={{ marginTop: "30px" }}>
-            Dein C++ Code
-          </Typography>
-          <div id="algo.2.2.3"></div>
-          <div className={styles.bildeinruecken}>
-            <div>
-              <Typography level="body1">
-                Nimm nun deinen Pseudocode und den Kommentar deines Komilitonen
-                aus dem Peer-Review zur Hand. <br></br>Versuche die einzelnen
-                Segmente des Pseudocodes wie im vorherigen Beispiel in ein C++
-                Code umzuwandeln.
-              </Typography>
-              <Typography level="body1" sx={{ marginTop: "10px" , marginBottom:"20px"}}>
-                Erinne dich, du kannst:
-                <br></br>• Pebble nach vorne gehen lassen mit
-                <b> pebble.moveForward();</b>
-                <br></br>• Pebble nach rechts drehen mit{" "}
-                <b>pebble.turnRight();</b>
-                <br></br>• Pebble nach links drehen mit{" "}
-                <b>pebble.turnLeft();</b>
-                <br></br>• Prüfen, ob eine Wand vor Pebble ist mit
-                <b> pebble.isWallInFront();</b>
-                <br></br>• Prüfen, ob eine Wand rechts von Pebble ist mit
-                <b> pebble.isWallRight();</b>
-                <br></br>• Prüfen, ob eine Wand links von Pebble ist mit
-                <b> pebble.isWallLeft();</b>
-                <br></br>• Prüfen, ob Pebble bereits im Ziel ist mit
-                <b> pebble.imZiel();</b>
-              </Typography>
-            </div>
-            <img
-              src={"/undraw_proud_coder.svg"}
-              alt="ProudCodeImage"
-              height={150}
-            />
+            <Typography level="body1">Klassen</Typography>
           </div>
 
-          <div style={{ display: "flex", gap: "40px" }}>
-            <Textarea
-              sx={{ width: "50%", marginBlock: 2 }}
-              minRows={15}
-              variant="plain"
-              placeholder="Dein C++ Code"
-              value={c_codeEingabe}
-              onChange={(e) => set_c_codeEingabe(e.target.value)}
-            />
-            <Textarea
-              sx={{ width: "50%", marginBlock: 2 }}
-              minRows={5}
-              variant="plain"
-              placeholder="Dein Pseudocode"
-              value={""}
-            />
-          </div>
-          <Button
-            color="success"
-            variant="solid"
-            sx={{ marginRight: "10px" }}
-            onClick={() => TaskErstellen("id_algo_2_code_eingabe", c_codeEingabe, false)}
-          >
-            Speichern
-          </Button>
-          {/*Labyrinthe */}
-          <Typography level="h3" sx={{ marginTop: "20px" }}>
-            Labyrinthe
+
+          {/*Methoden*/}
+          <div>
+          <Typography level="h4" sx={{ marginTop: "10px" }}>
+            Methoden
           </Typography>
           <div id="algo.2.3"></div>
-          <Typography level="body1">
-            Es ist nun so weit! schreibe deinen Algorithmus und führe diesen
-            anschließend aus. Dein Ziel ist es mich aus drei Labyrinthen mit
-            verschiedenen Schwierigkeitsstufen zu führen. Ich hoffe ich kann
-            meiner Familie bald wieder sehen!
-          </Typography>
-          <Typography
-            level="h5"
-            endDecorator={
-              <ProgressCheck
-                done={progress["id_3_1"] ? 100 : 0}
-              ></ProgressCheck>
-            }
-            sx={{ marginTop: "10px", marginBottom: "5px" }}
-          >
-            Einfaches Labyrinth
-          </Typography>
-          <div id="algo.2.3.1"></div>
-          <CodeEditor
-            title="einfach"
-            defaultValue={c_codeEingabe}
-            turtle={true}
-            labyrinth={maze_einfach}
-            onChange={(code) => set_c_codeEingabe(code)}
-            codeEinAusgabe={(
-              code_eingabe: string,
-              code_ausgabe: string,
-              imZiel?: boolean
-            ) => {
-              setProgress({ ...progress, id_3_1: imZiel ?? false });
-              TaskErstellen("id_3_1", code_eingabe, imZiel ?? false);
-            }}
-          ></CodeEditor>
-        </div>
-        <div>
-          <Typography
-            level="h5"
-            endDecorator={
-              <ProgressCheck
-                done={progress["id_3_2"] ? 100 : 0}
-              ></ProgressCheck>
-            }
-            sx={{ marginTop: "10px", marginBottom: "5px" }}
-          >
-            Mittleres Labyrinth
-          </Typography>
-          <div id="algo.2.3.2"></div>
-          <CodeEditor
-            title="mittel"
-            defaultValue={c_codeEingabe}
-            turtle={true}
-            labyrinth={maze_mittel}
-            onChange={(code) => set_c_codeEingabe(code)}
-            codeEinAusgabe={(
-              code_eingabe: string,
-              code_ausgabe: string,
-              imZiel?: boolean
-            ) => {
-              setProgress({ ...progress, id_3_2: imZiel ?? false });
-              TaskErstellen("id_3_2", code_eingabe, imZiel ?? false);
-            }}
-          ></CodeEditor>
-        </div>
-        <div>
-          <Typography
-            level="h5"
-            endDecorator={
-              <ProgressCheck
-                done={progress["id_3_3"] ? 100 : 0}
-              ></ProgressCheck>
-            }
-            sx={{ marginTop: "10px", marginBottom: "5px" }}
-          >
-            Schweres Labyrinth
-          </Typography>
-          <div id="algo.2.3.3"></div>
-          <CodeEditor
-            title="schwer"
-            defaultValue={c_codeEingabe}
-            turtle={true}
-            labyrinth={maze_schwer}
-            onChange={(code) => set_c_codeEingabe(code)}
-            codeEinAusgabe={(
-              code_eingabe: string,
-              code_ausgabe: string,
-              imZiel?: boolean
-            ) => {
-              setProgress({ ...progress, id_3_3: imZiel ?? false });
-              TaskErstellen("id_3_3", code_eingabe, imZiel ?? false);
-            }}
-          ></CodeEditor>
-        </div>
-        <div
-          style={{
-            marginTop: "30px",
-            justifyContent: "center",
-            display: "flex",
-            alignItems: "center",
-            gap: "50px",
-            flexDirection: "row",
-          }}
-        >
-          <img
-            src={"/undraw_certificate2.svg"}
-            alt="Zertifikat2"
-            height={130}
-          />
-          <Button
-            color="success"
-            disabled={
-              !(progress["id_3_1"] && progress["id_3_2"] && progress["id_3_3"])
-            }
-            onClick={() => {
-              setProgress({ ...progress, id_urkunde: true });
-              TaskErstellen("id_urkunde", "", true);
-              setFinalOpen(true);
-            }}
-          >
-            Kurs abschließen
-          </Button>
-          <div id="algo.2.4"></div>
-          <img
-            src={"/undraw_certificate1.svg"}
-            alt="Zertifikat1"
-            height={130}
-          />
-        </div>
-        <div
-          style={{
-            marginTop: "20px",
-            justifyContent: "center",
-            display: "flex",
-          }}
-        >
-          <Modal
-            open={finalOpen}
-            onClose={() => {
-              setFinalOpen(false);
-            }}
-          >
-            <ModalDialog color="success" variant="plain">
-              <ModalClose />
-              <Typography level="h5">Glückwunsch!!!</Typography>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <Typography>
-                  Super, dank dir habe ich es aus dem Labyrinth zurück zu meiner
-                  Familie geschafft!Ich bin sehr stolz auf dich, dass du diesen
-                  Kurs absoliviert hast und bedanke mich nochmal herzlich bei
-                  dir für deine Hilfe! Ich hoffe ich konnte dir auch
-                  weiterhelfen und dir einiges Wissenswertes auf deinen Weg
-                  geben! Ich werde meiner Familie alles über unser Abenteuer
-                  erzählen. Bis hoffentlich bald mein Freund! -Pebble
-                </Typography>
-                <img src={"/kroete.svg"} alt="PebbleImage" height={150} />
-              </div>
-              <a href="/urkunde.pdf" download>
-                <Button color="success">Urkunde</Button>
-              </a>
-            </ModalDialog>
-          </Modal>
-        </div>
+          <Typography level="body1">Methoden</Typography>
+          </div>
+          
+
+         </div>
       </Navigation>
     </div>
   );

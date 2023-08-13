@@ -392,7 +392,7 @@ export default function Home() {
                 done={progress["id_algo_1_1"] ? 100 : 0}
               ></ProgressCheck>
             }
-            sx={{ marginTop: "30px" }}
+            sx={{ marginTop: "50px" }}
           >
             Pebble-Simulator
           </Typography>

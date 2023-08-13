@@ -100,20 +100,6 @@ export const Navigation: React.FC<Props> = (props) => {
               ></ErweiterteNavigation>
             </div>
 
-            {/* Algo Teil 3 */}
-            <div>
-              <ErweiterteNavigation
-                title={{ idlink: "/", label: "Algorithmus Teil 3" }}
-                inhalt={[
-                  {
-                    idlink: "/uebung2#algo.2.2",
-                    label: "",
-                  }
-                ]}
-                currentNavigation={currentNavigation}
-              ></ErweiterteNavigation>
-            </div>
-
             {/*Peer Review
             <div>
               <ErweiterteNavigation
@@ -131,32 +117,55 @@ export const Navigation: React.FC<Props> = (props) => {
                 inhalt={[
                   {
                     idlink: "/uebung2#algo.2.2",
-                    label: "Pseudocode zu C++ Code",
+                    label: "Klassen",
                   },
                   {
-                    idlink: "/uebung2#algo.2.2.1",
-                    label: "Anwendungsbeispiel",
-                  },
-                  { idlink: "/uebung2#algo.2.2.2", label: "Guideline" },
-                  { idlink: "/uebung2#algo.2.2.3", label: "Dein C++ Code" },
-                  { idlink: "/uebung2#algo.2.3", label: "Labyrinthe" },
-                  {
-                    idlink: "/uebung2#algo.2.3.1",
-                    label: "Einfaches Labyrinth",
+                    idlink: "/uebung2#algo.2.3",
+                    label: "Methoden",
                   },
                   {
-                    idlink: "/uebung2#algo.2.3.2",
-                    label: "Mittleres Labyrinth",
+                    idlink: "/uebung2#algo.2.4",
+                    label: "Methoden für das Labyrinth",
                   },
-                  {
-                    idlink: "/uebung2#algo.2.3.3",
-                    label: "Schweres Labyrinth",
-                  },
-                  { idlink: "/uebung2#algo.2.4", label: "Kurs Abschluss" },
                 ]}
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
+
+            {/* Algo Teil 3 */}
+            <div>
+              <ErweiterteNavigation
+                title={{ idlink: "/uebung3", label: "Algorithmus Teil 3" }}
+                inhalt={[
+                  {
+                    idlink: "/uebung3#algo.3.2",
+                    label: "Pseudocode zu C++ Code",
+                  },
+                  {
+                    idlink: "/uebung3#algo.3.2.1",
+                    label: "Anwendungsbeispiel",
+                  },
+                  { idlink: "/uebung3#algo.3.2.2", label: "Guideline" },
+                  { idlink: "/uebung3#algo.3.2.3", label: "Dein C++ Code" },
+                  { idlink: "/uebung3#algo.3.3", label: "Labyrinthe" },
+                  {
+                    idlink: "/uebung3#algo.3.3.1",
+                    label: "Einfaches Labyrinth",
+                  },
+                  {
+                    idlink: "/uebung3#algo.3.3.2",
+                    label: "Mittleres Labyrinth",
+                  },
+                  {
+                    idlink: "/uebung3#algo.3.3.3",
+                    label: "Schweres Labyrinth",
+                  },
+                  { idlink: "/uebung3#algo.3.4", label: "Kurs Abschluss" },
+                ]}
+                currentNavigation={currentNavigation}
+              ></ErweiterteNavigation>
+            </div>
+
           </div>
         </div>
         {/*Top Navigation*/}
