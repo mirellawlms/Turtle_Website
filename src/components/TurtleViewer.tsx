@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 export enum Field {
   EMPTY,
@@ -33,6 +33,8 @@ export const TurtleViewer: React.FC<Props> = (props) => {
   const turtle_s = useRef<HTMLImageElement>();
   const turtle_w = useRef<HTMLImageElement>();
   const turtle_e = useRef<HTMLImageElement>();
+  const step = useRef(0);
+  const running_2 = useRef(false);
 
   //useeffect ist funktion mit 2 parameter 1. eine funktion und 2. eine array und 1 funktion wird aufgerufen, falls sich eins der array inhalte ändert
   const draw = async (currentpath: Path[]) => {
@@ -187,44 +189,41 @@ export const TurtleViewer: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    let animationFrameId: any;
+    console.log(running);
+    running_2.current = running;
+  }, [running]);
 
-    const run = async () => {
-      if (path.length === 0) {
-        draw([]);
-        return;
-      }
+  const drawStep = async () => {
+    const temppath = path.slice(0, step.current);
+    draw(temppath);
+    console.log("Drawn", step.current, "of", path.length, running_2);
+    step.current++;
 
-      let i = 1;
-      const totalSteps = path.length;
-
-      const drawStep = async () => {
-        const temppath = path.slice(0, i);
-        draw(temppath);
-        console.log("Drawn", i, "of", totalSteps);
-        i++;
-
-        if (i <= totalSteps && running) {
-          animationFrameId = requestAnimationFrame(drawStep);
-        } else {
-          runningDone();
-        }
-
-        await new Promise<void>((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, 600);
-        });
-      };
-
+    if (step.current <= path.length && running_2.current) {
+      await new Promise<void>((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, 600);
+      });
       drawStep();
-    };
+    } else {
+      if(!running_2.current){
+        draw([]);
+      }else{
+        draw(path);
+      }
+      runningDone();
+    }
+  };
 
-    run();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
+  useEffect(() => {
+    draw([]);
+    if (running) {
+      step.current = 0;
+      drawStep();
+    }else{
+      draw(path);
+    }
   }, [path, field, running]);
 
   return <canvas ref={canvasRef} width={width} height={height} />;
