@@ -180,7 +180,7 @@ export default function Home() {
             </Typography>
           </div>
           <Typography level="body1" sx={{ marginTop: "20px" }}>
-            Und so ist es auch beim schreiben eines Programms, ich muss klare,
+            Und so ist es auch beim Schreiben eines Programms, ich muss klare,
             logische Abläufe einhalten und mich orientieren. Ein Programm
             besteht aus einzelnen Anweisungen - sprich Befehlen, die von oben
             nach unten abgearbeitet werden. Viele Fragen sich, ich weiß gar
@@ -189,14 +189,14 @@ export default function Home() {
             bekommen, helfen Entwurfstechniken wie Programmablaufplan,
             Struktogramm und die quick and dirty Methode - Pseudocode. Bei der
             Verwendung dieser Entwurfstechnicken sollte man sich immer
-            überlegen, welcher Schritt denn zuerst kommt. Kurz gesagt, wer die
-            Dinge logisch in der richtigen Abfolge beschreiben kann, der kann
-            ein Programm schreiben! Der oder die darf sich Programmierer/in
-            nennen! Ich meine hier nicht codieren. Codieren ist lediglich die
-            Umsetzung der Beschreibung in einer Programmmiersprache wie C++, bei
-            der eine Entwicklungsumgebung zum Eingeben und Testen des Codes
-            benötigt wird. Das schauen wir uns in der nächsten Lektion auch noch
-            an, aber alles zu seiner Zeit!
+            überlegen, welcher Schritt zuerst kommt und welcher danach. Kurz
+            gesagt, wer die Dinge logisch in der richtigen Abfolge beschreiben
+            kann, der kann ein Programm schreiben! Der oder die darf sich
+            Programmierer/in nennen! Ich meine hier nicht codieren. Codieren ist
+            lediglich die Umsetzung der Beschreibung in einer
+            Programmmiersprache wie C++, bei der eine Entwicklungsumgebung zum
+            Eingeben und Testen des Codes benötigt wird. Das schauen wir uns in
+            der nächsten Lektion auch noch an, aber alles zu seiner Zeit!
           </Typography>
           <Typography level="h4" sx={{ marginTop: "30px" }}>
             Entwurfstechnik
@@ -209,9 +209,9 @@ export default function Home() {
             <Typography level="body1">
               Ablaufpläne beschreiben welche Anweisungen in welcher Reihenfolge
               ausgeführt werden müssen. Sie verfügen über einen klar definierten
-              Start und Endpunkt. Einzelne Abläufe (Prozesse)können dabei wieder
-              durch Programmablaufpläne dargestellt werden bis sie vollständig
-              durch triviale Anweisungen beschrieben sind.
+              Start und Endpunkt. Einzelne Abläufe (Prozesse) können dabei
+              wieder durch Programmablaufpläne dargestellt werden bis sie
+              vollständig durch triviale Anweisungen beschrieben sind.
             </Typography>
             <div className={styles.bildeinruecken2}>
               <img src={"/PAP.png"} alt="PAPImage" height={300} />
@@ -274,12 +274,15 @@ export default function Home() {
               inhalt={
                 <span>
                   1. Verstehe das Problem was du Lösen möchtest <br></br>
-                  2. Versuche das Problem in Stücke aufzubrechen, um es besser
-                  zu verstehen<br></br>
-                  3. Schreibe deinen Pseudocode möglichst mit einfachen Worten
+                  2. Versuche das Problem in Schritte aufzubrechen, um ein
+                  besseres Verständnis dafür zu entwickeln
                   <br></br>
-                  4. Teste deinen Pseudocode<br></br>
-                  5. Führe deinen Pseudocode anschließend in ein Programm über
+                  3. Überlege in welcher Reihenfolge die Schritte erfolgen
+                  sollen<br></br>
+                  4. Schreibe deinen Pseudocode möglichst mit einfachen Worten
+                  <br></br>
+                  5. Teste deinen Pseudocode<br></br>
+                  6. Führe deinen Pseudocode anschließend in ein Programm über
                 </span>
               }
             ></Accordion>
@@ -289,11 +292,11 @@ export default function Home() {
             <div className={styles.bildeinruecken}>
               <Typography level="body1">
                 Wir schauen uns nun gemeinsam ein Pseudocode Beispiel an. Dieses
-                Anwendungsbeispiel hast du definitv schonmal selber gemacht! Es
+                Anwendungsbeispiel hast du definitv schon mal selber gemacht! Es
                 handelt sich natürlich um das Backen einer Tiefkühl-Pizza
                 (TK-Pizza). Das ist ein sehr schönes Beispiel um dir zu zeigen,
                 wie man einen Algorithmus als Pseudocode schreibt. Alle
-                Schritte, die man beim backen einer TK-Pizza macht werden nun
+                Schritte, die man beim Backen einer TK-Pizza macht werden nun
                 als Pseudocode Algorithmus geschrieben.
               </Typography>
               <img src={"/pizza-svgrepo.svg"} alt="pizza" height={90} />
@@ -302,12 +305,12 @@ export default function Home() {
               <img src={"/pizza1.png"} alt="pizza1" height={120} />
             </div>
             <Typography level="body1" sx={{ marginTop: "20px" }}>
-              Wie du siehst sieht dieser Pseudocode so aus wie eine Anleitung
-              für eine Person(Bäcker*in), die einen Backofen hat und eine
-              TK-Pizza backen möchte. Diesen Pseudocode könnte ein Computer
-              nicht ausführen. Es gibt den Pizzabäcker eine klare, eindeutige,
-              sturkturierte und druchführbare Anweisungen. Dieser Algorithmus hat
-              verschiedene Sequenzen, die immer nacheinander abgearbeitet
+              Wie du siehst, ist dieser Pseudocode eine Anleitung für eine
+              Person (Bäcker*in), die einen Backofen hat und eine TK-Pizza
+              backen möchte. Diesen Pseudocode könnte ein Computer nicht
+              ausführen. Es gibt den Pizzabäcker eine klare, eindeutige,
+              strkuturierte und druchführbare Anweisungen. Dieser Algorithmus
+              hat verschiedene Sequenzen, die immer nacheinander abgearbeitet
               werden. In diesem Pseudocode haben wir aber noch keine
               Kontrollstrukturen verwendet. Diese sind aber essentiell, für das
               schreiben eines guten Algorithmus.
@@ -322,8 +325,8 @@ export default function Home() {
               Kontrollstrukturen gelernt. Wir versuchen sie nun nochmal im
               Zusammenhang mit dem Begriff 'Pseudocode' zu betrachten. Falls du
               noch Schwierigkeiten hast, Kontrollstrukturen zu verstehen, kehre
-              einfach zum Einfürungskurs zurück und schau außerdem in deinem GdP
-              Skript nach.
+              einfach zum Einführungskurs zurück und schau außerdem in deinem
+              GdP Skript nach.
             </Typography>
             {/*Fallunterscheidung*/}
             <Typography level="h5" sx={{ marginTop: "10px" }}>
@@ -356,27 +359,27 @@ export default function Home() {
             <Typography level="body1">
               Der Begriff Zyklus (auch Schleife, Wiederholung, Loop) in der
               Programmierung, bezeichnet die wiederholte Ausführung von Teilen
-              eines Programms. Eine Schleife hat eine Schleifenbedingung, die
-              angibt, wie oft oder bei welcher Bedingung die Schleife ausgeführt
-              werden soll. Wenn man Programme mit Schleifen schreibt oder
-              untersucht, so definiert man sich Schleifeninvarianten. Das sind
-              Bedingungen, die nach jeder Ausführung der Schleife gelten.
+              eines Programms.<br></br> Eine Schleife hat eine
+              Schleifenbedingung, die angibt, wie oft oder bei welcher Bedingung
+              die Schleife ausgeführt werden soll.<br></br>Wenn man Programme
+              mit Schleifen schreibt definiert man sich Schleifeninvarianten.
+              Das sind Bedingungen, die nach jeder Ausführung der Schleife
+              gelten.
               <br></br>
               Gehen wir mal davon aus, dass die Person (Bäcker/in) die genaue
               Backzeit der Pizza nicht mehr weiß, da sie die Verpackung
               weggeworfen hat.<br></br>(ist uns natürlich noch nie passiert :D)
               <br></br>
-              Hier müsste man SOLANGE die Pizza nochnicht fertig gebacken ist,
-              immer wieder eine Minute warten und schauen ob sie nach der Minute
-              fertig ist. Wir wollen doch immerhin eine lecker, knusprig,
-              goldbraun gebackene Pizza essen.
+              Hier müsste man, SOLANGE die Pizza noch nicht lecker, knusprig,
+              goldbraun gebacken ist, immer wieder nach einer gewissen Zeit
+              nachschauen, ob sie fertig ist.
             </Typography>
             <div className={styles.bildeinruecken2}>
               <img src={"/pizza3.png"} alt="pizza3" height={230} />
             </div>
             <Typography level="body1" sx={{ marginTop: "20px" }}>
               Super, du hast nun gelernt, wie man einen Pseudocode schreibt. Nun
-              bist du bestens vorbereitet einen eigenen Pseudocode zu schreiben.
+              bist du bestens vorbereitet einen eigenen Pseudocode zu erstellen.
             </Typography>
             <div className={styles.bildeinruecken2}>
               <img src={"/undraw_pizza.svg"} alt="pizzaSVG" height={200} />
@@ -446,13 +449,7 @@ export default function Home() {
           <Typography sx={{ marginTop: "10px" }} level="body1">
             Teste deinen Pseudocode/Algorithmus gerne mit dem Spiel
             "Pebble-Simulator" durch. Schreibe deinen Pseudocode in dem dafür
-            vorgesehenen Feld. Um dieses Kapitel abzuschließen musst du deinen
-            Pseudocode für eine Peer-Review freigeben. Das bedeutet, dass dein
-            Pseudocode einem deiner Komilitonnen zugewiesen wird, der dir darauf
-            einen Kommentar gibt, was du beispielsweise noch verbessern kannst,
-            oder ob soweit alles passt und du dann mit der codierung beginnen
-            kannst. Auch du musst einen Pseudocode deines Kommilitonen
-            kommentieren.
+            vorgesehenen Feld.
           </Typography>
           <Textarea
             sx={{ width: "100%", marginBlock: 2 }}
@@ -473,6 +470,15 @@ export default function Home() {
           >
             Speichern
           </Button>
+          <Typography sx={{ marginTop: "20px", marginBottom: "10px" }} level="body1">
+            Um dieses Kapitel abzuschließen musst du deinen Pseudocode für eine
+            Peer-Review freigeben. Das bedeutet, dass dein Pseudocode einem
+            deiner Komilitonnen zugewiesen wird, der dir darauf einen Kommentar
+            gibt, was du beispielsweise noch verbessern kannst, oder ob soweit
+            alles passt und du dann mit der codierung beginnen kannst. Auch du
+            musst einen Pseudocode deines Kommilitonen kommentieren.
+          </Typography>
+          
           <Button
             color="success"
             onClick={() => {

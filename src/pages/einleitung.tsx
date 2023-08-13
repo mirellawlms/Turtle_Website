@@ -258,6 +258,7 @@ export default function Home() {
       setProgress({ ...progress, id_ckurs_4_a: true });
       return true;
     }
+
     return false;
   };
 
@@ -834,11 +835,13 @@ export default function Home() {
           </Typography>
           <div id="ckurs.3"></div>
           <Typography level="body1">
-            Alles, was in einer Zeile <b>//</b> folgt ist ein Kommentar.
-            <br></br>
             Kommentare werden nicht interpretiert, sondern vom Computer
-            überlesen. <br></br>Eine andere Art Kommentare zu schreiben ist, den
-            Kommentar mit <b>/* Kommentar */</b> zu klammern.
+            überlesen. <br></br>
+            Alles, was in einer Zeile nach <b>//</b> folgt ist ein
+            einzeiliger-Kommentar.<br></br>
+            <br></br>
+            Um einen mehrzeiligen-Kommentar zu schreiben, verwendet man
+            <b>/* Kommentar */</b>
           </Typography>
         </div>
         {/*Variablen*/}
@@ -872,8 +875,7 @@ export default function Home() {
             variant="outlined"
           />
           <CodeEditor
-            title="Aufgabe: Erstelle eine Variable mit dem namen 'myVar' vom Datentypen 'int'
-            und weise es der Zahl 2 zu"
+            title="Aufgabe: Ändere den Variablenwert von 'myVar' und weise es der Zahl 2 zu"
             defaultValue={code_4_a}
             turtle={false}
             codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
@@ -1036,7 +1038,8 @@ export default function Home() {
               Im Gegensatz zu anderen primitive Datentypen, wie int oder char,
               ist der Datentyp string kein Grunddatentyp, sondern ein
               zusammengesetzter Datentyp. Das bedeutet, dass der Datentyp string
-              intern als Klasse implementiert ist.
+              intern als Klasse implementiertwird und dahere weitere
+              Möglichkeiten als die anderen Datentypen bietet.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib 'Hallo' aus. "
@@ -1079,9 +1082,9 @@ export default function Home() {
             Operatoren sind essentielle Bausteine in der Programmierung, die es
             ermöglichen Operationen auf Variablen und Werten auszuführen. Zu den
             gängigen Arten von Operatoren in der Programmiersprachen C++ gehören
-            arithmetische Operatoren, logische Operatoren, Vergleichsoperatoren
-            Gleichheit und Zuweisungsoperatoren. Sie spielen eine zentrale Rolle
-            bei der Verarbeitung von Daten und beeinflussen den Ablauf des
+            arithmetische Operatoren, logische Operatoren, Vergleichs- ,
+            Gleichheits- und Zuweisungsoperatoren. Sie spielen eine zentrale
+            Rolle bei der Verarbeitung von Daten und beeinflussen den Ablauf des
             Programms maßgeblich.
           </Typography>
           {/*arithmetische Operatoren*/}
@@ -1141,8 +1144,8 @@ export default function Home() {
                 <Typography level="body1">
                   ...werden verwendet, um den Wert oder Zustand von zwei
                   Variablen oder Ausdrücken zu vergleichen. <br></br>Der
-                  Rückgabewert eines Vergleichs ist entweder 1 (wahr) oder 0
-                  (falsch).
+                  Rückgabewert eines Vergleichs ist entweder 1 (true) oder 0
+                  (false).
                   <br></br>
                 </Typography>
                 <img
@@ -1219,8 +1222,7 @@ export default function Home() {
             Kontrollstrukturen sind Konstrukte, welche die Reihenfolge der
             Ausführung von Anweisungen steuern. Durch sie ist es möglich,
             bestimmte Codeblöcke basierend auf Bedingungen auszuführen oder
-            komplett zu überspringen. Mit ihrer Hilfe kann man komplexe Aufgaben
-            lösen.
+            komplett zu überspringen.
           </Typography>
           {/*Fallunterscheidung */}
           <div>
@@ -1242,11 +1244,11 @@ export default function Home() {
                 ></ProgressCheck>
               }
             >
-              Fallunterscheidung - if else
+              Zweiseitige Fallunterscheidung - if else
             </Typography>
             <div id="ckurs.7.1.1"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
-              Das If-Else-Konstrukt ist eine Möglichkeit, komplexe Algorithmen
+              Das If-Else-Konstrukt ist eine Möglichkeit, komplexe Anweisungen
               zu erstellen, die auf unterschiedliche Ergebnisse reagieren. Es
               ermöglicht uns, Bedingungen zu prüfen und je nachdem, ob sie wahr
               oder falsch sind, verschiedenen Code auszuführen. Wir verwenden
@@ -1279,7 +1281,7 @@ export default function Home() {
                 ></ProgressCheck>
               }
             >
-              Fallunterscheidung - if
+              Einseitige Fallunterscheidung - if
             </Typography>
             <div id="ckurs.7.1.2"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
@@ -1313,15 +1315,16 @@ export default function Home() {
                 ></ProgressCheck>
               }
             >
-              Fallunterscheidung - else if
+              Mehrseitige Fallunterscheidung - else if
             </Typography>
             <div id="ckurs.7.1.3"></div>
             <Typography sx={{ marginBottom: "10px" }}>
-              Verwende "else if", um eine weitere Bedingung anzugeben. Sobald
-              eine Bedingung erfüllt ist , werden die anderen Bedingungen
-              nichtmehr gepürft. Wenn die erste Bedingung falsch ist, wird die
-              zweite Bedingung gepüft und falls auch diese falsch ist, wird der
-              "else" Zweig ausgeführt.
+              Verwende "else if", um weitere Bedingungen anzugeben. Sobald eine
+              Bedingung erfüllt ist , werden die anderen Bedingungen nicht mehr
+              geprüft. Wenn die erste Bedingung falsch ist, wird die zweite
+              Bedingung geprüft und falls auch diese falsch ist, die nächste
+              Bedingung. Wenn keine der Bedingungen wahr ist, wird der Code im
+              "else"-Block ausgeführt.
             </Typography>
             <CodeEditor
               title="Aufgabe: Ändere den Code so um, dass 'Du solltest bald dein Handy laden!' ausgegeben wird."
@@ -1350,16 +1353,18 @@ export default function Home() {
             <div id="ckurs.7.1.4"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Die "switch case"-Anweisung ist eine alternative Möglichkeit, um
-              eine Fallunterscheidung zu implementieren. Sie ist besonders
-              nützlich, wenn es viele verschiedene Werte gibt, die geprüft
-              werden müssen. Die "switch case"-Anweisung wird mit einem Ausdruck
-              initialisiert, der mit den Werten verglichen wird, die in den
-              "case"-Anweisungen angegeben sind. Wenn der Wert des Ausdrucks mit
-              einem der Werte übereinstimmt, wird der Code innerhalb des
-              entsprechenden "case"-Blocks ausgeführt. Wenn keine
-              Übereinstimmung gefunden wird, wird der Code innerhalb des
-              "default"-Blocks ausgeführt. Vorteil der "switch case"-Anweisung
-              ist, dass sie für viele Werte nur eine Bedingun prüfen muss.
+              eine Fallunterscheidung zu implementieren.<br></br>
+              Sie ist besonders nützlich, wenn es viele verschiedene Werte gibt,
+              die geprüft werden sollen.<br></br>
+              Die "switch case"-Anweisung wird mit einem Ausdruck initialisiert,
+              der mit den Werten verglichen wird, die in den "case"-Anweisungen
+              angegeben sind.<br></br>
+              Wenn der Wert des Ausdrucks mit einem der Werte übereinstimmt,
+              wird der Code innerhalb des entsprechenden "case"-Blocks
+              ausgeführt.<br></br>Wenn keine Übereinstimmung gefunden wird, wird
+              der Code innerhalb des "default"-Blocks ausgeführt.
+              <br></br> Das Schlüsselwort <b>break</b> wird verwendet, um die
+              Verzweigung zu beenden.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib den Namen der Programmiersprache aus, mit der wir programmieren."
@@ -1391,7 +1396,7 @@ export default function Home() {
             verwendet, um die wiederholte Ausführung von Teilen eines Programms
             zu beschreiben. Sie ist durch eine Schleifenbedingung
             gekennzeichnet, die angibt, wie oft oder unter welchen Bedingungen
-            die Schleife ausgeführt wird. Falls Programme Schleifen enthalten
+            die Schleife ausgeführt wird. Falls Programme Schleifen enthalten,
             definiert man sogenannte "Schleifeninvarianten". Das sind
             Bedingungen, die nach jeder Ausführung gültig sind.
           </Typography>
@@ -1410,8 +1415,11 @@ export default function Home() {
             <div id="ckurs.7.2.1"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Die "while"-Schleife wird auch Schleife mit vorangestellter
-              Bedingung/Kopfgesteuerter Schleife genannt. Sie läuft solange
-              durch, wie die angegebene Bedingung wahr ist.
+              Bedingung/Kopfgesteuerter Schleife genannt.<br></br>
+              Sie läuft solange durch, wie die angegebene Bedingung wahr ist.
+              <br></br>
+              Wird die Bedingung nicht erfüllt, so handelt es sich um die
+              gefürchtete Endlosschleife, da diese nicht abbrechen kann.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
@@ -1477,12 +1485,13 @@ export default function Home() {
             <div id="ckurs.7.2.3"></div>
             <Typography level="body1" sx={{ marginBottom: "10px" }}>
               Die "for"-Schleife ist besonders nützlich, wenn man die Anzahl der
-              Durchläufe kennt. Sie wird auch Zählzyklus genannt und führt einen
-              Codeblock aus, solange die Schleifenbedingung wahr ist. Zu Beginn
-              wird eine Initialisierung gemacht, welche die Startwerte bestimmt.
-              Nach jedem Durchlauf erfolgt eine Inkrementierungt. Dadruch kann
-              man die Bedingung für den nächsten Durchlauf ändern oder den
-              Zähler erhöhen.
+              Durchläufe kennt.<br></br> Sie wird auch Zählzyklus genannt und
+              führt einen Codeblock aus, solange die Schleifenbedingung wahr
+              ist.<br></br> Zu Beginn wird eine Initialisierung gemacht, welche
+              die Startwerte bestimmt.<br></br>
+              Nach jedem Durchlauf erfolgt eine Inkrementierung.<br></br>
+              Dadruch kann man die Bedingung für den nächsten Durchlauf ändern
+              oder den Zähler erhöhen.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"

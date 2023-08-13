@@ -278,7 +278,7 @@ const maze_mittel: Field[][] = [
     Field.EMPTY,
     Field.EMPTY,
     Field.EMPTY,
-    Field.EMPTY,
+    Field.WALL,
     Field.EMPTY,
     Field.EMPTY,
     Field.EMPTY,
