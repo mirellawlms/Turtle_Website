@@ -25,7 +25,7 @@ export const Navigation: React.FC<Props> = (props) => {
             {/* C++ Kurs */}
             <div>
               <ErweiterteNavigation
-                title={{ idlink: "/einleitung", label: "C++ Kurs" }}
+                title={{ idlink: "/einleitung", label: "C++ Einführung" }}
                 inhalt={[
                   {
                     idlink: "/einleitung#ckurs.1",
@@ -70,7 +70,7 @@ export const Navigation: React.FC<Props> = (props) => {
             {/* Algo Teil1 */}
             <div>
               <ErweiterteNavigation
-                title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
+                title={{ idlink: "/uebung1", label: "Allgorithmus Teil 1" }}
                 inhalt={[
                   {
                     idlink: "/uebung1#algo.1.1",
@@ -100,7 +100,21 @@ export const Navigation: React.FC<Props> = (props) => {
               ></ErweiterteNavigation>
             </div>
 
-            {/*Peer Review*/}
+            {/* Algo Teil 3 */}
+            <div>
+              <ErweiterteNavigation
+                title={{ idlink: "/", label: "Algorithmus Teil 3" }}
+                inhalt={[
+                  {
+                    idlink: "/uebung2#algo.2.2",
+                    label: "",
+                  }
+                ]}
+                currentNavigation={currentNavigation}
+              ></ErweiterteNavigation>
+            </div>
+
+            {/*Peer Review
             <div>
               <ErweiterteNavigation
                 title={{ idlink: "/peerReview", label: "Peer Review" }}
@@ -108,6 +122,7 @@ export const Navigation: React.FC<Props> = (props) => {
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
+            */}
 
             {/* Algo Teil 2 */}
             <div>
