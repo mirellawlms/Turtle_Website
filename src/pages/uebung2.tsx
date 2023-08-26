@@ -2,164 +2,57 @@ import Head from "next/head";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Field, TurtleViewer } from "@/components/TurtleViewer";
 import { Navigation } from "@/components/Navigation";
-import {
-  Button,
-  Modal,
-  ModalClose,
-  ModalDialog,
-  Textarea,
-  Typography,
-} from "@mui/joy";
+import { Textarea, Typography } from "@mui/joy";
 import { useEffect, useState } from "react";
 import { ProgressCheck } from "@/components/ProgressCheck";
 import styles from "../styles/Uebung2.module.css";
 
 //Standardwert der einzelnen CodeEditoren
-const codeEingabe = `#include "turtle.h"
-#include <stdio.h>
-#include <iostream>
-
-  int main(){
-      Kroete pebble; //Element pebble kann nun aufgerufen werden
-      // pebble.moveForward();
-  };`;
 
 const code_1 = `#include <iostream>
-int main() {
-    int zahl1 = 1; // Setze Variable "zahl1" auf den Wert 1
-    int zahl2 = 3; // Setze Variable "zahl2" auf den Wert 3
-    // Berechne die Summe der beiden Zahlen und speichere sie in der Variable "ergebnis"
-    int ergebnis = zahl1 + zahl2;
-    
-    while(ergebnis < 10){ //SOLANGE das Ergebnis kleiner als 10 ist
-      zahl1 += 1; //erhöhe den Wert um 1
-      zahl2 += 1; //erhöhe den Wert um 1
-      ergebnis = zahl1 + zahl2; //berechne summe
+#include <string>
+
+class Zweirad {         // Hier wird die Klasse "Zweirad" definiert
+  public:               // Zugriffsmodifikator (public)
+    int baujahr;        // Attribut (int variable)
+    std::string farbe;  // Attribute (std::string variable)
+
+    //Methoden Definition
+    void hupen() {   // Methode hupen
+      std::cout << "Tutuut!";
     }
-    if(ergebnis >= 10){ //Gib das "ergebnis" aus, WENN die Summe größer als 10 ist.
-      std::cout << "Die Summe ist: " << ergebnis << std::endl;
-    }
-    return 0;
+};
+
+int main() {          // Hauptfunktion
+  Zweirad motorrad;  // Erstelle das objekt motorrad der Klasse Zweirad
+
+  //Attribute Zuweisung
+  motorrad.baujahr = 2014;
+  motorrad.farbe = "weiß";
+
+  // Gibt die Attribute des Objekts motorrad aus
+  std::cout << "Baujahr: " << motorrad.baujahr << "\\n";
+  std::cout << "Farbe: " <<  motorrad.farbe << "\\n";
+
+  // Rufe die Methode hupen() auf
+  motorrad.hupen();
+
+  return 0;
 }`;
 
 //Labyrintherstellung
-const maze_einfach: Field[][] = [
+const maze_one: Field[][] = [
   [
     Field.START,
     Field.WALL,
     Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
   ],
   [
     Field.EMPTY,
     Field.EMPTY,
     Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
   ],
   [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
     Field.EMPTY,
     Field.EMPTY,
     Field.EXIT,
@@ -413,13 +306,10 @@ const maze_schwer: Field[][] = [
 
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
-  const [c_codeEingabe, set_c_codeEingabe] = useState(codeEingabe);
-
-  const [finalOpen, setFinalOpen] = useState(false);
 
   //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
-    const items = ["id_3_1", "id_3_2", "id_3_3", "id_urkunde"];
+    const items = ["id_algo_2_5"];
     let totalProgress = 0;
     for (let index = 0; index < items.length; index++) {
       if (progress[items[index]] === true) {
@@ -468,15 +358,8 @@ export default function Home() {
         }, {});
         console.log(data.task, prog);
         setProgress({
-          id_3_1: prog["id_3_1"] ?? false,
-          id_3_2: prog["id_3_2"] ?? false,
-          id_3_3: prog["id_3_3"] ?? false,
-          id_urkunde: prog["id_urkunde"] ?? false,
+          id_algo_2_5: prog["id_algo_2_5"] ?? false,
         });
-        set_c_codeEingabe(
-          data.task.find((item: any) => item.id === "id_algo_2_code_eingabe")
-            ?.code ?? codeEingabe
-        );
       })
       .catch((error) => {
         console.error(error);
@@ -494,7 +377,7 @@ export default function Home() {
       <Navigation
         visible={true}
         currentNavigation="/uebung2"
-        titel="Algorithmus Teil 3 "
+        titel="Algorithmus Teil 2 "
         progress={progress_gesamt()}
       >
         <div>
@@ -512,24 +395,134 @@ export default function Home() {
           {/*Klassen*/}
           <div>
             <Typography level="h4" sx={{ marginTop: "30px" }}>
-              Klassen
+              Klassen und Objekte
             </Typography>
             <div id="algo.2.2"></div>
-            <Typography level="body1">Klassen</Typography>
+            <Typography level="body1">
+              Klassen sind grundlegende Konzepte der objektorientierten
+              Programmierung (OOP). <br></br>Eine Klasse definiert einen Bauplan
+              für die Erstellung von <b>Objekten</b>. <br></br>Aus einer Klasse
+              werden Objekte instanziiert, die <b>Attribute</b> oder
+              <b> Methoden</b> besitzen können. <br></br>Als kurzes
+              Einstiegsbeispiel:
+              <br></br>
+              Eine Motorrad ist ein Objekt der Klasse Zweirad. Das Motorrad hat
+              Attribute, wie 'Baujahr' und 'Farbe' und Methoden, wie 'hupen' und
+              'fahren'.
+            </Typography>
           </div>
 
+          {/*Attribute*/}
+          <div>
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Attribute
+            </Typography>
+            <div id="algo.2.3"></div>
+            <Typography level="body1">
+              Eigenschaften und Zustände können in einem Attribut festgehalten
+              werden.
+            </Typography>
+          </div>
 
           {/*Methoden*/}
           <div>
-          <Typography level="h4" sx={{ marginTop: "10px" }}>
-            Methoden
-          </Typography>
-          <div id="algo.2.3"></div>
-          <Typography level="body1">Methoden</Typography>
+            <Typography level="h5" sx={{ marginTop: "10px" }}>
+              Methoden (Funktionen)
+            </Typography>
+            <div id="algo.2.4"></div>
+            <Typography level="body1">
+              Klassen können Methoden enthalten, die bestimmte Aktionen
+              ausführen.<br></br>
+              Methoden werden nur ausgeführt, wenn sie aufgerufen werden.
+            </Typography>
           </div>
-          
 
-         </div>
+          {/*Erklärung*/}
+          <div>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Erklärung am Beispiel
+            </Typography>
+            <div id="algo.2.5"></div>
+            <Typography level="body1" sx={{ marginBottom: "10px" }}>
+              Wir betrachten nun das oben gelehrte anhand des
+              Einführungsbeispiels.
+            </Typography>
+            <CodeEditor
+              title="Anwendungsbeispiel"
+              defaultValue={code_1}
+              turtle={false}
+            ></CodeEditor>
+          </div>
+
+          {/*Pebbles Labyrinth - Anwendungsfall*/}
+          <div>
+            <Typography level="h4" sx={{ marginTop: "30px" }}>
+              Pebbles Labyrinth - Anwendungsfall
+            </Typography>
+            <div id="algo.2.6"></div>
+            <Typography level="body1">
+              Damit ihr im nächsten Kapitel euren Pseudocode in ein C++ Code
+              umwandeln könnt, betrachten wir das zu lösende Problem nochmal
+              genauer.<br></br>
+              Das Ziel war es einen Pseudocode zu schreiben der mich durch ein
+              Labyrinth führt. <br></br>
+              Ihr müsst euch nicht um die Erstellung der Klasse
+              Schildkröte kümmern, das wurde bereits gemacht. Die Klasse
+              Schildkröte hat ein Objekt Pebble auf welches ihr Methoden- und
+              Attributsaufrufe anwenden könnt.
+            </Typography>
+            <Typography level="body1">
+              Ihr müsst einen C++ Code schreiben und dafür euren Pseudocode
+              umwandeln. Diese Umwandlung könnt ihr mit Hilfe der folgenden
+              Methoden und Attribute machen.
+            </Typography>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Methoden, für ein Objekt 'pebble' der Klasse Schildköte
+            </Typography>
+            <Typography level="body1" sx={{ marginTop: "5px" }}>
+              <b>• moveRight();</b>
+              <br></br>
+              Pebble bewegt sich nach rechts<br></br>
+              <b>• moveLeft();</b>
+              <br></br>
+              Pebble bewegt sich nach links<br></br>
+              <b>• moveForward();</b>
+              <br></br>
+              Pebble bewegt sich nach vorne<br></br>
+            </Typography>
+            <Typography level="h5" sx={{ marginTop: "20px" }}>
+              Attribute, für ein Objekt 'pebble' der Klasse Schildkröte
+            </Typography>
+            <Typography level="body1" sx={{ marginTop: "5px" }}>
+              <b>• isWallInFront();</b>
+              <br></br>
+              Pebble prüft ob eine Wand vor ihm ist<br></br>
+              <b>• isWallRight();</b>
+              <br></br>
+              Pebble prüft ob eine Wand rechts von ihm ist<br></br>
+              <b>• isWallLeft();</b>
+              <br></br>
+              Pebble prüft ob eine Wand links von ihm ist<br></br>
+              <b>• imZiel();</b>
+              <br></br>
+              Pebble prüft ob er bereits im Ziel ist<br></br>
+            </Typography>
+            {/*Anweundungsfall Pebble Beispiele*/}
+            <div>
+              <Typography level="h5" sx={{ marginTop: "20px" }}>
+                Ansatz
+              </Typography>
+              <div id="algo.2.7"></div>
+              <Typography level="body1">Ansatz</Typography>
+              <CodeEditor
+            title="einfach"
+            defaultValue={""}
+            turtle={true}
+            labyrinth={maze_one}
+          ></CodeEditor>
+            </div>
+          </div>
+        </div>
       </Navigation>
     </div>
   );

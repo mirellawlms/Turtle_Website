@@ -1489,9 +1489,9 @@ export default function Home() {
               führt einen Codeblock aus, solange die Schleifenbedingung wahr
               ist.<br></br> Zu Beginn wird eine Initialisierung gemacht, welche
               die Startwerte bestimmt.<br></br>
-              Nach jedem Durchlauf erfolgt eine Inkrementierung.<br></br>
-              Dadruch kann man die Bedingung für den nächsten Durchlauf ändern
-              oder den Zähler erhöhen.
+              Nach jedem Durchlauf erfolgt eine Inkrementierungt.
+              <br></br>Dadruch kann man die Bedingung für den nächsten Durchlauf
+              ändern oder den Zähler erhöhen.
             </Typography>
             <CodeEditor
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"

@@ -117,15 +117,27 @@ export const Navigation: React.FC<Props> = (props) => {
                 inhalt={[
                   {
                     idlink: "/uebung2#algo.2.2",
-                    label: "Klassen",
+                    label: "Klassen und Objekte",
                   },
                   {
                     idlink: "/uebung2#algo.2.3",
-                    label: "Methoden",
+                    label: "Attribute",
                   },
                   {
                     idlink: "/uebung2#algo.2.4",
-                    label: "Methoden für das Labyrinth",
+                    label: "Methoden",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.5",
+                    label: "Beispiel",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.6",
+                    label: "Pebbles Labyrinth",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.7",
+                    label: "Ansatz",
                   },
                 ]}
                 currentNavigation={currentNavigation}
