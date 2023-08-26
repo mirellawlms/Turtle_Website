@@ -157,20 +157,49 @@ export default function Home() {
               ></Accordion>
             </div>
           </div>
+          {/*neuer Absatz*/}
+          <div className={styles.bildeinruecken}>
+            <div>
+              <Typography level="h3">
+                <b>Vorgehensweise</b>
+              </Typography>
+              <Typography
+                level="body1"
+                sx={{ maxWidth: "100%", marginTop: "10px" }}
+              >
+                <b>• Anfänger/Fortgeschrittene:</b>
+                <br></br>
+                Bearbeite zuerst den C++ Einführungskurs.<br></br>
+                Anschließend sollst du Algorithmus Teil 1, 2 und 3 bearbeiten.
+                <br></br>
+                <b>• Profi:</b>
+                <br></br>
+                Der C++ Einführungskurs ist für dich optional, aber denk dran, dass es nicht schadet nochmal einen Einstieg zu bekommen.<br></br>
+                Anschließend sollst du Algorithmus Teil 1, 2 und 3 bearbeiten.
+                <br></br>
+              </Typography>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <img src={"/undraw_timeline.svg"} alt="timeline" height={200} />
+            </div>
+          </div>
           {/*dritter Absatz*/}
           <div className={styles.bildeinruecken}>
             <div style={{ display: "flex", justifyContent: "center" }}>
-            <img
-              src={"/undraw_elearning.svg"}
-              alt="elearningImage"
-              height={200}
-            />
+              <img
+                src={"/undraw_elearning.svg"}
+                alt="elearningImage"
+                height={200}
+              />
             </div>
             <div>
               <Typography level="h3">
                 <b>E-Learning Funktionen</b>
               </Typography>
-              <Typography level="body1" sx={{ maxWidth: "100%" }}>
+              <Typography
+                level="body1"
+                sx={{ maxWidth: "100%", marginTop: "10px" }}
+              >
                 • Gamification
                 <br></br>• Visuelle Unterstützung durch Bilder
                 <br></br>• Interaktive Bausteine
@@ -185,7 +214,10 @@ export default function Home() {
               <Typography level="h3">
                 <b>Ziele</b>
               </Typography>
-              <Typography level="body1" sx={{ maxWidth: "100%" }}>
+              <Typography
+                level="body1"
+                sx={{ maxWidth: "100%", marginTop: "10px" }}
+              >
                 • Spaß am Programmieren<br></br>• Einfacher Einstieg in
                 C++/Algorithmen<br></br>• Förderung der
                 Problemlösungsfähigkeiten<br></br>• Entwicklung kreativer
@@ -205,7 +237,10 @@ export default function Home() {
               <Typography level="h3">
                 <b>You vs. You</b>
               </Typography>
-              <Typography level="body1" sx={{ maxWidth: "100%" }}>
+              <Typography
+                level="body1"
+                sx={{ maxWidth: "100%", marginTop: "10px" }}
+              >
                 Du gegen dich selber? Genau! Du hast es bereits richtig
                 verstanden. In diesem Kurs steht deine individuelle Entwicklung
                 im Vordergrund. Du kannst ihn in Ruhe und in deinem eigenen
@@ -227,7 +262,10 @@ export default function Home() {
               <Typography level="h3">
                 <b>Pebbles Abenteuer</b>
               </Typography>
-              <Typography level="body1" sx={{ maxWidth: "100%" }}>
+              <Typography
+                level="body1"
+                sx={{ maxWidth: "100%", marginTop: "10px" }}
+              >
                 Nach einem schrecklichen Gewitter hat sich Pebble die
                 Schildkröte verlaufen. Jetzt ist er im Garten der HTWK
                 aufgewacht und weiß nicht wie er zurück zu seiner Familie

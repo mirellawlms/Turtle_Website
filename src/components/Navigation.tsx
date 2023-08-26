@@ -70,7 +70,7 @@ export const Navigation: React.FC<Props> = (props) => {
             {/* Algo Teil1 */}
             <div>
               <ErweiterteNavigation
-                title={{ idlink: "/uebung1", label: "Allgorithmus Teil 1" }}
+                title={{ idlink: "/uebung1", label: "Algorithmus Teil 1" }}
                 inhalt={[
                   {
                     idlink: "/uebung1#algo.1.1",

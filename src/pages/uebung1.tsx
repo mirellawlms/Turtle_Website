@@ -118,40 +118,6 @@ export default function Home() {
             In diesem Kapitel beschäftigen wir uns mit den ersten Schritten zum
             erfolgreichen schreiben eines Algorithmus...
           </Typography>
-          {/*Definitionen */}
-          <Typography level="h4" sx={{ marginTop: "30px" }}>
-            Definitionen zu Beginn
-          </Typography>
-          <div id="algo.1.1"></div>
-          <Accordion
-            titel="Determiniertheit"
-            inhalt="Ein Algorithmus ist determiniert,
-             wenn dieser bei jeder Ausführung mit gleichen 
-             Startbedingungen und Eingaben gleiche Ergebnisse liefert."
-          ></Accordion>
-          <Accordion
-            titel="Deterministisch"
-            inhalt="Ein Algorithmus ist deterministisch, 
-            wenn zu jedem Zeitpunkt der Algorithmusausführung 
-            der nächste Handlungsschritt eindeutig definiert ist."
-          ></Accordion>
-          <Accordion
-            titel="Statische Finitheit"
-            inhalt="Ein Algorithmus ist statisch finit, 
-            wenn seine Beschreibung eine endliche Länge besitzt."
-          ></Accordion>
-          <Accordion
-            titel="Dynamische Finitheit"
-            inhalt="Ein Algorithmus ist dynamisch finit, 
-            dann darf er zu jedem Zeitpunkt seiner Ausführung 
-            nur begrenzt viel Speicherplatz benötigen."
-          ></Accordion>
-          <Accordion
-            titel="Terminiertheit"
-            inhalt="Ein Algorithmus terminiert überall oder
-             ist terminierend, wenn er für jede mögliche Eingabe
-              nach endlich vielen Schritten anhält (oder kontrolliert abbricht). "
-          ></Accordion>
           {/*Begin*/}
           <Typography level="h4" sx={{ marginTop: "30px" }}>
             Kann jeder Programmieren?
@@ -384,6 +350,41 @@ export default function Home() {
             <div className={styles.bildeinruecken2}>
               <img src={"/undraw_pizza.svg"} alt="pizzaSVG" height={200} />
             </div>
+            {/*Definitionen */}
+            <Typography level="h4" sx={{ marginTop: "30px" }}>
+              Allgemeine Definitionen
+            </Typography>
+            <div id="algo.1.1"></div>
+            <Accordion
+              titel="Determiniertheit"
+              inhalt="Ein Algorithmus ist determiniert,
+             wenn dieser bei jeder Ausführung mit gleichen 
+             Startbedingungen und Eingaben gleiche Ergebnisse liefert."
+            ></Accordion>
+            <Accordion
+              titel="Deterministisch"
+              inhalt="Ein Algorithmus ist deterministisch, 
+            wenn zu jedem Zeitpunkt der Algorithmusausführung 
+            der nächste Handlungsschritt eindeutig definiert ist."
+            ></Accordion>
+            <Accordion
+              titel="Statische Finitheit"
+              inhalt="Ein Algorithmus ist statisch finit, 
+            wenn seine Beschreibung eine endliche Länge besitzt."
+            ></Accordion>
+            <Accordion
+              titel="Dynamische Finitheit"
+              inhalt="Ein Algorithmus ist dynamisch finit, 
+            dann darf er zu jedem Zeitpunkt seiner Ausführung 
+            nur begrenzt viel Speicherplatz benötigen."
+            ></Accordion>
+            <Accordion
+              titel="Terminiertheit"
+              inhalt="Ein Algorithmus terminiert überall oder
+             ist terminierend, wenn er für jede mögliche Eingabe
+              nach endlich vielen Schritten anhält (oder kontrolliert abbricht). "
+            ></Accordion>
+            {/*Pebble-Simulator */}
           </div>
           <Typography
             level="h4"
@@ -470,7 +471,10 @@ export default function Home() {
           >
             Speichern
           </Button>
-          <Typography sx={{ marginTop: "20px", marginBottom: "10px" }} level="body1">
+          <Typography
+            sx={{ marginTop: "20px", marginBottom: "10px" }}
+            level="body1"
+          >
             Um dieses Kapitel abzuschließen musst du deinen Pseudocode für eine
             Peer-Review freigeben. Das bedeutet, dass dein Pseudocode einem
             deiner Komilitonnen zugewiesen wird, der dir darauf einen Kommentar
@@ -478,7 +482,7 @@ export default function Home() {
             alles passt und du dann mit der codierung beginnen kannst. Auch du
             musst einen Pseudocode deines Kommilitonen kommentieren.
           </Typography>
-          
+
           <Button
             color="success"
             onClick={() => {
