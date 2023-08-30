@@ -400,7 +400,7 @@ export default function Home() {
           <div id="algo.1.5"></div>
           <Typography level="body1" sx={{ marginBottom: "20px" }}>
             Das war jetzt aber auch sehr viel Input! Spiel doch zur Belohnung
-            eine kleine Runde Pebble-Simulator. Schlüpfe in meine Rolle als
+            eine kleine Runde Pebble-Simulator. Schlüpfe in meine Rolle, als
             Pebble die Schildkröte und beweg dich aus dem Labyrinth indem du von
             dem roten Feld auf das grüne Feld gelangst.
           </Typography>
