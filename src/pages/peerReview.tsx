@@ -195,7 +195,7 @@ export default function Home() {
             sx={{ width: "50%", marginBlock: 2 }}
             minRows={5}
             variant="plain"
-            placeholder="Dein Algorithmus"
+            placeholder="Dein abgebener Pseudocode"
             value={meinPseudocode}
             disabled
           />

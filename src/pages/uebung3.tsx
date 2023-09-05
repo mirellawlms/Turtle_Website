@@ -414,8 +414,8 @@ const maze_schwer: Field[][] = [
 export default function Home() {
   const [progress, setProgress] = useState<{ [key: string]: boolean }>({});
   const [c_codeEingabe, set_c_codeEingabe] = useState(codeEingabe);
-
   const [finalOpen, setFinalOpen] = useState(false);
+  const [meinPseudocode, setMeinPseudocode] = useState("");
 
   //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
@@ -476,6 +476,10 @@ export default function Home() {
         set_c_codeEingabe(
           data.task.find((item: any) => item.id === "id_algo_3_code_eingabe")?.code ??
             codeEingabe
+        );
+        setMeinPseudocode(
+          data.task.find((item: any) => item.id === "id_algo_1_2")?.code ??
+            meinPseudocode
         );
       })
       .catch((error) => {
@@ -646,7 +650,8 @@ export default function Home() {
               minRows={5}
               variant="plain"
               placeholder="Dein Pseudocode"
-              value={""}
+              value={meinPseudocode}
+              disabled={true}
             />
           </div>
           <Button
