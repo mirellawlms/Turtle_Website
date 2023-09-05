@@ -448,6 +448,7 @@ export default function Home() {
               Einführungsbeispiels.
             </Typography>
             <CodeEditor
+              height="600px"
               title="Anwendungsbeispiel"
               defaultValue={code_1}
               turtle={false}

@@ -550,6 +550,7 @@ export default function Home() {
               <br></br>
             </Typography>
             <CodeEditor
+              height="350px"
               title="C++ Code"
               defaultValue={code_1}
               turtle={false}

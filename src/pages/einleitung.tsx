@@ -724,7 +724,10 @@ export default function Home() {
             C++. Es ist nicht erfoderlich, dass du bereits Programmiererfahrung
             hast. Dieser Kurs ist für alle gedacht und wurde aus dem
             Vorlesungsskript des Moduls GdP erstellt. Schließe diesen C++ Kurs
-            ab, um dein Wissen unter Beweis zu stellen.
+            ab, um dein Wissen unter Beweis zu stellen. Falls du bei einer
+            Aufgabe Probleme hast, kannst du selbstverständlich jederzeit in
+            dein GdP-Skript schauen oder einen Komiliton/Professor um Hilfe
+            bitten.
           </Typography>
           <img
             src={"/undraw_programming2.svg"}
@@ -1263,6 +1266,7 @@ export default function Home() {
               title="Aufgabe: Ändere den Code so um , dass 'Deine Akkuladung ist gering! Lade dein Handy.' angezeigt wird."
               defaultValue={code_7_1_1_a}
               turtle={false}
+              height="250px"
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_1_a(code_ausgabe);
                 updateTask(
@@ -1330,6 +1334,7 @@ export default function Home() {
               title="Aufgabe: Ändere den Code so um, dass 'Du solltest bald dein Handy laden!' ausgegeben wird."
               defaultValue={code_7_1_3_a}
               turtle={false}
+              height="300px"
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_3_a(code_ausgabe);
                 updateTask(
@@ -1370,6 +1375,7 @@ export default function Home() {
               title="Aufgabe: Gib den Namen der Programmiersprache aus, mit der wir programmieren."
               defaultValue={code_7_1_4_a}
               turtle={false}
+              height="350px"
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_1_4_a(code_ausgabe);
                 updateTask(
@@ -1425,6 +1431,7 @@ export default function Home() {
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
               defaultValue={code_7_2_1_a}
               turtle={false}
+              height="250px"
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_2_1_a(code_ausgabe);
                 updateTask(
@@ -1460,6 +1467,7 @@ export default function Home() {
               title="Aufgabe: Gib die Zahlen 1 bis 9 aus (1 2 3 4 5 6 7 8 9)"
               defaultValue={code_7_2_2_a}
               turtle={false}
+              height="250px"
               codeEinAusgabe={(code_eingabe: string, code_ausgabe: string) => {
                 Auswertung_id_ckurs_7_2_2_a(code_ausgabe);
                 updateTask(

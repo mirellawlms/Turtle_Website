@@ -11,6 +11,7 @@ interface Props {
   defaultValue: string;
   turtle: boolean;
   labyrinth?: Field[][];
+  height?: string;
   codeEinAusgabe?: (
     code_eingabe: string,
     code_ausgabe: string,
@@ -22,7 +23,7 @@ interface Props {
 const server = "http://localhost:5236/run";
 
 export const CodeEditor: React.FC<Props> = (props) => {
-  const { title, defaultValue, turtle, labyrinth, codeEinAusgabe, onChange } =
+  const { title, defaultValue, turtle, labyrinth, height, codeEinAusgabe, onChange } =
     props;
   const editorRef = useRef(null);
   const [isRunning, setIsRunning] = useState(false);
@@ -116,7 +117,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
         </div>
       </div>
 
-      <div className={styles.content}>
+      <div className={styles.content} style={{height}}>
         <Editor
           height="100%"
           defaultLanguage="cpp"
