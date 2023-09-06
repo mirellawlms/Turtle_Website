@@ -192,13 +192,13 @@ export const TurtleViewer: React.FC<Props> = (props) => {
     console.log(running);
     running_2.current = running;
   }, [running]);
-
+  
   const drawStep = async () => {
     const temppath = path.slice(0, step.current);
     draw(temppath);
     console.log("Drawn", step.current, "of", path.length, running_2);
     step.current++;
-
+  
     if (step.current <= path.length && running_2.current) {
       await new Promise<void>((resolve, reject) => {
         setTimeout(() => {
@@ -207,14 +207,17 @@ export const TurtleViewer: React.FC<Props> = (props) => {
       });
       drawStep();
     } else {
-      if(!running_2.current){
+      if (!running_2.current) {
         draw([]);
-      }else{
+      } else {
         draw(path);
       }
-      runningDone();
+      if (running_2.current) {
+        runningDone();
+      }
     }
   };
+  
 
   useEffect(() => {
     draw([]);
