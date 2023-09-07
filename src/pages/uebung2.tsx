@@ -40,268 +40,79 @@ int main() {          // Hauptfunktion
   return 0;
 }`;
 
+const code_2 = `#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
+
+  int main(){
+      Kroete pebble; //Element pebble kann nun aufgerufen werden
+      for(int i = 0; i < 4 ; i++){
+        pebble.moveForward(); //Methode moveForward() wird auf pebble aufgerufen
+      }
+  };
+  `;
+const code_3 = `#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
+
+  int main(){
+      Kroete pebble; //Element pebble kann nun aufgerufen werden
+      while(!pebble.imZiel()){ //solange Pebble noch nicht im Ziel ist
+        pebble.moveForward(); //Methode moveForward() wird auf pebble aufgerufen
+      }
+  };
+  `;
+
+const code_4 = `#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
+
+  int main(){
+      Kroete pebble; //Element pebble kann nun aufgerufen werden
+      
+      while(!pebble.imZiel()){
+        if(!pebble.isWallInFront()){
+          pebble.moveForward();
+        }else{
+          pebble.turnLeft();
+        }
+      }
+  };
+  `;
+
+const code_5 = `#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
+
+  int main(){
+      Kroete pebble; //Element pebble kann nun aufgerufen werden
+      
+  };
+  `;
+
 //Labyrintherstellung
 const maze_one: Field[][] = [
-  [
-    Field.START,
-    Field.WALL,
-    Field.WALL,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EXIT,
-  ],
-];
-const maze_mittel: Field[][] = [
-  [
-    Field.START,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EXIT,
-  ],
+  [Field.START, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EXIT, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
 ];
 
-const maze_schwer: Field[][] = [
-  [
-    Field.START,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-    Field.WALL,
-    Field.WALL,
-    Field.EMPTY,
-    Field.WALL,
-  ],
-  [
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EMPTY,
-    Field.EXIT,
-  ],
+const maze_two: Field[][] = [
+  [Field.START, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.EMPTY, Field.EMPTY, Field.EMPTY, Field.EXIT],
+];
+
+const maze_three: Field[][] = [
+  [Field.START, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.EXIT, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
+  [Field.EMPTY, Field.WALL, Field.WALL, Field.WALL, Field.WALL],
 ];
 
 export default function Home() {
@@ -467,10 +278,10 @@ export default function Home() {
               genauer.<br></br>
               Das Ziel war es einen Pseudocode zu schreiben der mich durch ein
               Labyrinth führt. <br></br>
-              Ihr müsst euch nicht um die Erstellung der Klasse
-              Schildkröte kümmern, das wurde bereits gemacht. Die Klasse
-              Schildkröte hat ein Objekt Pebble auf welches ihr Methoden- und
-              Attributsaufrufe anwenden könnt.
+              Ihr müsst euch nicht um die Erstellung der Klasse Schildkröte
+              kümmern, das wurde bereits gemacht. Die Klasse Schildkröte hat ein
+              Objekt Pebble auf welches ihr Methoden- und Attributsaufrufe
+              anwenden könnt.
             </Typography>
             <Typography level="body1">
               Ihr müsst einen C++ Code schreiben und dafür euren Pseudocode
@@ -510,17 +321,79 @@ export default function Home() {
             </Typography>
             {/*Anweundungsfall Pebble Beispiele*/}
             <div>
-              <Typography level="h5" sx={{ marginTop: "20px" }}>
-                Ansatz
-              </Typography>
-              <div id="algo.2.7"></div>
-              <Typography level="body1">Ansatz</Typography>
-              <CodeEditor
-            title="einfach"
-            defaultValue={""}
-            turtle={true}
-            labyrinth={maze_one}
-          ></CodeEditor>
+              {/*Anweundungsfall Pebble 1*/}
+              <div>
+                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                  Anwendungsfall 1
+                </Typography>
+                <div id="algo.2.7"></div>
+                <Typography level="body1" sx={{ marginBottom: "10px" }}>
+                  Wir schauen uns nun Schritt für Schritt an, wie du Pebble, mit
+                  Hilfe von Attributen und Methoden, aus dem Labyrinth führen
+                  kannst.<br></br>Führe den Code-Editor aus und schaue was
+                  passiert.
+                </Typography>
+                <CodeEditor
+                  title="Aufgabe: Erreiche das Ziel (grünes Feld)"
+                  defaultValue={code_2}
+                  turtle={true}
+                  labyrinth={maze_one}
+                ></CodeEditor>
+              </div>
+              {/*Anweundungsfall Pebble 2*/}
+              <div>
+                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                  Anwendungsfall 2
+                </Typography>
+                <div id="algo.2.8"></div>
+                <Typography level="body1" sx={{ marginBottom: "10px" }}>
+                  In diesem Anwendungsbeispiel wird Pebble SOLANGE er noch nicht
+                  im Ziel, immer eins nach vorne bewegt.
+                </Typography>
+                <CodeEditor
+                  title="Aufgabe: Erreiche das Ziel (grünes Feld)"
+                  defaultValue={code_3}
+                  turtle={true}
+                  labyrinth={maze_one}
+                ></CodeEditor>
+              </div>
+              {/*Anweundungsfall Pebble 3*/}
+              <div>
+                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                  Anwendungsfall 3
+                </Typography>
+                <div id="algo.2.9"></div>
+                <Typography level="body1" sx={{ marginBottom: "10px" }}>
+                  In diesem komplexeren Beispiel, wird geschaut, ob vor Pebble
+                  eine Wand ist. Wenn nicht kann er nach vorne gehen. FALLS eine
+                  Wand vor ihm ist dreht er sich einmal nach links. Das
+                  geschieht solange bis das ZIEL erreicht wurde.
+                </Typography>
+                <CodeEditor
+                  title="Aufgabe: Erreiche das Ziel (grünes Feld)"
+                  defaultValue={code_4}
+                  turtle={true}
+                  labyrinth={maze_two}
+                ></CodeEditor>
+              </div>
+              {/*Anweundungsfall Pebble 4*/}
+              <div>
+                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                  Anwendungsfall 4
+                </Typography>
+                <div id="algo.2.10"></div>
+                <Typography level="body1" sx={{ marginBottom: "10px" }}>
+                  Versuche nun durch scharfes Überlegen das Ziel zu erreichen.
+                  Schau dir nochmal alle Methoden und Attribute an. Es soll sich
+                  hierbei natürlich um einen Algorithmus handeln.
+                </Typography>
+                <CodeEditor
+                  title="Aufgabe: Erreiche das Ziel (grünes Feld)"
+                  defaultValue={code_5}
+                  turtle={true}
+                  labyrinth={maze_three}
+                ></CodeEditor>
+              </div>
             </div>
           </div>
         </div>

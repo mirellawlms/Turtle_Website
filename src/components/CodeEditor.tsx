@@ -58,11 +58,24 @@ export const CodeEditor: React.FC<Props> = (props) => {
       .then((data) => {
         setPath(data.path || []);
         const pfad = data.path || [];
-
+        //let kann 0 Wert
+        let zielX = 0;
+        let zielY = 0;
+        if(labyrinth){
+          for(let y = 0 ; y < labyrinth?.length ; y++){
+            for(let x = 0 ; x < labyrinth[y].length ; x++){
+              if(labyrinth[y][x] === Field.EXIT){
+                zielX = x;
+                zielY = y;
+              }
+            }
+          }
+        }
+        
         const imZiel =
           pfad.length &&
-          pfad[pfad.length - 1].end_x === 9 &&
-          pfad[pfad.length - 1].end_y === 9;
+          pfad[pfad.length - 1].end_x === zielX &&
+          pfad[pfad.length - 1].end_y === zielY;
 
         if (turtle == true) {
           imZiel

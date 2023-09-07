@@ -142,10 +142,10 @@ export const TurtleViewer: React.FC<Props> = (props) => {
         end_y * fieldSize + fieldSize / 2
       );
     }
-    //strich wird gemalt
+    //Strich wird gemalt
     ctx.stroke();
 
-    //overlay turtle über den strich und hier muss geschaut werden welche poition angezeigt wird
+    //Overlay turtle über den strich und hier muss geschaut werden welche poition angezeigt wird
     if (currentpath.length !== 0) {
       if (currentpath[currentpath.length - 1].direction == 0) {
         ctx.drawImage(

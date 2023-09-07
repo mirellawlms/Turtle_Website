@@ -842,15 +842,14 @@ export default function Home() {
             überlesen. <br></br>
             Alles, was in einer Zeile nach <b>//</b> folgt ist ein
             einzeiliger-Kommentar.<br></br>
-            <br></br>
             Um einen mehrzeiligen-Kommentar zu schreiben, verwendet man
-            <b>/* Kommentar */</b>
+            <b> /* Kommentar */</b>
           </Typography>
         </div>
         {/*Variablen*/}
         <div>
           <Typography
-            sx={{ marginTop: "40px" }}
+            sx={{ marginTop: "30px" }}
             level="h4"
             endDecorator={
               <ProgressCheck
@@ -868,15 +867,12 @@ export default function Home() {
             Namen, ein eindeutiger Datentyp zuzuweisen ist. Die Syntax sieht
             also wie folgt aus:
           </Typography>
-          <Textarea
-            sx={{ width: "250px", marginTop: "10px", marginBottom: "10px" }}
-            color="neutral"
-            disabled={true}
-            minRows={1}
-            placeholder="datentyp variabelName = wert;"
-            size="sm"
-            variant="outlined"
-          />
+          <Typography
+          level="body1" 
+          color="success"
+          sx={{marginBottom:"10px", marginTop:"5px"}}
+          ><b>datentyp variabelName = wert;</b></Typography>
+         
           <CodeEditor
             title="Aufgabe: Ändere den Variablenwert von 'myVar' und weise es der Zahl 2 zu"
             defaultValue={code_4_a}

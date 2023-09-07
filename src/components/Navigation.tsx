@@ -137,7 +137,19 @@ export const Navigation: React.FC<Props> = (props) => {
                   },
                   {
                     idlink: "/uebung2#algo.2.7",
-                    label: "Ansatz",
+                    label: "Anwendungsfall 1",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.8",
+                    label: "Anwendungsfall 2",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.9",
+                    label: "Anwendungsfall 3",
+                  },
+                  {
+                    idlink: "/uebung2#algo.2.10",
+                    label: "Anwendungsfall 4",
                   },
                 ]}
                 currentNavigation={currentNavigation}

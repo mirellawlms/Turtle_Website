@@ -24,6 +24,31 @@ const codeEingabe = `#include "turtle.h"
       // pebble.moveForward();
   };`;
 
+//Lösungscode des Algorithmus
+const codeloesung = `
+#include "turtle.h"
+#include <stdio.h>
+#include <iostream>
+
+  int main(){
+      Kroete pebble; //Element pebble kann nun aufgerufen werden
+      while (!pebble.imZiel()) { //falls Pebble noch nciht im Ziel
+            // Wenn rechts frei ist, drehe nach rechts und gehe vorwärts
+            if (!pebble.isWallRight()) {
+                pebble.turnRight();
+                pebble.moveForward();
+            }
+            // Wenn vorwärts frei ist, gehe vorwärts
+            else if (!pebble.isWallInFront()) {
+                pebble.moveForward();
+            }
+            // Wenn rechts blockiert ist, drehe nach links
+            else {
+                pebble.turnLeft();
+            }
+      }
+  };`;
+
 const code_1 = `#include <iostream>
 int main() {
     int zahl1 = 1; // Setze Variable "zahl1" auf den Wert 1
