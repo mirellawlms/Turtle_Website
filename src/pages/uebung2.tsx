@@ -120,7 +120,29 @@ export default function Home() {
 
   //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
-    const items = ["id_algo_2_5"];
+    const items = [
+      "id_anwendung_2_6_a",
+      "id_anwendung_2_6_b",
+      "id_anwendung_2_6_c",
+      "id_anwendung_2_6_d",
+    ];
+    let totalProgress = 0;
+    for (let index = 0; index < items.length; index++) {
+      if (progress[items[index]] === true) {
+        totalProgress += 100 / items.length;
+      }
+    }
+    return totalProgress;
+  };
+
+  //Anwendungsfall zusammen
+  const progress_anwendungsfall = () => {
+    const items = [
+      "id_anwendung_2_6_a",
+      "id_anwendung_2_6_b",
+      "id_anwendung_2_6_c",
+      "id_anwendung_2_6_d",
+    ];
     let totalProgress = 0;
     for (let index = 0; index < items.length; index++) {
       if (progress[items[index]] === true) {
@@ -169,7 +191,10 @@ export default function Home() {
         }, {});
         console.log(data.task, prog);
         setProgress({
-          id_algo_2_5: prog["id_algo_2_5"] ?? false,
+          id_anwendung_2_6_a: prog["id_anwendung_2_6_a"] ?? false,
+          id_anwendung_2_6_b: prog["id_anwendung_2_6_b"] ?? false,
+          id_anwendung_2_6_c: prog["id_anwendung_2_6_c"] ?? false,
+          id_anwendung_2_6_d: prog["id_anwendung_2_6_d"] ?? false,
         });
       })
       .catch((error) => {
@@ -268,7 +293,13 @@ export default function Home() {
 
           {/*Pebbles Labyrinth - Anwendungsfall*/}
           <div>
-            <Typography level="h4" sx={{ marginTop: "30px" }}>
+            <Typography
+              level="h4"
+              sx={{ marginTop: "30px" }}
+              endDecorator={
+                <ProgressCheck done={progress_anwendungsfall()}></ProgressCheck>
+              }
+            >
               Pebbles Labyrinth - Anwendungsfall
             </Typography>
             <div id="algo.2.6"></div>
@@ -323,10 +354,18 @@ export default function Home() {
             <div>
               {/*Anweundungsfall Pebble 1*/}
               <div>
-                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                <Typography
+                  level="h5"
+                  sx={{ marginTop: "20px" }}
+                  endDecorator={
+                    <ProgressCheck
+                      done={progress["id_anwendung_2_6_a"] ? 100 : 0}
+                    ></ProgressCheck>
+                  }
+                >
                   Anwendungsfall 1
                 </Typography>
-                <div id="algo.2.7"></div>
+                <div id="algo.2.6.1"></div>
                 <Typography level="body1" sx={{ marginBottom: "10px" }}>
                   Wir schauen uns nun Schritt für Schritt an, wie du Pebble, mit
                   Hilfe von Attributen und Methoden, aus dem Labyrinth führen
@@ -338,14 +377,37 @@ export default function Home() {
                   defaultValue={code_2}
                   turtle={true}
                   labyrinth={maze_one}
+                  codeEinAusgabe={(
+                    code_eingabe: string,
+                    code_ausgabe: string,
+                    imZiel?: boolean
+                  ) => {
+                    setProgress({
+                      ...progress,
+                      id_anwendung_2_6_a: imZiel ?? false,
+                    });
+                    TaskErstellen(
+                      "id_anwendung_2_6_a",
+                      code_eingabe,
+                      imZiel ?? false
+                    );
+                  }}
                 ></CodeEditor>
               </div>
               {/*Anweundungsfall Pebble 2*/}
               <div>
-                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                <Typography
+                  level="h5"
+                  sx={{ marginTop: "20px" }}
+                  endDecorator={
+                    <ProgressCheck
+                      done={progress["id_anwendung_2_6_b"] ? 100 : 0}
+                    ></ProgressCheck>
+                  }
+                >
                   Anwendungsfall 2
                 </Typography>
-                <div id="algo.2.8"></div>
+                <div id="algo.2.6.2"></div>
                 <Typography level="body1" sx={{ marginBottom: "10px" }}>
                   In diesem Anwendungsbeispiel wird Pebble SOLANGE er noch nicht
                   im Ziel, immer eins nach vorne bewegt.
@@ -355,14 +417,37 @@ export default function Home() {
                   defaultValue={code_3}
                   turtle={true}
                   labyrinth={maze_one}
+                  codeEinAusgabe={(
+                    code_eingabe: string,
+                    code_ausgabe: string,
+                    imZiel?: boolean
+                  ) => {
+                    setProgress({
+                      ...progress,
+                      id_anwendung_2_6_b: imZiel ?? false,
+                    });
+                    TaskErstellen(
+                      "id_anwendung_2_6_b",
+                      code_eingabe,
+                      imZiel ?? false
+                    );
+                  }}
                 ></CodeEditor>
               </div>
               {/*Anweundungsfall Pebble 3*/}
               <div>
-                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                <Typography
+                  level="h5"
+                  sx={{ marginTop: "20px" }}
+                  endDecorator={
+                    <ProgressCheck
+                      done={progress["id_anwendung_2_6_c"] ? 100 : 0}
+                    ></ProgressCheck>
+                  }
+                >
                   Anwendungsfall 3
                 </Typography>
-                <div id="algo.2.9"></div>
+                <div id="algo.2.6.3"></div>
                 <Typography level="body1" sx={{ marginBottom: "10px" }}>
                   In diesem komplexeren Beispiel, wird geschaut, ob vor Pebble
                   eine Wand ist. Wenn nicht kann er nach vorne gehen. FALLS eine
@@ -374,14 +459,37 @@ export default function Home() {
                   defaultValue={code_4}
                   turtle={true}
                   labyrinth={maze_two}
+                  codeEinAusgabe={(
+                    code_eingabe: string,
+                    code_ausgabe: string,
+                    imZiel?: boolean
+                  ) => {
+                    setProgress({
+                      ...progress,
+                      id_anwendung_2_6_c: imZiel ?? false,
+                    });
+                    TaskErstellen(
+                      "id_anwendung_2_6_c",
+                      code_eingabe,
+                      imZiel ?? false
+                    );
+                  }}
                 ></CodeEditor>
               </div>
               {/*Anweundungsfall Pebble 4*/}
               <div>
-                <Typography level="h5" sx={{ marginTop: "20px" }}>
+                <Typography
+                  level="h5"
+                  sx={{ marginTop: "20px" }}
+                  endDecorator={
+                    <ProgressCheck
+                      done={progress["id_anwendung_2_6_d"] ? 100 : 0}
+                    ></ProgressCheck>
+                  }
+                >
                   Anwendungsfall 4
                 </Typography>
-                <div id="algo.2.10"></div>
+                <div id="algo.2.6.4"></div>
                 <Typography level="body1" sx={{ marginBottom: "10px" }}>
                   Versuche nun durch scharfes Überlegen das Ziel zu erreichen.
                   Schau dir nochmal alle Methoden und Attribute an. Es soll sich
@@ -392,6 +500,21 @@ export default function Home() {
                   defaultValue={code_5}
                   turtle={true}
                   labyrinth={maze_three}
+                  codeEinAusgabe={(
+                    code_eingabe: string,
+                    code_ausgabe: string,
+                    imZiel?: boolean
+                  ) => {
+                    setProgress({
+                      ...progress,
+                      id_anwendung_2_6_d: imZiel ?? false,
+                    });
+                    TaskErstellen(
+                      "id_anwendung_2_6_d",
+                      code_eingabe,
+                      imZiel ?? false
+                    );
+                  }}
                 ></CodeEditor>
               </div>
             </div>

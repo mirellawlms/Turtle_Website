@@ -448,7 +448,7 @@ export default function Home() {
             eine Wand ist <br></br>
           </Typography>
           <Typography sx={{ marginTop: "10px" }} level="body1">
-            Teste deinen Pseudocode/Algorithmus gerne mit dem Spiel
+            Teste deinen Pseudocode gerne mit dem Spiel
             "Pebble-Simulator" durch. Schreibe deinen Pseudocode in dem dafür
             vorgesehenen Feld.
           </Typography>
@@ -457,7 +457,7 @@ export default function Home() {
             color="success"
             minRows={5}
             variant="plain"
-            placeholder="Dein Algorithmus"
+            placeholder="Dein Pseudocode"
             value={pseudocodeValue}
             onChange={(e) => setPseudocodeValue(e.target.value)}
             disabled={!!progress["id_algo_1_2"]}

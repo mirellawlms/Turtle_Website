@@ -136,19 +136,19 @@ export const Navigation: React.FC<Props> = (props) => {
                     label: "Pebbles Labyrinth",
                   },
                   {
-                    idlink: "/uebung2#algo.2.7",
+                    idlink: "/uebung2#algo.2.6.1",
                     label: "Anwendungsfall 1",
                   },
                   {
-                    idlink: "/uebung2#algo.2.8",
+                    idlink: "/uebung2#algo.2.6.2",
                     label: "Anwendungsfall 2",
                   },
                   {
-                    idlink: "/uebung2#algo.2.9",
+                    idlink: "/uebung2#algo.2.6.3",
                     label: "Anwendungsfall 3",
                   },
                   {
-                    idlink: "/uebung2#algo.2.10",
+                    idlink: "/uebung2#algo.2.6.4",
                     label: "Anwendungsfall 4",
                   },
                 ]}
