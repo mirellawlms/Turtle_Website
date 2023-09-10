@@ -410,7 +410,7 @@ export default function Home() {
                 <div id="algo.2.6.2"></div>
                 <Typography level="body1" sx={{ marginBottom: "10px" }}>
                   In diesem Anwendungsbeispiel wird Pebble SOLANGE er noch nicht
-                  im Ziel, immer eins nach vorne bewegt.
+                  im Ziel ist, immer eins nach vorne bewegt.
                 </Typography>
                 <CodeEditor
                   title="Aufgabe: Erreiche das Ziel (grünes Feld)"

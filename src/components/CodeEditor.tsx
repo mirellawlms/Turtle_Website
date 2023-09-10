@@ -85,11 +85,12 @@ export const CodeEditor: React.FC<Props> = (props) => {
             : setStdout(
                 data.compile +
                   data.output +
-                  "Oh nein, das hat leider nicht geklappt! Ich bin noch gefangen im Labyrinth. Versuch es doch nochmal!"
+                  "Oh nein, ich bin noch gefangen im Labyrinth. Versuch es nochmal!"
               );
         } else {
           setStdout(data.compile + data.output || "");
         }
+        //damit ich aus übung heraus auf code,ausgabe und auf imziel prüfen kann
         codeEinAusgabe &&
           codeEinAusgabe(
             editorRef.current ? (editorRef.current as any).getValue() : "",
@@ -137,6 +138,8 @@ export const CodeEditor: React.FC<Props> = (props) => {
           value={defaultValue}
           theme="vs-dark"
           onMount={handleEditorDidMount}
+          //onchange von Editor und onchange aus den props
+          //onchsnge von editor erwartet zwei eingaben, daher auch e mit _e signalisiert, dass nicht benutzt
           onChange={(value: string | undefined, _e: any) =>
             onChange && onChange(value ?? "")
           }
