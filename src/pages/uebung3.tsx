@@ -13,6 +13,7 @@ import {
 import { useEffect, useState } from "react";
 import { ProgressCheck } from "@/components/ProgressCheck";
 import styles from "../styles/Uebung3.module.css";
+import router, { useRouter } from "next/router";
 
 //Standardwert der einzelnen CodeEditoren
 const codeEingabe = `#include "turtle.h"
@@ -441,6 +442,7 @@ export default function Home() {
   const [c_codeEingabe, set_c_codeEingabe] = useState(codeEingabe);
   const [finalOpen, setFinalOpen] = useState(false);
   const [meinPseudocode, setMeinPseudocode] = useState("");
+  const router = useRouter();
 
   //Progressbalken hier id zusammengerechnet
   const progress_gesamt = () => {
@@ -483,7 +485,14 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        //redirect wenn status 401
+        console.log(response.status);
+        if (response.status === 401) {
+          router.push("/signin");
+        }
+        return response.json();
+      })
       .then((data) => {
         const prog = data.task.reduce((acc: any, item: any) => {
           return {
@@ -499,8 +508,8 @@ export default function Home() {
           id_urkunde: prog["id_urkunde"] ?? false,
         });
         set_c_codeEingabe(
-          data.task.find((item: any) => item.id === "id_algo_3_code_eingabe")?.code ??
-            codeEingabe
+          data.task.find((item: any) => item.id === "id_algo_3_code_eingabe")
+            ?.code ?? codeEingabe
         );
         setMeinPseudocode(
           data.task.find((item: any) => item.id === "id_algo_1_2")?.code ??
@@ -636,7 +645,10 @@ export default function Home() {
                 Segmente des Pseudocodes wie im vorherigen Beispiel in ein C++
                 Code umzuwandeln.
               </Typography>
-              <Typography level="body1" sx={{ marginTop: "10px" , marginBottom:"20px"}}>
+              <Typography
+                level="body1"
+                sx={{ marginTop: "10px", marginBottom: "20px" }}
+              >
                 Erinne dich, du kannst:
                 <br></br>• Pebble nach vorne gehen lassen mit
                 <b> pebble.moveForward();</b>
@@ -683,7 +695,9 @@ export default function Home() {
             color="success"
             variant="solid"
             sx={{ marginRight: "10px" }}
-            onClick={() => TaskErstellen("id_algo_3_code_eingabe", c_codeEingabe, false)}
+            onClick={() =>
+              TaskErstellen("id_algo_3_code_eingabe", c_codeEingabe, false)
+            }
           >
             Speichern
           </Button>

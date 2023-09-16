@@ -1,19 +1,13 @@
 import Head from "next/head";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Navigation } from "@/components/Navigation";
-import {
-  Button,
-  Modal,
-  ModalClose,
-  ModalDialog,
-  Textarea,
-  Typography,
-} from "@mui/joy";
+import { Button, Modal, ModalClose, ModalDialog, Typography } from "@mui/joy";
 import styles from "../styles/Einleitung.module.css";
 import { Accordion } from "@/components/Accordion";
 import { ProgressCheck } from "@/components/ProgressCheck";
 import { useEffect, useState } from "react";
 import { Field } from "@/components/TurtleViewer";
+import { useRouter } from "next/router";
 
 //CODE Platzhalter
 //EINLEITUNG
@@ -238,6 +232,7 @@ export default function Home() {
   const [code_7_2_3_a, setCode_7_2_3_a] = useState(schleifen_for);
 
   const [finalOpen, setFinalOpen] = useState(false);
+  const router = useRouter();
 
   /*CODEAUSWERTUNGEN PRÜFUNG*/
   //mein erstes C++ Programm
@@ -592,7 +587,14 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        //redirect wenn status 401
+        console.log(response.status);
+        if (response.status === 401) {
+          router.push("/signin");
+        }
+        return response.json();
+      })
       .then((data) => {
         const prog = data.task.reduce((acc: any, item: any) => {
           return {
@@ -868,11 +870,13 @@ export default function Home() {
             also wie folgt aus:
           </Typography>
           <Typography
-          level="body1" 
-          color="success"
-          sx={{marginBottom:"10px", marginTop:"5px"}}
-          ><b>datentyp variabelName = wert;</b></Typography>
-         
+            level="body1"
+            color="success"
+            sx={{ marginBottom: "10px", marginTop: "5px" }}
+          >
+            <b>datentyp variabelName = wert;</b>
+          </Typography>
+
           <CodeEditor
             title="Aufgabe: Ändere den Variablenwert von 'myVar' und weise es der Zahl 2 zu"
             defaultValue={code_4_a}

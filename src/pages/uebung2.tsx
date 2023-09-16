@@ -6,6 +6,7 @@ import { Textarea, Typography } from "@mui/joy";
 import { useEffect, useState } from "react";
 import { ProgressCheck } from "@/components/ProgressCheck";
 import styles from "../styles/Uebung2.module.css";
+import router from "next/router";
 
 //Standardwert der einzelnen CodeEditoren
 
@@ -181,7 +182,14 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        //redirect wenn status 401
+        console.log(response.status);
+        if (response.status === 401) {
+          router.push("/signin");
+        }
+        return response.json();
+      })
       .then((data) => {
         const prog = data.task.reduce((acc: any, item: any) => {
           return {

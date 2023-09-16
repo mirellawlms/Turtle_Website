@@ -218,7 +218,6 @@ export const TurtleViewer: React.FC<Props> = (props) => {
     }
   };
   
-
   useEffect(() => {
     draw([]);
     if (running) {

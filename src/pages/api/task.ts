@@ -1,15 +1,35 @@
 import { prisma } from "@/db";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]";
 
 async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  // const session = await getServerSession(req, res, authOptions)
-  // const user = await prisma.user.findFirst({ email: session.user.email });
-  const user = { id: "f52118c1-3813-4b46-a995-c51d8404a599" };
+  const session = await getServerSession(req, res, authOptions);
+  console.log(session);
+  if (!session || !session.user) {
+    res.status(401).json({
+      message: "Unauthorized",
+    });
+    return;
+  }
+  const user = await prisma.user.findFirst({
+    where: { email: session.user.email as string},
+  });
+
+  if (!user) {
+    res.status(401).json({
+      message: "Unauthorized",
+    });
+    return;
+  }
 
   try {
     switch (req.method) {
       case "GET":
-        const task = await prisma.task.findMany();
+        const task = await prisma.task.findMany({
+          where: { userid: user.id },
+
+        });
         res.status(200).json({
           task,
         });

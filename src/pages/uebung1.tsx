@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/Uebung1.module.css";
 import { ProgressCheck } from "@/components/ProgressCheck";
 import { Accordion } from "@/components/Accordion";
+import router from "next/router";
 
 const labyrinth = [maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4];
 
@@ -66,7 +67,14 @@ export default function Home() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        //redirect wenn status 401
+        console.log(response.status);
+        if (response.status === 401) {
+          router.push("/signin");
+        }
+        return response.json();
+      })
       .then((data) => {
         const prog = data.task.reduce((acc: any, item: any) => {
           return {
@@ -448,9 +456,8 @@ export default function Home() {
             eine Wand ist <br></br>
           </Typography>
           <Typography sx={{ marginTop: "10px" }} level="body1">
-            Teste deinen Pseudocode gerne mit dem Spiel
-            "Pebble-Simulator" durch. Schreibe deinen Pseudocode in dem dafür
-            vorgesehenen Feld.
+            Teste deinen Pseudocode gerne mit dem Spiel "Pebble-Simulator"
+            durch. Schreibe deinen Pseudocode in dem dafür vorgesehenen Feld.
           </Typography>
           <Textarea
             sx={{ width: "100%", marginBlock: 2 }}

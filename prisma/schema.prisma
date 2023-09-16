@@ -18,6 +18,7 @@ model User {
   Task       Task[]
   PeerReview PeerReview[]
   matrikel   Int
+  password   String       @default("")
 }
 
 model Task {
