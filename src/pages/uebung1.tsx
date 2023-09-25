@@ -467,17 +467,23 @@ export default function Home() {
             placeholder="Dein Pseudocode"
             value={pseudocodeValue}
             onChange={(e) => setPseudocodeValue(e.target.value)}
-            disabled={!!progress["id_algo_1_2"]}
+            //disabled={!!progress["id_algo_1_2"]}
           />
           <Button
             color="success"
             variant="soft"
-            onClick={() => TaskErstellen("id_algo_1_2", pseudocodeValue, false)}
+            onClick={() => {
+                setProgress({ ...progress, id_algo_1_2: true });
+                TaskErstellen("id_algo_1_2", pseudocodeValue, true);
+            }}
             sx={{ marginRight: "10px" }}
-            disabled={!!progress["id_algo_1_2"]}
+            //disabled={!!progress["id_algo_1_2"]}
           >
             Speichern
           </Button>
+
+          {/* PEER REVIEW WIP */}
+          {/* 
           <Typography
             sx={{ marginTop: "20px", marginBottom: "10px" }}
             level="body1"
@@ -489,8 +495,8 @@ export default function Home() {
             alles passt und du dann mit der codierung beginnen kannst. Auch du
             musst einen Pseudocode deines Kommilitonen kommentieren.
           </Typography>
-
-          <Button
+        
+         <Button
             color="success"
             onClick={() => {
               if (
@@ -506,7 +512,7 @@ export default function Home() {
             disabled={!!progress["id_algo_1_2"]}
           >
             Zur Peer Review freigeben
-          </Button>
+          </Button> */}
         </div>
       </Navigation>
     </>

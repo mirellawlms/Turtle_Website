@@ -4,8 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```
 npm i
 npx prisma generate
+```
+#### Benutzung
+```
 npm run dev
 ```
+
 #### Prisma Migration erstellen
 ```
 npx prisma migrate dev --name 

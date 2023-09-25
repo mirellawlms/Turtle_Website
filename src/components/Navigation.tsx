@@ -189,7 +189,6 @@ export const Navigation: React.FC<Props> = (props) => {
                 currentNavigation={currentNavigation}
               ></ErweiterteNavigation>
             </div>
-
           </div>
         </div>
         {/*Top Navigation*/}
@@ -231,10 +230,15 @@ export const Navigation: React.FC<Props> = (props) => {
                   Kontakt
                 </Link>
               </Typography>
-              <Typography level="body2">Datenschutz</Typography>
-              <Typography level="body2">Gitlab</Typography>
               <Typography level="body2">
-                Bachelorarbeit Mirella Willems
+                <Link href={"https://github.com/mirellawlms/Turtle_Website"}>
+                  Github
+                </Link>
+              </Typography>
+              <Typography level="body2">
+                <Link href={"https://github.com/mirellawlms/Bachelorarbeit"}>
+                  Bachelorarbeit Mirella Willems
+                </Link>
               </Typography>
             </div>
             <div>
