@@ -342,8 +342,7 @@ export default function Home() {
               <br></br>
               Gehen wir mal davon aus, dass die Person (Bäcker/in) die genaue
               Backzeit der Pizza nicht mehr weiß, da sie die Verpackung
-              weggeworfen hat.<br></br>(ist uns natürlich noch nie passiert :D)
-              <br></br>
+              weggeworfen hat.<br></br>
               Hier müsste man, SOLANGE die Pizza noch nicht lecker, knusprig,
               goldbraun gebacken ist, immer wieder nach einer gewissen Zeit
               nachschauen, ob sie fertig ist.
@@ -445,20 +444,25 @@ export default function Home() {
             <br></br>
           </Typography>
           <Typography level="body1" color="success">
-            Schreibe einen Pseudocode, der mir (Pebble die Schildkröte) hilft
-            aus dem Labyrinth zu gelangen.
+            Schreibe einen Pseudocode, in dem dafür vorgesehenen Feld, der Pebble der Schildkröte hilft
+            aus dem Labyrinth zu gelangen. <br></br>
+            Teste deinen Pseudocode anschließend am Spiel "Pebble-Simulator".
           </Typography>
-          <Typography sx={{ marginTop: "10px" }} level="body1">
-            Denk dran, ich bin nur eine Schildkröte daher kann ich nur folgendes
-            machen:<br></br>• nach vorne gehen<br></br>• nach links/rechts
-            drehen<br></br>• schauen ob ich im Ziel ist <br></br>• schauen ob
-            vor mir eine Wand ist <br></br>• schauen ob links/rechts von mir
-            eine Wand ist <br></br>
-          </Typography>
-          <Typography sx={{ marginTop: "10px" }} level="body1">
-            Teste deinen Pseudocode gerne mit dem Spiel "Pebble-Simulator"
-            durch. Schreibe deinen Pseudocode in dem dafür vorgesehenen Feld.
-          </Typography>
+          <div className={styles.bildeinruecken}>
+            <img
+              src={"/nerdy_turtle.png"}
+              alt="coffeeImage"
+              height={130}
+              style={{ marginTop: 20 }}
+            />
+            <Typography sx={{ marginTop: "20px" }} level="body1">
+              Denk dran, ich bin nur eine Schildkröte daher kann ich nur
+              folgendes machen:<br></br>• nach vorne gehen<br></br>• nach
+              links/rechts drehen<br></br>• schauen ob ich im Ziel ist <br></br>
+              • schauen ob vor mir eine Wand ist <br></br>• schauen ob
+              links/rechts von mir eine Wand ist <br></br>
+            </Typography>
+          </div>
           <Textarea
             sx={{ width: "100%", marginBlock: 2 }}
             color="success"
@@ -473,8 +477,8 @@ export default function Home() {
             color="success"
             variant="soft"
             onClick={() => {
-                setProgress({ ...progress, id_algo_1_2: true });
-                TaskErstellen("id_algo_1_2", pseudocodeValue, true);
+              setProgress({ ...progress, id_algo_1_2: true });
+              TaskErstellen("id_algo_1_2", pseudocodeValue, true);
             }}
             sx={{ marginRight: "10px" }}
             //disabled={!!progress["id_algo_1_2"]}
