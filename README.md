@@ -23,6 +23,7 @@ npx prisma studio
 #### Prisma unausgeführte Migration ausführen
 ```
 npx prisma migrate deploy
+npx prisma generate
 ```
 
 #### Website öffnen localhost
