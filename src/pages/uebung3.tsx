@@ -83,19 +83,6 @@ const maze_einfach: Field[][] = [
 ];
 
 const maze_mittel: Field[][] = [
-  [Field.START,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,],
-  [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL,],
-  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,],
-  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,],
-  [Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,],
-  [Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL,],
-  [Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
-  [Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,],
-  [Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,],
-  [Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EXIT,]
-];
-
-const maze_schwer: Field[][] = [
   [Field.START,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,],
   [Field.WALL,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
   [Field.EMPTY,Field.EMPTY,Field.WALL ,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,],
@@ -106,6 +93,19 @@ const maze_schwer: Field[][] = [
   [Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
   [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.WALL ,Field.WALL,],
   [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EXIT,]
+];
+
+const maze_schwer: Field[][] = [
+  [Field.START,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,],
+  [Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL  ,Field.EMPTY,Field.EMPTY,Field.EMPTY,],
+  [Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL ,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,],
+  [Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,],
+  [Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,],
+  [Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EMPTY,Field.WALL,Field.EMPTY,Field.EXIT,]
 ];
 
 export default function Home() {
