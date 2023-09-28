@@ -1190,7 +1190,6 @@ export default function Home() {
               updateTask("id_ckurs_6_1_d", "", true);
             }}
           ></Accordion>
-          <Typography sx={{ marginBottom: "10px" }}></Typography>
           <div id="ckurs.6.2.a"></div>
           {/*Operatoren Code*/}
           <CodeEditor
@@ -1217,8 +1216,7 @@ export default function Home() {
               <ProgressCheck done={progress_ckurs_7()}></ProgressCheck>
             }
           >
-            Kontrollstrukturen (Fallunterscheidungen, Schleifen,
-            Sprunganweisungen)
+            Kontrollstrukturen (Fallunterscheidungen, Schleifen)
           </Typography>
           <div id="ckurs.7"></div>
           <Typography level="body1" sx={{ marginBottom: "20px" }}>
@@ -1497,7 +1495,7 @@ export default function Home() {
               führt einen Codeblock aus, solange die Schleifenbedingung wahr
               ist.<br></br> Zu Beginn wird eine Initialisierung gemacht, welche
               die Startwerte bestimmt.<br></br>
-              Nach jedem Durchlauf erfolgt eine Inkrementierungt.
+              Nach jedem Durchlauf erfolgt eine Inkrementierung.
               <br></br>Dadruch kann man die Bedingung für den nächsten Durchlauf
               ändern oder den Zähler erhöhen.
             </Typography>
@@ -1564,10 +1562,10 @@ export default function Home() {
                 }}
               >
                 <Typography>
-                  Super, du hast den C++ Einführungskurs erfolgreich absolviert
+                  Super, du hast den C++ Einführungskurs erfolgreich absolviert.
                   <br></br>
                   Du kannst stolz auf dich sein!<br></br>
-                  Versuche im Anschluss die anderen zwei Kapitel zu meistern.
+                  Versuche im Anschluss den Algorithmus-Kurs zu meistern.
                 </Typography>
                 <img
                   src={"/undraw_certificate2.svg"}

@@ -529,16 +529,16 @@ export default function Home() {
               >
                 <Typography>
                   Super, dank dir habe ich es aus dem Labyrinth zurück zu meiner
-                  Familie geschafft!Ich bin sehr stolz auf dich, dass du diesen
-                  Kurs absoliviert hast und bedanke mich nochmal herzlich bei
-                  dir für deine Hilfe! Ich hoffe ich konnte dir auch
+                  Familie geschafft! Ich bin sehr stolz auf dich, dass du diesen
+                  Kurs absolviert hast und bedanke mich nochmal herzlich bei
+                  dir für deine tolle Hilfe! Ich hoffe ich konnte dir auch
                   weiterhelfen und dir einiges Wissenswertes auf deinen Weg
                   geben! Ich werde meiner Familie alles über unser Abenteuer
-                  erzählen. Bis hoffentlich bald mein Freund! -Pebble
+                  erzählen. Bis hoffentlich bald! -Pebble
                 </Typography>
                 <img src={"/kroete.svg"} alt="PebbleImage" height={150} />
               </div>
-              <a href="/urkunde.pdf" download>
+              <a href="/urkunde.pdf" download style={{marginTop:10}}>
                 <Button color="success">Urkunde</Button>
               </a>
             </ModalDialog>
