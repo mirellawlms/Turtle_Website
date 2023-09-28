@@ -38,7 +38,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     const fieldWidth = field[0].length;
     const fieldHeight = field.length;
 
-    //pixel/blockanzahl
+    //pixel/blockanzahl -> im canvasbereich
     const fieldSize = Math.min(width / fieldWidth, height / fieldHeight);
 
     //lade die Images
@@ -62,7 +62,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
     TurtleImage_north.src = "/turtle_north.png";
     await new Promise((r) => (TurtleImage_north.onload = r));
 
-    //Hintergrundbild wird anders geladen
+    //Hintergrundbild wird geladen
     if (!back_ground.current) {
       if (hintergrund === "swamp") {
         const Back_Swamp_Image = new Image();
@@ -98,6 +98,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
             fieldSize
           );
         }
+        //Bei Start und Exit wird das Feld farbig gefüllt
         if (field[y][x] === Field.START) {
           ctx.fillStyle = "#E9967A";
           ctx.fillRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
@@ -188,7 +189,7 @@ export const TurtleViewer_Steuerung: React.FC<Props> = (props) => {
       }
     }
   };
-  //beim Ende erscheint eine ausgabe
+  
   useEffect(() => {
     if (field[y][x] === Field.EXIT) {
       console.log("Pebble hat das Ziel erreicht!");

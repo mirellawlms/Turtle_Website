@@ -36,7 +36,6 @@ export const TurtleViewer: React.FC<Props> = (props) => {
   const step = useRef(0);
   const running_2 = useRef(false);
 
-  //useeffect ist funktion mit 2 parameter 1. eine funktion und 2. eine array und 1 funktion wird aufgerufen, falls sich eins der array inhalte ändert
   const draw = async (currentpath: Path[]) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -52,7 +51,7 @@ export const TurtleViewer: React.FC<Props> = (props) => {
     const fieldWidth = field[0].length;
     const fieldHeight = field.length;
 
-    //pixel/blockanzahl 400/10=40
+    // pixel/blockanzahl 400/10=40
     const fieldSize = Math.min(width / fieldWidth, height / fieldHeight);
 
     //load images
@@ -107,15 +106,17 @@ export const TurtleViewer: React.FC<Props> = (props) => {
 
     for (let y = 0; y < fieldHeight; y++) {
       for (let x = 0; x < fieldWidth; x++) {
+        //an position wird Wall Bild gezeichnet
         if (field[y][x] === Field.WALL) {
           ctx.drawImage(
             wall_image.current,
-            x * fieldSize,
-            y * fieldSize,
+            x * fieldSize, 
+            y * fieldSize, 
             fieldSize,
             fieldSize
           );
         }
+        //Bei Start und Exit wird das Feld farbig gefüllt
         if (field[y][x] === Field.START) {
           ctx.fillStyle = "#E9967A";
           ctx.fillRect(x * fieldSize, y * fieldSize, fieldSize, fieldSize);
@@ -126,22 +127,26 @@ export const TurtleViewer: React.FC<Props> = (props) => {
         }
       }
     }
+
     // Draw path as line
     ctx.strokeStyle = "red";
     ctx.lineWidth = 2;
     ctx.beginPath();
 
+    //iteriert über alle objekte von cuurentpath und jedes objekt wird in variable gespeichert
     for (const { start_x, start_y, end_x, end_y } of currentpath) {
       ctx.moveTo(
         //schiebe pinsel an startwert * 40px + 40/2 da ich es in der mitte haben will
         start_x * fieldSize + fieldSize / 2,
         start_y * fieldSize + fieldSize / 2
       );
+        //zeichnet linie zu endwert * 40px + 40/2 da ich es in der mitte haben will
       ctx.lineTo(
         end_x * fieldSize + fieldSize / 2,
         end_y * fieldSize + fieldSize / 2
       );
     }
+
     //Strich wird gemalt
     ctx.stroke();
 
