@@ -13,7 +13,6 @@ interface Props {
 }
 
 export const Navigation: React.FC<Props> = (props) => {
-  //const title = props.title;
   const { titel, children, currentNavigation, progress, visible } = props;
   const router = useRouter(); /*wie link*/
 
@@ -196,6 +195,7 @@ export const Navigation: React.FC<Props> = (props) => {
           <Link href={"/"}>
             <img src={"/kroete.svg"} alt="PebbleImage" height={40} />
           </Link>
+          {/* Loadbalken*/}
           {visible && (
             <LoadBalken
               progress={progress ?? 0}

@@ -10,6 +10,7 @@ interface Props {
   currentNavigation: string;
 }
 
+//erweiterte Navigation wenn man bei Navigation auf einen Punkt klickt (Unternavigation)
 export const ErweiterteNavigation: React.FC<Props> = (props) => {
   const { title, inhalt, currentNavigation } = props;
   const router = useRouter(); //wie Link
@@ -30,28 +31,22 @@ export const ErweiterteNavigation: React.FC<Props> = (props) => {
         </Typography>
       </div>
 
+      {/*
+      iteration über inhalt array und für jedes element wird ein div erstellt,
+      key stellt sicher,dass Element eindeutig identifizierbar,
+      wenn auf Element geklickt wird, wird auf die idlink weitergeleitet
+      */}
       {currentNavigation === title.idlink && (
         <div>
-          {/*[1,2,3]
-            (3) [1, 2, 3]
-            -----------------
-            [1,2,3].map((x)=> x+5)
-            (3) [6, 7, 8] 
-
-          const neuerinhalt = []; 
-          for (int index = 0; index < inhalt.length; index++) {
-            const item = inhalt[index];
-            neuerinhalt.push(<div>.../div>) 
-            }
-          */}
-
           {inhalt.map((item, index) => (
             <div
               key={"erweiterteNavigation_key" + index}
               className={styles.navigationitem}
               onClick={() => router.push(item.idlink)}
             >
-              <Typography className={styles.punkte}>{item.label}</Typography>
+              <Typography className={styles.punkte}>
+                {item.label}
+              </Typography>
             </div>
           ))}
         </div>

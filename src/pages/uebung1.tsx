@@ -8,6 +8,14 @@ import {
   maze_mitel_2,
   maze_mitel_3,
   maze_mitel_4,
+  maze_mitel_5,
+  maze_mitel_6,
+  maze_mitel_7,
+  maze_mitel_8,
+  maze_mitel_9,
+  maze_mitel_10,
+  maze_mitel_11,
+  maze_mitel_12,
 } from "@/Labyrinthe/mittel";
 import { useEffect, useState } from "react";
 import styles from "../styles/Uebung1.module.css";
@@ -15,7 +23,20 @@ import { ProgressCheck } from "@/components/ProgressCheck";
 import { Accordion } from "@/components/Accordion";
 import router from "next/router";
 
-const labyrinth = [maze_mitel_1, maze_mitel_2, maze_mitel_3, maze_mitel_4];
+const labyrinth = [
+  maze_mitel_1,
+  maze_mitel_2,
+  maze_mitel_3,
+  maze_mitel_4,
+  maze_mitel_5,
+  maze_mitel_6,
+  maze_mitel_7,
+  maze_mitel_8,
+  maze_mitel_9,
+  maze_mitel_10,
+  maze_mitel_11,
+  maze_mitel_12,
+];
 
 export default function Home() {
   const [pseudocodeValue, setPseudocodeValue] = useState("");
@@ -444,8 +465,9 @@ export default function Home() {
             <br></br>
           </Typography>
           <Typography level="body1" color="success">
-            Schreibe einen Pseudocode, in dem dafür vorgesehenen Feld, der Pebble der Schildkröte hilft
-            aus dem Labyrinth zu gelangen. <br></br>
+            Schreibe einen Pseudocode, in dem dafür vorgesehenen Feld, der
+            Pebble der Schildkröte hilft aus dem Labyrinth zu gelangen.{" "}
+            <br></br>
             Teste deinen Pseudocode anschließend am Spiel "Pebble-Simulator".
           </Typography>
           <div className={styles.bildeinruecken}>

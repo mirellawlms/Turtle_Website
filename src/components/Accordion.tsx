@@ -4,16 +4,17 @@ import styles from "../styles/Accordion.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-//falls ich übergeben möchte: Props (Datentyyp den ich übergebe)
 interface Props {
   titel: string;
   inhalt: React.ReactNode;
-  wasClicked?: () => void;
+  wasClicked?: () => void; //optionale Funktion
 }
 
+//funktionale Komponente
 export const Accordion: React.FC<Props> = (props) => {
   const { titel, inhalt, wasClicked } = props;
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={styles.container}>
       <div
@@ -24,12 +25,14 @@ export const Accordion: React.FC<Props> = (props) => {
         }}
       >
         <Typography>{titel}</Typography>
+        {/*wenn isopen pfeil nach oben ansonsten nach unten*/}
         <FontAwesomeIcon
           icon={isOpen ? faChevronUp : faChevronDown}
           color="#1A7D36"
           height={12}
         />
       </div>
+      {/*wenn isopen dann wird inhalt angezeigt */}
       {isOpen && <Typography>{inhalt}</Typography>}
     </div>
   );

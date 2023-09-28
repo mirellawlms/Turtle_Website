@@ -6,6 +6,7 @@ interface Props {
   progress: number;
 }
 
+//LoadBalken im Header
 export const LoadBalken: React.FC<Props> = (props) => {
   const { titel, progress } = props;
 
