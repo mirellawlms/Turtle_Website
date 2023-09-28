@@ -34,12 +34,6 @@ export const CodeEditor: React.FC<Props> = (props) => {
     editorRef.current = editor;
   };
 
-  /*useEffect(() => {
-    if (defaultValue && editorRef.current) {
-      (editorRef.current as any).setValue(defaultValue);
-    }
-  }, [defaultValue]);*/
-
   //hier wird onRun ausgeführt -> server post
   const onRun = async () => {
     setLoading(true);
@@ -49,7 +43,6 @@ export const CodeEditor: React.FC<Props> = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        //(etwas ? x : y) === (if etwas !null oder true -> x else y)
         code: editorRef.current ? (editorRef.current as any).getValue() : "",
         labyrinth: labyrinth ?? [],
       }),
@@ -71,7 +64,7 @@ export const CodeEditor: React.FC<Props> = (props) => {
             }
           }
         }
-        
+        //prüft ob turtle true und dann ob ich bereits im Ziel bin
         const imZiel =
           pfad.length &&
           pfad[pfad.length - 1].end_x === zielX &&
@@ -90,7 +83,8 @@ export const CodeEditor: React.FC<Props> = (props) => {
         } else {
           setStdout(data.compile + data.output || "");
         }
-        //damit ich aus übung heraus auf code,ausgabe und auf imziel prüfen kann
+
+        //damit ich aus Übung heraus auf code, ausgabe und auf imziel prüfen kann
         codeEinAusgabe &&
           codeEinAusgabe(
             editorRef.current ? (editorRef.current as any).getValue() : "",
@@ -138,14 +132,13 @@ export const CodeEditor: React.FC<Props> = (props) => {
           value={defaultValue}
           theme="vs-dark"
           onMount={handleEditorDidMount}
-          //onchange von Editor und onchange aus den props
-          //onchsnge von editor erwartet zwei eingaben, daher auch e mit _e signalisiert, dass nicht benutzt
+          //onchange von editor und onchange aus den props
+          //onchange von editor erwartet zwei eingaben, daher auch e mit _e signalisiert, dass nicht benutzt
           onChange={(value: string | undefined, _e: any) =>
             onChange && onChange(value ?? "")
           }
         />
-        {/*(turtle && (...))===(if turtle == true {...})*/}
-        {/*(labyrinth ?? x) === (if labyrinth undefined gibt wert x) */}
+        {/*wenn turtle true dann wird turtleviewer angezeigt*/}
         <div>
           {turtle && (
             <TurtleViewer
